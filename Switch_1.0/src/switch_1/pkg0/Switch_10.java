@@ -17,7 +17,7 @@ public class Switch_10 {
     public static void main(String[] args) {
         // aca pones todo lo nuevo
         String a = "a";
-        
+        String mensaje = "Si ves esto avisame que ya tenes todo conectado";
     }
     
 }
