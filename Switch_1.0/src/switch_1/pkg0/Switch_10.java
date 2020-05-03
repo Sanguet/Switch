@@ -1,23 +1,35 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package switch_1.pkg0;
 
-/**
- *
- * @author HP
- */
+//No borren ningun paquete por favor f
+import Clases.Conexion;
+
 public class Switch_10 {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // aca pones todo lo nuevo
-        String a = "a";
-        String mensaje = "Si ves esto avisame que ya tenes todo conectado";
+        try {
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            
+            //AlumnoData alumnoData = new AlumnoData(con);
+            //PrestamoData prestamoData = new PrestamoData(con);
+            //LibroData libroData = new LibroData(con);
+             
+            //String fec = "31-03-2016";
+            //LocalDate date3 = LocalDate.parse("2018-10-30");
+            
+            //Alumno a = new Alumno("Juan Gomez","juangomez@gmail.com");
+            //Alumno b = new Alumno("Pepito Escudero","pepitoescudero@gmail.com");
+            
+            //Libro l = libroData.getLibrosById(2);
+            //List<Prestamo> prestamos = prestamoData.obtenerPrestamosByLibro(l);
+            //Prestamo.mostrarPrestamosPlus(prestamos,con);
+            
+            con.close();
+        }   
+        catch (Exception e){
+            System.out.println("Error al intentar conectar a la base de datos " + e.getMessage());
+        }
+
+        //VentanaPrincipal vp = new VentanaPrincipal();
+        //vp.setVisible(true);
     }
-    
 }
