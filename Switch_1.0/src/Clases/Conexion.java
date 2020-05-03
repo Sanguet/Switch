@@ -1,6 +1,7 @@
 package Clases;
 
-import java.sql.Connection;
+import com.mysql.cj.jdbc.Driver;
+import com.mysql.jdbc.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -16,8 +17,8 @@ public class Conexion{
         this.usuario = usuario;
         this.password = password;
 
-        //Cargamos las clases de mariadb que implementan JDBC
-        Class.forName("org.mariadb.jdbc.Driver");
+        //Cargamos las clases de mywsql que implementan JDBC
+        Class.forName("com.mysql.jdbc.Driver");
 
     }
 
@@ -28,8 +29,7 @@ public class Conexion{
     public Connection getConexion() throws SQLException{
         if(conexion == null){
                     // Setup the connection with the DB
-            conexion = DriverManager.getConnection(url + "?useLegacyDatetimeCode=false&serverTimezone=UTC"
-                                                   + "&user=" + usuario + "&password=" + password);
+            conexion = (Connection) DriverManager.getConnection(url, usuario, password);
         }
         return conexion;
     }
