@@ -7,7 +7,7 @@ public class Switch_10 {
 
     public static void main(String[] args) {
         try {
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/test","root","");
             
             //AlumnoData alumnoData = new AlumnoData(con);
             //PrestamoData prestamoData = new PrestamoData(con);
