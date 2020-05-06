@@ -6,7 +6,7 @@ import java.util.List;
 /**
  *
  * @author Ivan
- * Creacion de la clase arqueo
+ * Creacion de la clase arqueos
  */
 public class Arqueo {
     
