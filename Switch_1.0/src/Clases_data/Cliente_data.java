@@ -54,7 +54,7 @@ public class Cliente_data {
     
     public void borrarCliente(Cliente cliente){
         try{
-            String sql = "DELETE FROM clientes WHERE id_cliente = ?";
+            String sql = "DELETE FROM cliente WHERE id_cliente = ?";
             
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, cliente.getId());
@@ -100,7 +100,7 @@ public class Cliente_data {
             Cliente cliente;
             while (rs.next()){
                 cliente = new Cliente();
-                cliente.setId(rs.getInt("id"));
+                cliente.setId(rs.getInt("id_cliente"));
                 cliente.setNombre(rs.getString("nombre"));
                 cliente.setTelefono(rs.getLong("telefono"));
                 cliente.setCorreo(rs.getString("correo"));

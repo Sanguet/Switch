@@ -98,7 +98,7 @@ public class Provedor_data {
             Provedor provedor;
             while (rs.next()){
                 provedor = new Provedor();
-                provedor.setId(rs.getInt("id"));
+                provedor.setId(rs.getInt("id_provedor"));
                 provedor.setNombre(rs.getString("nombre"));
                 provedor.setTelefono(rs.getLong("telefono"));
                 provedor.setCorreo(rs.getString("correo"));

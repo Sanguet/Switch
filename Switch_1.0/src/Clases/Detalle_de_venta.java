@@ -20,20 +20,20 @@ public class Detalle_de_venta {
     
     //Constructors
 
-    public Detalle_de_venta(int id, int id_producto, int cantidad, int descuento, double total) {
+    public Detalle_de_venta(int id, int id_producto, int cantidad, int descuento, double sub_total) {
         this.id = -1;
         this.id_producto = id_producto;
         this.cantidad = cantidad;
         this.descuento = descuento;
-        this.sub_total = total;
+        this.sub_total = sub_total;
     }
 
-    public Detalle_de_venta(int id_producto, int cantidad, int descuento, double total) {
+    public Detalle_de_venta(int id_producto, int cantidad, int descuento, double sub_total) {
         this.id = -1;
         this.id_producto = id_producto;
         this.cantidad = cantidad;
         this.descuento = descuento;
-        this.sub_total = total;
+        this.sub_total = sub_total;
     }
     
     public Detalle_de_venta() {
@@ -58,7 +58,7 @@ public class Detalle_de_venta {
         return descuento;
     }
 
-    public double getTotal() {
+    public double getSub_total() {
         return sub_total;
     }
     
@@ -80,7 +80,7 @@ public class Detalle_de_venta {
         this.descuento = descuento;
     }
 
-    public void setTotal(double total) {
+    public void setSub_total(double total) {
         this.sub_total = total;
     }
     
@@ -92,7 +92,7 @@ public class Detalle_de_venta {
         *Devuelve un println con la lista
         */
         for (int i = 0; i < detalles_de_ventas.size(); i++){
-                System.out.println("Id del producto = " + detalles_de_ventas.get(i).getId_producto() + "Cantidad = " + detalles_de_ventas.get(i).getCantidad() + "Descuento = " + detalles_de_ventas.get(i).getDescuento() + "Sub total = " + detalles_de_ventas.get(i).getTotal());
+                System.out.println("Id del producto = " + detalles_de_ventas.get(i).getId_producto() + "Cantidad = " + detalles_de_ventas.get(i).getCantidad() + "Descuento = " + detalles_de_ventas.get(i).getDescuento() + "Sub total = " + detalles_de_ventas.get(i).getSub_total());
         }
     }
 }

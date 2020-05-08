@@ -68,7 +68,7 @@ public class Gasto {
         return id_metodo_de_pago;
     }
 
-    public int getId_categeoria() {
+    public int getId_categoria() {
         return id_categeoria;
     }
 
@@ -102,7 +102,7 @@ public class Gasto {
         this.id_metodo_de_pago = id_metodo_de_pago;
     }
 
-    public void setId_categeoria(int id_categeoria) {
+    public void setId_categoria(int id_categeoria) {
         this.id_categeoria = id_categeoria;
     }
 
@@ -126,7 +126,7 @@ public class Gasto {
         *Devuelve un println con la lista
         */
         for (int i = 0; i < gastos.size(); i++){
-                System.out.println("Id del provedor = " + gastos.get(i).getId_provedor() + "Monto = " + gastos.get(i).getMonto() + "Id del metodo de pago = " + gastos.get(i).getId_metodo_de_pago() + "Id de la categoria = " + gastos.get(i).getId_categeoria() + "Id del detalle = " + gastos.get(i).getId_detalle() + "Fecha y hora = " + gastos.get(i).getFecha_y_hora() + "Comentario = " + gastos.get(i).getComentario());
+                System.out.println("Id del provedor = " + gastos.get(i).getId_provedor() + "Monto = " + gastos.get(i).getMonto() + "Id del metodo de pago = " + gastos.get(i).getId_metodo_de_pago() + "Id de la categoria = " + gastos.get(i).getId_categoria() + "Id del detalle = " + gastos.get(i).getId_detalle() + "Fecha y hora = " + gastos.get(i).getFecha_y_hora() + "Comentario = " + gastos.get(i).getComentario());
         }
     }
     

@@ -36,11 +36,11 @@ public class Venta_data {
             
             PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, venta.getId_cliente());
-            stmt.setInt(1, venta.getId_detalle());
-            stmt.setInt(1, venta.getId_metodo_de_pago());
-            stmt.setDouble(1, venta.getTotal());
-            stmt.setTimestamp(1, venta.getFecha_y_hora());
-            stmt.setString(1, venta.getComentario());
+            stmt.setInt(2, venta.getId_detalle());
+            stmt.setInt(3, venta.getId_metodo_de_pago());
+            stmt.setDouble(4, venta.getTotal());
+            stmt.setTimestamp(5, venta.getFecha_y_hora());
+            stmt.setString(6, venta.getComentario());
             
             stmt.executeUpdate();
             
@@ -106,13 +106,13 @@ public class Venta_data {
         List <Venta> ventas = new ArrayList<Venta>();
         
         try {
-            String sql = "SELECT c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago;";
+            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago;";
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             Venta venta;
             while (rs.next()){
                 venta = new Venta();
-                venta.setId(rs.getInt("id"));
+                venta.setId(rs.getInt("id_venta"));
                 venta.setId_cliente(rs.getInt("cliente"));
                 venta.setId_detalle(rs.getInt("detalle"));
                 venta.setId_metodo_de_pago(rs.getInt("metodo_de_pago"));
