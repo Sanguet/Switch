@@ -32,15 +32,16 @@ public class Venta_data {
     //Metodos de guardado
     public void guardarVenta(Venta venta){
         try{
-            String sql = "INSERT INTO venta (id_cliente, id_detalle, id_metodo_de_pago, total, fecha_y_hora, comentario) VALUES (?,?,?,?,?,?)";
+            String sql = "INSERT INTO venta (id_cliente, id_detalle, id_metodo_de_pago, total,descuento, fecha_y_hora, comentario) VALUES (?,?,?,?,?,?,?)";
             
             PreparedStatement stmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             stmt.setInt(1, venta.getId_cliente());
             stmt.setInt(2, venta.getId_detalle());
             stmt.setInt(3, venta.getId_metodo_de_pago());
             stmt.setDouble(4, venta.getTotal());
-            stmt.setTimestamp(5, venta.getFecha_y_hora());
-            stmt.setString(6, venta.getComentario());
+            stmt.setInt(5, venta.getDescuento());
+            stmt.setTimestamp(6, venta.getFecha_y_hora());
+            stmt.setString(7, venta.getComentario());
             
             stmt.executeUpdate();
             
@@ -80,16 +81,17 @@ public class Venta_data {
     
     public void actualizarVenta(Venta venta){
         try{
-            String sql = "UPDATE venta SET id_cliente = ?, id_detalle = ?, id_metodo_de_pago = ?, total = ?, fecha_y_hora = ?, comentario = ? WHERE id_venta = ?";
+            String sql = "UPDATE venta SET id_cliente = ?, id_detalle = ?, id_metodo_de_pago = ?, total = ?, descuento = ?, fecha_y_hora = ?, comentario = ? WHERE id_venta = ?";
             
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, venta.getId_cliente());
             stmt.setInt(2, venta.getId_detalle());
             stmt.setInt(3, venta.getId_metodo_de_pago());
             stmt.setDouble(4, venta.getTotal());
-            stmt.setTimestamp(5, venta.getFecha_y_hora());
-            stmt.setString(6,venta.getComentario());
-            stmt.setInt(7, venta.getId());
+            stmt.setInt(5, venta.getDescuento());
+            stmt.setTimestamp(6, venta.getFecha_y_hora());
+            stmt.setString(7,venta.getComentario());
+            stmt.setInt(8, venta.getId());
             
             stmt.executeUpdate();
             
@@ -106,7 +108,7 @@ public class Venta_data {
         List <Venta> ventas = new ArrayList<Venta>();
         
         try {
-            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago;";
+            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago;";
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             Venta venta;
@@ -117,6 +119,7 @@ public class Venta_data {
                 venta.setId_detalle(rs.getInt("detalle"));
                 venta.setId_metodo_de_pago(rs.getInt("metodo_de_pago"));
                 venta.setTotal(rs.getDouble("total"));
+                venta.setDescuento(rs.getInt("descuento"));
                 venta.setFecha_y_hora(rs.getTimestamp("fecha_y_hora"));
                 venta.setComentario(rs.getString("comentario"));
                 
@@ -128,4 +131,83 @@ public class Venta_data {
         }
         return ventas;
     } 
+    
+    public List <Venta> obtenerVentas_por_cliente_y_fecha(Venta venta, Timestamp fecha_min, Timestamp fecha_max){
+        List <Venta> ventas = new ArrayList<Venta>();
+        //La fecha min tiene 00:00:00 y la max 23:59:59
+        try {
+            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago AND v.fecha_y_hora BETWEEN ? AND ? AND v.id_cliente = ?;";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, venta.getId_cliente());
+            stmt.setTimestamp(2, fecha_min);
+            stmt.setTimestamp(3, fecha_max);
+            
+            ResultSet rs = stmt.executeQuery();
+            Venta venta1;
+            while (rs.next()){
+                venta1 = new Venta();
+                venta1.setId(rs.getInt("id_venta"));
+                venta1.setId_cliente(rs.getInt("cliente"));
+                venta1.setId_detalle(rs.getInt("detalle"));
+                venta1.setId_metodo_de_pago(rs.getInt("metodo_de_pago"));
+                venta1.setTotal(rs.getDouble("total"));
+                venta.setDescuento(rs.getInt("descuento"));
+                venta1.setFecha_y_hora(rs.getTimestamp("fecha_y_hora"));
+                venta1.setComentario(rs.getString("comentario"));
+                
+                ventas.add(venta);
+            }
+            stmt.close();
+        } catch(SQLException ex){
+            System.out.println("Error al obtener las ventas: " + ex.getMessage());
+        }
+        return ventas;
+    } 
+    
+    
+    
+    // Busquedas
+    
+    public Venta getVenta_por_cliente(Venta venta){
+        Venta a = null;
+        try{
+            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago AND v.id_cliente = ?";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, venta.getId());
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Venta(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4), rs.getDouble(5), rs.getInt(6), rs.getTimestamp(7), rs.getString(8));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener la venta" + ex.getMessage());
+        }
+        return a;
+    }
+    
+    public Venta getVenta_por_cliente_y_fecha   (Venta venta){
+        Venta a = null;
+        try{
+            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago AND v.id_cliente = ? AND v.fecha_y_hora = ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, venta.getId());
+            stmt.setTimestamp(1, venta.getFecha_y_hora());
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Venta(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4), rs.getDouble(5), rs.getInt(6), rs.getTimestamp(7), rs.getString(8));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener la venta" + ex.getMessage());
+        }
+        return a;
+    }
 }

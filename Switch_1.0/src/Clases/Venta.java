@@ -18,27 +18,41 @@ public class Venta {
     private int id_detalle;
     private int id_metodo_de_pago;
     private double total;
+    private int descuento;
     private Timestamp fecha_y_hora;
     private String comentario;
     
     //Constructors
 
-    public Venta(int id, int id_cliente, int id_detalle, int id_metodo_de_pago, double total, String comentario) {
+    public Venta(int id, int id_cliente, int id_detalle, int id_metodo_de_pago, double total,int descuento, String comentario) {
         this.id = id;
         this.id_cliente = id_cliente;
         this.id_detalle = id_detalle;
         this.id_metodo_de_pago = id_metodo_de_pago;
         this.total = total;
+        this.descuento = descuento;
         this.fecha_y_hora = new Timestamp(System.currentTimeMillis());
         this.comentario = comentario;
     }
+    
+    public Venta(int id, int id_cliente, int id_detalle, int id_metodo_de_pago, double total,int descuento,Timestamp fecha_y_hora, String comentario) {
+        this.id = id;
+        this.id_cliente = id_cliente;
+        this.id_detalle = id_detalle;
+        this.id_metodo_de_pago = id_metodo_de_pago;
+        this.total = total;
+        this.descuento = descuento;
+        this.fecha_y_hora = fecha_y_hora;
+        this.comentario = comentario;
+    }
 
-    public Venta(int id_cliente, int id_detalle, int id_metodo_de_pago, double total, String comentario) {
+    public Venta(int id_cliente, int id_detalle, int id_metodo_de_pago, double total,int descuento, String comentario) {
         this.id = -1;
         this.id_cliente = id_cliente;
         this.id_detalle = id_detalle;
         this.id_metodo_de_pago = id_metodo_de_pago;
         this.total = total;
+        this.descuento = descuento;
         this.fecha_y_hora = new Timestamp(System.currentTimeMillis());;
         this.comentario = comentario;
     }
@@ -47,7 +61,7 @@ public class Venta {
         this.id = -1;
         this.fecha_y_hora = new Timestamp(System.currentTimeMillis());;
     }
-    
+
     //Getters
 
     public int getId() {
@@ -70,6 +84,10 @@ public class Venta {
         return total;
     }
 
+    public int getDescuento() {
+        return descuento;
+    }
+    
     public Timestamp getFecha_y_hora() {
         return fecha_y_hora;
     }
@@ -100,6 +118,10 @@ public class Venta {
         this.total = total;
     }
 
+    public void setDescuento(int descuento) {
+        this.descuento = descuento;
+    }
+    
     public void setFecha_y_hora(Timestamp fecha_y_hora) {
         this.fecha_y_hora = fecha_y_hora;
     }
@@ -116,7 +138,7 @@ public class Venta {
         *Devuelve un println con la lista
         */
         for (int i = 0; i < ventas.size(); i++){
-                System.out.println("Id del cliente = " + ventas.get(i).getId_cliente() + "Id del detalle = " + ventas.get(i).getId_detalle() + "Id del metodo de pago = " + ventas.get(i).getId_metodo_de_pago() + "Total = " + ventas.get(i).getTotal() + "Fecha y hora = " + ventas.get(i).getFecha_y_hora() + "Comentario = " + ventas.get(i).getComentario());
+                System.out.println("Id del cliente = " + ventas.get(i).getId_cliente() + "Id del detalle = " + ventas.get(i).getId_detalle() + "Id del metodo de pago = " + ventas.get(i).getId_metodo_de_pago() + "Total = " + ventas.get(i).getTotal() + "Descuento = " + ventas.get(i).getDescuento() + "Fecha y hora = " + ventas.get(i).getFecha_y_hora() + "Comentario = " + ventas.get(i).getComentario());
         }
     }
     
