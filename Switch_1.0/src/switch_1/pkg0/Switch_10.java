@@ -2,6 +2,7 @@ package switch_1.pkg0;
 
 //No borren ningun paquete por favor f
 import Clases.Conexion;
+import java.sql.Timestamp;
 
 public class Switch_10 {
 
