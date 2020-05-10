@@ -113,4 +113,32 @@ public class Provedor_data {
         }
         return provedores;
     } 
+    
+    public List <Provedor> obtenerProvedores_por_nombre(String nombre){
+        List <Provedor> provedores = new ArrayList<Provedor>();
+        
+        try {
+            String sql = "SELECT * FROM provedor WHERE provedor.nombre LIKE ? ORDER BY provedor.nombre;";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nombre);
+            
+            ResultSet rs = stmt.executeQuery();
+            Provedor provedor;
+            while (rs.next()){
+                provedor = new Provedor();
+                provedor.setId(rs.getInt("id_provedor"));
+                provedor.setNombre(rs.getString("nombre"));
+                provedor.setTelefono(rs.getLong("telefono"));
+                provedor.setCorreo(rs.getString("correo"));
+                provedor.setDireccion(rs.getString("direccion"));
+                provedor.setComentario(rs.getString("comentario"));
+                
+                provedores.add(provedor);
+            }
+            stmt.close();
+        } catch(SQLException ex){
+            System.out.println("Error al obtener los provedores: " + ex.getMessage());
+        }
+        return provedores;
+    }
 }

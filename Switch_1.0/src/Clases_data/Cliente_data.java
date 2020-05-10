@@ -90,7 +90,9 @@ public class Cliente_data {
         }
     }
     
-    public List <Cliente> obtenerAlumnos(){
+    //Listas
+    
+    public List <Cliente> obtenerCliente(){
         List <Cliente> clientes = new ArrayList<Cliente>();
         
         try {
@@ -117,7 +119,158 @@ public class Cliente_data {
         return clientes;
     } 
     
-    //Faltan todas las listas especificas y las busquedas individuales
+    public List <Cliente> obtenerClientes_por_nombre(String nombre){
+        List <Cliente> clientes = new ArrayList<Cliente>();
+        
+        try {
+            String sql = "SELECT * FROM cliente WHERE cliente.nombre LIKE ? ORDER BY cliente.nombre;";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nombre);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            Cliente cliente;
+            while (rs.next()){
+                cliente = new Cliente();
+                cliente.setId(rs.getInt("id_cliente"));
+                cliente.setNombre(rs.getString("nombre"));
+                cliente.setTelefono(rs.getLong("telefono"));
+                cliente.setCorreo(rs.getString("correo"));
+                cliente.setBox(rs.getString("box"));
+                cliente.setMetodo_de_pago_preferido(rs.getString("metodo_de_pago_preferido"));
+                cliente.setComentario(rs.getString("comentario"));
+                
+                clientes.add(cliente);
+            }
+            stmt.close();
+        } catch(SQLException ex){
+            System.out.println("Error al obtener los alumnos: " + ex.getMessage());
+        }
+        return clientes;
+    }
     
+    public List <Cliente> obtenerClientes_por_box(String box){
+        List <Cliente> clientes = new ArrayList<Cliente>();
+        
+        try {
+            String sql = "SELECT * FROM cliente WHERE cliente.box LIKE ? ORDER BY cliente.box;";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, box);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            Cliente cliente;
+            while (rs.next()){
+                cliente = new Cliente();
+                cliente.setId(rs.getInt("id_cliente"));
+                cliente.setNombre(rs.getString("nombre"));
+                cliente.setTelefono(rs.getLong("telefono"));
+                cliente.setCorreo(rs.getString("correo"));
+                cliente.setBox(rs.getString("box"));
+                cliente.setMetodo_de_pago_preferido(rs.getString("metodo_de_pago_preferido"));
+                cliente.setComentario(rs.getString("comentario"));
+                
+                clientes.add(cliente);
+            }
+            stmt.close();
+        } catch(SQLException ex){
+            System.out.println("Error al obtener los alumnos: " + ex.getMessage());
+        }
+        return clientes;
+    }
     
+    public List <Cliente> obtenerClientes_por_saldo(Double saldo){
+        List <Cliente> clientes = new ArrayList<Cliente>();
+        
+        try {
+            String sql = "SELECT c.id_cliente, c.nombre, c.telefono, c.correo, c.box, c.metodo_de_pago_preferido, c.comentario FROM cliente AS c, cuenta_corriente AS cc WHERE c.id_cliente = cc.id_cliente AND cc.monto = ?;";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setDouble(1, saldo);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            Cliente cliente;
+            while (rs.next()){
+                cliente = new Cliente();
+                cliente.setId(rs.getInt("id_cliente"));
+                cliente.setNombre(rs.getString("nombre"));
+                cliente.setTelefono(rs.getLong("telefono"));
+                cliente.setCorreo(rs.getString("correo"));
+                cliente.setBox(rs.getString("box"));
+                cliente.setMetodo_de_pago_preferido(rs.getString("metodo_de_pago_preferido"));
+                cliente.setComentario(rs.getString("comentario"));
+                
+                clientes.add(cliente);
+            }
+            stmt.close();
+        } catch(SQLException ex){
+            System.out.println("Error al obtener los alumnos: " + ex.getMessage());
+        }
+        return clientes;
+    }
+    
+    //Busquedas
+    
+    public Cliente getCliente_por_nombre(String nombre){
+        Cliente a = null;
+        try{
+            String sql = "SELECT * FROM cliente WHERE cliente.nombre = ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nombre);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Cliente(rs.getInt(1),rs.getString(2),rs.getLong(3),rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el cliente" + ex.getMessage());
+        }
+        return a;
+    }
+    
+    public Cliente getCliente_por_box(String box){
+        Cliente a = null;
+        try{
+            String sql = "SELECT * FROM cliente WHERE cliente.box = ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, box);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Cliente(rs.getInt(1),rs.getString(2),rs.getLong(3),rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el cliente" + ex.getMessage());
+        }
+        return a;
+    }
+    
+    public Cliente getCliente_por_saldo(Double saldo){
+        Cliente a = null;
+        try{
+            String sql = "SELECT c.id_cliente, c.nombre, c.telefono, c.correo, c.box, c.metodo_de_pago_preferido, c.comentario FROM cliente AS c, cuenta_corriente AS cc WHERE c.id_cliente = cc.id_cliente AND cc.monto = ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setDouble(1, saldo);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Cliente(rs.getInt(1),rs.getString(2),rs.getLong(3),rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el cliente" + ex.getMessage());
+        }
+        return a;
+    }
 }

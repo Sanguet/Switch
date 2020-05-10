@@ -122,4 +122,97 @@ public class Producto_data {
         return productos;
     } 
     
+    public List <Producto> obtenerProductos_por_nombre(String nombre){
+        List <Producto> productos = new ArrayList<Producto>();
+        
+        try {
+            String sql = "SELECT pro.id_producto, c.id_categoria AS categoria, p.id_provedor AS provedor, pro.nombre, pro.costo, pro.precio, pro.cantidad, pro.comentario, pro.codigo FROM categoria AS c, provedor AS p, producto as pro WHERE c.id_categoria = pro.id_categoria AND p.id_provedor = pro.id_provedor AND p.nombre LIKE ? ORDER BY pro.nombre;";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nombre);
+            
+            ResultSet rs = stmt.executeQuery();
+            Producto producto;
+            while (rs.next()){
+                producto = new Producto();
+                producto.setId(rs.getInt("id_producto"));
+                producto.setId_categoria(rs.getInt("categoria"));
+                producto.setId_provedor(rs.getInt("provedor"));
+                producto.setNombre(rs.getString("nombre"));
+                producto.setCosto(rs.getDouble("costo"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setCantidad(rs.getInt("cantidad"));
+                producto.setComentario(rs.getString("comentario"));
+                producto.setCodigo(rs.getLong("codigo"));
+                
+                productos.add(producto);
+            }
+            stmt.close();
+        } catch(SQLException ex){
+            System.out.println("Error al obtener los productos: " + ex.getMessage());
+        }
+        return productos;
+    }
+    
+    public List <Producto> obtenerProductos_por_costo(Double costo){
+        List <Producto> productos = new ArrayList<Producto>();
+        
+        try {
+            String sql = "SELECT pro.id_producto, c.id_categoria AS categoria, p.id_provedor AS provedor, pro.nombre, pro.costo, pro.precio, pro.cantidad, pro.comentario, pro.codigo FROM categoria AS c, provedor AS p, producto as pro WHERE c.id_categoria = pro.id_categoria AND p.id_provedor = pro.id_provedor AND pro.costo = ? ORDER BY pro.costo;";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setDouble(1, costo);
+            
+            ResultSet rs = stmt.executeQuery();
+            Producto producto;
+            while (rs.next()){
+                producto = new Producto();
+                producto.setId(rs.getInt("id_producto"));
+                producto.setId_categoria(rs.getInt("categoria"));
+                producto.setId_provedor(rs.getInt("provedor"));
+                producto.setNombre(rs.getString("nombre"));
+                producto.setCosto(rs.getDouble("costo"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setCantidad(rs.getInt("cantidad"));
+                producto.setComentario(rs.getString("comentario"));
+                producto.setCodigo(rs.getLong("codigo"));
+                
+                productos.add(producto);
+            }
+            stmt.close();
+        } catch(SQLException ex){
+            System.out.println("Error al obtener los productos: " + ex.getMessage());
+        }
+        return productos;
+    }
+    
+    public List <Producto> obtenerProductos_por_precio(Double precio){
+        List <Producto> productos = new ArrayList<Producto>();
+        
+        try {
+            String sql = "SELECT pro.id_producto, c.id_categoria AS categoria, p.id_provedor AS provedor, pro.nombre, pro.costo, pro.precio, pro.cantidad, pro.comentario, pro.codigo FROM categoria AS c, provedor AS p, producto as pro WHERE c.id_categoria = pro.id_categoria AND p.id_provedor = pro.id_provedor AND pro.precio = ? ORDER BY pro.precio;";
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setDouble(1, precio);
+            
+            ResultSet rs = stmt.executeQuery();
+            Producto producto;
+            while (rs.next()){
+                producto = new Producto();
+                producto.setId(rs.getInt("id_producto"));
+                producto.setId_categoria(rs.getInt("categoria"));
+                producto.setId_provedor(rs.getInt("provedor"));
+                producto.setNombre(rs.getString("nombre"));
+                producto.setCosto(rs.getDouble("costo"));
+                producto.setPrecio(rs.getDouble("precio"));
+                producto.setCantidad(rs.getInt("cantidad"));
+                producto.setComentario(rs.getString("comentario"));
+                producto.setCodigo(rs.getLong("codigo"));
+                
+                productos.add(producto);
+            }
+            stmt.close();
+        } catch(SQLException ex){
+            System.out.println("Error al obtener los productos: " + ex.getMessage());
+        }
+        return productos;
+    }
+    
 }
