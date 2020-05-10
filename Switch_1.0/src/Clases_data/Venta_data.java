@@ -132,15 +132,16 @@ public class Venta_data {
         return ventas;
     } 
     
-    public List <Venta> obtenerVentas_por_cliente_y_fecha(Venta venta, Timestamp fecha_min, Timestamp fecha_max){
+    public List <Venta> obtenerVentas_por_cliente_y_fecha(String nombre, Timestamp fecha_min, Timestamp fecha_max){
         List <Venta> ventas = new ArrayList<Venta>();
         //La fecha min tiene 00:00:00 y la max 23:59:59
         try {
-            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago AND v.fecha_y_hora BETWEEN ? AND ? AND v.id_cliente = ?;";
+            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago AND v.fecha_y_hora BETWEEN ? AND ? AND c.nombre LIKE ?;";
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, venta.getId_cliente());
-            stmt.setTimestamp(2, fecha_min);
-            stmt.setTimestamp(3, fecha_max);
+            stmt.setTimestamp(1, fecha_min);
+            stmt.setTimestamp(2, fecha_max);
+            stmt.setString(3, nombre);
+
             
             ResultSet rs = stmt.executeQuery();
             Venta venta1;
@@ -151,11 +152,11 @@ public class Venta_data {
                 venta1.setId_detalle(rs.getInt("detalle"));
                 venta1.setId_metodo_de_pago(rs.getInt("metodo_de_pago"));
                 venta1.setTotal(rs.getDouble("total"));
-                venta.setDescuento(rs.getInt("descuento"));
+                venta1.setDescuento(rs.getInt("descuento"));
                 venta1.setFecha_y_hora(rs.getTimestamp("fecha_y_hora"));
                 venta1.setComentario(rs.getString("comentario"));
                 
-                ventas.add(venta);
+                ventas.add(venta1);
             }
             stmt.close();
         } catch(SQLException ex){
@@ -165,16 +166,15 @@ public class Venta_data {
     } 
     
     
-    
     // Busquedas
     
-    public Venta getVenta_por_cliente(Venta venta){
+    public Venta getVenta_por_cliente(String cliente){
         Venta a = null;
         try{
-            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago AND v.id_cliente = ?";
+            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago AND c.nombre LIKE ?";
             
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, venta.getId());
+            stmt.setString(1, cliente);
             
             ResultSet rs = stmt.executeQuery();
             
@@ -189,13 +189,13 @@ public class Venta_data {
         return a;
     }
     
-    public Venta getVenta_por_cliente_y_fecha   (Venta venta){
+    public Venta getVenta_por_cliente_y_fecha(Venta venta){
         Venta a = null;
         try{
             String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago AND v.id_cliente = ? AND v.fecha_y_hora = ?;";
             
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, venta.getId());
+            stmt.setInt(1, venta.getId_cliente());
             stmt.setTimestamp(1, venta.getFecha_y_hora());
             
             ResultSet rs = stmt.executeQuery();
