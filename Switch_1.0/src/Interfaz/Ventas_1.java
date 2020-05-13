@@ -17,7 +17,7 @@ public class Ventas_1 extends javax.swing.JDialog {
     public Ventas_1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         this.setUndecorated(true);
-        this.setBounds(70, 40, 1200, 900);
+        this.setBounds(70, 30, 1200, 900);
         
         initComponents();
     }
@@ -309,6 +309,7 @@ public class Ventas_1 extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.setVisible(false);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 

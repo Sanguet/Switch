@@ -16,6 +16,7 @@ public class Venta_InternalMenu extends javax.swing.JInternalFrame {
      */
     public Venta_InternalMenu() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**

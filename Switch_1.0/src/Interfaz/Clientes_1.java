@@ -16,7 +16,12 @@ public class Clientes_1 extends javax.swing.JDialog {
      */
     public Clientes_1(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        
+        this.setUndecorated(true);
+        this.setBounds(70, 30, 1200, 900);
+        
         initComponents();
+        
     }
 
     /**
