@@ -89,7 +89,7 @@ public class Cuenta_corriente_data {
         List <Cuenta_corriente> cuentas_corriente = new ArrayList<Cuenta_corriente>();
         
         try {
-            String sql = "SELECT cuent.id_cuenta, c.id_cliente AS id_cliente, cuent.monto, m.Id_metodo AS metodo_de_pago, cuent.comentario FROM cliente AS c, metodo_de_pago AS m, cuenta_corriente as cuent WHERE c.id_cliente = cuent.id_cliente AND m.Id_metodo = cuent.id_metodo_de_pago;";
+            String sql = "SELECT cuent.id_cuenta, c.id_cliente AS id_cliente, cuent.monto, m.Id_metodo AS metodo_de_pago, cuent.comentario FROM cliente AS c, metodo_de_pago AS m, cuenta_corriente as cuent WHERE c.id_cliente = cuent.id_cliente AND m.Id_metodo = cuent.id_metodo_de_pago ORDER BY c.id_cliente;";
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             Cuenta_corriente cuenta_corriente;

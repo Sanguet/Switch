@@ -5,6 +5,16 @@
  */
 package Interfaz;
 
+import Clases.Cliente;
+import Clases.Conexion;
+import Clases.Cuenta_corriente;
+import Clases_data.Cliente_data;
+import Clases_data.Cuenta_corriente_data;
+import java.util.List;
+import javax.swing.JOptionPane;
+
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Alex
@@ -21,6 +31,10 @@ public class Clientes_1 extends javax.swing.JDialog {
         this.setBounds(70, 30, 1200, 900);
         
         initComponents();
+        
+    }
+    
+    public void mostrarLista(List<Cliente> lista, List<Cuenta_corriente> lista2){
         
     }
 
@@ -49,8 +63,8 @@ public class Clientes_1 extends javax.swing.JDialog {
         jPanel6 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jspTabla = new javax.swing.JScrollPane();
+        jtClientes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -100,7 +114,7 @@ public class Clientes_1 extends javax.swing.JDialog {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         jPanel5.setBackground(new java.awt.Color(14, 21, 30));
@@ -190,10 +204,10 @@ public class Clientes_1 extends javax.swing.JDialog {
 
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
-        jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
-        jScrollPane2.setBorder(null);
+        jspTabla.setBackground(new java.awt.Color(255, 255, 255));
+        jspTabla.setBorder(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -225,38 +239,45 @@ public class Clientes_1 extends javax.swing.JDialog {
                 "Nombre", "Box", "Telefono", "E-mail", "Saldo"
             }
         ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class, java.lang.Double.class
+            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false
             };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(54, 197, 240));
-        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTable1.setShowGrid(true);
-        jTable1.setShowVerticalLines(false);
-        jScrollPane2.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
-            jTable1.getColumnModel().getColumn(1).setResizable(false);
-            jTable1.getColumnModel().getColumn(2).setResizable(false);
-            jTable1.getColumnModel().getColumn(3).setResizable(false);
-            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        jtClientes.setRowHeight(25);
+        jtClientes.setSelectionBackground(new java.awt.Color(54, 197, 240));
+        jtClientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtClientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtClientes.setShowGrid(true);
+        jtClientes.setShowVerticalLines(false);
+        jspTabla.setViewportView(jtClientes);
+        if (jtClientes.getColumnModel().getColumnCount() > 0) {
+            jtClientes.getColumnModel().getColumn(0).setResizable(false);
+            jtClientes.getColumnModel().getColumn(1).setResizable(false);
+            jtClientes.getColumnModel().getColumn(2).setResizable(false);
+            jtClientes.getColumnModel().getColumn(3).setResizable(false);
+            jtClientes.getColumnModel().getColumn(4).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
+            .addComponent(jspTabla, javax.swing.GroupLayout.DEFAULT_SIZE, 685, Short.MAX_VALUE)
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2)
+            .addComponent(jspTabla)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -347,13 +368,13 @@ public class Clientes_1 extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    public static javax.swing.JScrollPane jspTabla;
+    public static javax.swing.JTable jtClientes;
     // End of variables declaration//GEN-END:variables
 }

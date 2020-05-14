@@ -92,11 +92,11 @@ public class Cliente_data {
     
     //Listas
     
-    public List <Cliente> obtenerCliente(){
+    public List <Cliente> obtenerClientes(){
         List <Cliente> clientes = new ArrayList<Cliente>();
         
         try {
-            String sql = "SELECT * FROM cliente;";
+            String sql = "SELECT * FROM `cliente` ORDER BY cliente.id_cliente";
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             Cliente cliente;

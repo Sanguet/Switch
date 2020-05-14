@@ -16,6 +16,8 @@ public class Clientes extends javax.swing.JPanel {
      */
     public Clientes() {
         initComponents();
+        
+        
     }
 
     /**
@@ -94,7 +96,7 @@ public class Clientes extends javax.swing.JPanel {
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 964, 120));
@@ -253,7 +255,7 @@ public class Clientes extends javax.swing.JPanel {
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
         );
 
-        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 138, 670, 555));
+        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 138, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
