@@ -53,6 +53,11 @@ public class perfilCliente extends javax.swing.JPanel {
 
         box.setEditable(false);
         box.setText("Box");
+        box.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxActionPerformed(evt);
+            }
+        });
 
         tel.setEditable(false);
         tel.setText("Telefono");
@@ -194,6 +199,10 @@ public class perfilCliente extends javax.swing.JPanel {
     private void SaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaldoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SaldoActionPerformed
+
+    private void boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

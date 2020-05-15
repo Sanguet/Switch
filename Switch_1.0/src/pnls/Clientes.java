@@ -5,6 +5,16 @@
  */
 package pnls;
 
+import Clases.Cliente;
+import Clases.Conexion;
+import Clases.Cuenta_corriente;
+import Clases_data.Cliente_data;
+import Clases_data.Cuenta_corriente_data;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alex
@@ -16,8 +26,54 @@ public class Clientes extends javax.swing.JPanel {
      */
     public Clientes() {
         initComponents();
+        this.addMenu.setVisible(false);
         
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Cliente_data cd = new Cliente_data(con);
+            List<Cliente> lista = cd.obtenerClientes();
+            
+            Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
+            List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
+            
+            mostrarLista(lista, lista2);
+            
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+    }
+    
+    public void mostrarLista(List<Cliente> lista, List<Cuenta_corriente> lista2){
+        try{
+            String matris[][] = new String[lista.size()][5];
+            
+            for (int i = 0; i < lista.size(); i++){
+                matris[i][0] = lista.get(i).getNombre();
+                matris[i][1] = lista.get(i).getBox();
+                matris[i][2] = Long.toString(lista.get(i).getTelefono());
+                matris[i][3] = lista.get(i).getCorreo();
+                matris[i][4] = Double.toString(lista2.get(i).getMonto());
+            }
+            
+            jtClientes.setModel(new javax.swing.table.DefaultTableModel(
+            matris,
+            new String [] {
+                "Nombre", "Box", "Telefono", "E-mail", "Saldo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" + e);
         
+    }
     }
 
     /**
@@ -35,18 +91,18 @@ public class Clientes extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
-        jTextField9 = new javax.swing.JTextField();
+        jtfBox = new javax.swing.JTextField();
+        jtfNombre = new javax.swing.JTextField();
+        jtfTelefono = new javax.swing.JTextField();
+        jtfEmail = new javax.swing.JTextField();
+        jtfMetodo_de_pago = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jtaComentario = new javax.swing.JTextArea();
         jButton7 = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtClientes = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -102,24 +158,47 @@ public class Clientes extends javax.swing.JPanel {
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 964, 120));
 
         addMenu.setBackground(new java.awt.Color(54, 197, 240));
+        addMenu.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                addMenuFocusLost(evt);
+            }
+        });
 
         form.setBackground(new java.awt.Color(14, 21, 30));
 
-        jTextField5.setText("Box");
+        jtfBox.setText("Box");
 
-        jTextField6.setText("Nombre Apellido");
+        jtfNombre.setText("Nombre Apellido");
+        jtfNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtfNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtfNombreFocusLost(evt);
+            }
+        });
+        jtfNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtfNombreActionPerformed(evt);
+            }
+        });
+        jtfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtfNombreKeyTyped(evt);
+            }
+        });
 
-        jTextField7.setText("Telefono");
+        jtfTelefono.setText("Telefono");
 
-        jTextField8.setText("Email");
+        jtfEmail.setText("Email");
 
-        jTextField9.setText("Metodo de pago preferido");
+        jtfMetodo_de_pago.setText("Metodo de pago preferido");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Comentario");
-        jScrollPane1.setViewportView(jTextArea1);
+        jtaComentario.setColumns(20);
+        jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentario.setRows(5);
+        jtaComentario.setText("Comentario");
+        jScrollPane1.setViewportView(jtaComentario);
 
         jButton7.setBackground(new java.awt.Color(54, 197, 240));
         jButton7.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
@@ -136,11 +215,11 @@ public class Clientes extends javax.swing.JPanel {
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
                         .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField9)
-                            .addComponent(jTextField8)
-                            .addComponent(jTextField6)
-                            .addComponent(jTextField7)
-                            .addComponent(jTextField5)
+                            .addComponent(jtfMetodo_de_pago)
+                            .addComponent(jtfEmail)
+                            .addComponent(jtfNombre)
+                            .addComponent(jtfTelefono)
+                            .addComponent(jtfBox)
                             .addComponent(jScrollPane1))
                         .addGap(37, 37, 37))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
@@ -151,15 +230,15 @@ public class Clientes extends javax.swing.JPanel {
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtfMetodo_de_pago, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
@@ -197,7 +276,7 @@ public class Clientes extends javax.swing.JPanel {
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(null);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -237,12 +316,17 @@ public class Clientes extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowHeight(25);
-        jTable1.setSelectionBackground(new java.awt.Color(54, 197, 240));
-        jTable1.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jTable1.setShowGrid(true);
-        jTable1.setShowVerticalLines(false);
-        jScrollPane2.setViewportView(jTable1);
+        jtClientes.setRowHeight(25);
+        jtClientes.setSelectionBackground(new java.awt.Color(54, 197, 240));
+        jtClientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtClientes.setShowGrid(true);
+        jtClientes.setShowVerticalLines(false);
+        jtClientes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtClientesFocusGained(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jtClientes);
 
         javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
         Registro.setLayout(RegistroLayout);
@@ -259,8 +343,39 @@ public class Clientes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        this.addMenu.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jtfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNombreActionPerformed
+        
+    }//GEN-LAST:event_jtfNombreActionPerformed
+
+    private void jtfNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfNombreKeyTyped
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != KeyEvent.VK_SPACE)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtfNombreKeyTyped
+
+    private void jtfNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfNombreFocusLost
+        if (jtfNombre.getText().length() == 0){
+            this.jtfNombre.setText("*Es necesiario rellenar este campo");
+            this.jtfNombre.setForeground(Color.red);
+        }
+    }//GEN-LAST:event_jtfNombreFocusLost
+
+    private void jtfNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfNombreFocusGained
+        jtfNombre.setText("");
+        this.jtfNombre.setForeground(Color.black);
+    }//GEN-LAST:event_jtfNombreFocusGained
+
+    private void jtClientesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtClientesFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtClientesFocusGained
+
+    private void addMenuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addMenuFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addMenuFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -275,12 +390,12 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable jtClientes;
+    private javax.swing.JTextArea jtaComentario;
+    private javax.swing.JTextField jtfBox;
+    private javax.swing.JTextField jtfEmail;
+    private javax.swing.JTextField jtfMetodo_de_pago;
+    private javax.swing.JTextField jtfNombre;
+    private javax.swing.JTextField jtfTelefono;
     // End of variables declaration//GEN-END:variables
 }

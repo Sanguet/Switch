@@ -22,7 +22,7 @@ public class Inicio extends javax.swing.JFrame{
      * Creates new form NewJFrame
      */
     
-            
+        static int a = 10;
         Clientes panel_clientes = new Clientes();
         Gastos panel_gastos = new Gastos();
         Productos panel_productos = new Productos();
@@ -34,17 +34,6 @@ public class Inicio extends javax.swing.JFrame{
         this.setExtendedState(6);
         this.setResizable(false);
         
-        
-        
-
-        /*
-        jbClientes.addActionListener(this);
-        jbGastos.addActionListener(this);
-        jbProductos.addActionListener(this);
-        jbProvedores.addActionListener(this);
-        jbVentas.addActionListener(this);
-        jbOpciones.addActionListener(this);
-        */
         
     }
         
@@ -296,6 +285,7 @@ public class Inicio extends javax.swing.JFrame{
     }//GEN-LAST:event_jbGastosActionPerformed
 
     private void jbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClientesActionPerformed
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesN.png")));
         new CambiaPanel(this.panelBase, panel_clientes);
     }//GEN-LAST:event_jbClientesActionPerformed
 
