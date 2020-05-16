@@ -214,7 +214,7 @@ public class Cliente_data {
     public Cliente getCliente_por_nombre(String nombre){
         Cliente a = null;
         try{
-            String sql = "SELECT * FROM cliente WHERE cliente.nombre = ?;";
+            String sql = "SELECT * FROM cliente WHERE cliente.nombre LIKE ?;";
             
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, nombre);

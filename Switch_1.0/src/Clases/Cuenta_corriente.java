@@ -34,6 +34,13 @@ public class Cuenta_corriente {
         this.id_metodo_de_pago = id_metodo_de_pago;
         this.comentario = comentario;
     }
+
+    public Cuenta_corriente(int id_cliente) {
+        this.id = -1;
+        this.id_cliente = id_cliente;
+    }
+    
+    
     
     public Cuenta_corriente() {
         this.id = -1;

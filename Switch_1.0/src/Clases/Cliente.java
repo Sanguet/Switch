@@ -41,6 +41,11 @@ public class Cliente {
         this.metodo_de_pago_preferido = metodo_de_pago_preferido;
         this.comentario = comentario;
     }
+
+    public Cliente(String nombre) {
+        this.id = -1;
+        this.nombre = nombre;
+    }
     
     public Cliente() {
         this.id = -1;
