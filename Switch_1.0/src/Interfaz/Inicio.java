@@ -23,11 +23,6 @@ public class Inicio extends javax.swing.JFrame{
      */
     
         static int a = 10;
-        Clientes panel_clientes = new Clientes();
-        Gastos panel_gastos = new Gastos();
-        Productos panel_productos = new Productos();
-        Provedores panel_provedores = new Provedores();
-        Ventas panel_ventas = new Ventas();
     
     public Inicio() {
         initComponents();
@@ -281,20 +276,20 @@ public class Inicio extends javax.swing.JFrame{
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jbGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGastosActionPerformed
-        new CambiaPanel(this.panelBase, panel_gastos);
+        new CambiaPanel(this.panelBase, new Gastos());
     }//GEN-LAST:event_jbGastosActionPerformed
 
     private void jbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClientesActionPerformed
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesN.png")));
-        new CambiaPanel(this.panelBase, panel_clientes);
+        new CambiaPanel(this.panelBase, new Clientes());
     }//GEN-LAST:event_jbClientesActionPerformed
 
     private void jbProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProductosActionPerformed
-        new CambiaPanel(this.panelBase, panel_productos);
+        new CambiaPanel(this.panelBase, new Productos());
     }//GEN-LAST:event_jbProductosActionPerformed
 
     private void jbProvedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProvedoresActionPerformed
-        new CambiaPanel(this.panelBase, panel_provedores);
+        new CambiaPanel(this.panelBase, new Provedores());
     }//GEN-LAST:event_jbProvedoresActionPerformed
 
     private void jbOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOpcionesActionPerformed

@@ -141,4 +141,25 @@ public class Provedor_data {
         }
         return provedores;
     }
+    
+    public Provedor getProvedor_por_id(int id){
+        Provedor a = null;
+        try{
+            String sql = "SELECT * FROM provedor WHERE provedor.id_provedor = ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Provedor(rs.getInt(1),rs.getString(2),rs.getLong(3),rs.getString(4), rs.getString(5), rs.getString(6));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el proveedor" + ex.getMessage());
+        }
+        return a;
+    }
 }

@@ -177,6 +177,11 @@ public class Clientes extends javax.swing.JPanel {
                 addMenuFocusLost(evt);
             }
         });
+        addMenu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                addMenuMouseExited(evt);
+            }
+        });
 
         form.setBackground(new java.awt.Color(14, 21, 30));
 
@@ -463,7 +468,8 @@ public class Clientes extends javax.swing.JPanel {
     }//GEN-LAST:event_jtClientesFocusGained
 
     private void addMenuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addMenuFocusLost
-        // TODO add your handling code here:
+        JOptionPane.showConfirmDialog(this, "Estas seguro que no quieres guardar el cliente?");
+        
     }//GEN-LAST:event_addMenuFocusLost
 
     private void jtfBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfBoxFocusLost
@@ -583,6 +589,10 @@ public class Clientes extends javax.swing.JPanel {
     private void jbConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbConfirmarMouseClicked
         //Nada
     }//GEN-LAST:event_jbConfirmarMouseClicked
+
+    private void addMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMenuMouseExited
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addMenuMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -42,7 +42,7 @@ public class Ventas1 extends javax.swing.JPanel {
         jTextField10 = new javax.swing.JTextField();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtVentas = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -192,7 +192,7 @@ public class Ventas1 extends javax.swing.JPanel {
 
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(766, 136, 240, 510));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -221,7 +221,7 @@ public class Ventas1 extends javax.swing.JPanel {
                 {null, null, null, null}
             },
             new String [] {
-                "Cliente", "Fecha", "Producto", "Importe"
+                "Cliente", "Fecha", "Importe", "Detalle"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -232,10 +232,10 @@ public class Ventas1 extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowHeight(25);
-        jTable1.setShowGrid(true);
-        jTable1.setShowVerticalLines(false);
-        jScrollPane2.setViewportView(jTable1);
+        jtVentas.setRowHeight(25);
+        jtVentas.setShowGrid(true);
+        jtVentas.setShowVerticalLines(false);
+        jScrollPane2.setViewportView(jtVentas);
 
         javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
         Registro.setLayout(RegistroLayout);
@@ -273,9 +273,9 @@ public class Ventas1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTable jtVentas;
     // End of variables declaration//GEN-END:variables
 }

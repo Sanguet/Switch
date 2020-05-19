@@ -99,4 +99,25 @@ public class Categoria_data {
         }
         return categorias;
     }
+    
+    public Categoria getCategoria_por_id(int id){
+        Categoria a = null;
+        try{
+            String sql = "SELECT * FROM categoria WHERE categoria.id_categoria = ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Categoria(rs.getInt(1),rs.getString(2));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener la cateogira" + ex.getMessage());
+        }
+        return a;
+    }
 }

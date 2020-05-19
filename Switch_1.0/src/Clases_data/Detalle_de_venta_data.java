@@ -109,4 +109,25 @@ public class Detalle_de_venta_data {
         }
         return detalles_de_venta;
     }
+    
+    public Detalle_de_venta getDetalle_de_venta_por_id(int id){
+        Detalle_de_venta a = null;
+        try{
+            String sql = "SELECT d.id_detalle, p.id_producto as id_producto, d.cantidad, d.descuento, d.sub_total FROM detalle_de_venta AS d, producto AS p WHERE p.id_producto = d.id_producto AND d.id_detalle = ?";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Detalle_de_venta(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4),rs.getDouble(5));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el detalle de venta" + ex.getMessage());
+        }
+        return a;
+    }
 }

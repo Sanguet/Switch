@@ -5,6 +5,11 @@
  */
 package pnls;
 
+import Clases.*;
+import Clases_data.*;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alex
@@ -16,7 +21,57 @@ public class Gastos extends javax.swing.JPanel {
      */
     public Gastos() {
         initComponents();
+        
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Gasto_data gasto_data = new Gasto_data(con);
+            
+            
+            List<Gasto> lista_gasto = gasto_data.obtenerGastos();
+            
+            int provedor = lista_gasto.get(1).getId_provedor();
+            
+            mostrarLista(lista_gasto);
+            
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
     }
+    
+    public void mostrarLista(List<Gasto> lista){
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            
+            Provedor_data provedor_data = new Provedor_data(con);
+            Metodo_de_pago_data metodo_de_pago_data = new Metodo_de_pago_data(con);
+            Detalle_de_venta_data detalle_de_venta_data = new Detalle_de_venta_data(con);
+            Categoria_data categoria_data = new Categoria_data(con);
+            
+            String matris[][] = new String[lista.size()][6];
+            
+            for (int i = 0; i < lista.size(); i++){
+                matris[i][0] = categoria_data.getCategoria_por_id(lista.get(i).getId_categoria()).getNombre();
+                matris[i][1] = provedor_data.getProvedor_por_id(lista.get(i).getId_provedor()).getNombre();
+                matris[i][2] = lista.get(i).getFecha_y_hora().toString();
+                matris[i][3] = metodo_de_pago_data.getMetodo_de_pago_por_id(lista.get(i).getId_metodo_de_pago()).getNombre();
+                matris[i][4] = Double.toString(lista.get(i).getMonto());
+                matris[i][5] = Integer.toString(lista.get(i).getId_detalle());
+            }
+            
+            jtGastos.setModel(new javax.swing.table.DefaultTableModel(
+            matris,
+            new String [] {
+                "Categoria", "Provedor", "Fecha", "Metodo de pago", "Importe", "Detalle"
+            }
+        ) {
+        });
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" + e);
+        
+        }
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -29,9 +84,9 @@ public class Gastos extends javax.swing.JPanel {
 
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        jbNueva_categoria = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        jbNuevo_gasto = new javax.swing.JButton();
         addMenu = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         form = new javax.swing.JPanel();
@@ -45,7 +100,7 @@ public class Gastos extends javax.swing.JPanel {
         jButton8 = new javax.swing.JButton();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtGastos = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(964, 693));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,30 +111,30 @@ public class Gastos extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Gastos");
 
-        jButton5.setBackground(new java.awt.Color(14, 21, 30));
-        jButton5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Nueva Categoria");
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jbNueva_categoria.setBackground(new java.awt.Color(14, 21, 30));
+        jbNueva_categoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNueva_categoria.setForeground(new java.awt.Color(255, 255, 255));
+        jbNueva_categoria.setText("Nueva Categoria");
+        jbNueva_categoria.setBorder(null);
+        jbNueva_categoria.setBorderPainted(false);
+        jbNueva_categoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jbNueva_categoriaActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Imagen");
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
-        jButton6.setBackground(new java.awt.Color(14, 21, 30));
-        jButton6.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Nuevo Gasto");
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jbNuevo_gasto.setBackground(new java.awt.Color(14, 21, 30));
+        jbNuevo_gasto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNuevo_gasto.setForeground(new java.awt.Color(255, 255, 255));
+        jbNuevo_gasto.setText("Nuevo Gasto");
+        jbNuevo_gasto.setBorder(null);
+        jbNuevo_gasto.setBorderPainted(false);
+        jbNuevo_gasto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jbNuevo_gastoActionPerformed(evt);
             }
         });
 
@@ -93,9 +148,9 @@ public class Gastos extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbNueva_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         TituloLayout.setVerticalGroup(
@@ -110,8 +165,8 @@ public class Gastos extends javax.swing.JPanel {
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbNueva_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -233,50 +288,57 @@ public class Gastos extends javax.swing.JPanel {
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtGastos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Categoria", "Prevedor", "Fecha ", "Producto", "Importe"
+                "Categoria", "Prevedor", "Fecha ", "Metodo de pago", "Importe", "Detalle"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowHeight(25);
-        jTable1.setShowGrid(true);
-        jTable1.setShowVerticalLines(false);
-        jScrollPane2.setViewportView(jTable1);
+        jtGastos.setRowHeight(25);
+        jtGastos.setShowGrid(true);
+        jtGastos.setShowVerticalLines(false);
+        jScrollPane2.setViewportView(jtGastos);
 
         javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
         Registro.setLayout(RegistroLayout);
@@ -292,13 +354,13 @@ public class Gastos extends javax.swing.JPanel {
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 149, -1, 439));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jbNueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_categoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_jbNueva_categoriaActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jbNuevo_gastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_gastoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jbNuevo_gastoActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
@@ -314,8 +376,6 @@ public class Gastos extends javax.swing.JPanel {
     private javax.swing.JPanel Titulo;
     private javax.swing.JPanel addMenu;
     private javax.swing.JPanel form;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JCheckBox jCheckBox1;
@@ -324,10 +384,12 @@ public class Gastos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JButton jbNueva_categoria;
+    private javax.swing.JButton jbNuevo_gasto;
+    private javax.swing.JTable jtGastos;
     // End of variables declaration//GEN-END:variables
 }

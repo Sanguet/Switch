@@ -101,4 +101,25 @@ public class Metodo_de_pago_data {
         return metodos_de_pago;
     } 
     
+    public Metodo_de_pago getMetodo_de_pago_por_id(int id){
+        Metodo_de_pago a = null;
+        try{
+            String sql = "SELECT * FROM metodo_de_pago WHERE metodo_de_pago.id_metodo = ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Metodo_de_pago(rs.getInt(1), rs.getString(2));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el proveedor" + ex.getMessage());
+        }
+        return a;
+    }
+    
 }

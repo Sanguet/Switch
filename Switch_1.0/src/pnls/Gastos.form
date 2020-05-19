@@ -47,9 +47,9 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" pref="360" max="-2" attributes="0"/>
                   <EmptySpace pref="191" max="32767" attributes="0"/>
-                  <Component id="jButton6" min="-2" pref="164" max="-2" attributes="0"/>
+                  <Component id="jbNuevo_gasto" min="-2" pref="164" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="jButton5" min="-2" pref="164" max="-2" attributes="0"/>
+                  <Component id="jbNueva_categoria" min="-2" pref="164" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -68,8 +68,8 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jButton5" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-                              <Component id="jButton6" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="jbNueva_categoria" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                              <Component id="jbNuevo_gasto" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -87,7 +87,7 @@
             <Property name="text" type="java.lang.String" value="Gastos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="jbNueva_categoria">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="1e" green="15" red="e" type="rgb"/>
@@ -105,7 +105,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbNueva_categoriaActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -116,7 +116,7 @@
             </Property>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton6">
+        <Component class="javax.swing.JButton" name="jbNuevo_gasto">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="1e" green="15" red="e" type="rgb"/>
@@ -134,7 +134,7 @@
             <Property name="borderPainted" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbNuevo_gastoActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
@@ -372,15 +372,16 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTable" name="jTable1">
+            <Component class="javax.swing.JTable" name="jtGastos">
               <Properties>
                 <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="5" rowCount="25">
-                    <Column editable="false" title="Categoria" type="java.lang.Object"/>
-                    <Column editable="false" title="Prevedor" type="java.lang.Object"/>
-                    <Column editable="false" title="Fecha " type="java.lang.Object"/>
-                    <Column editable="true" title="Producto" type="java.lang.Object"/>
-                    <Column editable="true" title="Importe" type="java.lang.Object"/>
+                  <Table columnCount="6" rowCount="25">
+                    <Column editable="false" title="Categoria" type="java.lang.String"/>
+                    <Column editable="false" title="Prevedor" type="java.lang.String"/>
+                    <Column editable="false" title="Fecha " type="java.lang.String"/>
+                    <Column editable="false" title="Metodo de pago" type="java.lang.String"/>
+                    <Column editable="false" title="Importe" type="java.lang.String"/>
+                    <Column editable="false" title="Detalle" type="java.lang.String"/>
                   </Table>
                 </Property>
                 <Property name="rowHeight" type="int" value="25"/>
