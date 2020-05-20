@@ -25,11 +25,7 @@ public class Gastos extends javax.swing.JPanel {
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Gasto_data gasto_data = new Gasto_data(con);
-            
-            
             List<Gasto> lista_gasto = gasto_data.obtenerGastos();
-            
-            int provedor = lista_gasto.get(1).getId_provedor();
             
             mostrarLista(lista_gasto);
             
@@ -45,7 +41,6 @@ public class Gastos extends javax.swing.JPanel {
             
             Provedor_data provedor_data = new Provedor_data(con);
             Metodo_de_pago_data metodo_de_pago_data = new Metodo_de_pago_data(con);
-            Detalle_de_venta_data detalle_de_venta_data = new Detalle_de_venta_data(con);
             Categoria_data categoria_data = new Categoria_data(con);
             
             String matris[][] = new String[lista.size()][6];

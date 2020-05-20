@@ -5,17 +5,50 @@
  */
 package pnls;
 
-/**
- *
- * @author Alex
- */
+import Clases.*;
+import Clases_data.*;
+import java.util.List;
+import javax.swing.JOptionPane;
 public class Provedores extends javax.swing.JPanel {
 
     /**
      * Creates new form Provedores
      */
     public Provedores() {
-        initComponents();
+        initComponents();try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Provedor_data provedor_data = new Provedor_data(con);
+            List<Provedor> lista_provedores = provedor_data.obtenerProvedores();
+            
+            mostrarLista(lista_provedores);
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+    }
+    
+    public void mostrarLista(List<Provedor> lista){
+        try{
+            String matris[][] = new String[lista.size()][4];
+            
+            for (int i = 0; i < lista.size(); i++){
+                matris[i][0] = lista.get(i).getNombre();
+                matris[i][1] = lista.get(i).getDireccion();
+                matris[i][2] = Long.toString(lista.get(i).getTelefono());
+                matris[i][3] = lista.get(i).getCorreo();
+            }
+            
+            jtProvedores.setModel(new javax.swing.table.DefaultTableModel(
+            matris,
+            new String [] {
+                "Nombre", "Direccion", "Numero", "E-Mail"
+            }
+        ) {
+        });
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" + e);
+        
+        }
     }
 
     /**
@@ -43,7 +76,7 @@ public class Provedores extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtProvedores = new javax.swing.JTable();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -195,7 +228,7 @@ public class Provedores extends javax.swing.JPanel {
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtProvedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -235,10 +268,10 @@ public class Provedores extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowHeight(25);
-        jTable1.setShowGrid(true);
-        jTable1.setShowVerticalLines(false);
-        jScrollPane2.setViewportView(jTable1);
+        jtProvedores.setRowHeight(25);
+        jtProvedores.setShowGrid(true);
+        jtProvedores.setShowVerticalLines(false);
+        jScrollPane2.setViewportView(jtProvedores);
 
         javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
         Registro.setLayout(RegistroLayout);
@@ -275,11 +308,11 @@ public class Provedores extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable jtProvedores;
     // End of variables declaration//GEN-END:variables
 }

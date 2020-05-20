@@ -5,10 +5,11 @@
  */
 package pnls;
 
-/**
- *
- * @author Alex
- */
+import Clases.*;
+import Clases_data.*;
+import java.util.List;
+import javax.swing.JOptionPane;
+
 public class Ventas1 extends javax.swing.JPanel {
 
     /**
@@ -16,6 +17,46 @@ public class Ventas1 extends javax.swing.JPanel {
      */
     public Ventas1() {
         initComponents();
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Venta_data venta_data = new Venta_data(con);
+            List<Venta> lista_ventas = venta_data.obtenerVentas();
+            
+            mostrarLista(lista_ventas);
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+    }
+    
+    public void mostrarLista(List<Venta> lista){
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            
+            Cliente_data cliente_data = new Cliente_data(con);
+            Metodo_de_pago_data metodo_de_pago_data = new Metodo_de_pago_data(con);
+            
+            String matris[][] = new String[lista.size()][5];
+            
+            for (int i = 0; i < lista.size(); i++){
+                matris[i][0] = cliente_data.getCliente_por_id(lista.get(i).getId_cliente()).getNombre();
+                matris[i][1] = lista.get(i).getFecha_y_hora().toString();
+                matris[i][2] = metodo_de_pago_data.getMetodo_de_pago_por_id(lista.get(i).getId_metodo_de_pago()).getNombre();
+                matris[i][3] = Double.toString(lista.get(i).getTotal());
+                matris[i][4] = Integer.toString(lista.get(i).getId_detalle());
+            }
+            
+            jtVentas.setModel(new javax.swing.table.DefaultTableModel(
+            matris,
+            new String [] {
+                "Cliente", "Fecha", "Importe", "Detalle"
+            }
+        ) {
+        });
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" + e);
+        
+        }
     }
 
     /**
@@ -194,38 +235,38 @@ public class Ventas1 extends javax.swing.JPanel {
 
         jtVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Cliente", "Fecha", "Importe", "Detalle"
+                "Cliente", "Fecha", "Importe", "Metodo de pago", "Detalle"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {

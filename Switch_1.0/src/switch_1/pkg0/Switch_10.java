@@ -4,6 +4,8 @@ package switch_1.pkg0;
 //No borren ningun paquete por favor f
 import Clases.Cliente;
 import Clases.Conexion;
+import Clases.Venta;
+import static Clases.Venta.mostrarVentas;
 import Clases_data.*;
 import Interfaz.Inicio;
 import java.util.List;
@@ -27,6 +29,9 @@ public class Switch_10 {
             Categoria_data categoria_data = new Categoria_data(con);
             Arqueo_data arqueo_data = new Arqueo_data(con);
             
+            //Venta a = new Venta();
+            //mostrarVentas(vd.obtenerVentas());
+            
              
             //String fec = "31-03-2016";
             //LocalDate date3 = LocalDate.parse("2018-10-30");
@@ -40,52 +45,6 @@ public class Switch_10 {
         Inicio inicio = new Inicio();
         inicio.setVisible(true);
         
-        /*
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Cliente_data cd = new Cliente_data(con);
-            List<Cliente> lista = cd.obtenerClientes();
-            
-            Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
-            List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
-            
-            mostrarLista(lista, lista2);
-            
-            
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
-        }
-        */
         
-        /*
-        try{
-            String matris[][] = new String[lista.size()][5];
-            
-            for (int i = 0; i < lista.size(); i++){
-                matris[i][0] = lista.get(i).getNombre();
-                matris[i][1] = lista.get(i).getBox();
-                matris[i][2] = Long.toString(lista.get(i).getTelefono());
-                matris[i][3] = lista.get(i).getCorreo();
-                matris[i][4] = "5";
-            }
-            
-            jtClientes.setModel(new javax.swing.table.DefaultTableModel(
-            matris,
-            new String [] {
-                "Nombre", "Box", "Telefono", "E-mail", "Saldo"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" + e);
-        }
-        */
     }
 }

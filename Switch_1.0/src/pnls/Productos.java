@@ -5,17 +5,56 @@
  */
 package pnls;
 
-/**
- *
- * @author Alex
- */
+import Clases.*;
+import Clases_data.*;
+import java.util.List;
+import javax.swing.JOptionPane;
 public class Productos extends javax.swing.JPanel {
 
     /**
      * Creates new form Productos
      */
     public Productos() {
-        initComponents();
+        initComponents();try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Producto_data producto_data = new Producto_data(con);
+            List<Producto> lista_productos = producto_data.obtenerProductos();
+            
+            mostrarLista(lista_productos);
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+    }
+    
+    public void mostrarLista(List<Producto> lista){
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            
+            Categoria_data categoria_data = new Categoria_data(con);
+            Provedor_data provedor_data = new Provedor_data(con);
+            
+            String matris[][] = new String[lista.size()][5];
+            
+            for (int i = 0; i < lista.size(); i++){
+                matris[i][0] = Long.toString(lista.get(i).getCodigo());
+                matris[i][1] = lista.get(i).getNombre();
+                matris[i][2] = Double.toString(lista.get(i).getCosto());
+                matris[i][3] = Double.toString(lista.get(i).getPrecio());
+                matris[i][4] = Integer.toString(lista.get(i).getCantidad());
+            }
+            
+            jtProductos.setModel(new javax.swing.table.DefaultTableModel(
+            matris,
+            new String [] {
+                "Codigo", "Nombre", "Coste", "Precio", "Stock"
+            }
+        ) {
+        });
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" + e);
+        
+        }
     }
 
     /**
@@ -46,7 +85,7 @@ public class Productos extends javax.swing.JPanel {
         categoriaMenu = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         registro = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jtProductos = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(964, 693));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -213,12 +252,12 @@ public class Productos extends javax.swing.JPanel {
             categoriaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoriaMenuLayout.createSequentialGroup()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(0, 474, Short.MAX_VALUE))
         );
 
         add(categoriaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 143, -1, 509));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jtProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -258,10 +297,10 @@ public class Productos extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowHeight(25);
-        jTable1.setShowGrid(true);
-        jTable1.setShowVerticalLines(false);
-        registro.setViewportView(jTable1);
+        jtProductos.setRowHeight(25);
+        jtProductos.setShowGrid(true);
+        jtProductos.setShowVerticalLines(false);
+        registro.setViewportView(jtProductos);
 
         add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 143, 553, 509));
     }// </editor-fold>//GEN-END:initComponents
@@ -283,7 +322,6 @@ public class Productos extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField5;
@@ -291,6 +329,7 @@ public class Productos extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTable jtProductos;
     private javax.swing.JScrollPane registro;
     // End of variables declaration//GEN-END:variables
 }
