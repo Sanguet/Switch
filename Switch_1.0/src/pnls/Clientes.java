@@ -104,16 +104,6 @@ public class Clientes extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         addMenu = new javax.swing.JPanel();
-        form = new javax.swing.JPanel();
-        jtfBox = new javax.swing.JTextField();
-        jtfNombre = new javax.swing.JTextField();
-        jtfTelefono = new javax.swing.JTextField();
-        jtfEmail = new javax.swing.JTextField();
-        jtfMetodo_de_pago = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtaComentario = new javax.swing.JTextArea();
-        jbConfirmar = new javax.swing.JButton();
-        jLabel7 = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtClientes = new javax.swing.JTable();
@@ -183,184 +173,15 @@ public class Clientes extends javax.swing.JPanel {
             }
         });
 
-        form.setBackground(new java.awt.Color(14, 21, 30));
-
-        jtfBox.setText("Box");
-        jtfBox.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jtfBoxFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtfBoxFocusLost(evt);
-            }
-        });
-
-        jtfNombre.setText("Nombre Apellido");
-        jtfNombre.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jtfNombreFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtfNombreFocusLost(evt);
-            }
-        });
-        jtfNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfNombreActionPerformed(evt);
-            }
-        });
-        jtfNombre.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtfNombreKeyTyped(evt);
-            }
-        });
-
-        jtfTelefono.setText("Telefono");
-        jtfTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jtfTelefonoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtfTelefonoFocusLost(evt);
-            }
-        });
-        jtfTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfTelefonoActionPerformed(evt);
-            }
-        });
-        jtfTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtfTelefonoKeyTyped(evt);
-            }
-        });
-
-        jtfEmail.setText("Email");
-        jtfEmail.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jtfEmailFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtfEmailFocusLost(evt);
-            }
-        });
-        jtfEmail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jtfEmailActionPerformed(evt);
-            }
-        });
-
-        jtfMetodo_de_pago.setText("Metodo de pago preferido");
-        jtfMetodo_de_pago.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jtfMetodo_de_pagoFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtfMetodo_de_pagoFocusLost(evt);
-            }
-        });
-        jtfMetodo_de_pago.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtfMetodo_de_pagoKeyTyped(evt);
-            }
-        });
-
-        jtaComentario.setColumns(20);
-        jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jtaComentario.setRows(5);
-        jtaComentario.setText("Comentario");
-        jtaComentario.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jtaComentarioFocusGained(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jtaComentario);
-
-        jbConfirmar.setBackground(new java.awt.Color(54, 197, 240));
-        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
-        jbConfirmar.setText("Confirmar");
-        jbConfirmar.setBorderPainted(false);
-        jbConfirmar.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jbConfirmarFocusGained(evt);
-            }
-        });
-        jbConfirmar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jbConfirmarMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jbConfirmarMouseEntered(evt);
-            }
-        });
-        jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbConfirmarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
-        form.setLayout(formLayout);
-        formLayout.setHorizontalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
-                        .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jtfMetodo_de_pago)
-                            .addComponent(jtfEmail)
-                            .addComponent(jtfNombre)
-                            .addComponent(jtfTelefono)
-                            .addComponent(jtfBox)
-                            .addComponent(jScrollPane1))
-                        .addGap(37, 37, 37))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
-                        .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(76, 76, 76))))
-        );
-        formLayout.setVerticalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jtfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jtfBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jtfTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jtfEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jtfMetodo_de_pago, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
-
-        jLabel7.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Nuevo Cliente");
-
         javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
         addMenu.setLayout(addMenuLayout);
         addMenuLayout.setHorizontalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 240, Short.MAX_VALUE)
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(0, 550, Short.MAX_VALUE)
         );
 
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 138, 240, 550));
@@ -440,29 +261,6 @@ public class Clientes extends javax.swing.JPanel {
         this.addMenu.setVisible(true);
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jtfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfNombreActionPerformed
-        
-    }//GEN-LAST:event_jtfNombreActionPerformed
-
-    private void jtfNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfNombreKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != KeyEvent.VK_SPACE)){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jtfNombreKeyTyped
-
-    private void jtfNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfNombreFocusLost
-        if (jtfNombre.getText().length() == 0){
-            this.jtfNombre.setText("*Es necesiario rellenar este campo");
-            this.jtfNombre.setForeground(Color.red);
-        }
-    }//GEN-LAST:event_jtfNombreFocusLost
-
-    private void jtfNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfNombreFocusGained
-        jtfNombre.setText("");
-        this.jtfNombre.setForeground(Color.black);
-    }//GEN-LAST:event_jtfNombreFocusGained
-
     private void jtClientesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtClientesFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_jtClientesFocusGained
@@ -471,124 +269,6 @@ public class Clientes extends javax.swing.JPanel {
         JOptionPane.showConfirmDialog(this, "Estas seguro que no quieres guardar el cliente?");
         
     }//GEN-LAST:event_addMenuFocusLost
-
-    private void jtfBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfBoxFocusLost
-
-    }//GEN-LAST:event_jtfBoxFocusLost
-
-    private void jtfTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfTelefonoKeyTyped
-        char c = evt.getKeyChar();
-        if (c < '0' || c > '9'){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jtfTelefonoKeyTyped
-
-    private void jtfTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfTelefonoFocusLost
-
-    }//GEN-LAST:event_jtfTelefonoFocusLost
-
-    private void jtfEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfEmailActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfEmailActionPerformed
-
-    private void jtfEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfEmailFocusLost
-
-    }//GEN-LAST:event_jtfEmailFocusLost
-
-    private void jtfBoxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfBoxFocusGained
-        jtfBox.setText("");
-        this.jtfBox.setForeground(Color.black);
-    }//GEN-LAST:event_jtfBoxFocusGained
-
-    private void jtfTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfTelefonoFocusGained
-        jtfTelefono.setText("");
-        this.jtfTelefono.setForeground(Color.black);
-    }//GEN-LAST:event_jtfTelefonoFocusGained
-
-    private void jtfEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfEmailFocusGained
-        jtfEmail.setText("");
-        this.jtfEmail.setForeground(Color.black);
-    }//GEN-LAST:event_jtfEmailFocusGained
-
-    private void jtfMetodo_de_pagoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfMetodo_de_pagoFocusGained
-        jtfMetodo_de_pago.setText("");
-        this.jtfMetodo_de_pago.setForeground(Color.black);
-    }//GEN-LAST:event_jtfMetodo_de_pagoFocusGained
-
-    private void jtaComentarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtaComentarioFocusGained
-        jtaComentario.setText("");
-        this.jtaComentario.setForeground(Color.black);
-    }//GEN-LAST:event_jtaComentarioFocusGained
-
-    private void jtfMetodo_de_pagoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtfMetodo_de_pagoFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfMetodo_de_pagoFocusLost
-
-    private void jtfMetodo_de_pagoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfMetodo_de_pagoKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != KeyEvent.VK_SPACE)){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jtfMetodo_de_pagoKeyTyped
-
-    private void jtfTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtfTelefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtfTelefonoActionPerformed
-
-    private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
-        try {
-            
-            if (jtfNombre.getText() == "*Es necesiario rellenar este campo"){
-                
-                //Agregamos a la base de datos el cliente
-                Conexion con = null;
-                con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-                Cliente cliente = new Cliente(jtfNombre.getText(),Long.parseLong(jtfTelefono.getText()), jtfEmail.getText(), jtfBox.getText(), jtfMetodo_de_pago.getText(), jtaComentario.getText());
-                Cliente_data cliente_data = new Cliente_data(con);
-                cliente_data.guardarCliente(cliente);
-                
-                //Agregamos a la base de datos la cuenta corriente
-                int id_cliente = cliente_data.getCliente_por_nombre(cliente.getNombre()).getId();
-                Cuenta_corriente cc = new Cuenta_corriente(id_cliente,0,1,"");
-                Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
-                ccd.guardarCuenta_corriente(cc);
-                
-                //Mensaje de confirmacion de que la el cliente se agrego correctamente
-                JOptionPane.showMessageDialog(null, "Felicidades, Cliente agregado");
-                
-                //Actualizamos la tabla
-                try{
-                    List<Cliente> lista = cliente_data.obtenerClientes();
-                    List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
-            
-                    mostrarLista(lista, lista2);
-            
-            
-                } catch (Exception e){
-                    JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
-                }
-
-                con.close();
-            }else{
-                JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el Cliente, un campo quedo sin rellenar");
-            }
-        } catch (Exception e){
-            System.out.println("Error al instanciar la clase conexion" + e.getMessage());
-            JOptionPane.showMessageDialog(null,"No se pudo guardar el cliente, compruebe su conexion a internet" + e);
-        }
-    }//GEN-LAST:event_jbConfirmarActionPerformed
-
-    private void jbConfirmarFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jbConfirmarFocusGained
-        //Nada
-    }//GEN-LAST:event_jbConfirmarFocusGained
-
-    private void jbConfirmarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbConfirmarMouseEntered
-        Sacar_texto();
-    }//GEN-LAST:event_jbConfirmarMouseEntered
-
-    private void jbConfirmarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jbConfirmarMouseClicked
-        //Nada
-    }//GEN-LAST:event_jbConfirmarMouseClicked
 
     private void addMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMenuMouseExited
         // TODO add your handling code here:
@@ -599,20 +279,10 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JPanel Registro;
     private javax.swing.JPanel Titulo;
     private javax.swing.JPanel addMenu;
-    private javax.swing.JPanel form;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton jbConfirmar;
     private javax.swing.JTable jtClientes;
-    private javax.swing.JTextArea jtaComentario;
-    private javax.swing.JTextField jtfBox;
-    private javax.swing.JTextField jtfEmail;
-    private javax.swing.JTextField jtfMetodo_de_pago;
-    private javax.swing.JTextField jtfNombre;
-    private javax.swing.JTextField jtfTelefono;
     // End of variables declaration//GEN-END:variables
 }

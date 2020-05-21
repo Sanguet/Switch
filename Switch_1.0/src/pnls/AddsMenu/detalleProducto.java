@@ -9,12 +9,12 @@ package pnls.AddsMenu;
  *
  * @author Alex
  */
-public class perfilCliente extends javax.swing.JPanel {
+public class detalleProducto extends javax.swing.JPanel {
 
     /**
-     * Creates new form perfilCliente
+     * Creates new form detalleProducto
      */
-    public perfilCliente() {
+    public detalleProducto() {
         initComponents();
     }
 
@@ -29,44 +29,45 @@ public class perfilCliente extends javax.swing.JPanel {
 
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
-        nombrecliente = new javax.swing.JLabel();
-        box = new javax.swing.JTextField();
-        tel = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        MetodoPreferido = new javax.swing.JTextField();
+        nombre = new javax.swing.JLabel();
+        Categoria = new javax.swing.JTextField();
+        Precio = new javax.swing.JTextField();
+        Costo = new javax.swing.JTextField();
+        Codigo = new javax.swing.JTextField();
         comentario = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         editar = new javax.swing.JButton();
         borrar = new javax.swing.JButton();
-        Saldo = new javax.swing.JTextField();
-        nuevaTransaccion = new javax.swing.JButton();
-        tituloCuentacorriente = new javax.swing.JLabel();
+        Stock = new javax.swing.JTextField();
+        nuevoStock = new javax.swing.JButton();
+        tituloStock = new javax.swing.JLabel();
+        Provedor = new javax.swing.JTextField();
         tituloAddMenu = new javax.swing.JLabel();
 
-        addMenu.setBackground(new java.awt.Color(54, 197, 240));
+        addMenu.setBackground(new java.awt.Color(224, 30, 90));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
 
-        nombrecliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
-        nombrecliente.setForeground(new java.awt.Color(255, 255, 255));
-        nombrecliente.setText("Nombre Apellido");
+        nombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
+        nombre.setForeground(new java.awt.Color(255, 255, 255));
+        nombre.setText("Nombre ");
 
-        box.setEditable(false);
-        box.setText("Box");
-        box.addActionListener(new java.awt.event.ActionListener() {
+        Categoria.setEditable(false);
+        Categoria.setText("Categoria");
+        Categoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxActionPerformed(evt);
+                CategoriaActionPerformed(evt);
             }
         });
 
-        tel.setEditable(false);
-        tel.setText("Telefono");
+        Precio.setEditable(false);
+        Precio.setText("Precio");
 
-        email.setEditable(false);
-        email.setText("Email");
+        Costo.setEditable(false);
+        Costo.setText("Costo");
 
-        MetodoPreferido.setEditable(false);
-        MetodoPreferido.setText("Metodo de pago preferido");
+        Codigo.setEditable(false);
+        Codigo.setText("Codigo");
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -75,32 +76,35 @@ public class perfilCliente extends javax.swing.JPanel {
         jTextArea1.setText("Comentario");
         comentario.setViewportView(jTextArea1);
 
-        editar.setBackground(new java.awt.Color(54, 197, 240));
+        editar.setBackground(new java.awt.Color(224, 30, 90));
         editar.setText("Editar");
         editar.setBorderPainted(false);
 
-        borrar.setBackground(new java.awt.Color(54, 197, 240));
+        borrar.setBackground(new java.awt.Color(224, 30, 90));
         borrar.setText("Borrar");
         borrar.setBorderPainted(false);
 
-        Saldo.setEditable(false);
-        Saldo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        Saldo.setText("0,00");
-        Saldo.addActionListener(new java.awt.event.ActionListener() {
+        Stock.setEditable(false);
+        Stock.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        Stock.setText("10u");
+        Stock.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaldoActionPerformed(evt);
+                StockActionPerformed(evt);
             }
         });
 
-        nuevaTransaccion.setBackground(new java.awt.Color(54, 197, 240));
-        nuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        nuevaTransaccion.setForeground(new java.awt.Color(255, 255, 255));
-        nuevaTransaccion.setText("Nueva transacción");
-        nuevaTransaccion.setBorderPainted(false);
+        nuevoStock.setBackground(new java.awt.Color(224, 30, 90));
+        nuevoStock.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        nuevoStock.setForeground(new java.awt.Color(255, 255, 255));
+        nuevoStock.setText("Nuevo Stock");
+        nuevoStock.setBorderPainted(false);
 
-        tituloCuentacorriente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        tituloCuentacorriente.setForeground(new java.awt.Color(255, 255, 255));
-        tituloCuentacorriente.setText("Cuenta Corriente");
+        tituloStock.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        tituloStock.setForeground(new java.awt.Color(255, 255, 255));
+        tituloStock.setText("Cantidad Stock");
+
+        Provedor.setEditable(false);
+        Provedor.setText("Provedor");
 
         javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
         form.setLayout(formLayout);
@@ -109,56 +113,59 @@ public class perfilCliente extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
                 .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(nuevaTransaccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(nuevoStock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(formLayout.createSequentialGroup()
                             .addComponent(editar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
                             .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(MetodoPreferido, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(box, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Codigo, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Costo, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Precio, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(Categoria, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(comentario, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(formLayout.createSequentialGroup()
-                            .addComponent(tituloCuentacorriente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(tituloStock, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(Stock, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Provedor, javax.swing.GroupLayout.Alignment.LEADING)))
                 .addGap(34, 34, 34))
         );
         formLayout.setVerticalGroup(
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(editar)
                     .addComponent(borrar))
                 .addGap(17, 17, 17)
-                .addComponent(box, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Precio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Costo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(MetodoPreferido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Provedor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tituloCuentacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Stock, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloStock, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(nuevaTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(88, Short.MAX_VALUE))
+                .addComponent(nuevoStock, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloAddMenu.setText("Perfil de Cliente");
+        tituloAddMenu.setText("Detalles del Producto");
 
         javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
         addMenu.setLayout(addMenuLayout);
@@ -196,30 +203,31 @@ public class perfilCliente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaldoActionPerformed
+    private void CategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CategoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SaldoActionPerformed
+    }//GEN-LAST:event_CategoriaActionPerformed
 
-    private void boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxActionPerformed
+    private void StockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StockActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boxActionPerformed
+    }//GEN-LAST:event_StockActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField MetodoPreferido;
-    private javax.swing.JTextField Saldo;
+    private javax.swing.JTextField Categoria;
+    private javax.swing.JTextField Codigo;
+    private javax.swing.JTextField Costo;
+    private javax.swing.JTextField Precio;
+    private javax.swing.JTextField Provedor;
+    private javax.swing.JTextField Stock;
     private javax.swing.JPanel addMenu;
     private javax.swing.JButton borrar;
-    private javax.swing.JTextField box;
     private javax.swing.JScrollPane comentario;
     private javax.swing.JButton editar;
-    private javax.swing.JTextField email;
     private javax.swing.JPanel form;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel nombrecliente;
-    private javax.swing.JButton nuevaTransaccion;
-    private javax.swing.JTextField tel;
+    private javax.swing.JLabel nombre;
+    private javax.swing.JButton nuevoStock;
     private javax.swing.JLabel tituloAddMenu;
-    private javax.swing.JLabel tituloCuentacorriente;
+    private javax.swing.JLabel tituloStock;
     // End of variables declaration//GEN-END:variables
 }
