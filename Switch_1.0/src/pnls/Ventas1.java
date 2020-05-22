@@ -105,7 +105,7 @@ public class Ventas1 extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setText("Imagen");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/VentasR.png"))); // NOI18N
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
         jButton6.setBackground(new java.awt.Color(14, 21, 30));

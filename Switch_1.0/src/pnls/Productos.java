@@ -65,6 +65,7 @@ public class Productos extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
@@ -78,10 +79,13 @@ public class Productos extends javax.swing.JPanel {
         jtProductos = new javax.swing.JTable();
 
         setPreferredSize(new java.awt.Dimension(964, 693));
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(new java.awt.GridBagLayout());
 
         Titulo.setBackground(new java.awt.Color(255, 255, 255));
-        Titulo.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        Titulo.setMaximumSize(new java.awt.Dimension(1920, 100));
+        Titulo.setMinimumSize(new java.awt.Dimension(1300, 100));
+        Titulo.setPreferredSize(new java.awt.Dimension(1920, 100));
+        Titulo.setVerifyInputWhenFocusTarget(false);
 
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Productos");
@@ -98,7 +102,7 @@ public class Productos extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setText("Imagen");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/ProductosR.png"))); // NOI18N
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
         jButton6.setBackground(new java.awt.Color(14, 21, 30));
@@ -122,28 +126,43 @@ public class Productos extends javax.swing.JPanel {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 764, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28))
+                .addGap(30, 30, 30))
         );
         TituloLayout.setVerticalGroup(
             TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TituloLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
                 .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                    .addGroup(TituloLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(TituloLayout.createSequentialGroup()
+                        .addGap(44, 44, 44)
+                        .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
-        add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1004, 125));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.gridwidth = 5;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+        gridBagConstraints.ipadx = 207;
+        gridBagConstraints.ipady = 27;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        add(Titulo, gridBagConstraints);
 
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
+        addMenu.setMaximumSize(new java.awt.Dimension(240, 300));
+        addMenu.setMinimumSize(new java.awt.Dimension(0, 300));
+        addMenu.setPreferredSize(new java.awt.Dimension(240, 300));
 
         javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
         addMenu.setLayout(addMenuLayout);
@@ -153,12 +172,23 @@ public class Productos extends javax.swing.JPanel {
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
+            .addGap(0, 1009, Short.MAX_VALUE)
         );
 
-        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(741, 143, 240, -1));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 240;
+        gridBagConstraints.ipady = 509;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 18, 9, 0);
+        add(addMenu, gridBagConstraints);
 
         categoriaMenu.setBackground(new java.awt.Color(14, 21, 30));
+        categoriaMenu.setMaximumSize(new java.awt.Dimension(150, 300));
+        categoriaMenu.setMinimumSize(new java.awt.Dimension(150, 300));
+        categoriaMenu.setPreferredSize(new java.awt.Dimension(143, 300));
 
         jButton1.setBackground(new java.awt.Color(14, 21, 30));
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -177,10 +207,21 @@ public class Productos extends javax.swing.JPanel {
             categoriaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(categoriaMenuLayout.createSequentialGroup()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 474, Short.MAX_VALUE))
+                .addGap(0, 974, Short.MAX_VALUE))
         );
 
-        add(categoriaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 143, -1, 509));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.VERTICAL;
+        gridBagConstraints.ipady = 474;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(18, 21, 9, 0);
+        add(categoriaMenu, gridBagConstraints);
+
+        registro.setMaximumSize(new java.awt.Dimension(800, 300));
+        registro.setMinimumSize(new java.awt.Dimension(600, 300));
+        registro.setPreferredSize(new java.awt.Dimension(800, 300));
 
         jtProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -222,12 +263,25 @@ public class Productos extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
+        jtProductos.setMaximumSize(new java.awt.Dimension(800, 300));
+        jtProductos.setMinimumSize(new java.awt.Dimension(23, 300));
+        jtProductos.setPreferredSize(new java.awt.Dimension(800, 300));
         jtProductos.setRowHeight(25);
         jtProductos.setShowGrid(true);
         jtProductos.setShowVerticalLines(false);
         registro.setViewportView(jtProductos);
 
-        add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 143, 553, 509));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 2;
+        gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+        gridBagConstraints.ipadx = 530;
+        gridBagConstraints.ipady = 482;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.weightx = 1.0;
+        gridBagConstraints.weighty = 1.0;
+        gridBagConstraints.insets = new java.awt.Insets(18, 0, 9, 0);
+        add(registro, gridBagConstraints);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed

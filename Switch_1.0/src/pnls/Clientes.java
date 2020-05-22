@@ -128,7 +128,8 @@ public class Clientes extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setText("Imagen");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/ClientesR.png"))); // NOI18N
+        jLabel6.setToolTipText("");
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);

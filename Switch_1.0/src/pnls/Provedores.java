@@ -89,7 +89,7 @@ public class Provedores extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setText("Imagen");
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/ProvedoresR.png"))); // NOI18N
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);
@@ -190,14 +190,14 @@ public class Provedores extends javax.swing.JPanel {
         Registro.setLayout(RegistroLayout);
         RegistroLayout.setHorizontalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 708, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
         );
         RegistroLayout.setVerticalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
 
-        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 142, -1, 400));
+        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 142, 690, 400));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
