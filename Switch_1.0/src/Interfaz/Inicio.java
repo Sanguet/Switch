@@ -29,7 +29,7 @@ public class Inicio extends javax.swing.JFrame{
         this.setExtendedState(6);
         this.setResizable(false);
         
-        
+        String a = ";";
     }
         
     /**
