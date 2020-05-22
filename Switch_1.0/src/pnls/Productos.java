@@ -9,6 +9,8 @@ import Clases.*;
 import Clases_data.*;
 import java.util.List;
 import javax.swing.JOptionPane;
+import pnls.AddsMenu.nuevoCliente;
+import pnls.AddsMenu.nuevoProducto;
 public class Productos extends javax.swing.JPanel {
 
     /**
@@ -68,9 +70,9 @@ public class Productos extends javax.swing.JPanel {
 
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
+        jbNuevo_producto = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        jbNuena_categoria = new javax.swing.JButton();
         addMenu = new javax.swing.JPanel();
         categoriaMenu = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -86,30 +88,30 @@ public class Productos extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Productos");
 
-        jButton5.setBackground(new java.awt.Color(14, 21, 30));
-        jButton5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Nuevo Producto");
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        jbNuevo_producto.setBackground(new java.awt.Color(14, 21, 30));
+        jbNuevo_producto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNuevo_producto.setForeground(new java.awt.Color(255, 255, 255));
+        jbNuevo_producto.setText("Nuevo Producto");
+        jbNuevo_producto.setBorder(null);
+        jbNuevo_producto.setBorderPainted(false);
+        jbNuevo_producto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                jbNuevo_productoActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Imagen");
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
-        jButton6.setBackground(new java.awt.Color(14, 21, 30));
-        jButton6.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("Nueva Categoria");
-        jButton6.setBorder(null);
-        jButton6.setBorderPainted(false);
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jbNuena_categoria.setBackground(new java.awt.Color(14, 21, 30));
+        jbNuena_categoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNuena_categoria.setForeground(new java.awt.Color(255, 255, 255));
+        jbNuena_categoria.setText("Nueva Categoria");
+        jbNuena_categoria.setBorder(null);
+        jbNuena_categoria.setBorderPainted(false);
+        jbNuena_categoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jbNuena_categoriaActionPerformed(evt);
             }
         });
 
@@ -123,9 +125,9 @@ public class Productos extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbNuevo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28))
         );
         TituloLayout.setVerticalGroup(
@@ -134,8 +136,8 @@ public class Productos extends javax.swing.JPanel {
                 .addGap(36, 36, 36)
                 .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbNuevo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel5)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(38, Short.MAX_VALUE))
@@ -144,19 +146,8 @@ public class Productos extends javax.swing.JPanel {
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1004, 125));
 
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
-
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 240, Short.MAX_VALUE)
-        );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
-        );
-
-        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(741, 143, 240, -1));
+        addMenu.setLayout(new javax.swing.BoxLayout(addMenu, javax.swing.BoxLayout.LINE_AXIS));
+        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(741, 143, 240, 510));
 
         categoriaMenu.setBackground(new java.awt.Color(14, 21, 30));
 
@@ -230,13 +221,13 @@ public class Productos extends javax.swing.JPanel {
         add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 143, 553, 509));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void jbNuevo_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_productoActionPerformed
+        new CambiaPanel(this.addMenu, new nuevoProducto());
+    }//GEN-LAST:event_jbNuevo_productoActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jbNuena_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuena_categoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_jbNuena_categoriaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -244,10 +235,10 @@ public class Productos extends javax.swing.JPanel {
     private javax.swing.JPanel addMenu;
     private javax.swing.JPanel categoriaMenu;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jbNuena_categoria;
+    private javax.swing.JButton jbNuevo_producto;
     private javax.swing.JTable jtProductos;
     private javax.swing.JScrollPane registro;
     // End of variables declaration//GEN-END:variables
