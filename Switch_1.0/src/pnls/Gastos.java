@@ -118,8 +118,7 @@ public class Gastos extends javax.swing.JPanel {
             }
         });
 
-        jLabel6.setText("Imagen");
-        jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/GastosR.png"))); // NOI18N
 
         jbNuevo_gasto.setBackground(new java.awt.Color(14, 21, 30));
         jbNuevo_gasto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
@@ -139,7 +138,7 @@ public class Gastos extends javax.swing.JPanel {
             TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TituloLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
@@ -156,7 +155,7 @@ public class Gastos extends javax.swing.JPanel {
                         .addGap(36, 36, 36)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel6)))
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -339,14 +338,14 @@ public class Gastos extends javax.swing.JPanel {
         Registro.setLayout(RegistroLayout);
         RegistroLayout.setHorizontalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
         );
         RegistroLayout.setVerticalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 439, Short.MAX_VALUE)
         );
 
-        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 149, -1, 439));
+        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 149, 690, 439));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbNueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_categoriaActionPerformed

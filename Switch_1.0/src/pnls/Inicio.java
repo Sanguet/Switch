@@ -39,7 +39,7 @@ public class Inicio extends javax.swing.JPanel {
         Titulo.setBackground(new java.awt.Color(255, 255, 255));
         Titulo.setPreferredSize(new java.awt.Dimension(1920, 1080));
 
-        jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 60)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Mi Negocio");
 
         jbNueva_categoria.setBackground(new java.awt.Color(14, 21, 30));
@@ -54,6 +54,7 @@ public class Inicio extends javax.swing.JPanel {
             }
         });
 
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/HomeR.png"))); // NOI18N
         jLabel6.setText("Imagen");
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
@@ -75,7 +76,7 @@ public class Inicio extends javax.swing.JPanel {
             TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TituloLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 191, Short.MAX_VALUE)
@@ -89,16 +90,16 @@ public class Inicio extends javax.swing.JPanel {
             .addGroup(TituloLayout.createSequentialGroup()
                 .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TituloLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbNueva_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(34, Short.MAX_VALUE))
+                            .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(TituloLayout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         grafico1.setBackground(new java.awt.Color(255, 255, 255));

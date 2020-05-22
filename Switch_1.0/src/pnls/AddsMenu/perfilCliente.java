@@ -5,6 +5,19 @@
  */
 package pnls.AddsMenu;
 
+import pnls.Clientes;
+
+import Clases.Cliente;
+import Clases.Conexion;
+import Clases.Cuenta_corriente;
+import Clases_data.Cliente_data;
+import Clases_data.Cuenta_corriente_data;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import javax.swing.JOptionPane;
+import pnls.AddsMenu.nuevoCliente;
+import pnls.AddsMenu.perfilCliente;
 /**
  *
  * @author Alex
@@ -16,6 +29,13 @@ public class perfilCliente extends javax.swing.JPanel {
      */
     public perfilCliente() {
         initComponents();
+        
+        jlNombre.setText(Clientes.nombre);
+        jtBox.setText(Clientes.box);
+        jtTelefono.setText(Clientes.telefono);
+        jtEmail.setText(Clientes.email);
+        jtMetodo_de_pago.setText(Clientes.cliente_pasado.getMetodo_de_pago_preferido());
+        jtaComentario.setText(Clientes.comentario);
     }
 
     /**
@@ -29,17 +49,17 @@ public class perfilCliente extends javax.swing.JPanel {
 
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
-        nombrecliente = new javax.swing.JLabel();
-        box = new javax.swing.JTextField();
-        tel = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        MetodoPreferido = new javax.swing.JTextField();
+        jlNombre = new javax.swing.JLabel();
+        jtBox = new javax.swing.JTextField();
+        jtTelefono = new javax.swing.JTextField();
+        jtEmail = new javax.swing.JTextField();
+        jtMetodo_de_pago = new javax.swing.JTextField();
         comentario = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        editar = new javax.swing.JButton();
-        borrar = new javax.swing.JButton();
-        Saldo = new javax.swing.JTextField();
-        nuevaTransaccion = new javax.swing.JButton();
+        jtaComentario = new javax.swing.JTextArea();
+        jbEditar = new javax.swing.JButton();
+        jbBorrar = new javax.swing.JButton();
+        jlSaldo = new javax.swing.JTextField();
+        jbTransaccion = new javax.swing.JButton();
         tituloCuentacorriente = new javax.swing.JLabel();
         tituloAddMenu = new javax.swing.JLabel();
 
@@ -47,56 +67,66 @@ public class perfilCliente extends javax.swing.JPanel {
 
         form.setBackground(new java.awt.Color(14, 21, 30));
 
-        nombrecliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
-        nombrecliente.setForeground(new java.awt.Color(255, 255, 255));
-        nombrecliente.setText("Nombre Apellido");
+        jlNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
+        jlNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombre.setText("Nombre Apellido");
 
-        box.setEditable(false);
-        box.setText("Box");
-        box.addActionListener(new java.awt.event.ActionListener() {
+        jtBox.setText("Box");
+        jtBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxActionPerformed(evt);
+                jtBoxActionPerformed(evt);
             }
         });
 
-        tel.setEditable(false);
-        tel.setText("Telefono");
+        jtTelefono.setText("Telefono");
 
-        email.setEditable(false);
-        email.setText("Email");
+        jtEmail.setText("Email");
 
-        MetodoPreferido.setEditable(false);
-        MetodoPreferido.setText("Metodo de pago preferido");
+        jtMetodo_de_pago.setText("Metodo de pago preferido");
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Comentario");
-        comentario.setViewportView(jTextArea1);
+        jtaComentario.setColumns(20);
+        jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentario.setRows(5);
+        jtaComentario.setText("Comentario");
+        comentario.setViewportView(jtaComentario);
 
-        editar.setBackground(new java.awt.Color(54, 197, 240));
-        editar.setText("Editar");
-        editar.setBorderPainted(false);
-
-        borrar.setBackground(new java.awt.Color(54, 197, 240));
-        borrar.setText("Borrar");
-        borrar.setBorderPainted(false);
-
-        Saldo.setEditable(false);
-        Saldo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        Saldo.setText("0,00");
-        Saldo.addActionListener(new java.awt.event.ActionListener() {
+        jbEditar.setBackground(new java.awt.Color(54, 197, 240));
+        jbEditar.setText("Editar");
+        jbEditar.setBorderPainted(false);
+        jbEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SaldoActionPerformed(evt);
+                jbEditarActionPerformed(evt);
             }
         });
 
-        nuevaTransaccion.setBackground(new java.awt.Color(54, 197, 240));
-        nuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        nuevaTransaccion.setForeground(new java.awt.Color(255, 255, 255));
-        nuevaTransaccion.setText("Nueva transacción");
-        nuevaTransaccion.setBorderPainted(false);
+        jbBorrar.setBackground(new java.awt.Color(54, 197, 240));
+        jbBorrar.setText("Borrar");
+        jbBorrar.setBorderPainted(false);
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
+
+        jlSaldo.setEditable(false);
+        jlSaldo.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jlSaldo.setText("0,00");
+        jlSaldo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jlSaldoActionPerformed(evt);
+            }
+        });
+
+        jbTransaccion.setBackground(new java.awt.Color(54, 197, 240));
+        jbTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbTransaccion.setForeground(new java.awt.Color(255, 255, 255));
+        jbTransaccion.setText("Nueva transacción");
+        jbTransaccion.setBorderPainted(false);
+        jbTransaccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbTransaccionActionPerformed(evt);
+            }
+        });
 
         tituloCuentacorriente.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         tituloCuentacorriente.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,49 +139,49 @@ public class perfilCliente extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
                 .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(nuevaTransaccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbTransaccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(formLayout.createSequentialGroup()
-                            .addComponent(editar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(MetodoPreferido, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(tel, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(box, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtMetodo_de_pago, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jtEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jtTelefono, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jtBox, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(comentario, javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(formLayout.createSequentialGroup()
                             .addComponent(tituloCuentacorriente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addComponent(Saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jlSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(34, 34, 34))
         );
         formLayout.setVerticalGroup(
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(nombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jlNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(editar)
-                    .addComponent(borrar))
+                    .addComponent(jbEditar)
+                    .addComponent(jbBorrar))
                 .addGap(17, 17, 17)
-                .addComponent(box, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(MetodoPreferido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtMetodo_de_pago, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Saldo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlSaldo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(tituloCuentacorriente, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(nuevaTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(88, Short.MAX_VALUE))
         );
 
@@ -196,29 +226,71 @@ public class perfilCliente extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SaldoActionPerformed
+    private void jlSaldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jlSaldoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_SaldoActionPerformed
+    }//GEN-LAST:event_jlSaldoActionPerformed
 
-    private void boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxActionPerformed
+    private void jtBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boxActionPerformed
+    }//GEN-LAST:event_jtBoxActionPerformed
+
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer agregar este cliente?");
+        if(JOptionPane.YES_OPTION == msj){
+            try{
+                Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                Cliente_data cd = new Cliente_data(con);
+                cd.borrarCliente(Clientes.cliente_pasado);
+
+                JOptionPane.showMessageDialog(null, "Se borro con exito el Cliente" );
+
+                this.setVisible(false);
+
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jbBorrarActionPerformed
+
+    private void jbTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTransaccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbTransaccionActionPerformed
+
+    private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer editar este cliente?");
+        if(JOptionPane.YES_OPTION == msj){
+            try{
+                Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                Cliente_data cd = new Cliente_data(con);
+                Cliente cliente = new Cliente(jlNombre.getText(), Long.parseLong(jtTelefono.getText()), jtEmail.getText(), jtBox.getText(), jtMetodo_de_pago.getText(), jtaComentario.getText());
+
+                cd.actualizarCliente_por_id(cliente, Clientes.cliente_pasado.getId());
+
+                JOptionPane.showMessageDialog(null, "Se actualizo con exito el Cliente" );
+
+                this.setVisible(false);
+
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jbEditarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField MetodoPreferido;
-    private javax.swing.JTextField Saldo;
     private javax.swing.JPanel addMenu;
-    private javax.swing.JButton borrar;
-    private javax.swing.JTextField box;
     private javax.swing.JScrollPane comentario;
-    private javax.swing.JButton editar;
-    private javax.swing.JTextField email;
     private javax.swing.JPanel form;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JLabel nombrecliente;
-    private javax.swing.JButton nuevaTransaccion;
-    private javax.swing.JTextField tel;
+    private javax.swing.JButton jbBorrar;
+    private javax.swing.JButton jbEditar;
+    private javax.swing.JButton jbTransaccion;
+    private javax.swing.JLabel jlNombre;
+    private javax.swing.JTextField jlSaldo;
+    private javax.swing.JTextField jtBox;
+    private javax.swing.JTextField jtEmail;
+    private javax.swing.JTextField jtMetodo_de_pago;
+    private javax.swing.JTextField jtTelefono;
+    private javax.swing.JTextArea jtaComentario;
     private javax.swing.JLabel tituloAddMenu;
     private javax.swing.JLabel tituloCuentacorriente;
     // End of variables declaration//GEN-END:variables

@@ -46,7 +46,7 @@ public class Inicio extends javax.swing.JFrame{
         panelBase = new javax.swing.JPanel();
         verticalMenu = new javax.swing.JPanel();
         jbVentas = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        jbInicio = new javax.swing.JButton();
         jbGastos = new javax.swing.JButton();
         jbClientes = new javax.swing.JButton();
         jbProductos = new javax.swing.JButton();
@@ -56,7 +56,6 @@ public class Inicio extends javax.swing.JFrame{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(1080, 720));
         setMinimumSize(new java.awt.Dimension(1080, 720));
         setUndecorated(true);
 
@@ -112,21 +111,21 @@ public class Inicio extends javax.swing.JFrame{
             }
         });
 
-        jButton9.setBackground(new java.awt.Color(255, 255, 255));
-        jButton9.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
-        jButton9.setForeground(new java.awt.Color(255, 255, 255));
-        jButton9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeN.png"))); // NOI18N
-        jButton9.setToolTipText("");
-        jButton9.setBorderPainted(false);
-        jButton9.setContentAreaFilled(false);
-        jButton9.setMaximumSize(new java.awt.Dimension(70, 70));
-        jButton9.setMinimumSize(new java.awt.Dimension(70, 70));
-        jButton9.setPreferredSize(new java.awt.Dimension(70, 70));
-        jButton9.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeN.png"))); // NOI18N
-        jButton9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeN.png"))); // NOI18N
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
+        jbInicio.setBackground(new java.awt.Color(255, 255, 255));
+        jbInicio.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
+        jbInicio.setForeground(new java.awt.Color(255, 255, 255));
+        jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeN.png"))); // NOI18N
+        jbInicio.setToolTipText("");
+        jbInicio.setBorderPainted(false);
+        jbInicio.setContentAreaFilled(false);
+        jbInicio.setMaximumSize(new java.awt.Dimension(70, 70));
+        jbInicio.setMinimumSize(new java.awt.Dimension(70, 70));
+        jbInicio.setPreferredSize(new java.awt.Dimension(70, 70));
+        jbInicio.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeN.png"))); // NOI18N
+        jbInicio.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeN.png"))); // NOI18N
+        jbInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
+                jbInicioActionPerformed(evt);
             }
         });
 
@@ -216,7 +215,7 @@ public class Inicio extends javax.swing.JFrame{
         verticalMenuLayout.setHorizontalGroup(
             verticalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jbVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jbInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jbGastos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addComponent(jbClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jbProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -227,7 +226,7 @@ public class Inicio extends javax.swing.JFrame{
             verticalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(verticalMenuLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47)
                 .addComponent(jbVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -269,27 +268,51 @@ public class Inicio extends javax.swing.JFrame{
 
     private void jbVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVentasActionPerformed
         new CambiaPanel(this.panelBase, new Ventas1());
+        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/VentaN.png")));
+        jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Provedores.png")));
+        jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
+        jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Gastos.png")));
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Clientes.png")));
     }//GEN-LAST:event_jbVentasActionPerformed
 
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+    private void jbInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
+    }//GEN-LAST:event_jbInicioActionPerformed
 
     private void jbGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGastosActionPerformed
         new CambiaPanel(this.panelBase, new Gastos());
+        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png")));
+        jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Provedores.png")));
+        jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
+        jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosN.png")));
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Clientes.png")));
     }//GEN-LAST:event_jbGastosActionPerformed
 
     private void jbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClientesActionPerformed
+        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png")));
+        jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Provedores.png")));
+        jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
+        jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Gastos.png")));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesN.png")));
         new CambiaPanel(this.panelBase, new Clientes());
     }//GEN-LAST:event_jbClientesActionPerformed
 
     private void jbProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProductosActionPerformed
         new CambiaPanel(this.panelBase, new Productos());
+        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png")));
+        jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Provedores.png")));
+        jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProductosN.png")));
+        jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Gastos.png")));
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Clientes.png")));
     }//GEN-LAST:event_jbProductosActionPerformed
 
     private void jbProvedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProvedoresActionPerformed
         new CambiaPanel(this.panelBase, new Provedores());
+        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png")));
+        jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProvedoresN.png")));
+        jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
+        jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Gastos.png")));
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Clientes.png")));
     }//GEN-LAST:event_jbProvedoresActionPerformed
 
     private void jbOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOpcionesActionPerformed
@@ -340,9 +363,9 @@ public class Inicio extends javax.swing.JFrame{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cerrar;
     private javax.swing.JDesktopPane Escritorio;
-    private javax.swing.JButton jButton9;
     private javax.swing.JButton jbClientes;
     private javax.swing.JButton jbGastos;
+    private javax.swing.JButton jbInicio;
     private javax.swing.JButton jbOpciones;
     private javax.swing.JButton jbProductos;
     private javax.swing.JButton jbProvedores;

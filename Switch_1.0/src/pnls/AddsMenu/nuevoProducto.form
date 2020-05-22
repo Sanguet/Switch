@@ -11,27 +11,11 @@
     <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
     <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,38,0,0,0,-15"/>
   </AuxValues>
 
-  <Layout>
-    <DimensionLayout dim="0">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="addMenu" min="-2" pref="240" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-      </Group>
-    </DimensionLayout>
-    <DimensionLayout dim="1">
-      <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-              <Component id="addMenu" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-          </Group>
-      </Group>
-    </DimensionLayout>
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout">
+    <Property name="useNullLayout" type="boolean" value="false"/>
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JPanel" name="addMenu">
@@ -40,6 +24,11 @@
           <Color blue="5a" green="1e" red="e0" type="rgb"/>
         </Property>
       </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
+          <AbsoluteConstraints x="0" y="0" width="240" height="-1"/>
+        </Constraint>
+      </Constraints>
 
       <Layout>
         <DimensionLayout dim="0">
@@ -77,14 +66,14 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                          <Component id="Provedor" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Codigo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Costo" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Precio" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Categoria" alignment="0" max="32767" attributes="0"/>
-                          <Component id="Nombre" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtCodigo" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtCosto" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtPrecio" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtNombre" alignment="0" max="32767" attributes="0"/>
                           <Component id="Comentario" pref="0" max="32767" attributes="0"/>
-                          <Component id="Confirmar" pref="170" max="32767" attributes="0"/>
+                          <Component id="jbConfirmar" pref="170" max="32767" attributes="0"/>
+                          <Component id="jcbCategoria" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jcbProvedor" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
@@ -94,28 +83,28 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                      <Component id="Nombre" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jtNombre" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Categoria" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jcbCategoria" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Precio" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jtPrecio" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Costo" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jtCosto" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Codigo" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jtCodigo" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="Provedor" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jcbProvedor" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="Comentario" min="-2" pref="66" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="Confirmar" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="jbConfirmar" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace pref="98" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="Confirmar">
+            <Component class="javax.swing.JButton" name="jbConfirmar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="5a" green="1e" red="e0" type="rgb"/>
@@ -130,7 +119,7 @@
                 <Property name="borderPainted" type="boolean" value="false"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConfirmarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbConfirmarActionPerformed"/>
               </Events>
             </Component>
             <Container class="javax.swing.JScrollPane" name="Comentario">
@@ -140,7 +129,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                <Component class="javax.swing.JTextArea" name="jtaComentario">
                   <Properties>
                     <Property name="columns" type="int" value="20"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -149,41 +138,74 @@
                     <Property name="rows" type="int" value="5"/>
                     <Property name="text" type="java.lang.String" value="Comentario"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtaComentarioFocusGained"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JTextField" name="Nombre">
+            <Component class="javax.swing.JTextField" name="jtNombre">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Nombre*"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NombreActionPerformed"/>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtNombreFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtNombreFocusLost"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtNombreActionPerformed"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtNombreKeyTyped"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="Provedor">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Provedor"/>
-              </Properties>
-            </Component>
-            <Component class="javax.swing.JTextField" name="Codigo">
+            <Component class="javax.swing.JTextField" name="jtCodigo">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Codigo"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtCodigoFocusGained"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtCodigoKeyTyped"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="Costo">
+            <Component class="javax.swing.JTextField" name="jtCosto">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Costo"/>
+                <Property name="text" type="java.lang.String" value="Costo*"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtCostoFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtCostoFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtCostoKeyTyped"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="Precio">
+            <Component class="javax.swing.JTextField" name="jtPrecio">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Precio*"/>
               </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtPrecioFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtPrecioFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtPrecioKeyTyped"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="Categoria">
+            <Component class="javax.swing.JComboBox" name="jcbCategoria">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Categoria*"/>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbCategoriaActionPerformed"/>
+              </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
+            </Component>
+            <Component class="javax.swing.JComboBox" name="jcbProvedor">
+              <Properties>
+                <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+                  <StringArray count="0"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

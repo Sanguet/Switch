@@ -5,17 +5,64 @@
  */
 package pnls.AddsMenu;
 
-/**
- *
- * @author Alex
- */
+import pnls.Clientes;
+
+import Clases.Cliente;
+import Clases.Conexion;
+import Clases.Cuenta_corriente;
+import Clases_data.Cliente_data;
+import Clases_data.Cuenta_corriente_data;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import javax.swing.JOptionPane;
+import pnls.AddsMenu.nuevoCliente;
 public class nuevoCliente extends javax.swing.JPanel {
 
     /**
      * Creates new form nuevoCliente
      */
+    public static Clientes ventana_cliente = new Clientes();
     public nuevoCliente() {
         initComponents();
+        
+        
+        /*
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Cliente_data cd = new Cliente_data(con);
+            List<Cliente> lista = cd.obtenerClientes();
+            
+            Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
+            List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
+            
+            c.mostrarLista(lista, lista2);
+            
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }*/
+    }
+    public void Sacar_texto(){
+        if("Telefono".equals(jtTelefono.getText())){
+            jtTelefono.setText("0");
+            }
+                
+        if("Email".equals(jtEmail.getText())){
+            jtEmail.setText(null);
+            }
+                
+        if("Box".equals(jtBox.getText())){
+            jtBox.setText(null);
+            }
+                
+        if("Metodo de pago preferido".equals(jtMetodo_de_pago.getText())){
+            jtMetodo_de_pago.setText(null);
+        }
+                
+        if("Comentario".equals(jtaComentario.getText())){
+            jtaComentario.setText(null);
+        }
     }
 
     /**
@@ -29,49 +76,124 @@ public class nuevoCliente extends javax.swing.JPanel {
 
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
-        box = new javax.swing.JTextField();
-        tel = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        MetodoPreferido = new javax.swing.JTextField();
-        comentario = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        nuevaTransaccion = new javax.swing.JButton();
-        Nombre = new javax.swing.JTextField();
+        jtBox = new javax.swing.JTextField();
+        jtTelefono = new javax.swing.JTextField();
+        jtEmail = new javax.swing.JTextField();
+        jtMetodo_de_pago = new javax.swing.JTextField();
+        jspComentario = new javax.swing.JScrollPane();
+        jtaComentario = new javax.swing.JTextArea();
+        jbConfirmar = new javax.swing.JButton();
+        jtNombre = new javax.swing.JTextField();
         tituloAddMenu = new javax.swing.JLabel();
+
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         addMenu.setBackground(new java.awt.Color(54, 197, 240));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
 
-        box.setText("Box");
-        box.addActionListener(new java.awt.event.ActionListener() {
+        jtBox.setText("Box");
+        jtBox.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtBoxFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtBoxFocusLost(evt);
+            }
+        });
+        jtBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                boxActionPerformed(evt);
+                jtBoxActionPerformed(evt);
             }
         });
 
-        tel.setText("Telefono");
-
-        email.setText("Email");
-
-        MetodoPreferido.setText("Metodo de pago preferido");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Comentario");
-        comentario.setViewportView(jTextArea1);
-
-        nuevaTransaccion.setBackground(new java.awt.Color(54, 197, 240));
-        nuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        nuevaTransaccion.setForeground(new java.awt.Color(255, 255, 255));
-        nuevaTransaccion.setText("Confirmar");
-        nuevaTransaccion.setBorderPainted(false);
-
-        Nombre.setText("Nombre Apellido");
-        Nombre.addActionListener(new java.awt.event.ActionListener() {
+        jtTelefono.setText("Telefono");
+        jtTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtTelefonoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtTelefonoFocusLost(evt);
+            }
+        });
+        jtTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreActionPerformed(evt);
+                jtTelefonoActionPerformed(evt);
+            }
+        });
+        jtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtTelefonoKeyTyped(evt);
+            }
+        });
+
+        jtEmail.setText("Email");
+        jtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtEmailFocusLost(evt);
+            }
+        });
+
+        jtMetodo_de_pago.setText("Metodo de pago preferido");
+        jtMetodo_de_pago.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtMetodo_de_pagoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtMetodo_de_pagoFocusLost(evt);
+            }
+        });
+        jtMetodo_de_pago.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtMetodo_de_pagoKeyTyped(evt);
+            }
+        });
+
+        jtaComentario.setColumns(20);
+        jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentario.setRows(5);
+        jtaComentario.setText("Comentario");
+        jtaComentario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtaComentarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtaComentarioFocusLost(evt);
+            }
+        });
+        jspComentario.setViewportView(jtaComentario);
+
+        jbConfirmar.setBackground(new java.awt.Color(54, 197, 240));
+        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jbConfirmar.setText("Confirmar");
+        jbConfirmar.setBorderPainted(false);
+        jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbConfirmarActionPerformed(evt);
+            }
+        });
+
+        jtNombre.setText("Nombre Apellido");
+        jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtNombreFocusLost(evt);
+            }
+        });
+        jtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNombreActionPerformed(evt);
+            }
+        });
+        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNombreKeyTyped(evt);
             }
         });
 
@@ -82,32 +204,32 @@ public class nuevoCliente extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
                 .addContainerGap(38, Short.MAX_VALUE)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(nuevaTransaccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MetodoPreferido, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(box, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comentario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                    .addComponent(Nombre, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jbConfirmar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtMetodo_de_pago, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtTelefono, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jtBox, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jspComentario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
+                    .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(36, 36, 36))
         );
         formLayout.setVerticalGroup(
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formLayout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(box, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(MetodoPreferido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtMetodo_de_pago, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jspComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(nuevaTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(148, Short.MAX_VALUE))
         );
 
@@ -134,44 +256,145 @@ public class nuevoCliente extends javax.swing.JPanel {
                 .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 550));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void boxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxActionPerformed
+    private void jtBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_boxActionPerformed
+    }//GEN-LAST:event_jtBoxActionPerformed
 
-    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
+    private void jtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreActionPerformed
+    }//GEN-LAST:event_jtNombreActionPerformed
+
+    private void jtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNombreFocusGained
+        this.jtNombre.setText("");
+        jtNombre.setForeground(Color.black);
+    }//GEN-LAST:event_jtNombreFocusGained
+
+    private void jtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNombreFocusLost
+        if("".equals(jtNombre.getText())){
+            jtNombre.setForeground(Color.red);
+            jtNombre.setText("Es necesario rellenar este campo");
+        }
+    }//GEN-LAST:event_jtNombreFocusLost
+
+    private void jtBoxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtBoxFocusGained
+        this.jtBox.setText("");
+        jtBox.setForeground(Color.black);
+    }//GEN-LAST:event_jtBoxFocusGained
+
+    private void jtBoxFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtBoxFocusLost
+    }//GEN-LAST:event_jtBoxFocusLost
+
+    private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != KeyEvent.VK_SPACE)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtNombreKeyTyped
+
+    private void jtTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtTelefonoFocusGained
+        this.jtTelefono.setText("");
+        jtTelefono.setForeground(Color.black);
+    }//GEN-LAST:event_jtTelefonoFocusGained
+
+    private void jtTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtTelefonoFocusLost
+
+    }//GEN-LAST:event_jtTelefonoFocusLost
+
+    private void jtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTelefonoKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtTelefonoKeyTyped
+
+    private void jtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtEmailFocusGained
+        this.jtEmail.setText("");
+        jtEmail.setForeground(Color.black);
+    }//GEN-LAST:event_jtEmailFocusGained
+
+    private void jtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtEmailFocusLost
+
+    }//GEN-LAST:event_jtEmailFocusLost
+
+    private void jtMetodo_de_pagoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtMetodo_de_pagoFocusGained
+        this.jtMetodo_de_pago.setText("");
+        jtMetodo_de_pago.setForeground(Color.black);
+    }//GEN-LAST:event_jtMetodo_de_pagoFocusGained
+
+    private void jtMetodo_de_pagoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtMetodo_de_pagoFocusLost
+
+    }//GEN-LAST:event_jtMetodo_de_pagoFocusLost
+
+    private void jtMetodo_de_pagoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtMetodo_de_pagoKeyTyped
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != KeyEvent.VK_SPACE)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtMetodo_de_pagoKeyTyped
+
+    private void jtaComentarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtaComentarioFocusGained
+        this.jtaComentario.setText("");
+        jtaComentario.setForeground(Color.black);
+    }//GEN-LAST:event_jtaComentarioFocusGained
+
+    private void jtaComentarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtaComentarioFocusLost
+
+    }//GEN-LAST:event_jtaComentarioFocusLost
+
+    private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer agregar este cliente?");
+        if(JOptionPane.YES_OPTION == msj){
+            try {
+                if (jtNombre.getText().length() > 0 && !jtNombre.getText().equals("Nombre Apellido") && !jtNombre.getText().equals("Es necesario rellenar este campo")){
+                    Sacar_texto();
+                    Conexion con = null;
+                    con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                    Cliente cliente = new Cliente(jtNombre.getText(), Long.parseLong(jtTelefono.getText()), jtEmail.getText(), jtBox.getText(), jtMetodo_de_pago.getText(), jtaComentario.getText());
+                    Cliente_data cliente_data = new Cliente_data(con);
+                    cliente_data.guardarCliente(cliente);
+                    Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
+
+                    int id_cliente = cliente_data.getCliente_por_nombre(jtNombre.getText()).getId();
+                    Cuenta_corriente cuenta_corriente = new Cuenta_corriente(id_cliente,0,1,null);
+                    ccd.guardarCuenta_corriente(cuenta_corriente);
+                    JOptionPane.showMessageDialog(null, "Felicidades, cliente agregado");
+
+                    List<Cliente> lista = cliente_data.obtenerClientes();
+                    List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
+
+                    ventana_cliente.mostrarLista(lista, lista2);
+                    this.setVisible(false);
+
+                    con.close();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el cliente, un campo quedo sin rellenar");
+                }
+            } catch (Exception e){
+                System.out.println("Error al instanciar la clase conexion" + e.getMessage());
+                JOptionPane.showMessageDialog(null,"No se pudo guardar el cliente, intente nuevamente");
+            }
+        }
+    }//GEN-LAST:event_jbConfirmarActionPerformed
+
+    private void jtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtTelefonoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField MetodoPreferido;
-    private javax.swing.JTextField Nombre;
     private javax.swing.JPanel addMenu;
-    private javax.swing.JTextField box;
-    private javax.swing.JScrollPane comentario;
-    private javax.swing.JTextField email;
     private javax.swing.JPanel form;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JButton nuevaTransaccion;
-    private javax.swing.JTextField tel;
+    private javax.swing.JButton jbConfirmar;
+    private javax.swing.JScrollPane jspComentario;
+    private javax.swing.JTextField jtBox;
+    private javax.swing.JTextField jtEmail;
+    private javax.swing.JTextField jtMetodo_de_pago;
+    private javax.swing.JTextField jtNombre;
+    private javax.swing.JTextField jtTelefono;
+    private javax.swing.JTextArea jtaComentario;
     private javax.swing.JLabel tituloAddMenu;
     // End of variables declaration//GEN-END:variables
 }

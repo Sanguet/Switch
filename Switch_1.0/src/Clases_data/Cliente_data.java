@@ -68,7 +68,7 @@ public class Cliente_data {
         }
     }
     
-    public void actualizarCliente(Cliente cliente){
+    public void actualizarCliente_por_id(Cliente cliente, int id){
         try{
             String sql = "UPDATE cliente SET nombre = ?, telefono = ?, correo = ?, box = ?, metodo_de_pago_preferido = ?, comentario = ? WHERE id_cliente = ?";
             
@@ -79,7 +79,7 @@ public class Cliente_data {
             stmt.setString(4,cliente.getBox());
             stmt.setString(5,cliente.getMetodo_de_pago_preferido());    
             stmt.setString(6,cliente.getComentario());
-            stmt.setInt(7, cliente.getId());
+            stmt.setInt(7, id);
             
             stmt.executeUpdate();
             

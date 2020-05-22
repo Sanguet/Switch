@@ -106,4 +106,25 @@ public class Categoria_producto_data {
         }
         return categorias_producto;
     } 
+    
+    public Categoria_producto getCategoria_por_nombre(String nombre){
+        Categoria_producto a = null;
+        try{
+            String sql = "SELECT * FROM categoria_producto WHERE categoria_producto.nombre LIKE ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nombre);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Categoria_producto(rs.getString(1), rs.getInt(2),rs.getString(3));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener la categoria" + ex.getMessage());
+        }
+        return a;
+    }
 }
