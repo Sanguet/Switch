@@ -69,6 +69,7 @@ public class detalleCliente extends javax.swing.JPanel {
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
+        form.setPreferredSize(new java.awt.Dimension(300, 650));
         form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
@@ -239,22 +240,24 @@ public class detalleCliente extends javax.swing.JPanel {
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloAddMenu.setText("Perfil de Cliente");
+        tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 24));
 
         javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
         addMenu.setLayout(addMenuLayout);
         addMenuLayout.setHorizontalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
+                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

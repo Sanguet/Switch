@@ -71,13 +71,18 @@ public class nuevaCatProductos extends javax.swing.JPanel {
         jbConfirmar = new javax.swing.JButton();
         jtNombre = new javax.swing.JTextField();
         jcbCategoria_padre = new javax.swing.JComboBox<>();
+        jlNombreProducto = new javax.swing.JLabel();
+        jlCategoria = new javax.swing.JLabel();
+        jlComentario = new javax.swing.JLabel();
         tituloAddMenu = new javax.swing.JLabel();
 
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
+        addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
 
         esSub.setBackground(new java.awt.Color(14, 21, 30));
+        esSub.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         esSub.setForeground(new java.awt.Color(255, 255, 255));
         esSub.setText("Es SubCategoria");
         esSub.setBorder(null);
@@ -93,7 +98,6 @@ public class nuevaCatProductos extends javax.swing.JPanel {
         jtaComentario.setColumns(20);
         jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jtaComentario.setRows(5);
-        jtaComentario.setText("Comentario");
         jtaComentario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtaComentarioFocusGained(evt);
@@ -106,13 +110,13 @@ public class nuevaCatProductos extends javax.swing.JPanel {
         jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jbConfirmar.setText("Confirmar");
         jbConfirmar.setBorderPainted(false);
+        jbConfirmar.setPreferredSize(new java.awt.Dimension(240, 35));
         jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbConfirmarActionPerformed(evt);
             }
         });
 
-        jtNombre.setText("Nombre");
         jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtNombreFocusGained(evt);
@@ -130,35 +134,56 @@ public class nuevaCatProductos extends javax.swing.JPanel {
         jcbCategoria_padre.setEditable(true);
         jcbCategoria_padre.setEnabled(false);
 
+        jlNombreProducto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlNombreProducto.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombreProducto.setText("Nombre de la Categoria");
+
+        jlCategoria.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        jlCategoria.setText("Categoria Principal");
+
+        jlComentario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlComentario.setForeground(new java.awt.Color(255, 255, 255));
+        jlComentario.setText("Comentario");
+
         javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
         form.setLayout(formLayout);
         formLayout.setHorizontalGroup(
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+            .addGroup(formLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(esSub)
-                    .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(jbConfirmar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Comentario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                        .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jcbCategoria_padre, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(36, 36, 36))
+                    .addComponent(jlComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlNombreProducto)
+                    .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(esSub)
+                        .addComponent(jtNombre)
+                        .addComponent(jcbCategoria_padre, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Comentario)
+                        .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jlCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(30, 30, 30))
         );
         formLayout.setVerticalGroup(
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(20, 20, 20)
+                .addComponent(jlNombreProducto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(esSub)
                 .addGap(18, 18, 18)
+                .addComponent(jlCategoria)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcbCategoria_padre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jlComentario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(326, Short.MAX_VALUE))
         );
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
@@ -170,18 +195,15 @@ public class nuevaCatProductos extends javax.swing.JPanel {
         addMenu.setLayout(addMenuLayout);
         addMenuLayout.setHorizontalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMenuLayout.createSequentialGroup()
                 .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -190,14 +212,14 @@ public class nuevaCatProductos extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -276,6 +298,9 @@ public class nuevaCatProductos extends javax.swing.JPanel {
     private javax.swing.JPanel form;
     private javax.swing.JButton jbConfirmar;
     private javax.swing.JComboBox<String> jcbCategoria_padre;
+    private javax.swing.JLabel jlCategoria;
+    private javax.swing.JLabel jlComentario;
+    private javax.swing.JLabel jlNombreProducto;
     private javax.swing.JTextField jtNombre;
     private javax.swing.JTextArea jtaComentario;
     private javax.swing.JLabel tituloAddMenu;

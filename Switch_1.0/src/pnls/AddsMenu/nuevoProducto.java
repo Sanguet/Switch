@@ -109,11 +109,19 @@ public class nuevoProducto extends javax.swing.JPanel {
         jcbCategoria = new javax.swing.JComboBox<>();
         jcbProvedor = new javax.swing.JComboBox<>();
         jtCantidad = new javax.swing.JTextField();
+        jlNombreProducto = new javax.swing.JLabel();
+        jlCategoria = new javax.swing.JLabel();
+        jlPrecio = new javax.swing.JLabel();
+        jlCosto = new javax.swing.JLabel();
+        jlCodigo = new javax.swing.JLabel();
+        jlProvedor = new javax.swing.JLabel();
+        jlComentario = new javax.swing.JLabel();
+        jlCantInicial = new javax.swing.JLabel();
         tituloAddMenu = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
+        addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         form.setBackground(new java.awt.Color(14, 21, 30));
 
@@ -122,6 +130,7 @@ public class nuevoProducto extends javax.swing.JPanel {
         jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jbConfirmar.setText("Confirmar");
         jbConfirmar.setBorderPainted(false);
+        jbConfirmar.setPreferredSize(new java.awt.Dimension(240, 35));
         jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbConfirmarActionPerformed(evt);
@@ -130,8 +139,8 @@ public class nuevoProducto extends javax.swing.JPanel {
 
         jtaComentario.setColumns(20);
         jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentario.setLineWrap(true);
         jtaComentario.setRows(5);
-        jtaComentario.setText("Comentario");
         jtaComentario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtaComentarioFocusGained(evt);
@@ -139,7 +148,6 @@ public class nuevoProducto extends javax.swing.JPanel {
         });
         Comentario.setViewportView(jtaComentario);
 
-        jtNombre.setText("Nombre*");
         jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtNombreFocusGained(evt);
@@ -159,7 +167,6 @@ public class nuevoProducto extends javax.swing.JPanel {
             }
         });
 
-        jtCodigo.setText("Codigo");
         jtCodigo.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtCodigoFocusGained(evt);
@@ -171,7 +178,6 @@ public class nuevoProducto extends javax.swing.JPanel {
             }
         });
 
-        jtCosto.setText("Costo*");
         jtCosto.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtCostoFocusGained(evt);
@@ -186,7 +192,6 @@ public class nuevoProducto extends javax.swing.JPanel {
             }
         });
 
-        jtPrecio.setText("Precio*");
         jtPrecio.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtPrecioFocusGained(evt);
@@ -207,7 +212,6 @@ public class nuevoProducto extends javax.swing.JPanel {
             }
         });
 
-        jtCantidad.setText("Cantidad*");
         jtCantidad.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtCantidadFocusGained(evt);
@@ -222,72 +226,123 @@ public class nuevoProducto extends javax.swing.JPanel {
             }
         });
 
+        jlNombreProducto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlNombreProducto.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombreProducto.setText("Nombre del Producto");
+
+        jlCategoria.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        jlCategoria.setText("Categoria");
+
+        jlPrecio.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlPrecio.setForeground(new java.awt.Color(255, 255, 255));
+        jlPrecio.setText("Precio");
+
+        jlCosto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlCosto.setForeground(new java.awt.Color(255, 255, 255));
+        jlCosto.setText("Costo");
+
+        jlCodigo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        jlCodigo.setText("Codigo");
+
+        jlProvedor.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlProvedor.setForeground(new java.awt.Color(255, 255, 255));
+        jlProvedor.setText("Provedor");
+
+        jlComentario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlComentario.setForeground(new java.awt.Color(255, 255, 255));
+        jlComentario.setText("Comentario");
+
+        jlCantInicial.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlCantInicial.setForeground(new java.awt.Color(255, 255, 255));
+        jlCantInicial.setText("Stock Inicial");
+
         javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
         form.setLayout(formLayout);
         formLayout.setHorizontalGroup(
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jtCodigo, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtCosto, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtPrecio, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jbConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
-                    .addComponent(jcbCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jcbProvedor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtCantidad, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(53, 53, 53))
+                .addGap(30, 30, 30)
+                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlProvedor, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlNombreProducto)
+                    .addComponent(jlCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(Comentario)
+                        .addComponent(jtNombre)
+                        .addComponent(jcbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jtPrecio)
+                        .addComponent(jtCosto)
+                        .addComponent(jtCantidad)
+                        .addComponent(jtCodigo)
+                        .addComponent(jcbProvedor, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jbConfirmar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jlCantInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30))
         );
         formLayout.setVerticalGroup(
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
+                .addGap(22, 22, 22)
+                .addComponent(jlNombreProducto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlCategoria)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcbCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlPrecio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlCosto)
+                .addGap(4, 4, 4)
                 .addComponent(jtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(7, 7, 7)
+                .addComponent(jlCantInicial)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(7, 7, 7)
+                .addComponent(jlCodigo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jlProvedor)
+                .addGap(5, 5, 5)
                 .addComponent(jcbProvedor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(7, 7, 7)
+                .addComponent(jlComentario)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(57, 57, 57))
+                .addGap(18, 18, 18)
+                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(94, Short.MAX_VALUE))
         );
+
+        addMenu.add(form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloAddMenu.setText("Nuevo Producto");
+        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 24));
 
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 0, Short.MAX_VALUE))
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
-
-        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreActionPerformed
@@ -434,6 +489,14 @@ public class nuevoProducto extends javax.swing.JPanel {
     private javax.swing.JButton jbConfirmar;
     private javax.swing.JComboBox<String> jcbCategoria;
     private javax.swing.JComboBox<String> jcbProvedor;
+    private javax.swing.JLabel jlCantInicial;
+    private javax.swing.JLabel jlCategoria;
+    private javax.swing.JLabel jlCodigo;
+    private javax.swing.JLabel jlComentario;
+    private javax.swing.JLabel jlCosto;
+    private javax.swing.JLabel jlNombreProducto;
+    private javax.swing.JLabel jlPrecio;
+    private javax.swing.JLabel jlProvedor;
     private javax.swing.JTextField jtCantidad;
     private javax.swing.JTextField jtCodigo;
     private javax.swing.JTextField jtCosto;
