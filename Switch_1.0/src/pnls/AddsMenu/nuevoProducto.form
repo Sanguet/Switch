@@ -74,6 +74,7 @@
                           <Component id="jbConfirmar" pref="170" max="32767" attributes="0"/>
                           <Component id="jcbCategoria" alignment="0" max="32767" attributes="0"/>
                           <Component id="jcbProvedor" alignment="0" max="32767" attributes="0"/>
+                          <Component id="jtCantidad" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="53" max="-2" attributes="0"/>
                   </Group>
@@ -90,7 +91,9 @@
                       <Component id="jtPrecio" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jtCosto" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="jtCantidad" min="-2" pref="30" max="-2" attributes="0"/>
+                      <EmptySpace pref="18" max="32767" attributes="0"/>
                       <Component id="jtCodigo" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jcbProvedor" min="-2" pref="30" max="-2" attributes="0"/>
@@ -98,7 +101,7 @@
                       <Component id="Comentario" min="-2" pref="66" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jbConfirmar" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace pref="98" max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -206,6 +209,16 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
               </AuxValues>
+            </Component>
+            <Component class="javax.swing.JTextField" name="jtCantidad">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cantidad*"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtCantidadFocusGained"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="jtCantidadFocusLost"/>
+                <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jtCantidadKeyTyped"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

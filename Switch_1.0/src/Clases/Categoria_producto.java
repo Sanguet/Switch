@@ -31,6 +31,13 @@ public class Categoria_producto {
         this.id_categoria_padre = id_categoria_padre;
         this.comentario = comentario;
     }
+
+    public Categoria_producto(String nombre, String comentario) {
+        this.id = -1;   
+        this.nombre = nombre;
+        this.comentario = comentario;
+    }
+    
     
     public Categoria_producto() {
         this.id = -1;

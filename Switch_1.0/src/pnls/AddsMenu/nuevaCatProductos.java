@@ -5,10 +5,14 @@
  */
 package pnls.AddsMenu;
 
-/**
- *
- * @author Alex
- */
+import Clases_data.*;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import javax.swing.JOptionPane;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import Clases.*;
+import javax.swing.JTextField;
 public class nuevaCatProductos extends javax.swing.JPanel {
 
     /**
@@ -16,6 +20,39 @@ public class nuevaCatProductos extends javax.swing.JPanel {
      */
     public nuevaCatProductos() {
         initComponents();
+        agregarComboCategorias();
+        AutoCompleteDecorator.decorate(this.jcbCategoria_padre);
+        
+    }
+    
+        private void agregarComboCategorias(){
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Categoria_producto_data cpd = new Categoria_producto_data(con);
+            List<Categoria_producto> listA = cpd.obtenerCategorias_producto();
+            for (int i = 0; i < listA.size(); i++){
+                jcbCategoria_padre.addItem(listA.get(i).getNombre());
+            }
+            
+        }catch (Exception e){
+          JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado, vuelve a intentar");
+        }
+    }
+        public void Sacar_texto(){
+        if("Nombre*".equals(jtNombre.getText())){
+            jtNombre.setText(null);
+        }
+        
+        if("Comentario".equals(jtaComentario.getText())){
+            jtaComentario.setText(null);
+        }
+    }
+    public boolean Campo_valido(JTextField campo){
+        if (campo.getText().length() > 0 && !campo.getText().equals("Es necesario rellenar este campo")){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -29,25 +66,17 @@ public class nuevaCatProductos extends javax.swing.JPanel {
 
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
-        CatPrincipal = new javax.swing.JTextField();
         esSub = new javax.swing.JCheckBox();
         Comentario = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        nuevaTransaccion = new javax.swing.JButton();
-        Nombre = new javax.swing.JTextField();
+        jtaComentario = new javax.swing.JTextArea();
+        jbConfirmar = new javax.swing.JButton();
+        jtNombre = new javax.swing.JTextField();
+        jcbCategoria_padre = new javax.swing.JComboBox<>();
         tituloAddMenu = new javax.swing.JLabel();
 
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
-
-        CatPrincipal.setEditable(false);
-        CatPrincipal.setText("Categoria Principal");
-        CatPrincipal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CatPrincipalActionPerformed(evt);
-            }
-        });
 
         esSub.setBackground(new java.awt.Color(14, 21, 30));
         esSub.setForeground(new java.awt.Color(255, 255, 255));
@@ -55,26 +84,52 @@ public class nuevaCatProductos extends javax.swing.JPanel {
         esSub.setBorder(null);
         esSub.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
         esSub.setIconTextGap(10);
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Comentario");
-        Comentario.setViewportView(jTextArea1);
-
-        nuevaTransaccion.setBackground(new java.awt.Color(224, 30, 90));
-        nuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        nuevaTransaccion.setForeground(new java.awt.Color(255, 255, 255));
-        nuevaTransaccion.setText("Confirmar");
-        nuevaTransaccion.setBorderPainted(false);
-
-        Nombre.setText("Nombre");
-        Nombre.addActionListener(new java.awt.event.ActionListener() {
+        esSub.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreActionPerformed(evt);
+                esSubActionPerformed(evt);
             }
         });
+
+        jtaComentario.setEditable(false);
+        jtaComentario.setColumns(20);
+        jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentario.setRows(5);
+        jtaComentario.setText("Comentario");
+        jtaComentario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtaComentarioFocusGained(evt);
+            }
+        });
+        Comentario.setViewportView(jtaComentario);
+
+        jbConfirmar.setBackground(new java.awt.Color(224, 30, 90));
+        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jbConfirmar.setText("Confirmar");
+        jbConfirmar.setBorderPainted(false);
+        jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbConfirmarActionPerformed(evt);
+            }
+        });
+
+        jtNombre.setText("Nombre");
+        jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtNombreFocusLost(evt);
+            }
+        });
+        jtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNombreActionPerformed(evt);
+            }
+        });
+
+        jcbCategoria_padre.setEditable(true);
+        jcbCategoria_padre.setEnabled(false);
 
         javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
         form.setLayout(formLayout);
@@ -85,25 +140,25 @@ public class nuevaCatProductos extends javax.swing.JPanel {
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(esSub)
                     .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(nuevaTransaccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(CatPrincipal, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jbConfirmar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(Comentario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                        .addComponent(Nombre, javax.swing.GroupLayout.Alignment.LEADING)))
+                        .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jcbCategoria_padre, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(36, 36, 36))
         );
         formLayout.setVerticalGroup(
             formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(formLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(esSub)
                 .addGap(18, 18, 18)
-                .addComponent(CatPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jcbCategoria_padre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(nuevaTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(249, Short.MAX_VALUE))
         );
 
@@ -148,24 +203,82 @@ public class nuevaCatProductos extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CatPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CatPrincipalActionPerformed
+    private void jtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CatPrincipalActionPerformed
+    }//GEN-LAST:event_jtNombreActionPerformed
 
-    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NombreActionPerformed
+    private void esSubActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esSubActionPerformed
+        if (jcbCategoria_padre.isEnabled()){
+            jcbCategoria_padre.setEnabled(false);
+        } else {
+            jcbCategoria_padre.setEnabled(true);
+        }
+        
+    }//GEN-LAST:event_esSubActionPerformed
+
+    private void jtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNombreFocusGained
+        this.jtNombre.setText("");
+        jtNombre.setForeground(Color.black);
+    }//GEN-LAST:event_jtNombreFocusGained
+
+    private void jtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNombreFocusLost
+        if("".equals(jtNombre.getText())){
+            jtNombre.setForeground(Color.red);
+            jtNombre.setText("Es necesario rellenar este campo");
+        }
+    }//GEN-LAST:event_jtNombreFocusLost
+
+    private void jtaComentarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtaComentarioFocusGained
+        this.jtaComentario.setText("");
+        jtaComentario.setForeground(Color.black);
+    }//GEN-LAST:event_jtaComentarioFocusGained
+
+    private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer agregar esta categoria?");
+        if(JOptionPane.YES_OPTION == msj){
+            Sacar_texto();
+            try {
+                if (Campo_valido(this.jtNombre)){
+                    
+                    Conexion con = null;
+                    con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                    Categoria_producto_data cpd = new Categoria_producto_data(con);
+                    Categoria_producto categoria_producto;
+                    if (!jtaComentario.isEnabled()){
+                        int id_categoria_padre = cpd.getCategoria_por_nombre(jcbCategoria_padre.getItemAt(0)).getId();
+                        categoria_producto = new Categoria_producto(jtNombre.getText(),id_categoria_padre, jtaComentario.getText());
+                    } else {
+                        categoria_producto = new Categoria_producto(jtNombre.getText(), 0, jtaComentario.getText());
+                    }
+                    
+                    cpd.guardarCategoria_producto(categoria_producto);
+                    
+                    JOptionPane.showMessageDialog(null, "Felicidades, categoria agregado");
+
+                    this.setVisible(false);
+
+                    con.close();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar la categoria, un campo quedo sin rellenar");
+                }
+            } catch (Exception e){
+                System.out.println("Error al instanciar la clase conexion" + e.getMessage());
+                JOptionPane.showMessageDialog(null,"No se pudo guardar la categoria, intente nuevamente " + e);
+            }
+        }
+    }//GEN-LAST:event_jbConfirmarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CatPrincipal;
     private javax.swing.JScrollPane Comentario;
-    private javax.swing.JTextField Nombre;
     private javax.swing.JPanel addMenu;
     private javax.swing.JCheckBox esSub;
     private javax.swing.JPanel form;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JButton nuevaTransaccion;
+    private javax.swing.JButton jbConfirmar;
+    private javax.swing.JComboBox<String> jcbCategoria_padre;
+    private javax.swing.JTextField jtNombre;
+    private javax.swing.JTextArea jtaComentario;
     private javax.swing.JLabel tituloAddMenu;
     // End of variables declaration//GEN-END:variables
 }

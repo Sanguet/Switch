@@ -108,6 +108,7 @@ public class nuevoProducto extends javax.swing.JPanel {
         jtPrecio = new javax.swing.JTextField();
         jcbCategoria = new javax.swing.JComboBox<>();
         jcbProvedor = new javax.swing.JComboBox<>();
+        jtCantidad = new javax.swing.JTextField();
         tituloAddMenu = new javax.swing.JLabel();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -206,6 +207,21 @@ public class nuevoProducto extends javax.swing.JPanel {
             }
         });
 
+        jtCantidad.setText("Cantidad*");
+        jtCantidad.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtCantidadFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtCantidadFocusLost(evt);
+            }
+        });
+        jtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtCantidadKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
         form.setLayout(formLayout);
         formLayout.setHorizontalGroup(
@@ -220,7 +236,8 @@ public class nuevoProducto extends javax.swing.JPanel {
                     .addComponent(Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addComponent(jbConfirmar, javax.swing.GroupLayout.DEFAULT_SIZE, 170, Short.MAX_VALUE)
                     .addComponent(jcbCategoria, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jcbProvedor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jcbProvedor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jtCantidad, javax.swing.GroupLayout.Alignment.LEADING))
                 .addGap(53, 53, 53))
         );
         formLayout.setVerticalGroup(
@@ -234,7 +251,9 @@ public class nuevoProducto extends javax.swing.JPanel {
                 .addComponent(jtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jtCosto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addComponent(jtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jcbProvedor, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -242,7 +261,7 @@ public class nuevoProducto extends javax.swing.JPanel {
                 .addComponent(Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addGap(57, 57, 57))
         );
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
@@ -276,12 +295,11 @@ public class nuevoProducto extends javax.swing.JPanel {
     }//GEN-LAST:event_jtNombreActionPerformed
 
     private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
-        /*
-        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer agregar este cliente?");
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer agregar este producto?");
         if(JOptionPane.YES_OPTION == msj){
             Sacar_texto();
             try {
-                if (Campo_valido(this.jtNombre) && Campo_valido(this.jtPrecio) && Campo_valido(this.jtCosto)){
+                if (Campo_valido(this.jtNombre) && Campo_valido(this.jtPrecio) && Campo_valido(this.jtCosto) && Campo_valido(this.jtCantidad)){
                     
                     Conexion con = null;
                     con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
@@ -289,33 +307,29 @@ public class nuevoProducto extends javax.swing.JPanel {
                     Provedor_data pd = new Provedor_data(con);
                     Categoria_producto_data cpd = new Categoria_producto_data(con);
                     
-                    int id_categoria = cpd.getCategoria_por_nombre(this.jcbCategoria.getItemAt(0)).getId();
-                    int id_provedor =
-                    Producto producto = new Producto(jtNombre,);
+                    int indice = jcbCategoria.getSelectedIndex();
+                    int indice2 = jcbProvedor.getSelectedIndex();
                     
-                    Cliente cliente = new Cliente(jtNombre.getText(), Long.parseLong(jtTelefono.getText()), jtEmail.getText(), jtBox.getText(), jtMetodo_de_pago.getText(), jtaComentario.getText());
-                    Cliente_data cliente_data = new Cliente_data(con);
-                    cliente_data.guardarCliente(cliente);
-                    Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
-
-                    int id_cliente = cliente_data.getCliente_por_nombre(jtNombre.getText()).getId();
-                    Cuenta_corriente cuenta_corriente = new Cuenta_corriente(id_cliente,0,1,null);
-                    ccd.guardarCuenta_corriente(cuenta_corriente);
-                    JOptionPane.showMessageDialog(null, "Felicidades, cliente agregado");
+                    int id_categoria =  cpd.getCategoria_por_nombre(this.jcbCategoria.getItemAt(indice)).getId();
+                    int id_provedor = pd.getProvedor_por_nombre(this.jcbProvedor.getItemAt(indice2)).getId();
+                    Producto producto = new Producto(jtNombre.getText(), id_categoria, Double.parseDouble(jtCosto.getText()), Double.parseDouble(jtPrecio.getText()), Integer.parseInt(jtCantidad.getText()), id_provedor, jtaComentario.getText(), Long.parseLong(jtCodigo.getText()));
+                    producto_data.guardarProducto(producto);
+                    
+                    JOptionPane.showMessageDialog(null, "Felicidades, producto agregado");
 
                     this.setVisible(false);
 
                     con.close();
                     
                 }else{
-                    JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el cliente, un campo quedo sin rellenar");
+                    JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el producto, un campo quedo sin rellenar");
                 }
             } catch (Exception e){
                 System.out.println("Error al instanciar la clase conexion" + e.getMessage());
-                JOptionPane.showMessageDialog(null,"No se pudo guardar el cliente, intente nuevamente");
+                JOptionPane.showMessageDialog(null,"No se pudo guardar el producto, intente nuevamente " + e);
             }
         }
-*/
+
     }//GEN-LAST:event_jbConfirmarActionPerformed
 
     private void jtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNombreFocusGained
@@ -331,10 +345,7 @@ public class nuevoProducto extends javax.swing.JPanel {
     }//GEN-LAST:event_jtNombreFocusLost
 
     private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
-        char c = evt.getKeyChar();
-        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != KeyEvent.VK_SPACE)){
-            evt.consume();
-        }
+
     }//GEN-LAST:event_jtNombreKeyTyped
 
     private void jcbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCategoriaActionPerformed
@@ -396,6 +407,25 @@ public class nuevoProducto extends javax.swing.JPanel {
         jtaComentario.setForeground(Color.black);
     }//GEN-LAST:event_jtaComentarioFocusGained
 
+    private void jtCantidadFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtCantidadFocusGained
+        this.jtCantidad.setText("");
+        jtCantidad.setForeground(Color.black);
+    }//GEN-LAST:event_jtCantidadFocusGained
+
+    private void jtCantidadFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtCantidadFocusLost
+        if("".equals(jtCantidad.getText())){
+            jtCantidad.setForeground(Color.red);
+            jtCantidad.setText("Es necesario rellenar este campo");
+        }
+    }//GEN-LAST:event_jtCantidadFocusLost
+
+    private void jtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCantidadKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtCantidadKeyTyped
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Comentario;
@@ -404,6 +434,7 @@ public class nuevoProducto extends javax.swing.JPanel {
     private javax.swing.JButton jbConfirmar;
     private javax.swing.JComboBox<String> jcbCategoria;
     private javax.swing.JComboBox<String> jcbProvedor;
+    private javax.swing.JTextField jtCantidad;
     private javax.swing.JTextField jtCodigo;
     private javax.swing.JTextField jtCosto;
     private javax.swing.JTextField jtNombre;

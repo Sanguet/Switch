@@ -8,7 +8,10 @@ package pnls;
 import Clases.*;
 import Clases_data.*;
 import java.util.List;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import pnls.AddsMenu.detalleProducto;
+import pnls.AddsMenu.nuevaCatProductos;
 import pnls.AddsMenu.nuevoCliente;
 import pnls.AddsMenu.nuevoProducto;
 public class Productos extends javax.swing.JPanel {
@@ -17,7 +20,8 @@ public class Productos extends javax.swing.JPanel {
      * Creates new form Productos
      */
     public Productos() {
-        initComponents();try{
+        initComponents();
+        try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Producto_data producto_data = new Producto_data(con);
             List<Producto> lista_productos = producto_data.obtenerProductos();
@@ -58,6 +62,8 @@ public class Productos extends javax.swing.JPanel {
         
         }
     }
+    public static String codigo, nombre, costo, precio, cantidad;
+    public static Producto producto_pasado;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,6 +79,7 @@ public class Productos extends javax.swing.JPanel {
         jbNuevo_producto = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jbNuena_categoria = new javax.swing.JButton();
+        jbActualizar = new javax.swing.JButton();
         addMenu = new javax.swing.JPanel();
         categoriaMenu = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -115,6 +122,13 @@ public class Productos extends javax.swing.JPanel {
             }
         });
 
+        jbActualizar.setText("Actualizar");
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);
         Titulo.setLayout(TituloLayout);
         TituloLayout.setHorizontalGroup(
@@ -124,7 +138,9 @@ public class Productos extends javax.swing.JPanel {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 211, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(jbActualizar)
+                .addGap(28, 28, 28)
                 .addComponent(jbNuevo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -137,10 +153,11 @@ public class Productos extends javax.swing.JPanel {
                 .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jbNuevo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jbActualizar))
                     .addComponent(jLabel5)
                     .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1004, 125));
@@ -216,6 +233,11 @@ public class Productos extends javax.swing.JPanel {
         jtProductos.setRowHeight(25);
         jtProductos.setShowGrid(true);
         jtProductos.setShowVerticalLines(false);
+        jtProductos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtProductosMouseClicked(evt);
+            }
+        });
         registro.setViewportView(jtProductos);
 
         add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 143, 553, 509));
@@ -226,8 +248,40 @@ public class Productos extends javax.swing.JPanel {
     }//GEN-LAST:event_jbNuevo_productoActionPerformed
 
     private void jbNuena_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuena_categoriaActionPerformed
-        // TODO add your handling code here:
+        new CambiaPanel(this.addMenu, new nuevaCatProductos());
     }//GEN-LAST:event_jbNuena_categoriaActionPerformed
+
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Producto_data producto_data = new Producto_data(con);
+            List<Producto> lista_productos = producto_data.obtenerProductos();
+            
+            mostrarLista(lista_productos);
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+
+    }//GEN-LAST:event_jbActualizarActionPerformed
+
+    private void jtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductosMouseClicked
+        int fila = this.jtProductos.getSelectedRow();
+        codigo = jtProductos.getValueAt(fila, 0).toString();
+        nombre = jtProductos.getValueAt(fila, 1).toString();
+        costo = jtProductos.getValueAt(fila, 2).toString();
+        precio = jtProductos.getValueAt(fila, 3).toString();
+        cantidad = jtProductos.getValueAt(fila, 4).toString();
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Producto_data producto_data = new Producto_data(con);
+            
+            producto_pasado = producto_data.getProducto_por_nombre(nombre);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+        new CambiaPanel(this.addMenu, new detalleProducto());
+    }//GEN-LAST:event_jtProductosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -237,6 +291,7 @@ public class Productos extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton jbActualizar;
     private javax.swing.JButton jbNuena_categoria;
     private javax.swing.JButton jbNuevo_producto;
     private javax.swing.JTable jtProductos;

@@ -24,6 +24,8 @@ import pnls.AddsMenu.perfilCliente;
 
 public class Clientes extends javax.swing.JPanel {
 
+
+
     /**
      * Creates new form Clientes
      */
@@ -46,7 +48,7 @@ public class Clientes extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
     }
-    public static String nombre,box,email,comentario,telefono;
+    public static String nombre,box,email,saldo,telefono;
     public static Cliente cliente_pasado;
     
     public void mostrarLista(List<Cliente> lista, List<Cuenta_corriente> lista2){
@@ -319,7 +321,7 @@ public class Clientes extends javax.swing.JPanel {
         box = jtClientes.getValueAt(fila, 1).toString();
         telefono = jtClientes.getValueAt(fila, 2).toString();
         email = jtClientes.getValueAt(fila, 3).toString();
-        comentario = jtClientes.getValueAt(fila, 4).toString();
+        saldo = jtClientes.getValueAt(fila, 4).toString();
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Cliente_data cliente_data = new Cliente_data(con);

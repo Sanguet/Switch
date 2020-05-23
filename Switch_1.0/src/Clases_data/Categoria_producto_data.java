@@ -118,12 +118,32 @@ public class Categoria_producto_data {
             ResultSet rs = stmt.executeQuery();
             
             rs.next();
-            a = new Categoria_producto(rs.getString(1), rs.getInt(2),rs.getString(3));
+            a = new Categoria_producto(rs.getInt(1), rs.getString(2), rs.getInt(3),rs.getString(4));
             
             stmt.close();
         }
         catch(SQLException ex){
             System.out.println("Error al obtener la categoria" + ex.getMessage());
+        }
+        return a;
+    }
+    public Categoria_producto getCategoria_producto_por_id(int id){
+        Categoria_producto a = null;
+        try{
+            String sql = "SELECT * FROM categoria_producto WHERE categoria_producto.id_categoria_producto = ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Categoria_producto(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getString(4));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener la categoria del producto" + ex.getMessage());
         }
         return a;
     }

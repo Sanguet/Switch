@@ -69,7 +69,7 @@ public class Producto_data {
         }
     }
     
-    public void actualizarProducto(Producto producto){
+    public void actualizarProducto_por_id(Producto producto, int id){
         try{
             String sql = "UPDATE producto SET nombre = ?, id_categoria = ?, costo = ?, precio = ?, cantidad = ?, id_provedor = ?, comentario = ?, codigo = ? WHERE id_producto = ?";
             
@@ -82,7 +82,7 @@ public class Producto_data {
             stmt.setInt(6,producto.getId_provedor());
             stmt.setString(7,producto.getComentario());
             stmt.setLong(8,producto.getCodigo());
-            stmt.setInt(9,producto.getId());
+            stmt.setInt(9,id);
             
             stmt.executeUpdate();
             
@@ -97,7 +97,7 @@ public class Producto_data {
         List <Producto> productos = new ArrayList<Producto>();
         
         try {
-            String sql = "SELECT pro.id_producto, c.id_categoria AS categoria, p.id_provedor AS provedor, pro.nombre, pro.costo, pro.precio, pro.cantidad, pro.comentario, pro.codigo FROM categoria AS c, provedor AS p, producto as pro WHERE c.id_categoria = pro.id_categoria AND p.id_provedor = pro.id_provedor;";
+            String sql = "SELECT pro.id_producto, c.id_categoria_producto AS categoria, p.id_provedor AS provedor, pro.nombre, pro.costo, pro.precio, pro.cantidad, pro.comentario, pro.codigo FROM categoria_producto AS c, provedor AS p, producto as pro WHERE c.id_categoria_producto = pro.id_categoria AND p.id_provedor = pro.id_provedor;";
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             Producto producto;
@@ -213,6 +213,27 @@ public class Producto_data {
             System.out.println("Error al obtener los productos: " + ex.getMessage());
         }
         return productos;
+    }
+    
+    public Producto getProducto_por_nombre(String nombre){
+        Producto a = null;
+        try{
+            String sql = "SELECT pro.id_producto, c.id_categoria_producto AS categoria, p.id_provedor AS provedor, pro.nombre, pro.costo, pro.precio, pro.cantidad, pro.comentario, pro.codigo FROM categoria_producto AS c, provedor AS p, producto as pro WHERE c.id_categoria_producto = pro.id_categoria AND p.id_provedor = pro.id_provedor AND pro.nombre LIKE ?";;
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nombre);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Producto(rs.getInt(1),rs.getString(4),rs.getInt(2),rs.getDouble(5), rs.getDouble(6), rs.getInt(7), rs.getInt(3), rs.getString(8), rs.getLong(9));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el producto" + ex.getMessage());
+        }
+        return a;
     }
     
 }

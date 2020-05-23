@@ -1,27 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package pnls.AddsMenu;
-
-import pnls.Clientes;
 
 import Clases.Cliente;
 import Clases.Conexion;
-import Clases.Cuenta_corriente;
 import Clases_data.Cliente_data;
-import Clases_data.Cuenta_corriente_data;
 import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.util.List;
 import javax.swing.JOptionPane;
-import pnls.AddsMenu.nuevoCliente;
-import pnls.AddsMenu.perfilCliente;
-/**
- *
- * @author Alex
- */
+import pnls.Clientes;
 public class perfilCliente extends javax.swing.JPanel {
 
     /**
@@ -35,7 +19,10 @@ public class perfilCliente extends javax.swing.JPanel {
         jtTelefono.setText(Clientes.telefono);
         jtEmail.setText(Clientes.email);
         jtMetodo_de_pago.setText(Clientes.cliente_pasado.getMetodo_de_pago_preferido());
-        jtaComentario.setText(Clientes.comentario);
+        jlSaldo.setText(Clientes.saldo);
+        if (Double.parseDouble(jlSaldo.getText()) < 0){
+            jlSaldo.setForeground(Color.red);
+        }
     }
 
     /**
