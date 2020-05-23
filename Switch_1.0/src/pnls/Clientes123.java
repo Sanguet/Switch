@@ -15,7 +15,6 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import pnls.AddsMenu.nuevoCliente;
-import pnls.AddsMenu.perfilCliente;
 
 /**
  *
@@ -46,7 +45,7 @@ public class Clientes123 extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
     }
-    public static String nombre,box,email,comentario,telefono;
+    public static String nombre,box,email,saldo,telefono;
     public static Cliente cliente_pasado;
     
     public void mostrarLista(List<Cliente> lista, List<Cuenta_corriente> lista2){
@@ -242,7 +241,7 @@ public class Clientes123 extends javax.swing.JPanel {
                 java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, true
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -269,6 +268,11 @@ public class Clientes123 extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(jtClientes);
+        if (jtClientes.getColumnModel().getColumnCount() > 0) {
+            jtClientes.getColumnModel().getColumn(1).setResizable(false);
+            jtClientes.getColumnModel().getColumn(3).setResizable(false);
+            jtClientes.getColumnModel().getColumn(4).setResizable(false);
+        }
 
         javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
         Registro.setLayout(RegistroLayout);
@@ -321,11 +325,12 @@ public class Clientes123 extends javax.swing.JPanel {
 
     private void jtClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtClientesMouseClicked
         int fila = this.jtClientes.getSelectedRow();
+        
         nombre = jtClientes.getValueAt(fila, 0).toString();
         box = jtClientes.getValueAt(fila, 1).toString();
         telefono = jtClientes.getValueAt(fila, 2).toString();
         email = jtClientes.getValueAt(fila, 3).toString();
-        comentario = jtClientes.getValueAt(fila, 4).toString();
+        saldo = jtClientes.getValueAt(fila, 4).toString();
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Cliente_data cliente_data = new Cliente_data(con);
@@ -334,7 +339,7 @@ public class Clientes123 extends javax.swing.JPanel {
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
-        new CambiaPanel(this.addMenu, new perfilCliente());
+        new CambiaPanel(this.addMenu, new asdTest());
     }//GEN-LAST:event_jtClientesMouseClicked
 
 

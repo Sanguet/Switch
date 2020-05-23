@@ -44,23 +44,23 @@ public class nuevoCliente extends javax.swing.JPanel {
         }*/
     }
     public void Sacar_texto(){
-        if("Telefono".equals(jtTelefono.getText())){
+        if("".equals(jtTelefono.getText())){
             jtTelefono.setText("0");
             }
                 
-        if("Email".equals(jtEmail.getText())){
+        if("".equals(jtEmail.getText())){
             jtEmail.setText(null);
             }
                 
-        if("Box".equals(jtBox.getText())){
+        if("".equals(jtBox.getText())){
             jtBox.setText(null);
             }
                 
-        if("Metodo de pago preferido".equals(jtMetodo_de_pago.getText())){
+        if("".equals(jtMetodo_de_pago.getText())){
             jtMetodo_de_pago.setText(null);
         }
                 
-        if("Comentario".equals(jtaComentario.getText())){
+        if("".equals(jtaComentario.getText())){
             jtaComentario.setText(null);
         }
     }
@@ -389,8 +389,8 @@ public class nuevoCliente extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el cliente, un campo quedo sin rellenar");
                 }
             } catch (Exception e){
-                System.out.println("Error al instanciar la clase conexion" + e.getMessage());
-                JOptionPane.showMessageDialog(null,"No se pudo guardar el cliente, intente nuevamente");
+                System.out.println("Error al instanciar la clase conexion " + e.getMessage());
+                JOptionPane.showMessageDialog(null,"No se pudo guardar el cliente, intente nuevamente " + e);
             }
         }
     }//GEN-LAST:event_jbConfirmarActionPerformed

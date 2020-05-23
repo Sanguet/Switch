@@ -247,7 +247,7 @@ public class Cliente_data {
             stmt.close();
         }
         catch(SQLException ex){
-            System.out.println("Error al obtener el cliente" + ex.getMessage());
+            System.out.println("Error al obtener el cliente " + ex.getMessage());
         }
         return a;
     }

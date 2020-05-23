@@ -15,21 +15,12 @@ import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import pnls.AddsMenu.nuevoCliente;
-import pnls.AddsMenu.perfilCliente;
-
-/**
- *
- * @author Alex
- */
-
-public class Clientes extends javax.swing.JPanel {
-
-
+public class ClienteTest extends javax.swing.JPanel {
 
     /**
-     * Creates new form Clientes
+     * Creates new form ClienteTest
      */
-    public Clientes() {
+    public ClienteTest() {
         initComponents();
         this.addMenu.setVisible(true);
         
@@ -75,29 +66,6 @@ public class Clientes extends javax.swing.JPanel {
         
     }
     }
-    /*Esto es un metodo del agregar cliente
-    public void Sacar_texto(){
-        if("Telefono".equals(jtfTelefono.getText())){
-            jtfTelefono.setText(null);
-            }
-                
-        if("Email".equals(jtfEmail.getText())){
-            jtfEmail.setText("");
-            }
-                
-        if("Box".equals(jtfBox.getText())){
-            jtfBox.setText("");
-            }
-                
-        if("Metodo de pago preferido".equals(jtfMetodo_de_pago.getText())){
-            jtfMetodo_de_pago.setText(null);
-        }
-                
-        if("Comentario".equals(jtaComentario.getText())){
-            jtaComentario.setText(null);
-        }
-    }
-    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -121,7 +89,7 @@ public class Clientes extends javax.swing.JPanel {
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo.setBackground(new java.awt.Color(255, 255, 255));
-        Titulo.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        Titulo.setPreferredSize(new java.awt.Dimension(1466, 120));
 
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Clientes");
@@ -140,9 +108,14 @@ public class Clientes extends javax.swing.JPanel {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/ClientesR.png"))); // NOI18N
         jLabel6.setToolTipText("");
-        jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
+        jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
+        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
         jbActualizar.setText("Actualizar");
+        jbActualizar.setBorder(null);
+        jbActualizar.setBorderPainted(false);
         jbActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbActualizarActionPerformed(evt);
@@ -155,35 +128,34 @@ public class Clientes extends javax.swing.JPanel {
             TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TituloLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 242, Short.MAX_VALUE)
-                .addComponent(jbActualizar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 696, Short.MAX_VALUE)
+                .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
         TituloLayout.setVerticalGroup(
             TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TituloLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
                     .addGroup(TituloLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(TituloLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jbActualizar)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                        .addGap(8, 8, 8)
+                        .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 964, 120));
+        add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         addMenu.setBackground(new java.awt.Color(54, 197, 240));
+        addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
         addMenu.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 addMenuFocusLost(evt);
@@ -195,9 +167,10 @@ public class Clientes extends javax.swing.JPanel {
             }
         });
         addMenu.setLayout(new javax.swing.BoxLayout(addMenu, javax.swing.BoxLayout.LINE_AXIS));
-        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 138, 240, 550));
+        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
 
         Registro.setBackground(new java.awt.Color(255, 255, 255));
+        Registro.setPreferredSize(new java.awt.Dimension(1096, 680));
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(null);
@@ -270,67 +243,68 @@ public class Clientes extends javax.swing.JPanel {
         Registro.setLayout(RegistroLayout);
         RegistroLayout.setHorizontalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 670, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE)
         );
         RegistroLayout.setVerticalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
 
-        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 138, -1, -1));
+        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         new CambiaPanel(this.addMenu, new nuevoCliente());
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jtClientesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtClientesFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtClientesFocusGained
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Cliente_data cd = new Cliente_data(con);
+            List<Cliente> lista = cd.obtenerClientes();
+
+            Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
+            List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
+
+            mostrarLista(lista, lista2);
+
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+
+    }//GEN-LAST:event_jbActualizarActionPerformed
 
     private void addMenuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addMenuFocusLost
         JOptionPane.showConfirmDialog(this, "Estas seguro que no quieres guardar el cliente?");
-        
+
     }//GEN-LAST:event_addMenuFocusLost
 
     private void addMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMenuMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_addMenuMouseExited
 
-    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Cliente_data cd = new Cliente_data(con);
-            List<Cliente> lista = cd.obtenerClientes();
-            
-            Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
-            List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
-            
-            mostrarLista(lista, lista2);
-            
-            
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
-        }
-        
-    }//GEN-LAST:event_jbActualizarActionPerformed
+    private void jtClientesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtClientesFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtClientesFocusGained
 
     private void jtClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtClientesMouseClicked
         int fila = this.jtClientes.getSelectedRow();
-        nombre = jtClientes.getValueAt(fila, 0).toString();
-        box = jtClientes.getValueAt(fila, 1).toString();
-        telefono = jtClientes.getValueAt(fila, 2).toString();
-        email = jtClientes.getValueAt(fila, 3).toString();
-        saldo = jtClientes.getValueAt(fila, 4).toString();
+
+        nombre = "Pedro";
+
+        box = "K8";
+        telefono = "2424";
+        email = "dawe.com";
+        saldo = "adasd.caw";
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Cliente_data cliente_data = new Cliente_data(con);
-            
-            cliente_pasado = cliente_data.getCliente_por_nombre(nombre);
+
+            cliente_pasado = cliente_data.getCliente_por_nombre("Nahuel");
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
-        new CambiaPanel(this.addMenu, new perfilCliente());
+        new CambiaPanel(this.addMenu, new ASD());
     }//GEN-LAST:event_jtClientesMouseClicked
 
 
