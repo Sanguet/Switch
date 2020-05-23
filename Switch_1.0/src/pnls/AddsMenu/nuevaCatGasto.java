@@ -5,6 +5,8 @@
  */
 package pnls.AddsMenu;
 
+import java.awt.Color;
+
 /**
  *
  * @author Alex
@@ -31,8 +33,8 @@ public class nuevaCatGasto extends javax.swing.JPanel {
         form = new javax.swing.JPanel();
         Comentario = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        nuevaTransaccion = new javax.swing.JButton();
-        Nombre = new javax.swing.JTextField();
+        jtConfirmar = new javax.swing.JButton();
+        jtNombre = new javax.swing.JTextField();
         jlNombre = new javax.swing.JLabel();
         jlComentario = new javax.swing.JLabel();
         tituloAddMenu = new javax.swing.JLabel();
@@ -47,23 +49,32 @@ public class nuevaCatGasto extends javax.swing.JPanel {
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jTextArea1.setRows(5);
+        jTextArea1.setText("ad\n");
         Comentario.setViewportView(jTextArea1);
 
         form.add(Comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 117, 240, 66));
 
-        nuevaTransaccion.setBackground(new java.awt.Color(46, 182, 125));
-        nuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        nuevaTransaccion.setForeground(new java.awt.Color(255, 255, 255));
-        nuevaTransaccion.setText("Confirmar");
-        nuevaTransaccion.setBorderPainted(false);
-        form.add(nuevaTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 201, 240, 32));
+        jtConfirmar.setBackground(new java.awt.Color(46, 182, 125));
+        jtConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jtConfirmar.setText("Confirmar");
+        jtConfirmar.setBorderPainted(false);
+        form.add(jtConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 201, 240, 32));
 
-        Nombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreActionPerformed(evt);
+        jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtNombreFocusLost(evt);
             }
         });
-        form.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 48, 240, 30));
+        jtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNombreActionPerformed(evt);
+            }
+        });
+        form.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 48, 240, 30));
 
         jlNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlNombre.setForeground(new java.awt.Color(255, 255, 255));
@@ -113,20 +124,32 @@ public class nuevaCatGasto extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
+    private void jtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreActionPerformed
+    }//GEN-LAST:event_jtNombreActionPerformed
+
+    private void jtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNombreFocusGained
+        this.jtNombre.setText("");
+        jtNombre.setForeground(Color.black);
+    }//GEN-LAST:event_jtNombreFocusGained
+
+    private void jtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNombreFocusLost
+        if("".equals(jtNombre.getText())){
+            jtNombre.setForeground(Color.red);
+            jtNombre.setText("Es necesario rellenar este campo");
+        }
+    }//GEN-LAST:event_jtNombreFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane Comentario;
-    private javax.swing.JTextField Nombre;
     private javax.swing.JPanel addMenu;
     private javax.swing.JPanel form;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel jlComentario;
     private javax.swing.JLabel jlNombre;
-    private javax.swing.JButton nuevaTransaccion;
+    private javax.swing.JButton jtConfirmar;
+    private javax.swing.JTextField jtNombre;
     private javax.swing.JLabel tituloAddMenu;
     // End of variables declaration//GEN-END:variables
 }

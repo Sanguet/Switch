@@ -5,13 +5,12 @@
  */
 package pnls.AddsMenu;
 
+import Clases.Conexion;
+import Clases.Provedor;
+import Clases_data.Provedor_data;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-
-/**
- *
- * @author Alex
- */
+import javax.swing.JOptionPane;
 public class nuevoProvedor extends javax.swing.JPanel {
 
     /**
@@ -60,6 +59,11 @@ public class nuevoProvedor extends javax.swing.JPanel {
         nuevaTransaccion.setText("Confirmar");
         nuevaTransaccion.setBorderPainted(false);
         nuevaTransaccion.setPreferredSize(new java.awt.Dimension(240, 35));
+        nuevaTransaccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nuevaTransaccionActionPerformed(evt);
+            }
+        });
         form.add(nuevaTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 358, -1, -1));
 
         jlNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -279,6 +283,30 @@ public class nuevoProvedor extends javax.swing.JPanel {
     private void jtaComentarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtaComentarioFocusLost
 
     }//GEN-LAST:event_jtaComentarioFocusLost
+
+    private void nuevaTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevaTransaccionActionPerformed
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer agregar este proveedor?");
+        if(JOptionPane.YES_OPTION == msj){
+            try {
+                if (jtNombre.getText().length() > 0 && !jtNombre.getText().equals("Es necesario rellenar este campo")){
+                    Conexion con = null;
+                    con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                    Provedor provedor = new Provedor(jtNombre.getText(), Long.parseLong(jtTelefono.getText()), jtEmail.getText(), jtDireccion.getText(), jtaComentario.getText());
+                    Provedor_data provedor_data = new Provedor_data(con);
+                    provedor_data.guardarProvedor(provedor);
+                    JOptionPane.showMessageDialog(null, "Felicidades, provedor agregado");
+
+                    this.setVisible(false);
+                    con.close();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el provedor, un campo quedo sin rellenar");
+                }
+            } catch (Exception e){
+                System.out.println("Error al instanciar la clase conexion " + e.getMessage());
+                JOptionPane.showMessageDialog(null,"No se pudo guardar el provedor, intente nuevamente " + e);
+            }
+        }
+    }//GEN-LAST:event_nuevaTransaccionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

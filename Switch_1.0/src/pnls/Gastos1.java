@@ -7,8 +7,11 @@ package pnls;
 
 import Clases.*;
 import Clases_data.*;
+import Interfaz.Gastos_InternalMenu;
 import java.util.List;
+import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import pnls.AddsMenu.nuevaCatGasto;
 
 /**
  *
@@ -174,18 +177,7 @@ public class Gastos1 extends javax.swing.JPanel {
 
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
-
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
-        );
-
+        addMenu.setLayout(new javax.swing.BoxLayout(addMenu, javax.swing.BoxLayout.LINE_AXIS));
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
 
         Registro.setBackground(new java.awt.Color(255, 255, 255));
@@ -260,15 +252,25 @@ public class Gastos1 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbNueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_categoriaActionPerformed
-        // TODO add your handling code here:
+        new CambiaPanel(this.addMenu, new nuevaCatGasto());
     }//GEN-LAST:event_jbNueva_categoriaActionPerformed
 
     private void jbNuevo_gastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_gastoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jbNuevo_gastoActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Gasto_data gasto_data = new Gasto_data(con);
+            List<Gasto> lista_gasto = gasto_data.obtenerGastos();
+            
+            mostrarLista(lista_gasto);
+            
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
 

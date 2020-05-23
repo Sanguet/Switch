@@ -9,6 +9,7 @@ import Clases.*;
 import Clases_data.*;
 import java.util.List;
 import javax.swing.JOptionPane;
+import pnls.AddsMenu.detalleProvedor;
 import pnls.AddsMenu.nuevoProvedor;
 public class Provedores1 extends javax.swing.JPanel {
 
@@ -51,6 +52,8 @@ public class Provedores1 extends javax.swing.JPanel {
         
         }
     }
+    public static String nombre, direccion, telefono, correo;
+    public static Provedor provedor_pasado;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -192,6 +195,11 @@ public class Provedores1 extends javax.swing.JPanel {
         jtProvedores.setRowHeight(25);
         jtProvedores.setShowGrid(true);
         jtProvedores.setShowVerticalLines(false);
+        jtProvedores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtProvedoresMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jtProvedores);
 
         javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
@@ -213,8 +221,35 @@ public class Provedores1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Provedor_data provedor_data = new Provedor_data(con);
+            List<Provedor> lista_provedores = provedor_data.obtenerProvedores();
+            
+            mostrarLista(lista_provedores);
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
     }//GEN-LAST:event_jbActualizarActionPerformed
+
+    private void jtProvedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProvedoresMouseClicked
+        int fila = this.jtProvedores.getSelectedRow();
+        
+        nombre = jtProvedores.getValueAt(fila, 0).toString();
+        direccion = jtProvedores.getValueAt(fila, 1).toString();
+        telefono = jtProvedores.getValueAt(fila, 2).toString();
+        correo = jtProvedores.getValueAt(fila, 3).toString();
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Provedor_data provedor_data = new Provedor_data(con);
+            
+            provedor_pasado = provedor_data.getProvedor_por_nombre(nombre);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar el provedor " + e.getMessage());
+        }
+        new CambiaPanel(this.addMenu, new detalleProvedor());
+    }//GEN-LAST:event_jtProvedoresMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

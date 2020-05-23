@@ -312,8 +312,16 @@ public class Ventas1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-
-
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Venta_data venta_data = new Venta_data(con);
+            List<Venta> lista_ventas = venta_data.obtenerVentas();
+            
+            mostrarLista(lista_ventas);
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
 
