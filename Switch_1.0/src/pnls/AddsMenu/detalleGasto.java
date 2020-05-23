@@ -44,39 +44,60 @@ public class detalleGasto extends javax.swing.JPanel {
         metodo = new javax.swing.JLabel();
         categoria = new javax.swing.JLabel();
         tituloCometario = new javax.swing.JLabel();
+        jlTotal = new javax.swing.JLabel();
+        categoria1 = new javax.swing.JLabel();
         tituloAddMenu = new javax.swing.JLabel();
 
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
+        addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
+        form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         fecha.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         fecha.setForeground(new java.awt.Color(255, 255, 255));
         fecha.setText("DD/MM/AA");
+        fecha.setPreferredSize(new java.awt.Dimension(150, 30));
+        form.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 11, -1, -1));
 
         borrar.setBackground(new java.awt.Color(46, 182, 125));
         borrar.setText("Borrar");
         borrar.setBorderPainted(false);
+        borrar.setPreferredSize(new java.awt.Dimension(30, 30));
+        borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                borrarActionPerformed(evt);
+            }
+        });
+        form.add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 49, -1, -1));
 
         hora.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         hora.setForeground(new java.awt.Color(255, 255, 255));
-        hora.setText("00:00");
+        hora.setText("00:00:00");
+        hora.setPreferredSize(new java.awt.Dimension(150, 30));
+        form.add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 47, -1, -1));
 
         tituloCategoria.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tituloCategoria.setForeground(new java.awt.Color(46, 182, 125));
         tituloCategoria.setText("Categoria:");
+        form.add(tituloCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 126, 64, -1));
 
         tituloProvedor.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tituloProvedor.setForeground(new java.awt.Color(46, 182, 125));
         tituloProvedor.setText("Provedor:");
+        form.add(tituloProvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 154, 64, -1));
 
         tituloProductos.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tituloProductos.setForeground(new java.awt.Color(46, 182, 125));
         tituloProductos.setText("Productos:");
+        form.add(tituloProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 204, 64, -1));
 
         tituloMetodo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tituloMetodo.setForeground(new java.awt.Color(46, 182, 125));
         tituloMetodo.setText("Metodo de pago:");
+        form.add(tituloMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 182, -1, -1));
+
+        comentario.setPreferredSize(new java.awt.Dimension(237, 80));
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
@@ -87,99 +108,52 @@ public class detalleGasto extends javax.swing.JPanel {
         jTextArea1.setSelectionColor(new java.awt.Color(46, 182, 125));
         comentario.setViewportView(jTextArea1);
 
+        form.add(comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 453, -1, 134));
+
         jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
-        jTextArea2.setText("1x Producto1 \n1x Producto3 \n1x Producto4 \n1x Producto5 \n3x Producto2\n\n\n\n\nTotal:                     $  1000,00");
+        jTextArea2.setText("1x Producto1 \n1x Producto3 \n1x Producto4 \n1x Producto5 \n3x Producto2\n\n\n\n\n");
         jTextArea2.setSelectionColor(new java.awt.Color(46, 182, 125));
         detalle.setViewportView(jTextArea2);
 
-        provedor.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        form.add(detalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 223, 239, 191));
+
+        provedor.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         provedor.setForeground(new java.awt.Color(255, 255, 255));
         provedor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         provedor.setText("Provedor1");
+        form.add(provedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 153, 124, -1));
 
-        metodo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        metodo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         metodo.setForeground(new java.awt.Color(255, 255, 255));
         metodo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         metodo.setText("Contado");
+        form.add(metodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 181, 127, -1));
 
-        categoria.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        categoria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         categoria.setForeground(new java.awt.Color(255, 255, 255));
         categoria.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         categoria.setText("Categoria1");
+        form.add(categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 125, 124, -1));
 
         tituloCometario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tituloCometario.setForeground(new java.awt.Color(46, 182, 125));
         tituloCometario.setText("Comentario:");
+        form.add(tituloCometario, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 432, 76, -1));
 
-        javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
-        form.setLayout(formLayout);
-        formLayout.setHorizontalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(formLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(formLayout.createSequentialGroup()
-                                .addComponent(tituloMetodo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(metodo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(tituloCometario, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(detalle, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(formLayout.createSequentialGroup()
-                                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tituloCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(tituloProvedor, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(provedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(categoria, javax.swing.GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)))
-                            .addComponent(tituloProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(formLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(borrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        formLayout.setVerticalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(borrar)
-                .addGap(18, 18, 18)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tituloCategoria)
-                    .addComponent(categoria))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tituloProvedor)
-                    .addComponent(provedor))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tituloMetodo)
-                    .addComponent(metodo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tituloProductos)
-                .addGap(4, 4, 4)
-                .addComponent(detalle, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
-                .addGap(11, 11, 11)
-                .addComponent(tituloCometario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
-        );
+        jlTotal.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlTotal.setForeground(new java.awt.Color(46, 182, 125));
+        jlTotal.setText("Importe:");
+        form.add(jlTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 98, 64, -1));
+
+        categoria1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        categoria1.setForeground(new java.awt.Color(255, 255, 255));
+        categoria1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        categoria1.setText("$  1000,00");
+        form.add(categoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 97, 124, -1));
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -190,15 +164,15 @@ public class detalleGasto extends javax.swing.JPanel {
         addMenu.setLayout(addMenuLayout);
         addMenuLayout.setHorizontalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
             .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMenuLayout.createSequentialGroup()
                 .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -219,11 +193,16 @@ public class detalleGasto extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_borrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addMenu;
     private javax.swing.JButton borrar;
     private javax.swing.JLabel categoria;
+    private javax.swing.JLabel categoria1;
     private javax.swing.JScrollPane comentario;
     private javax.swing.JScrollPane detalle;
     private javax.swing.JLabel fecha;
@@ -231,6 +210,7 @@ public class detalleGasto extends javax.swing.JPanel {
     private javax.swing.JLabel hora;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JLabel jlTotal;
     private javax.swing.JLabel metodo;
     private javax.swing.JLabel provedor;
     private javax.swing.JLabel tituloAddMenu;

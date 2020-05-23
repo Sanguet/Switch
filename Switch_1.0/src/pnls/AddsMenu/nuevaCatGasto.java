@@ -33,55 +33,47 @@ public class nuevaCatGasto extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         nuevaTransaccion = new javax.swing.JButton();
         Nombre = new javax.swing.JTextField();
+        jlNombre = new javax.swing.JLabel();
+        jlComentario = new javax.swing.JLabel();
         tituloAddMenu = new javax.swing.JLabel();
 
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
+        addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
+        form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("Comentario");
         Comentario.setViewportView(jTextArea1);
+
+        form.add(Comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 117, 240, 66));
 
         nuevaTransaccion.setBackground(new java.awt.Color(46, 182, 125));
         nuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         nuevaTransaccion.setForeground(new java.awt.Color(255, 255, 255));
         nuevaTransaccion.setText("Confirmar");
         nuevaTransaccion.setBorderPainted(false);
+        form.add(nuevaTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 201, 240, 32));
 
-        Nombre.setText("Nombre");
         Nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 NombreActionPerformed(evt);
             }
         });
+        form.add(Nombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 48, 240, 30));
 
-        javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
-        form.setLayout(formLayout);
-        formLayout.setHorizontalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(nuevaTransaccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Comentario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                    .addComponent(Nombre, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(36, 36, 36))
-        );
-        formLayout.setVerticalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(Comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(nuevaTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(328, Short.MAX_VALUE))
-        );
+        jlNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombre.setText("Nombre de la Categoria");
+        form.add(jlNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 27, 150, -1));
+
+        jlComentario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlComentario.setForeground(new java.awt.Color(255, 255, 255));
+        jlComentario.setText("Comentario");
+        form.add(jlComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 97, 117, -1));
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -92,18 +84,15 @@ public class nuevaCatGasto extends javax.swing.JPanel {
         addMenu.setLayout(addMenuLayout);
         addMenuLayout.setHorizontalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMenuLayout.createSequentialGroup()
                 .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -112,14 +101,14 @@ public class nuevaCatGasto extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -135,6 +124,8 @@ public class nuevaCatGasto extends javax.swing.JPanel {
     private javax.swing.JPanel addMenu;
     private javax.swing.JPanel form;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jlComentario;
+    private javax.swing.JLabel jlNombre;
     private javax.swing.JButton nuevaTransaccion;
     private javax.swing.JLabel tituloAddMenu;
     // End of variables declaration//GEN-END:variables

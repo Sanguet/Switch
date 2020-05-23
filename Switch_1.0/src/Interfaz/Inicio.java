@@ -12,7 +12,9 @@ import pnls.*;
  *
  * @author Alex
  */
+import pnls.Home;
 import java.awt.event.ActionEvent;/**
+ * 
  *
  * @author Alex
  */
@@ -28,7 +30,8 @@ public class Inicio extends javax.swing.JFrame{
         initComponents();
         this.setExtendedState(6);
         this.setResizable(false);
-        
+        this.setBounds(0,0,1080,720);
+        new CambiaPanel(this.panelBase, new Home());
         String a = ";";
     }
         
@@ -41,9 +44,6 @@ public class Inicio extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Cerrar = new javax.swing.JButton();
-        Escritorio = new javax.swing.JDesktopPane();
-        panelBase = new javax.swing.JPanel();
         verticalMenu = new javax.swing.JPanel();
         jbVentas = new javax.swing.JButton();
         jbInicio = new javax.swing.JButton();
@@ -52,49 +52,25 @@ public class Inicio extends javax.swing.JFrame{
         jbProductos = new javax.swing.JButton();
         jbProvedores = new javax.swing.JButton();
         jbOpciones = new javax.swing.JButton();
+        panelBase = new javax.swing.JPanel();
+        ventana = new javax.swing.JPanel();
+        jbCerrar1 = new javax.swing.JButton();
+        jbCerrar = new javax.swing.JButton();
+        jbCerrar2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1080, 720));
         setMinimumSize(new java.awt.Dimension(1080, 720));
         setUndecorated(true);
-
-        Cerrar.setBackground(new java.awt.Color(255, 51, 102));
-        Cerrar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        Cerrar.setText("X");
-        Cerrar.setToolTipText("");
-        Cerrar.setBorderPainted(false);
-        Cerrar.setMaximumSize(new java.awt.Dimension(40, 25));
-        Cerrar.setMinimumSize(new java.awt.Dimension(40, 25));
-        Cerrar.setPreferredSize(new java.awt.Dimension(40, 25));
-        Cerrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CerrarActionPerformed(evt);
-            }
-        });
-
-        panelBase.setBackground(new java.awt.Color(153, 0, 153));
-        panelBase.setLayout(new javax.swing.BoxLayout(panelBase, javax.swing.BoxLayout.LINE_AXIS));
-
-        Escritorio.setLayer(panelBase, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout EscritorioLayout = new javax.swing.GroupLayout(Escritorio);
-        Escritorio.setLayout(EscritorioLayout);
-        EscritorioLayout.setHorizontalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(EscritorioLayout.createSequentialGroup()
-                .addComponent(panelBase, javax.swing.GroupLayout.PREFERRED_SIZE, 964, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        EscritorioLayout.setVerticalGroup(
-            EscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, EscritorioLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(panelBase, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        setPreferredSize(new java.awt.Dimension(1080, 720));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         verticalMenu.setBackground(new java.awt.Color(14, 21, 30));
-        verticalMenu.setPreferredSize(new java.awt.Dimension(70, 489));
+        verticalMenu.setMaximumSize(new java.awt.Dimension(70, 720));
+        verticalMenu.setMinimumSize(new java.awt.Dimension(70, 720));
+        verticalMenu.setPreferredSize(new java.awt.Dimension(70, 864));
 
         jbVentas.setBackground(new java.awt.Color(14, 21, 30));
         jbVentas.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
@@ -225,9 +201,9 @@ public class Inicio extends javax.swing.JFrame{
         verticalMenuLayout.setVerticalGroup(
             verticalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(verticalMenuLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(35, 35, 35)
                 .addComponent(jbInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
+                .addGap(60, 60, 60)
                 .addComponent(jbVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbGastos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,37 +213,79 @@ public class Inicio extends javax.swing.JFrame{
                 .addComponent(jbProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbProvedores, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 207, Short.MAX_VALUE)
                 .addComponent(jbOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(verticalMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(840, 840, 840)
-                        .addComponent(Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(Escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(verticalMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 871, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Cerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(Escritorio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        getContentPane().add(verticalMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        panelBase.setBackground(new java.awt.Color(153, 0, 153));
+        panelBase.setMaximumSize(new java.awt.Dimension(1010, 695));
+        panelBase.setMinimumSize(new java.awt.Dimension(1010, 695));
+        panelBase.setPreferredSize(new java.awt.Dimension(1466, 839));
+        panelBase.setLayout(new javax.swing.BoxLayout(panelBase, javax.swing.BoxLayout.LINE_AXIS));
+        getContentPane().add(panelBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 25, -1, -1));
+
+        ventana.setBackground(new java.awt.Color(255, 255, 255));
+        ventana.setPreferredSize(new java.awt.Dimension(1466, 25));
+        ventana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jbCerrar1.setBackground(new java.awt.Color(255, 255, 255));
+        jbCerrar1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jbCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MinD.png"))); // NOI18N
+        jbCerrar1.setToolTipText("");
+        jbCerrar1.setBorderPainted(false);
+        jbCerrar1.setMaximumSize(new java.awt.Dimension(40, 25));
+        jbCerrar1.setMinimumSize(new java.awt.Dimension(40, 25));
+        jbCerrar1.setPreferredSize(new java.awt.Dimension(40, 25));
+        jbCerrar1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MinM.png"))); // NOI18N
+        jbCerrar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCerrar1ActionPerformed(evt);
+            }
+        });
+        ventana.add(jbCerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1346, 0, -1, -1));
+
+        jbCerrar.setBackground(new java.awt.Color(255, 255, 255));
+        jbCerrar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/CerrarC.png"))); // NOI18N
+        jbCerrar.setToolTipText("");
+        jbCerrar.setBorderPainted(false);
+        jbCerrar.setContentAreaFilled(false);
+        jbCerrar.setMaximumSize(new java.awt.Dimension(40, 25));
+        jbCerrar.setMinimumSize(new java.awt.Dimension(40, 25));
+        jbCerrar.setPreferredSize(new java.awt.Dimension(40, 25));
+        jbCerrar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/CloD.png"))); // NOI18N
+        jbCerrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCerrarActionPerformed(evt);
+            }
+        });
+        ventana.add(jbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1426, 0, -1, -1));
+
+        jbCerrar2.setBackground(new java.awt.Color(239, 239, 239));
+        jbCerrar2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jbCerrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxD.png"))); // NOI18N
+        jbCerrar2.setToolTipText("");
+        jbCerrar2.setBorderPainted(false);
+        jbCerrar2.setMaximumSize(new java.awt.Dimension(40, 25));
+        jbCerrar2.setMinimumSize(new java.awt.Dimension(40, 25));
+        jbCerrar2.setPreferredSize(new java.awt.Dimension(40, 25));
+        jbCerrar2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxM.png"))); // NOI18N
+        jbCerrar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCerrar2ActionPerformed(evt);
+            }
+        });
+        ventana.add(jbCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1386, 0, -1, -1));
+
+        getContentPane().add(ventana, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbVentasActionPerformed
-        new CambiaPanel(this.panelBase, new Ventas1());
+        new CambiaPanel(this.panelBase, new Ventas123());
         jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/VentaN.png")));
         jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Provedores.png")));
         jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
@@ -280,7 +298,7 @@ public class Inicio extends javax.swing.JFrame{
     }//GEN-LAST:event_jbInicioActionPerformed
 
     private void jbGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGastosActionPerformed
-        new CambiaPanel(this.panelBase, new Gastos());
+        new CambiaPanel(this.panelBase, new Gastos123());
         jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png")));
         jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Provedores.png")));
         jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
@@ -294,11 +312,11 @@ public class Inicio extends javax.swing.JFrame{
         jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
         jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Gastos.png")));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesN.png")));
-        new CambiaPanel(this.panelBase, new Clientes());
+        new CambiaPanel(this.panelBase, new Clientes123());
     }//GEN-LAST:event_jbClientesActionPerformed
 
     private void jbProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProductosActionPerformed
-        new CambiaPanel(this.panelBase, new Productos());
+        new CambiaPanel(this.panelBase, new Productos123());
         jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png")));
         jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Provedores.png")));
         jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProductosN.png")));
@@ -307,7 +325,7 @@ public class Inicio extends javax.swing.JFrame{
     }//GEN-LAST:event_jbProductosActionPerformed
 
     private void jbProvedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProvedoresActionPerformed
-        new CambiaPanel(this.panelBase, new Provedores());
+        new CambiaPanel(this.panelBase, new Provedores123());
         jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png")));
         jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProvedoresN.png")));
         jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
@@ -319,10 +337,18 @@ public class Inicio extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_jbOpcionesActionPerformed
 
-    private void CerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CerrarActionPerformed
+    private void jbCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_CerrarActionPerformed
+    }//GEN-LAST:event_jbCerrarActionPerformed
+
+    private void jbCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCerrar1ActionPerformed
+
+    private void jbCerrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCerrar2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,8 +387,9 @@ public class Inicio extends javax.swing.JFrame{
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Cerrar;
-    private javax.swing.JDesktopPane Escritorio;
+    private javax.swing.JButton jbCerrar;
+    private javax.swing.JButton jbCerrar1;
+    private javax.swing.JButton jbCerrar2;
     private javax.swing.JButton jbClientes;
     private javax.swing.JButton jbGastos;
     private javax.swing.JButton jbInicio;
@@ -371,6 +398,7 @@ public class Inicio extends javax.swing.JFrame{
     private javax.swing.JButton jbProvedores;
     private javax.swing.JButton jbVentas;
     private javax.swing.JPanel panelBase;
+    private javax.swing.JPanel ventana;
     private javax.swing.JPanel verticalMenu;
     // End of variables declaration//GEN-END:variables
 

@@ -5,6 +5,9 @@
  */
 package pnls.AddsMenu;
 
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+
 /**
  *
  * @author Alex
@@ -29,76 +32,141 @@ public class nuevoProvedor extends javax.swing.JPanel {
 
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
-        tel = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        MetodoPreferido = new javax.swing.JTextField();
-        comentario = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
         nuevaTransaccion = new javax.swing.JButton();
-        Nombre = new javax.swing.JTextField();
+        jlNombre = new javax.swing.JLabel();
+        jtNombre = new javax.swing.JTextField();
+        jlDireccion = new javax.swing.JLabel();
+        jtDireccion = new javax.swing.JTextField();
+        jlTelefono = new javax.swing.JLabel();
+        jtTelefono = new javax.swing.JTextField();
+        jlEmail = new javax.swing.JLabel();
+        jtEmail = new javax.swing.JTextField();
+        jlComentario = new javax.swing.JLabel();
+        jspComentario = new javax.swing.JScrollPane();
+        jtaComentario = new javax.swing.JTextArea();
         tituloAddMenu = new javax.swing.JLabel();
 
+        setPreferredSize(new java.awt.Dimension(300, 680));
+
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
+        addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
-
-        tel.setText("Telefono");
-
-        email.setText("Email");
-
-        MetodoPreferido.setText("Direccion");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Comentario");
-        comentario.setViewportView(jTextArea1);
+        form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         nuevaTransaccion.setBackground(new java.awt.Color(46, 182, 125));
         nuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         nuevaTransaccion.setForeground(new java.awt.Color(255, 255, 255));
         nuevaTransaccion.setText("Confirmar");
         nuevaTransaccion.setBorderPainted(false);
+        nuevaTransaccion.setPreferredSize(new java.awt.Dimension(240, 35));
+        form.add(nuevaTransaccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 358, -1, -1));
 
-        Nombre.setText("Nombre");
-        Nombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreActionPerformed(evt);
+        jlNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombre.setText("Nombre");
+        form.add(jlNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 19, 117, -1));
+
+        jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtNombreFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtNombreFocusLost(evt);
             }
         });
+        jtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtNombreActionPerformed(evt);
+            }
+        });
+        jtNombre.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtNombreKeyTyped(evt);
+            }
+        });
+        form.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, 240, 30));
 
-        javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
-        form.setLayout(formLayout);
-        formLayout.setHorizontalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(nuevaTransaccion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MetodoPreferido, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(email, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(tel, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comentario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                    .addComponent(Nombre, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(36, 36, 36))
-        );
-        formLayout.setVerticalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(MetodoPreferido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(nuevaTransaccion, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(196, Short.MAX_VALUE))
-        );
+        jlDireccion.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlDireccion.setForeground(new java.awt.Color(255, 255, 255));
+        jlDireccion.setText("Dirección");
+        form.add(jlDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 76, 64, -1));
+
+        jtDireccion.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtDireccionFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtDireccionFocusLost(evt);
+            }
+        });
+        jtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtDireccionActionPerformed(evt);
+            }
+        });
+        form.add(jtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 98, 240, 30));
+
+        jlTelefono.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jlTelefono.setText("Telefono");
+        form.add(jlTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 139, 64, -1));
+
+        jtTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtTelefonoFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtTelefonoFocusLost(evt);
+            }
+        });
+        jtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtTelefonoActionPerformed(evt);
+            }
+        });
+        jtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtTelefonoKeyTyped(evt);
+            }
+        });
+        form.add(jtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 240, 30));
+
+        jlEmail.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlEmail.setForeground(new java.awt.Color(255, 255, 255));
+        jlEmail.setText("E-mail");
+        form.add(jlEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 196, 64, -1));
+
+        jtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtEmailFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtEmailFocusLost(evt);
+            }
+        });
+        form.add(jtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 217, 240, 30));
+
+        jlComentario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlComentario.setForeground(new java.awt.Color(255, 255, 255));
+        jlComentario.setText("Comentario");
+        form.add(jlComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 253, 99, -1));
+
+        jtaComentario.setColumns(20);
+        jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentario.setLineWrap(true);
+        jtaComentario.setRows(5);
+        jtaComentario.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtaComentarioFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtaComentarioFocusLost(evt);
+            }
+        });
+        jspComentario.setViewportView(jtaComentario);
+
+        form.add(jspComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 274, 240, 66));
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,18 +177,15 @@ public class nuevoProvedor extends javax.swing.JPanel {
         addMenu.setLayout(addMenuLayout);
         addMenuLayout.setHorizontalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMenuLayout.createSequentialGroup()
                 .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -129,33 +194,108 @@ public class nuevoProvedor extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreActionPerformed
+    private void jtNombreFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNombreFocusGained
+        this.jtNombre.setText("");
+        jtNombre.setForeground(Color.black);
+    }//GEN-LAST:event_jtNombreFocusGained
+
+    private void jtNombreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtNombreFocusLost
+        if("".equals(jtNombre.getText())){
+            jtNombre.setForeground(Color.red);
+            jtNombre.setText("Es necesario rellenar este campo");
+        }
+    }//GEN-LAST:event_jtNombreFocusLost
+
+    private void jtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_NombreActionPerformed
+    }//GEN-LAST:event_jtNombreActionPerformed
+
+    private void jtNombreKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtNombreKeyTyped
+        char c = evt.getKeyChar();
+        if ((c < 'a' || c > 'z') && (c < 'A' || c > 'Z') && (c != KeyEvent.VK_SPACE)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtNombreKeyTyped
+
+    private void jtDireccionFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDireccionFocusGained
+        this.jtDireccion.setText("");
+        jtDireccion.setForeground(Color.black);
+    }//GEN-LAST:event_jtDireccionFocusGained
+
+    private void jtDireccionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDireccionFocusLost
+
+    }//GEN-LAST:event_jtDireccionFocusLost
+
+    private void jtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtDireccionActionPerformed
+
+    private void jtTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtTelefonoFocusGained
+        this.jtTelefono.setText("");
+        jtTelefono.setForeground(Color.black);
+    }//GEN-LAST:event_jtTelefonoFocusGained
+
+    private void jtTelefonoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtTelefonoFocusLost
+
+    }//GEN-LAST:event_jtTelefonoFocusLost
+
+    private void jtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtTelefonoActionPerformed
+
+    private void jtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTelefonoKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtTelefonoKeyTyped
+
+    private void jtEmailFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtEmailFocusGained
+        this.jtEmail.setText("");
+        jtEmail.setForeground(Color.black);
+    }//GEN-LAST:event_jtEmailFocusGained
+
+    private void jtEmailFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtEmailFocusLost
+
+    }//GEN-LAST:event_jtEmailFocusLost
+
+    private void jtaComentarioFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtaComentarioFocusGained
+        this.jtaComentario.setText("");
+        jtaComentario.setForeground(Color.black);
+    }//GEN-LAST:event_jtaComentarioFocusGained
+
+    private void jtaComentarioFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtaComentarioFocusLost
+
+    }//GEN-LAST:event_jtaComentarioFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField MetodoPreferido;
-    private javax.swing.JTextField Nombre;
     private javax.swing.JPanel addMenu;
-    private javax.swing.JScrollPane comentario;
-    private javax.swing.JTextField email;
     private javax.swing.JPanel form;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel jlComentario;
+    private javax.swing.JLabel jlDireccion;
+    private javax.swing.JLabel jlEmail;
+    private javax.swing.JLabel jlNombre;
+    private javax.swing.JLabel jlTelefono;
+    private javax.swing.JScrollPane jspComentario;
+    private javax.swing.JTextField jtDireccion;
+    private javax.swing.JTextField jtEmail;
+    private javax.swing.JTextField jtNombre;
+    private javax.swing.JTextField jtTelefono;
+    private javax.swing.JTextArea jtaComentario;
     private javax.swing.JButton nuevaTransaccion;
-    private javax.swing.JTextField tel;
     private javax.swing.JLabel tituloAddMenu;
     // End of variables declaration//GEN-END:variables
 }

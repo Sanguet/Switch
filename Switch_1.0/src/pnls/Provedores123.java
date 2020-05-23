@@ -9,12 +9,13 @@ import Clases.*;
 import Clases_data.*;
 import java.util.List;
 import javax.swing.JOptionPane;
-public class Provedores extends javax.swing.JPanel {
+import pnls.AddsMenu.nuevoProvedor;
+public class Provedores123 extends javax.swing.JPanel {
 
     /**
      * Creates new form Provedores
      */
-    public Provedores() {
+    public Provedores123() {
         initComponents();try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Provedor_data provedor_data = new Provedor_data(con);
@@ -69,10 +70,11 @@ public class Provedores extends javax.swing.JPanel {
         jScrollPane2 = new javax.swing.JScrollPane();
         jtProvedores = new javax.swing.JTable();
 
+        setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo.setBackground(new java.awt.Color(255, 255, 255));
-        Titulo.setPreferredSize(new java.awt.Dimension(1920, 1080));
+        Titulo.setPreferredSize(new java.awt.Dimension(1466, 120));
 
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Provedores");
@@ -90,7 +92,6 @@ public class Provedores extends javax.swing.JPanel {
         });
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/ProvedoresR.png"))); // NOI18N
-        jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
         javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);
         Titulo.setLayout(TituloLayout);
@@ -98,46 +99,35 @@ public class Provedores extends javax.swing.JPanel {
             TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TituloLayout.createSequentialGroup()
                 .addGap(31, 31, 31)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 362, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 831, Short.MAX_VALUE)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(20, 20, 20))
         );
         TituloLayout.setVerticalGroup(
             TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(TituloLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
                 .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
                     .addGroup(TituloLayout.createSequentialGroup()
-                        .addGap(36, 36, 36)
-                        .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(TituloLayout.createSequentialGroup()
-                        .addGap(45, 45, 45)
+                        .addGap(8, 8, 8)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
-        add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 987, 131));
+        add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
-
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 241, Short.MAX_VALUE)
-        );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-
-        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(736, 142, -1, 400));
+        addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.setLayout(new javax.swing.BoxLayout(addMenu, javax.swing.BoxLayout.LINE_AXIS));
+        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
 
         Registro.setBackground(new java.awt.Color(255, 255, 255));
+        Registro.setPreferredSize(new java.awt.Dimension(1096, 680));
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -190,18 +180,18 @@ public class Provedores extends javax.swing.JPanel {
         Registro.setLayout(RegistroLayout);
         RegistroLayout.setHorizontalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 690, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE)
         );
         RegistroLayout.setVerticalGroup(
             RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
         );
 
-        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 142, 690, 400));
+        add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+       new CambiaPanel(this.addMenu, new nuevoProvedor()); // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
 

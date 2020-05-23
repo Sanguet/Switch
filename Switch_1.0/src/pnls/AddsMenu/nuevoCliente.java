@@ -5,7 +5,7 @@
  */
 package pnls.AddsMenu;
 
-import pnls.Clientes;
+import pnls.Clientes123;
 
 import Clases.Cliente;
 import Clases.Conexion;
@@ -22,7 +22,7 @@ public class nuevoCliente extends javax.swing.JPanel {
     /**
      * Creates new form nuevoCliente
      */
-    public static Clientes ventana_cliente = new Clientes();
+    public static Clientes123 ventana_cliente = new Clientes123();
     public nuevoCliente() {
         initComponents();
         
@@ -84,15 +84,20 @@ public class nuevoCliente extends javax.swing.JPanel {
         jtaComentario = new javax.swing.JTextArea();
         jbConfirmar = new javax.swing.JButton();
         jtNombre = new javax.swing.JTextField();
+        jlNombreyApellido = new javax.swing.JLabel();
+        jlBox = new javax.swing.JLabel();
+        jlTelefono = new javax.swing.JLabel();
+        jlEmail = new javax.swing.JLabel();
+        jlMetodo = new javax.swing.JLabel();
+        jlComentario = new javax.swing.JLabel();
         tituloAddMenu = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
         addMenu.setBackground(new java.awt.Color(54, 197, 240));
+        addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
+        form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jtBox.setText("Box");
         jtBox.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtBoxFocusGained(evt);
@@ -106,8 +111,8 @@ public class nuevoCliente extends javax.swing.JPanel {
                 jtBoxActionPerformed(evt);
             }
         });
+        form.add(jtBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 240, 30));
 
-        jtTelefono.setText("Telefono");
         jtTelefono.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtTelefonoFocusGained(evt);
@@ -126,8 +131,8 @@ public class nuevoCliente extends javax.swing.JPanel {
                 jtTelefonoKeyTyped(evt);
             }
         });
+        form.add(jtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 162, 240, 30));
 
-        jtEmail.setText("Email");
         jtEmail.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtEmailFocusGained(evt);
@@ -136,8 +141,9 @@ public class nuevoCliente extends javax.swing.JPanel {
                 jtEmailFocusLost(evt);
             }
         });
+        form.add(jtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 219, 240, 30));
 
-        jtMetodo_de_pago.setText("Metodo de pago preferido");
+        jtMetodo_de_pago.setPreferredSize(new java.awt.Dimension(125, 30));
         jtMetodo_de_pago.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtMetodo_de_pagoFocusGained(evt);
@@ -146,16 +152,22 @@ public class nuevoCliente extends javax.swing.JPanel {
                 jtMetodo_de_pagoFocusLost(evt);
             }
         });
+        jtMetodo_de_pago.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtMetodo_de_pagoActionPerformed(evt);
+            }
+        });
         jtMetodo_de_pago.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jtMetodo_de_pagoKeyTyped(evt);
             }
         });
+        form.add(jtMetodo_de_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 277, 240, -1));
 
         jtaComentario.setColumns(20);
         jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentario.setLineWrap(true);
         jtaComentario.setRows(5);
-        jtaComentario.setText("Comentario");
         jtaComentario.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtaComentarioFocusGained(evt);
@@ -166,18 +178,21 @@ public class nuevoCliente extends javax.swing.JPanel {
         });
         jspComentario.setViewportView(jtaComentario);
 
+        form.add(jspComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 334, 240, 66));
+
         jbConfirmar.setBackground(new java.awt.Color(54, 197, 240));
         jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jbConfirmar.setText("Confirmar");
         jbConfirmar.setBorderPainted(false);
+        jbConfirmar.setPreferredSize(new java.awt.Dimension(101, 35));
         jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbConfirmarActionPerformed(evt);
             }
         });
+        form.add(jbConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 418, 240, -1));
 
-        jtNombre.setText("Nombre Apellido");
         jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtNombreFocusGained(evt);
@@ -196,42 +211,37 @@ public class nuevoCliente extends javax.swing.JPanel {
                 jtNombreKeyTyped(evt);
             }
         });
+        form.add(jtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 42, 240, 30));
 
-        javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
-        form.setLayout(formLayout);
-        formLayout.setHorizontalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jbConfirmar, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jtMetodo_de_pago, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtEmail, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtTelefono, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jtBox, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jspComentario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 167, Short.MAX_VALUE)
-                    .addComponent(jtNombre, javax.swing.GroupLayout.Alignment.LEADING))
-                .addGap(36, 36, 36))
-        );
-        formLayout.setVerticalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addComponent(jtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jtBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jtMetodo_de_pago, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jspComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(148, Short.MAX_VALUE))
-        );
+        jlNombreyApellido.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlNombreyApellido.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombreyApellido.setText("Nombre y Apellido");
+        form.add(jlNombreyApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 21, 117, -1));
+
+        jlBox.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlBox.setForeground(new java.awt.Color(255, 255, 255));
+        jlBox.setText("Box");
+        form.add(jlBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 78, 64, -1));
+
+        jlTelefono.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlTelefono.setForeground(new java.awt.Color(255, 255, 255));
+        jlTelefono.setText("Telefono");
+        form.add(jlTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 141, 64, -1));
+
+        jlEmail.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlEmail.setForeground(new java.awt.Color(255, 255, 255));
+        jlEmail.setText("E-mail");
+        form.add(jlEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 198, 64, -1));
+
+        jlMetodo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlMetodo.setForeground(new java.awt.Color(255, 255, 255));
+        jlMetodo.setText("Metodo de pago preferido");
+        form.add(jlMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 256, 205, -1));
+
+        jlComentario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlComentario.setForeground(new java.awt.Color(255, 255, 255));
+        jlComentario.setText("Comentario");
+        form.add(jlComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 313, 99, -1));
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -242,21 +252,27 @@ public class nuevoCliente extends javax.swing.JPanel {
         addMenu.setLayout(addMenuLayout);
         addMenuLayout.setHorizontalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+            .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMenuLayout.createSequentialGroup()
                 .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
         );
 
-        add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 240, 550));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(addMenu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jtBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtBoxActionPerformed
@@ -383,11 +399,21 @@ public class nuevoCliente extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtTelefonoActionPerformed
 
+    private void jtMetodo_de_pagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtMetodo_de_pagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtMetodo_de_pagoActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addMenu;
     private javax.swing.JPanel form;
     private javax.swing.JButton jbConfirmar;
+    private javax.swing.JLabel jlBox;
+    private javax.swing.JLabel jlComentario;
+    private javax.swing.JLabel jlEmail;
+    private javax.swing.JLabel jlMetodo;
+    private javax.swing.JLabel jlNombreyApellido;
+    private javax.swing.JLabel jlTelefono;
     private javax.swing.JScrollPane jspComentario;
     private javax.swing.JTextField jtBox;
     private javax.swing.JTextField jtEmail;
