@@ -5,12 +5,14 @@
  */
 package pnls.AddsMenu;
 
+import Clases_data.*;
 import java.awt.Color;
-
-/**
- *
- * @author Alex
- */
+import java.awt.event.KeyEvent;
+import java.util.List;
+import javax.swing.JOptionPane;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import Clases.*;
+import javax.swing.JTextField;
 public class nuevaCatGasto extends javax.swing.JPanel {
 
     /**
@@ -18,6 +20,13 @@ public class nuevaCatGasto extends javax.swing.JPanel {
      */
     public nuevaCatGasto() {
         initComponents();
+    }
+    public boolean Campo_valido(JTextField campo){
+        if (campo.getText().length() > 0 && !campo.getText().equals("Es necesario rellenar este campo")){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -45,11 +54,9 @@ public class nuevaCatGasto extends javax.swing.JPanel {
         form.setBackground(new java.awt.Color(14, 21, 30));
         form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jTextArea1.setRows(5);
-        jTextArea1.setText("ad\n");
         Comentario.setViewportView(jTextArea1);
 
         form.add(Comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 117, 240, 66));
@@ -59,6 +66,11 @@ public class nuevaCatGasto extends javax.swing.JPanel {
         jtConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jtConfirmar.setText("Confirmar");
         jtConfirmar.setBorderPainted(false);
+        jtConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtConfirmarActionPerformed(evt);
+            }
+        });
         form.add(jtConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 201, 240, 32));
 
         jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -139,6 +151,36 @@ public class nuevaCatGasto extends javax.swing.JPanel {
             jtNombre.setText("Es necesario rellenar este campo");
         }
     }//GEN-LAST:event_jtNombreFocusLost
+
+    private void jtConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtConfirmarActionPerformed
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer agregar esta categoria?");
+        if(JOptionPane.YES_OPTION == msj){
+            try {
+                if (Campo_valido(this.jtNombre)){
+                    
+                    Conexion con = null;
+                    con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                    Categoria_data cpd = new Categoria_data(con);
+                    Categoria categoria;
+                    categoria = new Categoria(jtNombre.getText());
+                    
+                    cpd.guardarCategoria(categoria);
+                    
+                    JOptionPane.showMessageDialog(null, "Felicidades, categoria agregado");
+
+                    this.setVisible(false);
+
+                    con.close();
+                    
+                }else{
+                    JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar la categoria, un campo quedo sin rellenar");
+                }
+            } catch (Exception e){
+                System.out.println("Error al instanciar la clase conexion" + e.getMessage());
+                JOptionPane.showMessageDialog(null,"No se pudo guardar la categoria, intente nuevamente " + e);
+            }
+        }
+    }//GEN-LAST:event_jtConfirmarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

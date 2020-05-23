@@ -7,7 +7,6 @@ package pnls.AddsMenu;
 
 import Clases_data.*;
 import java.awt.Color;
-import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -244,7 +243,7 @@ public class nuevaCatProductos extends javax.swing.JPanel {
                     con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
                     Categoria_producto_data cpd = new Categoria_producto_data(con);
                     Categoria_producto categoria_producto;
-                    if (!jtaComentario.isEnabled()){
+                    if (!esSub.isEnabled()){
                         int id_categoria_padre = cpd.getCategoria_por_nombre(jcbCategoria_padre.getItemAt(0)).getId();
                         categoria_producto = new Categoria_producto(jtNombre.getText(),id_categoria_padre, jtaComentario.getText());
                     } else {

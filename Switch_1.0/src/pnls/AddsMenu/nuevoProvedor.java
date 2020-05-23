@@ -291,6 +291,9 @@ public class nuevoProvedor extends javax.swing.JPanel {
                 if (jtNombre.getText().length() > 0 && !jtNombre.getText().equals("Es necesario rellenar este campo")){
                     Conexion con = null;
                     con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                    if ("".equals(jtTelefono.getText())){
+                        jtTelefono.setText("0");
+                    }
                     Provedor provedor = new Provedor(jtNombre.getText(), Long.parseLong(jtTelefono.getText()), jtEmail.getText(), jtDireccion.getText(), jtaComentario.getText());
                     Provedor_data provedor_data = new Provedor_data(con);
                     provedor_data.guardarProvedor(provedor);
