@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pnls;
+package pnls.AddsMenu;
 
 
 import Clases.Cliente;
@@ -11,12 +11,13 @@ import Clases.Conexion;
 import Clases_data.Cliente_data;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-public class asdTest extends javax.swing.JPanel {
+import pnls.Clientes123;
+public class detalleCliente extends javax.swing.JPanel {
 
     /**
      * Creates new form asdTest
      */
-    public asdTest() {
+    public detalleCliente() {
         initComponents();
         try{
             jlNombre.setText(Clientes123.nombre);

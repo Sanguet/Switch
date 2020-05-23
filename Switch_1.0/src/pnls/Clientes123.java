@@ -5,6 +5,7 @@
  */
 package pnls;
 
+import pnls.AddsMenu.detalleCliente;
 import Clases.Cliente;
 import Clases.Conexion;
 import Clases.Cuenta_corriente;
@@ -339,7 +340,7 @@ public class Clientes123 extends javax.swing.JPanel {
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
-        new CambiaPanel(this.addMenu, new asdTest());
+        new CambiaPanel(this.addMenu, new detalleCliente());
     }//GEN-LAST:event_jtClientesMouseClicked
 
 

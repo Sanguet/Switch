@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import java.awt.Toolkit;
 import pnls.*;
 
 
@@ -28,9 +29,11 @@ public class Inicio extends javax.swing.JFrame{
     
     public Inicio() {
         initComponents();
-        this.setExtendedState(6);
-        this.setResizable(false);
-        this.setBounds(0,0,1080,720);
+        
+        Toolkit t = Toolkit.getDefaultToolkit();
+        int ancho = java.awt.Toolkit.getDefaultToolkit().getScreenSize().width;
+        int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
+        this.setBounds(0,0,ancho,alto);
         new CambiaPanel(this.panelBase, new Home());
         String a = ";";
     }
