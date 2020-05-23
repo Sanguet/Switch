@@ -120,6 +120,11 @@ public class detalleProducto extends javax.swing.JPanel {
         jbBorrar.setBackground(new java.awt.Color(224, 30, 90));
         jbBorrar.setText("Borrar");
         jbBorrar.setBorderPainted(false);
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
 
         jtCantidad.setEditable(false);
         jtCantidad.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -260,31 +265,35 @@ public class detalleProducto extends javax.swing.JPanel {
             jcbProvedor.setEnabled(true);
         } else {
             int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer editar este cliente?");
-        if(JOptionPane.YES_OPTION == msj){
-            try{
-                Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-                Producto_data cd = new Producto_data(con);
-                Provedor_data pd = new Provedor_data(con);
-                Categoria_producto_data cpd = new Categoria_producto_data(con);
-                int indice = jcbCategoria.getSelectedIndex();
-                int indice2 = jcbProvedor.getSelectedIndex();
-                int id_categoria =  cpd.getCategoria_por_nombre(this.jcbCategoria.getItemAt(indice)).getId();
-                int id_provedor = pd.getProvedor_por_nombre(this.jcbProvedor.getItemAt(indice2)).getId();
-                
-                Producto producto = new Producto(jlNombre.getText(), id_categoria, Double.parseDouble(jtCosto.getText()), Double.parseDouble(jtPrecio.getText()), Integer.parseInt(jtCantidad.getText()), id_provedor, jtaComentario.getText(), Integer.parseInt(jtCodigo.getText()));
+            if(JOptionPane.YES_OPTION == msj){
+                try{
+                    Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                    Producto_data cd = new Producto_data(con);
+                    Provedor_data pd = new Provedor_data(con);
+                    Categoria_producto_data cpd = new Categoria_producto_data(con);
+                    int indice = jcbCategoria.getSelectedIndex();
+                    int indice2 = jcbProvedor.getSelectedIndex();
+                    int id_categoria =  cpd.getCategoria_por_nombre(this.jcbCategoria.getItemAt(indice)).getId();
+                    int id_provedor = pd.getProvedor_por_nombre(this.jcbProvedor.getItemAt(indice2)).getId();
 
-                cd.actualizarProducto_por_id(producto, Productos1.producto_pasado.getId());
+                    Producto producto = new Producto(jlNombre.getText(), id_categoria, Double.parseDouble(jtCosto.getText()), Double.parseDouble(jtPrecio.getText()), Integer.parseInt(jtCantidad.getText()), id_provedor, jtaComentario.getText(), Integer.parseInt(jtCodigo.getText()));
 
-                JOptionPane.showMessageDialog(null, "Se actualizo con exito el Producto" );
+                    cd.actualizarProducto_por_id(producto, Productos1.producto_pasado.getId());
 
-                this.setVisible(false);
+                    JOptionPane.showMessageDialog(null, "Se actualizo con exito el Producto" );
 
-            } catch (Exception e){
-                JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+                    this.setVisible(false);
+
+                } catch (Exception e){
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el producto " + e.getMessage());
+                }
             }
         }
-        }
     }//GEN-LAST:event_jbEditarActionPerformed
+
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbBorrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

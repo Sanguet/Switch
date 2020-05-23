@@ -67,7 +67,7 @@ public class Provedor_data {
         }
     }
     
-    public void actualizarProvedor(Provedor provedor){
+    public void actualizarProvedor_por_id(Provedor provedor, int id){
         try{
             String sql = "UPDATE provedor SET nombre = ?, telefono = ?, correo = ?, direccion = ?, comentario = ? WHERE id_provedor = ?";
             
@@ -77,7 +77,7 @@ public class Provedor_data {
             stmt.setString(3,provedor.getCorreo());
             stmt.setString(4,provedor.getDireccion());    
             stmt.setString(5,provedor.getComentario());
-            stmt.setInt(6, provedor.getId());
+            stmt.setInt(6, id);
             
             stmt.executeUpdate();
             

@@ -5,10 +5,15 @@
  */
 package pnls.AddsMenu;
 
-/**
- *
- * @author Alex
- */
+import Clases_data.*;
+import java.awt.Color;
+import java.awt.event.KeyEvent;
+import java.util.List;
+import javax.swing.JOptionPane;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import Clases.*;
+import javax.swing.JTextField;
+import pnls.Provedores1;
 public class detalleProvedor extends javax.swing.JPanel {
 
     /**
@@ -16,6 +21,11 @@ public class detalleProvedor extends javax.swing.JPanel {
      */
     public detalleProvedor() {
         initComponents();
+        jlNombre.setText(Provedores1.nombre);
+        jtTelefono.setText(Provedores1.telefono);
+        jtEmail.setText(Provedores1.correo);
+        jtDireccion.setText(Provedores1.direccion);
+        jtaComentario.setText(Provedores1.provedor_pasado.getComentario());
     }
 
     /**
@@ -29,15 +39,15 @@ public class detalleProvedor extends javax.swing.JPanel {
 
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
-        nombrecliente = new javax.swing.JLabel();
-        tel = new javax.swing.JTextField();
-        email = new javax.swing.JTextField();
-        Direccion = new javax.swing.JTextField();
-        comentario = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        editar = new javax.swing.JButton();
-        borrar = new javax.swing.JButton();
         jlNombre = new javax.swing.JLabel();
+        jtTelefono = new javax.swing.JTextField();
+        jtEmail = new javax.swing.JTextField();
+        jtDireccion = new javax.swing.JTextField();
+        comentario = new javax.swing.JScrollPane();
+        jtaComentario = new javax.swing.JTextArea();
+        jbEditar = new javax.swing.JButton();
+        jbBorrar = new javax.swing.JButton();
+        jlNombreCompleto = new javax.swing.JLabel();
         jlDireccion = new javax.swing.JLabel();
         jlTelefono = new javax.swing.JLabel();
         jlEmail = new javax.swing.JLabel();
@@ -51,37 +61,47 @@ public class detalleProvedor extends javax.swing.JPanel {
 
         form.setBackground(new java.awt.Color(14, 21, 30));
 
-        nombrecliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
-        nombrecliente.setForeground(new java.awt.Color(255, 255, 255));
-        nombrecliente.setText("Nombre ");
-        nombrecliente.setPreferredSize(new java.awt.Dimension(180, 30));
-
-        tel.setEditable(false);
-
-        email.setEditable(false);
-
-        Direccion.setEditable(false);
-
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        comentario.setViewportView(jTextArea1);
-
-        editar.setBackground(new java.awt.Color(46, 182, 125));
-        editar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/Editar.png"))); // NOI18N
-        editar.setBorderPainted(false);
-        editar.setPreferredSize(new java.awt.Dimension(30, 30));
-
-        borrar.setBackground(new java.awt.Color(46, 182, 125));
-        borrar.setText("Borrar");
-        borrar.setBorderPainted(false);
-        borrar.setPreferredSize(new java.awt.Dimension(30, 30));
-
-        jlNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jlNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jlNombre.setText("Nombre del Provedor");
+        jlNombre.setText("Nombre ");
+        jlNombre.setPreferredSize(new java.awt.Dimension(180, 30));
+
+        jtTelefono.setEnabled(false);
+
+        jtEmail.setEnabled(false);
+
+        jtDireccion.setEnabled(false);
+
+        jtaComentario.setColumns(20);
+        jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentario.setLineWrap(true);
+        jtaComentario.setRows(5);
+        jtaComentario.setEnabled(false);
+        comentario.setViewportView(jtaComentario);
+
+        jbEditar.setBackground(new java.awt.Color(46, 182, 125));
+        jbEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/Editar.png"))); // NOI18N
+        jbEditar.setBorderPainted(false);
+        jbEditar.setPreferredSize(new java.awt.Dimension(30, 30));
+        jbEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEditarActionPerformed(evt);
+            }
+        });
+
+        jbBorrar.setBackground(new java.awt.Color(46, 182, 125));
+        jbBorrar.setText("Borrar");
+        jbBorrar.setBorderPainted(false);
+        jbBorrar.setPreferredSize(new java.awt.Dimension(30, 30));
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
+
+        jlNombreCompleto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlNombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombreCompleto.setText("Nombre del Provedor");
 
         jlDireccion.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlDireccion.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,17 +130,17 @@ public class detalleProvedor extends javax.swing.JPanel {
                     .addComponent(jlDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(formLayout.createSequentialGroup()
-                            .addComponent(jlNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlNombreCompleto, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(tel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jtTelefono, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(formLayout.createSequentialGroup()
-                            .addComponent(nombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jlTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jlEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(30, Short.MAX_VALUE))
@@ -130,29 +150,29 @@ public class detalleProvedor extends javax.swing.JPanel {
             .addGroup(formLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(editar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlNombre))
+                    .addComponent(jbEditar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlNombreCompleto))
                 .addGap(11, 11, 11)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(borrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jbBorrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jlNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(5, 5, 5)
                 .addComponent(jlTelefono)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlEmail)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlDireccion)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Direccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlComentario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addContainerGap(283, Short.MAX_VALUE))
         );
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
@@ -178,23 +198,69 @@ public class detalleProvedor extends javax.swing.JPanel {
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEditarActionPerformed
+        if (!jtTelefono.isEnabled()){
+            jtEmail.setEnabled(true);
+            jtTelefono.setEnabled(true);
+            jtDireccion.setEnabled(true);
+            jtaComentario.setEnabled(true);
+        } else {
+            int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer editar este proveedor?");
+            if(JOptionPane.YES_OPTION == msj){
+                try{
+                    Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                    Provedor_data provedor_data = new Provedor_data(con);
+
+                    Provedor provedor = new Provedor(jlNombre.getText(), Long.parseLong(jtTelefono.getText()), jtEmail.getText(), jtDireccion.getText(), jtaComentario.getText());
+
+                    provedor_data.actualizarProvedor_por_id(provedor, Provedores1.provedor_pasado.getId());
+
+                    JOptionPane.showMessageDialog(null, "Se actualizo con exito el proveedor" );
+
+                    this.setVisible(false);
+
+                } catch (Exception e){
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el proveedor " + e.getMessage());
+                }
+            }
+        }
+    }//GEN-LAST:event_jbEditarActionPerformed
+
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer borrar este provedor?");
+        if(JOptionPane.YES_OPTION == msj){
+            try{
+                Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                Provedor_data provedor_data = new Provedor_data(con);
+                provedor_data.borrarProvedor(Provedores1.provedor_pasado);
+
+                JOptionPane.showMessageDialog(null, "Se borro con exito el Provedor" );
+
+                this.setVisible(false);
+
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "No se pudo borrar el provedor " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jbBorrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Direccion;
     private javax.swing.JPanel addMenu;
-    private javax.swing.JButton borrar;
     private javax.swing.JScrollPane comentario;
-    private javax.swing.JButton editar;
-    private javax.swing.JTextField email;
     private javax.swing.JPanel form;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton jbBorrar;
+    private javax.swing.JButton jbEditar;
     private javax.swing.JLabel jlComentario;
     private javax.swing.JLabel jlDireccion;
     private javax.swing.JLabel jlEmail;
     private javax.swing.JLabel jlNombre;
+    private javax.swing.JLabel jlNombreCompleto;
     private javax.swing.JLabel jlTelefono;
-    private javax.swing.JLabel nombrecliente;
-    private javax.swing.JTextField tel;
+    private javax.swing.JTextField jtDireccion;
+    private javax.swing.JTextField jtEmail;
+    private javax.swing.JTextField jtTelefono;
+    private javax.swing.JTextArea jtaComentario;
     private javax.swing.JLabel tituloAddMenu;
     // End of variables declaration//GEN-END:variables
 }
