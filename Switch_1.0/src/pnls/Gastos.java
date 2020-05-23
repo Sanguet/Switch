@@ -14,12 +14,12 @@ import javax.swing.JOptionPane;
  *
  * @author Alex
  */
-public class Gastos123 extends javax.swing.JPanel {
+public class Gastos extends javax.swing.JPanel {
 
     /**
      * Creates new form Gastos
      */
-    public Gastos123() {
+    public Gastos() {
         initComponents();
         
         try{

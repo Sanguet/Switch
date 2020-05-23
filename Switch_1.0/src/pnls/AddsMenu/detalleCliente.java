@@ -11,7 +11,7 @@ import Clases.Conexion;
 import Clases_data.Cliente_data;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import pnls.Clientes123;
+import pnls.Clientes;
 public class detalleCliente extends javax.swing.JPanel {
 
     /**
@@ -20,12 +20,12 @@ public class detalleCliente extends javax.swing.JPanel {
     public detalleCliente() {
         initComponents();
         try{
-            jlNombre.setText(Clientes123.nombre);
-            jtBox.setText(Clientes123.box);
-            jtTelefono.setText(Clientes123.telefono);
-            jtEmail.setText(Clientes123.email);
-            jtMetodo_de_pago.setText(Clientes123.cliente_pasado.getMetodo_de_pago_preferido());
-            jlSaldo.setText(Clientes123.saldo);
+            jlNombre.setText(Clientes.nombre);
+            jtBox.setText(Clientes.box);
+            jtTelefono.setText(Clientes.telefono);
+            jtEmail.setText(Clientes.email);
+            jtMetodo_de_pago.setText(Clientes.cliente_pasado.getMetodo_de_pago_preferido());
+            jlSaldo.setText(Clientes.saldo);
             if (Double.parseDouble(jlSaldo.getText()) < 0){
                 jlSaldo.setForeground(Color.red);
             }
@@ -281,7 +281,7 @@ public class detalleCliente extends javax.swing.JPanel {
                 Cliente_data cd = new Cliente_data(con);
                 Cliente cliente = new Cliente(jlNombre.getText(), Long.parseLong(jtTelefono.getText()), jtEmail.getText(), jtBox.getText(), jtMetodo_de_pago.getText(), jtaComentario.getText());
 
-                cd.actualizarCliente_por_id(cliente, Clientes123.cliente_pasado.getId());
+                cd.actualizarCliente_por_id(cliente, Clientes.cliente_pasado.getId());
 
                 JOptionPane.showMessageDialog(null, "Se actualizo con exito el Cliente" );
 
@@ -299,7 +299,7 @@ public class detalleCliente extends javax.swing.JPanel {
             try{
                 Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
                 Cliente_data cd = new Cliente_data(con);
-                cd.borrarCliente(Clientes123.cliente_pasado);
+                cd.borrarCliente(Clientes.cliente_pasado);
 
                 JOptionPane.showMessageDialog(null, "Se borro con exito el Cliente" );
 

@@ -10,12 +10,12 @@ import Clases_data.*;
 import java.util.List;
 import javax.swing.JOptionPane;
 import pnls.AddsMenu.nuevoProvedor;
-public class Provedores12 extends javax.swing.JPanel {
+public class Provedores extends javax.swing.JPanel {
 
     /**
      * Creates new form Provedores
      */
-    public Provedores12() {
+    public Provedores() {
         initComponents();try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Provedor_data provedor_data = new Provedor_data(con);
@@ -134,7 +134,7 @@ public class Provedores12 extends javax.swing.JPanel {
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));

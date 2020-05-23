@@ -22,12 +22,12 @@ import pnls.AddsMenu.nuevoCliente;
  * @author Alex
  */
 
-public class Clientes123 extends javax.swing.JPanel {
+public class Clientes extends javax.swing.JPanel {
 
     /**
      * Creates new form Clientes
      */
-    public Clientes123() {
+    public Clientes() {
         initComponents();
         this.addMenu.setVisible(true);
         
