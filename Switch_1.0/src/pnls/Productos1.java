@@ -14,12 +14,12 @@ import pnls.AddsMenu.detalleProducto;
 import pnls.AddsMenu.nuevaCatProductos;
 import pnls.AddsMenu.nuevoCliente;
 import pnls.AddsMenu.nuevoProducto;
-public class Productos extends javax.swing.JPanel {
+public class Productos1 extends javax.swing.JPanel {
 
     /**
      * Creates new form Productos
      */
-    public Productos() {
+    public Productos1() {
         initComponents();
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");

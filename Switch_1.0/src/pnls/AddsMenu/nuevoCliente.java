@@ -5,7 +5,7 @@
  */
 package pnls.AddsMenu;
 
-import pnls.Clientes;
+import pnls.Clientes1;
 
 import Clases.Cliente;
 import Clases.Conexion;
@@ -22,7 +22,7 @@ public class nuevoCliente extends javax.swing.JPanel {
     /**
      * Creates new form nuevoCliente
      */
-    public static Clientes ventana_cliente = new Clientes();
+    public static Clientes1 ventana_cliente = new Clientes1();
     public nuevoCliente() {
         initComponents();
         

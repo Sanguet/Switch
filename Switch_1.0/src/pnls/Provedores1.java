@@ -10,12 +10,12 @@ import Clases_data.*;
 import java.util.List;
 import javax.swing.JOptionPane;
 import pnls.AddsMenu.nuevoProvedor;
-public class Provedores extends javax.swing.JPanel {
+public class Provedores1 extends javax.swing.JPanel {
 
     /**
      * Creates new form Provedores
      */
-    public Provedores() {
+    public Provedores1() {
         initComponents();try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Provedor_data provedor_data = new Provedor_data(con);

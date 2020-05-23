@@ -10,12 +10,12 @@ import Clases_data.*;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-public class Ventas123 extends javax.swing.JPanel {
+public class Ventas1 extends javax.swing.JPanel {
 
     /**
      * Creates new form Clientes
      */
-    public Ventas123() {
+    public Ventas1() {
         initComponents();
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");

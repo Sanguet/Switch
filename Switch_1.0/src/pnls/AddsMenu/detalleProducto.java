@@ -1,6 +1,6 @@
 package pnls.AddsMenu;
 
-import pnls.Productos;
+import pnls.Productos1;
 
 import Clases_data.*;
 import java.awt.Color;
@@ -17,11 +17,11 @@ public class detalleProducto extends javax.swing.JPanel {
      */
     public detalleProducto() {
         initComponents();
-        jlNombre.setText(Productos.nombre);
-        jtPrecio.setText(Productos.precio);
-        jtCosto.setText(Productos.costo);
-        jtCodigo.setText(Productos.codigo);
-        jtCantidad.setText(Productos.cantidad);
+        jlNombre.setText(Productos1.nombre);
+        jtPrecio.setText(Productos1.precio);
+        jtCosto.setText(Productos1.costo);
+        jtCodigo.setText(Productos1.codigo);
+        jtCantidad.setText(Productos1.cantidad);
         
         agregarComboCategorias();
         agregarComboProvedores();
@@ -273,7 +273,7 @@ public class detalleProducto extends javax.swing.JPanel {
                 
                 Producto producto = new Producto(jlNombre.getText(), id_categoria, Double.parseDouble(jtCosto.getText()), Double.parseDouble(jtPrecio.getText()), Integer.parseInt(jtCantidad.getText()), id_provedor, jtaComentario.getText(), Integer.parseInt(jtCodigo.getText()));
 
-                cd.actualizarProducto_por_id(producto, Productos.producto_pasado.getId());
+                cd.actualizarProducto_por_id(producto, Productos1.producto_pasado.getId());
 
                 JOptionPane.showMessageDialog(null, "Se actualizo con exito el Producto" );
 
