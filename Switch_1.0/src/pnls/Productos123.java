@@ -77,7 +77,7 @@ public class Productos123 extends javax.swing.JPanel {
         jbNuevo_producto = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jbNuena_categoria = new javax.swing.JButton();
-        jbActualizar = new javax.swing.JButton();
+        jbActualizar1 = new javax.swing.JButton();
         addMenu = new javax.swing.JPanel();
         categoriaMenu = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -125,10 +125,16 @@ public class Productos123 extends javax.swing.JPanel {
             }
         });
 
-        jbActualizar.setText("Actualizar");
-        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+        jbActualizar1.setBackground(new java.awt.Color(14, 21, 30));
+        jbActualizar1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbActualizar1.setForeground(new java.awt.Color(255, 255, 255));
+        jbActualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
+        jbActualizar1.setText("Actualizar");
+        jbActualizar1.setBorder(null);
+        jbActualizar1.setBorderPainted(false);
+        jbActualizar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbActualizarActionPerformed(evt);
+                jbActualizar1ActionPerformed(evt);
             }
         });
 
@@ -141,9 +147,9 @@ public class Productos123 extends javax.swing.JPanel {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 585, Short.MAX_VALUE)
-                .addComponent(jbActualizar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 555, Short.MAX_VALUE)
+                .addComponent(jbActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbNuevo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -157,14 +163,14 @@ public class Productos123 extends javax.swing.JPanel {
                         .addGap(20, 20, 20)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel5)
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbActualizar)))
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbNuevo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                            .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -265,19 +271,6 @@ public class Productos123 extends javax.swing.JPanel {
         new CambiaPanel(this.addMenu, new nuevaCatProductos());
     }//GEN-LAST:event_jbNuena_categoriaActionPerformed
 
-    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Producto_data producto_data = new Producto_data(con);
-            List<Producto> lista_productos = producto_data.obtenerProductos();
-
-            mostrarLista(lista_productos);
-
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
-        }
-    }//GEN-LAST:event_jbActualizarActionPerformed
-
     private void jtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductosMouseClicked
         int fila = this.jtProductos.getSelectedRow();
         codigo = jtProductos.getValueAt(fila, 0).toString();
@@ -296,6 +289,19 @@ public class Productos123 extends javax.swing.JPanel {
         new CambiaPanel(this.addMenu, new detalleProducto());
     }//GEN-LAST:event_jtProductosMouseClicked
 
+    private void jbActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizar1ActionPerformed
+             try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Producto_data producto_data = new Producto_data(con);
+            List<Producto> lista_productos = producto_data.obtenerProductos();
+
+            mostrarLista(lista_productos);
+
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+    }//GEN-LAST:event_jbActualizar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Titulo;
@@ -304,7 +310,7 @@ public class Productos123 extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JButton jbActualizar;
+    private javax.swing.JButton jbActualizar1;
     private javax.swing.JButton jbNuena_categoria;
     private javax.swing.JButton jbNuevo_producto;
     private javax.swing.JTable jtProductos;
