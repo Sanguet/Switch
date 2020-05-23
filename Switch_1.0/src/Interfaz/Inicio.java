@@ -328,7 +328,7 @@ public class Inicio extends javax.swing.JFrame{
     }//GEN-LAST:event_jbProductosActionPerformed
 
     private void jbProvedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProvedoresActionPerformed
-        new CambiaPanel(this.panelBase, new Provedores123());
+        new CambiaPanel(this.panelBase, new Provedores12());
         jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png")));
         jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProvedoresN.png")));
         jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
