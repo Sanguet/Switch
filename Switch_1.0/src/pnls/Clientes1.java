@@ -15,6 +15,7 @@ import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
+import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import pnls.AddsMenu.nuevoCliente;
 
 /**
@@ -45,6 +46,8 @@ public class Clientes1 extends javax.swing.JPanel {
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
+        agregarComboClientes();
+        AutoCompleteDecorator.decorate(this.jcbxClientes);
     }
     public static String nombre,box,email,saldo,telefono;
     public static Cliente cliente_pasado;
@@ -73,29 +76,19 @@ public class Clientes1 extends javax.swing.JPanel {
         
     }
     }
-    /*Esto es un metodo del agregar cliente
-    public void Sacar_texto(){
-        if("Telefono".equals(jtfTelefono.getText())){
-            jtfTelefono.setText(null);
+       private void agregarComboClientes(){
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Cliente_data cd = new Cliente_data(con);
+            List<Cliente> listA = cd.obtenerClientes();
+            for (int i = 0; i < listA.size(); i++){
+                jcbxClientes.addItem(listA.get(i).getNombre());
             }
-                
-        if("Email".equals(jtfEmail.getText())){
-            jtfEmail.setText("");
-            }
-                
-        if("Box".equals(jtfBox.getText())){
-            jtfBox.setText("");
-            }
-                
-        if("Metodo de pago preferido".equals(jtfMetodo_de_pago.getText())){
-            jtfMetodo_de_pago.setText(null);
-        }
-                
-        if("Comentario".equals(jtaComentario.getText())){
-            jtaComentario.setText(null);
+            
+        }catch (Exception e){
+          JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado, vuelve a intentar");
         }
     }
-    */
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -111,6 +104,7 @@ public class Clientes1 extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jbActualizar = new javax.swing.JButton();
+        jcbxClientes = new javax.swing.JComboBox<>();
         addMenu = new javax.swing.JPanel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -153,6 +147,8 @@ public class Clientes1 extends javax.swing.JPanel {
             }
         });
 
+        jcbxClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
+
         javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);
         Titulo.setLayout(TituloLayout);
         TituloLayout.setHorizontalGroup(
@@ -162,7 +158,9 @@ public class Clientes1 extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 696, Short.MAX_VALUE)
+                .addGap(106, 106, 106)
+                .addComponent(jcbxClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 485, Short.MAX_VALUE)
                 .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -173,7 +171,9 @@ public class Clientes1 extends javax.swing.JPanel {
             .addGroup(TituloLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
+                    .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel5)
+                        .addComponent(jcbxClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel6)
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -353,6 +353,7 @@ public class Clientes1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbActualizar;
+    private javax.swing.JComboBox<String> jcbxClientes;
     private javax.swing.JTable jtClientes;
     // End of variables declaration//GEN-END:variables
 }

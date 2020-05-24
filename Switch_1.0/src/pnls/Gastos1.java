@@ -7,7 +7,7 @@ package pnls;
 
 import Clases.*;
 import Clases_data.*;
-import Interfaz.Gastos_InternalMenu;
+import Interfaz.nuevoGasto;
 import java.util.List;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
