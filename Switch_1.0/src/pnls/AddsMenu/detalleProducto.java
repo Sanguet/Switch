@@ -344,7 +344,21 @@ public class detalleProducto extends javax.swing.JPanel {
     }//GEN-LAST:event_jbEditarActionPerformed
 
     private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
-        // TODO add your handling code here:
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer borrar este producto?");
+        if(JOptionPane.YES_OPTION == msj){
+            try{
+                Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                Producto_data producto_data = new Producto_data(con);
+                producto_data.borrarProducto(Productos1.producto_pasado);
+
+                JOptionPane.showMessageDialog(null, "Se borro con exito el producto" );
+
+                this.setVisible(false);
+
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "No se pudo borrar el producto " + e.getMessage());
+            }
+        }
     }//GEN-LAST:event_jbBorrarActionPerformed
 
 
