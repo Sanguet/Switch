@@ -104,9 +104,11 @@ public class Clientes1 extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jbActualizar = new javax.swing.JButton();
-        jcbxClientes = new javax.swing.JComboBox<>();
         addMenu = new javax.swing.JPanel();
         Registro = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jcbxClientes = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtClientes = new javax.swing.JTable();
 
@@ -147,8 +149,6 @@ public class Clientes1 extends javax.swing.JPanel {
             }
         });
 
-        jcbxClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-" }));
-
         javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);
         Titulo.setLayout(TituloLayout);
         TituloLayout.setHorizontalGroup(
@@ -158,9 +158,7 @@ public class Clientes1 extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(106, 106, 106)
-                .addComponent(jcbxClientes, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 485, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 696, Short.MAX_VALUE)
                 .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,9 +169,7 @@ public class Clientes1 extends javax.swing.JPanel {
             .addGroup(TituloLayout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(jcbxClientes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel5)
                     .addComponent(jLabel6)
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
@@ -202,9 +198,33 @@ public class Clientes1 extends javax.swing.JPanel {
 
         Registro.setBackground(new java.awt.Color(255, 255, 255));
         Registro.setPreferredSize(new java.awt.Dimension(1096, 680));
+        Registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBackground(new java.awt.Color(14, 21, 30));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1096, 30));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jcbxClientes.setBackground(new java.awt.Color(14, 21, 30));
+        jcbxClientes.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jcbxClientes.setForeground(new java.awt.Color(255, 255, 255));
+        jcbxClientes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por nombre" }));
+        jcbxClientes.setToolTipText("");
+        jcbxClientes.setPreferredSize(new java.awt.Dimension(220, 30));
+        jPanel1.add(jcbxClientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jComboBox1.setBackground(new java.awt.Color(14, 21, 30));
+        jComboBox1.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
+        jComboBox1.setForeground(new java.awt.Color(255, 255, 255));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Box" }));
+        jComboBox1.setOpaque(false);
+        jComboBox1.setPreferredSize(new java.awt.Dimension(220, 30));
+        jPanel1.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+
+        Registro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(null);
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(1096, 671));
 
         jtClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -275,16 +295,7 @@ public class Clientes1 extends javax.swing.JPanel {
             jtClientes.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
-        Registro.setLayout(RegistroLayout);
-        RegistroLayout.setHorizontalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE)
-        );
-        RegistroLayout.setVerticalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-        );
+        Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 650));
 
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -349,8 +360,10 @@ public class Clientes1 extends javax.swing.JPanel {
     private javax.swing.JPanel Titulo;
     private javax.swing.JPanel addMenu;
     private javax.swing.JButton jButton5;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbActualizar;
     private javax.swing.JComboBox<String> jcbxClientes;
