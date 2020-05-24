@@ -104,7 +104,6 @@ public class detalleGasto extends javax.swing.JPanel {
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Puto el que lee ");
         jTextArea1.setSelectionColor(new java.awt.Color(46, 182, 125));
         comentario.setViewportView(jTextArea1);
 
@@ -112,7 +111,7 @@ public class detalleGasto extends javax.swing.JPanel {
 
         jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
         jTextArea2.setText("1x Producto1 \n1x Producto3 \n1x Producto4 \n1x Producto5 \n3x Producto2\n\n\n\n\n");

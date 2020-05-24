@@ -29,140 +29,112 @@ public class detalleVentas extends javax.swing.JPanel {
 
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
-        fecha = new javax.swing.JLabel();
-        borrar = new javax.swing.JButton();
-        hora = new javax.swing.JLabel();
-        tituloCliente = new javax.swing.JLabel();
-        tituloProductos = new javax.swing.JLabel();
-        tituloMetodo = new javax.swing.JLabel();
-        comentario = new javax.swing.JScrollPane();
+        jlFecha = new javax.swing.JLabel();
+        jbBorrar = new javax.swing.JButton();
+        jlHora = new javax.swing.JLabel();
+        jltituloCliente = new javax.swing.JLabel();
+        jlTituloDetalles = new javax.swing.JLabel();
+        jlTituloMetodo = new javax.swing.JLabel();
+        jspComentario = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        detalle = new javax.swing.JScrollPane();
+        jspDetalle = new javax.swing.JScrollPane();
         jTextArea2 = new javax.swing.JTextArea();
-        metodo = new javax.swing.JLabel();
-        nombrecliente = new javax.swing.JLabel();
-        tituloCometario = new javax.swing.JLabel();
+        jlmetodo = new javax.swing.JLabel();
+        jlNombrecliente = new javax.swing.JLabel();
+        jlTituloCometario = new javax.swing.JLabel();
+        jlTituloTotal = new javax.swing.JLabel();
+        jlTotal = new javax.swing.JLabel();
         tituloAddMenu = new javax.swing.JLabel();
 
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
+        addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
 
         form.setBackground(new java.awt.Color(14, 21, 30));
+        form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        fecha.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
-        fecha.setForeground(new java.awt.Color(255, 255, 255));
-        fecha.setText("DD/MM/AA");
+        jlFecha.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
+        jlFecha.setForeground(new java.awt.Color(255, 255, 255));
+        jlFecha.setText("DD/MM/AA");
+        jlFecha.setPreferredSize(new java.awt.Dimension(170, 30));
+        form.add(jlFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 11, -1, -1));
 
-        borrar.setBackground(new java.awt.Color(224, 30, 90));
-        borrar.setText("Borrar");
-        borrar.setBorderPainted(false);
+        jbBorrar.setBackground(new java.awt.Color(224, 30, 90));
+        jbBorrar.setText("Borrar");
+        jbBorrar.setBorderPainted(false);
+        jbBorrar.setPreferredSize(new java.awt.Dimension(30, 30));
+        form.add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 49, -1, -1));
 
-        hora.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
-        hora.setForeground(new java.awt.Color(255, 255, 255));
-        hora.setText("00:00");
+        jlHora.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
+        jlHora.setForeground(new java.awt.Color(255, 255, 255));
+        jlHora.setText("00:00");
+        jlHora.setPreferredSize(new java.awt.Dimension(170, 30));
+        form.add(jlHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 47, -1, -1));
 
-        tituloCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        tituloCliente.setForeground(new java.awt.Color(224, 30, 90));
-        tituloCliente.setText("Cliente:");
+        jltituloCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jltituloCliente.setForeground(new java.awt.Color(224, 30, 90));
+        jltituloCliente.setText("Cliente:");
+        form.add(jltituloCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 98, 64, -1));
 
-        tituloProductos.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        tituloProductos.setForeground(new java.awt.Color(224, 30, 90));
-        tituloProductos.setText("Detalles:");
+        jlTituloDetalles.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlTituloDetalles.setForeground(new java.awt.Color(224, 30, 90));
+        jlTituloDetalles.setText("Detalles:");
+        form.add(jlTituloDetalles, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 166, 64, -1));
 
-        tituloMetodo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        tituloMetodo.setForeground(new java.awt.Color(224, 30, 90));
-        tituloMetodo.setText("Metodo de pago:");
+        jlTituloMetodo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlTituloMetodo.setForeground(new java.awt.Color(224, 30, 90));
+        jlTituloMetodo.setText("Metodo de pago:");
+        form.add(jlTituloMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 121, -1, -1));
 
         jTextArea1.setEditable(false);
         jTextArea1.setColumns(20);
         jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Puto el que lee ");
+        jTextArea1.setEnabled(false);
         jTextArea1.setSelectionColor(new java.awt.Color(224, 30, 90));
-        comentario.setViewportView(jTextArea1);
+        jspComentario.setViewportView(jTextArea1);
+
+        form.add(jspComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 499, 240, 80));
 
         jTextArea2.setEditable(false);
         jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jTextArea2.setLineWrap(true);
         jTextArea2.setRows(5);
-        jTextArea2.setText("1x Producto1 \n1x Producto3 \n1x Producto4 \n1x Producto5 \n3x Producto2\n\n\n\n\n\nTotal:                          $  1000,00");
+        jTextArea2.setText("1x Producto1 \n1x Producto3 \n1x Producto4 \n1x Producto5 \n3x Producto2\n\n\n\n\n\n");
+        jTextArea2.setEnabled(false);
         jTextArea2.setSelectionColor(new java.awt.Color(224, 30, 90));
-        detalle.setViewportView(jTextArea2);
+        jspDetalle.setViewportView(jTextArea2);
 
-        metodo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        metodo.setForeground(new java.awt.Color(255, 255, 255));
-        metodo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        metodo.setText("Debito");
+        form.add(jspDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 187, 240, 280));
 
-        nombrecliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        nombrecliente.setForeground(new java.awt.Color(255, 255, 255));
-        nombrecliente.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        nombrecliente.setText("Cliente1");
+        jlmetodo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jlmetodo.setForeground(new java.awt.Color(255, 255, 255));
+        jlmetodo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlmetodo.setText("Debito");
+        form.add(jlmetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 120, 130, -1));
 
-        tituloCometario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        tituloCometario.setForeground(new java.awt.Color(224, 30, 90));
-        tituloCometario.setText("Comentario:");
+        jlNombrecliente.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jlNombrecliente.setForeground(new java.awt.Color(255, 255, 255));
+        jlNombrecliente.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlNombrecliente.setText("Nombre Apellido");
+        form.add(jlNombrecliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 97, 130, -1));
 
-        javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
-        form.setLayout(formLayout);
-        formLayout.setHorizontalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(formLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tituloCometario, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(formLayout.createSequentialGroup()
-                                .addComponent(tituloCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(nombrecliente, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(detalle, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tituloProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(formLayout.createSequentialGroup()
-                            .addComponent(tituloMetodo)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(metodo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(formLayout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(borrar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        formLayout.setVerticalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(hora, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(borrar)
-                .addGap(18, 18, 18)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tituloCliente)
-                    .addComponent(nombrecliente))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tituloMetodo)
-                    .addComponent(metodo))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(tituloProductos)
-                .addGap(4, 4, 4)
-                .addComponent(detalle, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(tituloCometario)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44))
-        );
+        jlTituloCometario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlTituloCometario.setForeground(new java.awt.Color(224, 30, 90));
+        jlTituloCometario.setText("Comentario:");
+        form.add(jlTituloCometario, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 478, 76, -1));
+
+        jlTituloTotal.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlTituloTotal.setForeground(new java.awt.Color(224, 30, 90));
+        jlTituloTotal.setText("Total:");
+        form.add(jlTituloTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 144, 64, -1));
+
+        jlTotal.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jlTotal.setForeground(new java.awt.Color(255, 255, 255));
+        jlTotal.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlTotal.setText("$  1000,00");
+        form.add(jlTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 143, 130, -1));
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,8 +152,8 @@ public class detalleVentas extends javax.swing.JPanel {
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMenuLayout.createSequentialGroup()
                 .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(form, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -205,20 +177,22 @@ public class detalleVentas extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addMenu;
-    private javax.swing.JButton borrar;
-    private javax.swing.JScrollPane comentario;
-    private javax.swing.JScrollPane detalle;
-    private javax.swing.JLabel fecha;
     private javax.swing.JPanel form;
-    private javax.swing.JLabel hora;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JLabel metodo;
-    private javax.swing.JLabel nombrecliente;
+    private javax.swing.JButton jbBorrar;
+    private javax.swing.JLabel jlFecha;
+    private javax.swing.JLabel jlHora;
+    private javax.swing.JLabel jlNombrecliente;
+    private javax.swing.JLabel jlTituloCometario;
+    private javax.swing.JLabel jlTituloDetalles;
+    private javax.swing.JLabel jlTituloMetodo;
+    private javax.swing.JLabel jlTituloTotal;
+    private javax.swing.JLabel jlTotal;
+    private javax.swing.JLabel jlmetodo;
+    private javax.swing.JLabel jltituloCliente;
+    private javax.swing.JScrollPane jspComentario;
+    private javax.swing.JScrollPane jspDetalle;
     private javax.swing.JLabel tituloAddMenu;
-    private javax.swing.JLabel tituloCliente;
-    private javax.swing.JLabel tituloCometario;
-    private javax.swing.JLabel tituloMetodo;
-    private javax.swing.JLabel tituloProductos;
     // End of variables declaration//GEN-END:variables
 }
