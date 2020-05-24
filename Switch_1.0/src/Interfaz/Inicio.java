@@ -35,6 +35,7 @@ public class Inicio extends javax.swing.JFrame{
         int alto = java.awt.Toolkit.getDefaultToolkit().getScreenSize().height;
         this.setBounds(0,0,ancho,alto);
         new CambiaPanel(this.panelBase, new Home());
+        this.jlFondo.setVisible(false);
         String a = ";";
     }
         
@@ -47,6 +48,7 @@ public class Inicio extends javax.swing.JFrame{
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jlFondo = new javax.swing.JLabel();
         verticalMenu = new javax.swing.JPanel();
         jbVentas = new javax.swing.JButton();
         jbInicio = new javax.swing.JButton();
@@ -64,11 +66,14 @@ public class Inicio extends javax.swing.JFrame{
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
         setBackground(new java.awt.Color(255, 255, 255));
-        setMaximumSize(new java.awt.Dimension(1080, 720));
         setMinimumSize(new java.awt.Dimension(1080, 720));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1080, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jlFondo.setBackground(new java.awt.Color(51, 51, 51, 100));
+        jlFondo.setForeground(new java.awt.Color(51, 51, 51,100));
+        jlFondo.setOpaque(true);
+        getContentPane().add(jlFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1540, 870));
 
         verticalMenu.setBackground(new java.awt.Color(14, 21, 30));
         verticalMenu.setMaximumSize(new java.awt.Dimension(70, 720));
@@ -195,7 +200,9 @@ public class Inicio extends javax.swing.JFrame{
             verticalMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jbVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jbInicio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jbGastos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(verticalMenuLayout.createSequentialGroup()
+                .addComponent(jbGastos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
             .addComponent(jbClientes, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jbProductos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jbProvedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -400,6 +407,7 @@ public class Inicio extends javax.swing.JFrame{
     private javax.swing.JButton jbProductos;
     private javax.swing.JButton jbProvedores;
     private javax.swing.JButton jbVentas;
+    public static javax.swing.JLabel jlFondo;
     private javax.swing.JPanel panelBase;
     private javax.swing.JPanel ventana;
     private javax.swing.JPanel verticalMenu;

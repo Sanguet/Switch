@@ -7,8 +7,10 @@ package pnls;
 
 import Clases.*;
 import Clases_data.*;
+import Interfaz.Inicio;
 import Interfaz.nuevoGasto;
 import java.util.List;
+import javax.swing.JDialog;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import pnls.AddsMenu.nuevaCatGasto;
@@ -256,7 +258,9 @@ public class Gastos1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jbNueva_categoriaActionPerformed
 
     private void jbNuevo_gastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_gastoActionPerformed
-        
+        Inicio.jlFondo.setVisible(true);
+        JDialog a = new nuevoGasto(null,true);
+        a.setVisible(true);
     }//GEN-LAST:event_jbNuevo_gastoActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
