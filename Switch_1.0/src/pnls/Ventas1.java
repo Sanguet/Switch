@@ -79,18 +79,22 @@ public class Ventas1 extends javax.swing.JPanel {
 
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jbArqueo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jbNueva_venta = new javax.swing.JButton();
+        jbNueva_venta = new rsbuttoncustom.RSButtonCustom();
+        jbArqueo = new rsbuttoncustom.RSButtonCustom();
         addMenu = new javax.swing.JPanel();
         jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtVentas = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jcbCliente = new javax.swing.JComboBox<>();
-        jcbMetodo = new javax.swing.JComboBox<>();
-        jbActualizar = new javax.swing.JButton();
+        dtHasta = new newscomponents.RSDateChooserModern();
+        jlTituloHasta = new javax.swing.JLabel();
+        dtDesde = new newscomponents.RSDateChooserModern();
+        jlTituloDesde = new javax.swing.JLabel();
+        jcbMetodo = new RSMaterialComponent.RSComboBoxMaterial();
+        jcbCliente = new RSMaterialComponent.RSComboBoxMaterial();
+        jbActualizar = new newscomponents.RSButtonFlat_new();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -101,32 +105,33 @@ public class Ventas1 extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Ventas");
 
-        jbArqueo.setBackground(new java.awt.Color(14, 21, 30));
-        jbArqueo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jbArqueo.setForeground(new java.awt.Color(255, 255, 255));
-        jbArqueo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/Arqueo.png"))); // NOI18N
-        jbArqueo.setText("Arqueo");
-        jbArqueo.setBorder(null);
-        jbArqueo.setBorderPainted(false);
-        jbArqueo.setIconTextGap(6);
-        jbArqueo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbArqueoActionPerformed(evt);
-            }
-        });
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/VentasR.png"))); // NOI18N
 
         jbNueva_venta.setBackground(new java.awt.Color(14, 21, 30));
-        jbNueva_venta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbNueva_venta.setForeground(new java.awt.Color(255, 255, 255));
         jbNueva_venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
         jbNueva_venta.setText("Nueva Venta");
-        jbNueva_venta.setBorder(null);
-        jbNueva_venta.setBorderPainted(false);
+        jbNueva_venta.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jbNueva_venta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNueva_venta.setIconTextGap(3);
+        jbNueva_venta.setPreferredSize(new java.awt.Dimension(150, 35));
         jbNueva_venta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNueva_ventaActionPerformed(evt);
+            }
+        });
+
+        jbArqueo.setBackground(new java.awt.Color(14, 21, 30));
+        jbArqueo.setForeground(new java.awt.Color(255, 255, 255));
+        jbArqueo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/Arqueo.png"))); // NOI18N
+        jbArqueo.setText("Arqueo");
+        jbArqueo.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jbArqueo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbArqueo.setIconTextGap(3);
+        jbArqueo.setPreferredSize(new java.awt.Dimension(150, 35));
+        jbArqueo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbArqueoActionPerformed(evt);
             }
         });
 
@@ -139,10 +144,10 @@ public class Ventas1 extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 653, Short.MAX_VALUE)
-                .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jbArqueo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 685, Short.MAX_VALUE)
+                .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbArqueo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         TituloLayout.setVerticalGroup(
@@ -157,8 +162,8 @@ public class Ventas1 extends javax.swing.JPanel {
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbArqueo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbArqueo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -239,29 +244,56 @@ public class Ventas1 extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1095, 30));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jcbCliente.setBackground(new java.awt.Color(14, 21, 30));
-        jcbCliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jcbCliente.setForeground(new java.awt.Color(255, 255, 255));
-        jcbCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Cliente" }));
-        jcbCliente.setOpaque(false);
-        jcbCliente.setPreferredSize(new java.awt.Dimension(220, 30));
-        jPanel1.add(jcbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        dtHasta.setBackground(new java.awt.Color(14, 21, 30));
+        dtHasta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        dtHasta.setFormatDate("dd/MM/yyyy");
+        dtHasta.setMaximumSize(new java.awt.Dimension(140, 30));
+        dtHasta.setMinimumSize(new java.awt.Dimension(140, 30));
+        dtHasta.setPreferredSize(new java.awt.Dimension(140, 30));
+        jPanel1.add(dtHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, -1, -1));
+
+        jlTituloHasta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jlTituloHasta.setForeground(new java.awt.Color(255, 255, 255));
+        jlTituloHasta.setText("Hasta:");
+        jPanel1.add(jlTituloHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 50, 30));
+
+        dtDesde.setBackground(new java.awt.Color(14, 21, 30));
+        dtDesde.setToolTipText("");
+        dtDesde.setDate(new java.util.Date(1577847600000L));
+        dtDesde.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        dtDesde.setFormatDate("dd/MM/yyyy");
+        dtDesde.setMaximumSize(new java.awt.Dimension(140, 30));
+        dtDesde.setMinimumSize(new java.awt.Dimension(140, 30));
+        dtDesde.setPreferredSize(new java.awt.Dimension(140, 30));
+        jPanel1.add(dtDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, -1, -1));
+
+        jlTituloDesde.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jlTituloDesde.setForeground(new java.awt.Color(255, 255, 255));
+        jlTituloDesde.setText("Desde:");
+        jPanel1.add(jlTituloDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 0, 50, 30));
 
         jcbMetodo.setBackground(new java.awt.Color(14, 21, 30));
-        jcbMetodo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbMetodo.setForeground(new java.awt.Color(255, 255, 255));
-        jcbMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Metodo de pago" }));
-        jcbMetodo.setOpaque(false);
-        jcbMetodo.setPreferredSize(new java.awt.Dimension(220, 30));
-        jPanel1.add(jcbMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+        jcbMetodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Metodo de pago" }));
+        jcbMetodo.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jcbMetodo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbMetodo.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcbMetodo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcbMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 210, -1));
+
+        jcbCliente.setBackground(new java.awt.Color(14, 21, 30));
+        jcbCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jcbCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Cliente" }));
+        jcbCliente.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jcbCliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbCliente.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcbCliente.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
-        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jbActualizar.setForeground(new java.awt.Color(255, 255, 255));
         jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
         jbActualizar.setText("Actualizar");
-        jbActualizar.setBorder(null);
-        jbActualizar.setBorderPainted(false);
+        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jbActualizar.setPreferredSize(new java.awt.Dimension(120, 30));
         jbActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -274,30 +306,6 @@ public class Ventas1 extends javax.swing.JPanel {
 
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jbArqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbArqueoActionPerformed
-        new CambiaPanel(this.addMenu, new nuevoArqueo());
-    }//GEN-LAST:event_jbArqueoActionPerformed
-
-    private void jbNueva_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_ventaActionPerformed
-        Inicio.jlFondo.setVisible(true);
-        JDialog a = new nuevaVenta(null,true);
-        a.setVisible(true);
-        
-    }//GEN-LAST:event_jbNueva_ventaActionPerformed
-
-    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Venta_data venta_data = new Venta_data(con);
-            List<Venta> lista_ventas = venta_data.obtenerVentas();
-            
-            mostrarLista(lista_ventas);
-            
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
-        }
-    }//GEN-LAST:event_jbActualizarActionPerformed
 
     private void jtVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtVentasMouseClicked
         int fila = this.jtVentas.getSelectedRow();
@@ -322,21 +330,48 @@ public class Ventas1 extends javax.swing.JPanel {
         new CambiaPanel(this.addMenu, new detalleVentas());
     }//GEN-LAST:event_jtVentasMouseClicked
 
+    private void jbNueva_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_ventaActionPerformed
+        Inicio.jlFondo.setVisible(true);
+        JDialog a = new nuevaVenta(null,true);
+        a.setVisible(true);    
+    }//GEN-LAST:event_jbNueva_ventaActionPerformed
+
+    private void jbArqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbArqueoActionPerformed
+       new CambiaPanel(this.addMenu, new nuevoArqueo());
+    }//GEN-LAST:event_jbArqueoActionPerformed
+
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Venta_data venta_data = new Venta_data(con);
+            List<Venta> lista_ventas = venta_data.obtenerVentas();
+            
+            mostrarLista(lista_ventas);
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+    }//GEN-LAST:event_jbActualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
     private javax.swing.JPanel Titulo;
     private javax.swing.JPanel addMenu;
+    private newscomponents.RSDateChooserModern dtDesde;
+    private newscomponents.RSDateChooserModern dtHasta;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton jbActualizar;
-    private javax.swing.JButton jbArqueo;
-    private javax.swing.JButton jbNueva_venta;
-    private javax.swing.JComboBox<String> jcbCliente;
-    private javax.swing.JComboBox<String> jcbMetodo;
+    private newscomponents.RSButtonFlat_new jbActualizar;
+    private rsbuttoncustom.RSButtonCustom jbArqueo;
+    private rsbuttoncustom.RSButtonCustom jbNueva_venta;
+    private RSMaterialComponent.RSComboBoxMaterial jcbCliente;
+    private RSMaterialComponent.RSComboBoxMaterial jcbMetodo;
     private javax.swing.JLabel jlBackground;
+    private javax.swing.JLabel jlTituloDesde;
+    private javax.swing.JLabel jlTituloHasta;
     private javax.swing.JTable jtVentas;
     // End of variables declaration//GEN-END:variables
 }

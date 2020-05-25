@@ -101,16 +101,16 @@ public class Clientes1 extends javax.swing.JPanel {
 
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jbNuevoCliente = new rsbuttoncustom.RSButtonCustom();
         addMenu = new javax.swing.JPanel();
         jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jcbNombre = new javax.swing.JComboBox<>();
-        jcbSaldo = new javax.swing.JComboBox<>();
-        jcbBox = new javax.swing.JComboBox<>();
-        jbActualizar = new javax.swing.JButton();
+        jcbSaldo = new RSMaterialComponent.RSComboBoxMaterial();
+        jcbNombre = new RSMaterialComponent.RSComboBoxMaterial();
+        jcbBox = new RSMaterialComponent.RSComboBoxMaterial();
+        jbActualizar = new newscomponents.RSButtonFlat_new();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtClientes = new javax.swing.JTable();
 
@@ -123,22 +123,21 @@ public class Clientes1 extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Clientes");
 
-        jButton5.setBackground(new java.awt.Color(14, 21, 30));
-        jButton5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/NuevoCliente.png"))); // NOI18N
-        jButton5.setText("Nuevo Cliente");
-        jButton5.setBorder(null);
-        jButton5.setBorderPainted(false);
-        jButton5.setIconTextGap(6);
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/ClientesR.png"))); // NOI18N
         jLabel6.setToolTipText("");
+
+        jbNuevoCliente.setBackground(new java.awt.Color(14, 21, 30));
+        jbNuevoCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jbNuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/NuevoCliente.png"))); // NOI18N
+        jbNuevoCliente.setText("Nuevo Cliente");
+        jbNuevoCliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNuevoCliente.setIconTextGap(3);
+        jbNuevoCliente.setPreferredSize(new java.awt.Dimension(150, 35));
+        jbNuevoCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoClienteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);
         Titulo.setLayout(TituloLayout);
@@ -149,8 +148,8 @@ public class Clientes1 extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 831, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 845, Short.MAX_VALUE)
+                .addComponent(jbNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         TituloLayout.setVerticalGroup(
@@ -162,7 +161,7 @@ public class Clientes1 extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jbNuevoCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -196,37 +195,37 @@ public class Clientes1 extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1095, 30));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jcbNombre.setBackground(new java.awt.Color(14, 21, 30));
-        jcbNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jcbNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jcbNombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por nombre" }));
-        jcbNombre.setToolTipText("");
-        jcbNombre.setPreferredSize(new java.awt.Dimension(220, 30));
-        jPanel1.add(jcbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         jcbSaldo.setBackground(new java.awt.Color(14, 21, 30));
-        jcbSaldo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbSaldo.setForeground(new java.awt.Color(255, 255, 255));
-        jcbSaldo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Saldo", "Negativo", "Positivo" }));
-        jcbSaldo.setOpaque(false);
-        jcbSaldo.setPreferredSize(new java.awt.Dimension(220, 30));
-        jPanel1.add(jcbSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, -1, -1));
+        jcbSaldo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Saldo", "Negativo", "Positivo" }));
+        jcbSaldo.setColorMaterial(new java.awt.Color(54, 197, 240));
+        jcbSaldo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbSaldo.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcbSaldo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcbSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, -1));
+
+        jcbNombre.setBackground(new java.awt.Color(14, 21, 30));
+        jcbNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jcbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Nombre" }));
+        jcbNombre.setColorMaterial(new java.awt.Color(54, 197, 240));
+        jcbNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbNombre.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcbNombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         jcbBox.setBackground(new java.awt.Color(14, 21, 30));
-        jcbBox.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbBox.setForeground(new java.awt.Color(255, 255, 255));
-        jcbBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Box" }));
-        jcbBox.setOpaque(false);
-        jcbBox.setPreferredSize(new java.awt.Dimension(220, 30));
+        jcbBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Box" }));
+        jcbBox.setColorMaterial(new java.awt.Color(54, 197, 240));
+        jcbBox.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbBox.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcbBox.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
         jPanel1.add(jcbBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
 
         jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
-        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jbActualizar.setForeground(new java.awt.Color(255, 255, 255));
         jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
         jbActualizar.setText("Actualizar");
-        jbActualizar.setBorder(null);
-        jbActualizar.setBorderPainted(false);
+        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jbActualizar.setPreferredSize(new java.awt.Dimension(120, 30));
         jbActualizar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -318,10 +317,6 @@ public class Clientes1 extends javax.swing.JPanel {
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        new CambiaPanel(this.addMenu, new nuevoCliente());
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jtClientesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtClientesFocusGained
         // TODO add your handling code here:
     }//GEN-LAST:event_jtClientesFocusGained
@@ -334,24 +329,6 @@ public class Clientes1 extends javax.swing.JPanel {
     private void addMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMenuMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_addMenuMouseExited
-
-    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Cliente_data cd = new Cliente_data(con);
-            List<Cliente> lista = cd.obtenerClientes();
-            
-            Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
-            List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
-            
-            mostrarLista(lista, lista2);
-            
-            
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
-        }
-        
-    }//GEN-LAST:event_jbActualizarActionPerformed
 
     private void jtClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtClientesMouseClicked
         int fila = this.jtClientes.getSelectedRow();
@@ -372,20 +349,41 @@ public class Clientes1 extends javax.swing.JPanel {
         new CambiaPanel(this.addMenu, new detalleCliente());
     }//GEN-LAST:event_jtClientesMouseClicked
 
+    private void jbNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoClienteActionPerformed
+        new CambiaPanel(this.addMenu, new nuevoCliente());
+    }//GEN-LAST:event_jbNuevoClienteActionPerformed
+
+    private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Cliente_data cd = new Cliente_data(con);
+            List<Cliente> lista = cd.obtenerClientes();
+            
+            Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
+            List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
+            
+            mostrarLista(lista, lista2);
+            
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+    }//GEN-LAST:event_jbActualizarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
     private javax.swing.JPanel Titulo;
     private javax.swing.JPanel addMenu;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton jbActualizar;
-    private javax.swing.JComboBox<String> jcbBox;
-    private javax.swing.JComboBox<String> jcbNombre;
-    private javax.swing.JComboBox<String> jcbSaldo;
+    private newscomponents.RSButtonFlat_new jbActualizar;
+    private rsbuttoncustom.RSButtonCustom jbNuevoCliente;
+    private RSMaterialComponent.RSComboBoxMaterial jcbBox;
+    private RSMaterialComponent.RSComboBoxMaterial jcbNombre;
+    private RSMaterialComponent.RSComboBoxMaterial jcbSaldo;
     private javax.swing.JLabel jlBackground;
     private javax.swing.JTable jtClientes;
     // End of variables declaration//GEN-END:variables

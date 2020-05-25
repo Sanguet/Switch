@@ -35,8 +35,8 @@ public class Home extends javax.swing.JPanel {
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jbNuevo_gasto = new newscomponents.RSButtonFlat_new();
-        jbNueva_Venta = new newscomponents.RSButtonFlat_new();
+        jbNueva_Venta = new rsbuttoncustom.RSButtonCustom();
+        jbNuevo_gasto = new rsbuttoncustom.RSButtonCustom();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -57,20 +57,31 @@ public class Home extends javax.swing.JPanel {
         jLabel6.setText("Imagen");
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
-        jbNuevo_gasto.setBackground(new java.awt.Color(14, 21, 30));
-        jbNuevo_gasto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
-        jbNuevo_gasto.setText("Nuevo Gasto");
-        jbNuevo_gasto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jbNuevo_gasto.setPreferredSize(new java.awt.Dimension(150, 35));
-
         jbNueva_Venta.setBackground(new java.awt.Color(14, 21, 30));
+        jbNueva_Venta.setForeground(new java.awt.Color(255, 255, 255));
         jbNueva_Venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
         jbNueva_Venta.setText("Nueva Venta");
+        jbNueva_Venta.setColorMaterial(new java.awt.Color(224, 30, 90));
         jbNueva_Venta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNueva_Venta.setIconTextGap(3);
         jbNueva_Venta.setPreferredSize(new java.awt.Dimension(150, 35));
         jbNueva_Venta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNueva_VentaActionPerformed(evt);
+            }
+        });
+
+        jbNuevo_gasto.setBackground(new java.awt.Color(14, 21, 30));
+        jbNuevo_gasto.setForeground(new java.awt.Color(255, 255, 255));
+        jbNuevo_gasto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
+        jbNuevo_gasto.setText("Nuevo Gasto");
+        jbNuevo_gasto.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jbNuevo_gasto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNuevo_gasto.setIconTextGap(3);
+        jbNuevo_gasto.setPreferredSize(new java.awt.Dimension(150, 35));
+        jbNuevo_gasto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevo_gastoActionPerformed(evt);
             }
         });
 
@@ -101,8 +112,8 @@ public class Home extends javax.swing.JPanel {
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbNueva_Venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbNueva_Venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -112,8 +123,12 @@ public class Home extends javax.swing.JPanel {
     private void jbNueva_VentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_VentaActionPerformed
         Inicio.jlFondo.setVisible(true);
         JDialog a = new nuevaVenta(null,true);
-        a.setVisible(true);   // TODO add your handling code here:
+        a.setVisible(true);     
     }//GEN-LAST:event_jbNueva_VentaActionPerformed
+
+    private void jbNuevo_gastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_gastoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbNuevo_gastoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -121,7 +136,7 @@ public class Home extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private newscomponents.RSButtonFlat_new jbNueva_Venta;
-    private newscomponents.RSButtonFlat_new jbNuevo_gasto;
+    private rsbuttoncustom.RSButtonCustom jbNueva_Venta;
+    private rsbuttoncustom.RSButtonCustom jbNuevo_gasto;
     // End of variables declaration//GEN-END:variables
 }
