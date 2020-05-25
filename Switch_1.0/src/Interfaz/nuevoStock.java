@@ -163,19 +163,19 @@ public class nuevoStock extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
-        if(jtCantidad.getText().length() > 0){
-            int cantidad_base = Integer.parseInt(detalleProducto.jtCantidad.getText());
-            int indice = jcbTipo.getSelectedIndex();
-            int cantidad = Integer.parseInt(jtCantidad.getText());
-            if("Ingreso +".equals(jcbTipo.getItemAt(indice))){
-                cantidad = cantidad_base + cantidad;
-            } else {
-                cantidad = cantidad_base - cantidad;
-            }
-            detalleProducto.jtCantidad.setText(Integer.toString(cantidad));
-            
+        int cantidad_base = Integer.parseInt(detalleProducto.jtCantidad.getText());
+                    int indice = jcbTipo.getSelectedIndex();
+                    int cantidad = Integer.parseInt(jtCantidad.getText());
+                    if("Ingreso +".equals(jcbTipo.getItemAt(indice))){
+                        cantidad = cantidad_base + cantidad;
+                    } else {
+                        cantidad = cantidad_base - cantidad;
+                    }
+        if(jtCantidad.getText().length() > 0 && cantidad >= 0){
             int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer cambiar el stock?");
                 if(JOptionPane.YES_OPTION == msj){
+                    
+                    detalleProducto.jtCantidad.setText(Integer.toString(cantidad));
                     try{
                         Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
                         Producto_data cd = new Producto_data(con);
@@ -195,7 +195,7 @@ public class nuevoStock extends javax.swing.JDialog {
                     }
                 }
         } else {
-            JOptionPane.showMessageDialog(null, "Ingrese la cantidad que quiera agregar o restar");
+            JOptionPane.showMessageDialog(null, "Hubo un fallo, no se relleno el campo o selecciono una cantidad que no tiene");
         }
     }//GEN-LAST:event_jbConfirmarActionPerformed
 
