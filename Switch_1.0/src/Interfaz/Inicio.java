@@ -27,7 +27,6 @@ public class Inicio extends javax.swing.JFrame{
      * Creates new form NewJFrame
      */
     
-        static int a = 10;
     
     public Inicio() {
         initComponents();
@@ -320,12 +319,13 @@ public class Inicio extends javax.swing.JFrame{
     }//GEN-LAST:event_jbGastosActionPerformed
 
     private void jbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClientesActionPerformed
+        new CambiaPanel(this.panelBase, new Clientes1());
         jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png")));
         jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Provedores.png")));
         jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png")));
         jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Gastos.png")));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesN.png")));
-        new CambiaPanel(this.panelBase, new Clientes1());
+        
     }//GEN-LAST:event_jbClientesActionPerformed
 
     private void jbProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProductosActionPerformed

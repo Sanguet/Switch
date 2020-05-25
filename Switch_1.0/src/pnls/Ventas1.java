@@ -52,7 +52,7 @@ public class Ventas1 extends javax.swing.JPanel {
             jtVentas.setModel(new javax.swing.table.DefaultTableModel(
             matris,
             new String [] {
-                "Cliente", "Fecha", "Importe", "Detalle"
+                "Cliente", "Fecha","Metodo de pago", "Importe", "Detalle"
             }
         ) {
         });
