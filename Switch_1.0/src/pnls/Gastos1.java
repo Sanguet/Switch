@@ -88,6 +88,7 @@ public class Gastos1 extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jbNuevo_gasto = new javax.swing.JButton();
         addMenu = new javax.swing.JPanel();
+        jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtGastos = new javax.swing.JTable();
@@ -169,6 +170,11 @@ public class Gastos1 extends javax.swing.JPanel {
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
         addMenu.setLayout(new javax.swing.BoxLayout(addMenu, javax.swing.BoxLayout.LINE_AXIS));
+
+        jlBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.backgrounds/Gastos.png"))); // NOI18N
+        jlBackground.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.add(jlBackground);
+
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
 
         Registro.setBackground(new java.awt.Color(255, 255, 255));
@@ -313,6 +319,7 @@ public class Gastos1 extends javax.swing.JPanel {
     private javax.swing.JButton jbNuevo_gasto;
     private javax.swing.JComboBox<String> jcbCategoria;
     private javax.swing.JComboBox<String> jcbProvedor;
+    private javax.swing.JLabel jlBackground;
     private javax.swing.JTable jtGastos;
     // End of variables declaration//GEN-END:variables
 }

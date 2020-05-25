@@ -100,7 +100,7 @@ public class Inicio extends javax.swing.JFrame{
         jbInicio.setBackground(new java.awt.Color(255, 255, 255));
         jbInicio.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jbInicio.setForeground(new java.awt.Color(255, 255, 255));
-        jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeN.png"))); // NOI18N
+        jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeA.png"))); // NOI18N
         jbInicio.setToolTipText("");
         jbInicio.setBorderPainted(false);
         jbInicio.setContentAreaFilled(false);

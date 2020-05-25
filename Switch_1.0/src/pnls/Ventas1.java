@@ -77,6 +77,7 @@ public class Ventas1 extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jbNueva_venta = new javax.swing.JButton();
         addMenu = new javax.swing.JPanel();
+        jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtVentas = new javax.swing.JTable();
@@ -158,15 +159,28 @@ public class Ventas1 extends javax.swing.JPanel {
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
 
+        jlBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.backgrounds/Ventas.png"))); // NOI18N
+        jlBackground.setPreferredSize(new java.awt.Dimension(300, 680));
+
         javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
         addMenu.setLayout(addMenuLayout);
         addMenuLayout.setHorizontalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(addMenuLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jlBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 680, Short.MAX_VALUE)
+            .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(addMenuLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jlBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
@@ -305,6 +319,7 @@ public class Ventas1 extends javax.swing.JPanel {
     private javax.swing.JButton jbNueva_venta;
     private javax.swing.JComboBox<String> jcbCliente;
     private javax.swing.JComboBox<String> jcbMetodo;
+    private javax.swing.JLabel jlBackground;
     private javax.swing.JTable jtVentas;
     // End of variables declaration//GEN-END:variables
 }

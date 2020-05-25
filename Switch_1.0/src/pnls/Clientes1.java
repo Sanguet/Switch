@@ -104,6 +104,7 @@ public class Clientes1 extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         addMenu = new javax.swing.JPanel();
+        jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jcbNombre = new javax.swing.JComboBox<>();
@@ -180,6 +181,11 @@ public class Clientes1 extends javax.swing.JPanel {
             }
         });
         addMenu.setLayout(new javax.swing.BoxLayout(addMenu, javax.swing.BoxLayout.LINE_AXIS));
+
+        jlBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.backgrounds/Clientes.png"))); // NOI18N
+        jlBackground.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.add(jlBackground);
+
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
 
         Registro.setBackground(new java.awt.Color(255, 255, 255));
@@ -379,6 +385,7 @@ public class Clientes1 extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> jcbBox;
     private javax.swing.JComboBox<String> jcbNombre;
     private javax.swing.JComboBox<String> jcbSaldo;
+    private javax.swing.JLabel jlBackground;
     private javax.swing.JTable jtClientes;
     // End of variables declaration//GEN-END:variables
 }

@@ -69,6 +69,7 @@ public class Provedores1 extends javax.swing.JPanel {
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         addMenu = new javax.swing.JPanel();
+        jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtProvedores = new javax.swing.JTable();
@@ -131,6 +132,11 @@ public class Provedores1 extends javax.swing.JPanel {
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
         addMenu.setLayout(new javax.swing.BoxLayout(addMenu, javax.swing.BoxLayout.LINE_AXIS));
+
+        jlBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.backgrounds/Provedores.png"))); // NOI18N
+        jlBackground.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.add(jlBackground);
+
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
 
         Registro.setBackground(new java.awt.Color(255, 255, 255));
@@ -273,6 +279,7 @@ public class Provedores1 extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbActualizar;
     private javax.swing.JComboBox<String> jcbNombre;
+    private javax.swing.JLabel jlBackground;
     private javax.swing.JTable jtProvedores;
     // End of variables declaration//GEN-END:variables
 }
