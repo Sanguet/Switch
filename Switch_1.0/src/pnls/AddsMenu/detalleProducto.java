@@ -9,6 +9,10 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import Clases.*;
+import Interfaz.Inicio;
+import Interfaz.nuevaVenta;
+import Interfaz.nuevoStock;
+import javax.swing.JDialog;
 import javax.swing.JTextField;
 public class detalleProducto extends javax.swing.JPanel {
 
@@ -155,6 +159,11 @@ public class detalleProducto extends javax.swing.JPanel {
         jbNuevo_stock.setText("Nuevo Stock");
         jbNuevo_stock.setBorderPainted(false);
         jbNuevo_stock.setPreferredSize(new java.awt.Dimension(240, 35));
+        jbNuevo_stock.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevo_stockActionPerformed(evt);
+            }
+        });
 
         tituloStock.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tituloStock.setForeground(new java.awt.Color(255, 255, 255));
@@ -337,7 +346,7 @@ public class detalleProducto extends javax.swing.JPanel {
                     this.setVisible(false);
 
                 } catch (Exception e){
-                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el producto " + e.getMessage());
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el producto, quedaron campos sin rellenar " + e.getMessage());
                 }
             }
         }
@@ -361,6 +370,12 @@ public class detalleProducto extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
 
+    private void jbNuevo_stockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_stockActionPerformed
+        Inicio.jlFondo.setVisible(true);
+        JDialog a = new nuevoStock(null,true);
+        a.setVisible(true);
+    }//GEN-LAST:event_jbNuevo_stockActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addMenu;
@@ -379,7 +394,7 @@ public class detalleProducto extends javax.swing.JPanel {
     private javax.swing.JLabel jlNombreProducto;
     private javax.swing.JLabel jlPrecio;
     private javax.swing.JLabel jlProvedor;
-    private javax.swing.JTextField jtCantidad;
+    public static javax.swing.JTextField jtCantidad;
     private javax.swing.JTextField jtCodigo;
     private javax.swing.JTextField jtCosto;
     private javax.swing.JTextField jtPrecio;

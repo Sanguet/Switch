@@ -5,6 +5,9 @@
  */
 package Interfaz;
 
+import pnls.AddsMenu.detalleProducto;
+import pnls.Productos1;
+
 /**
  *
  * @author Alex
@@ -31,13 +34,14 @@ public class nuevoStock extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jlNuevoStock = new javax.swing.JLabel();
         jbConfirmar = new javax.swing.JButton();
-        jtMonto = new javax.swing.JTextField();
+        jtCantidad = new javax.swing.JTextField();
         jcbTipo = new javax.swing.JComboBox<>();
         jlTipo = new javax.swing.JLabel();
         jlCantidad = new javax.swing.JLabel();
         jbCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(370, 260));
@@ -54,6 +58,12 @@ public class nuevoStock extends javax.swing.JDialog {
         jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbConfirmarActionPerformed(evt);
+            }
+        });
+
+        jtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtCantidadKeyTyped(evt);
             }
         });
 
@@ -99,7 +109,7 @@ public class nuevoStock extends javax.swing.JDialog {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -124,7 +134,7 @@ public class nuevoStock extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jlCantidad)
                 .addGap(4, 4, 4)
-                .addComponent(jtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
@@ -142,10 +152,21 @@ public class nuevoStock extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
-        // TODO add your handling code here:
+        int cantidad_base = Integer.parseInt(Productos1.cantidad);
+        int indice = jcbTipo.getSelectedIndex();
+        int cantidad = Integer.parseInt(jtCantidad.getText());
+        if("Ingreso +".equals(jcbTipo.getItemAt(indice))){
+            cantidad = cantidad_base + cantidad;
+        } else {
+            cantidad = cantidad_base - cantidad;
+        }
+        detalleProducto.jtCantidad.setText(Integer.toString(cantidad));
+        this.dispose();
+        Inicio.jlFondo.setVisible(false);
     }//GEN-LAST:event_jbConfirmarActionPerformed
 
     private void jcbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoActionPerformed
@@ -156,6 +177,13 @@ public class nuevoStock extends javax.swing.JDialog {
         Inicio.jlFondo.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jbCerrarActionPerformed
+
+    private void jtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCantidadKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtCantidadKeyTyped
 
     /**
      * @param args the command line arguments
@@ -207,6 +235,6 @@ public class nuevoStock extends javax.swing.JDialog {
     private javax.swing.JLabel jlCantidad;
     private javax.swing.JLabel jlNuevoStock;
     private javax.swing.JLabel jlTipo;
-    private javax.swing.JTextField jtMonto;
+    private javax.swing.JTextField jtCantidad;
     // End of variables declaration//GEN-END:variables
 }

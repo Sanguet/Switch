@@ -259,6 +259,9 @@
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jtCantidadActionPerformed"/>
               </Events>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
             <Component class="javax.swing.JButton" name="jbNuevo_stock">
               <Properties>
@@ -277,6 +280,9 @@
                   <Dimension value="[240, 35]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbNuevo_stockActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="tituloStock">
               <Properties>
