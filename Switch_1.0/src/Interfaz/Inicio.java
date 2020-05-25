@@ -7,6 +7,7 @@ package Interfaz;
 
 import java.awt.Toolkit;
 import pnls.*;
+import pnls.list.row;
 
 
 /**
@@ -14,7 +15,8 @@ import pnls.*;
  * @author Alex
  */
 import pnls.Home;
-import java.awt.event.ActionEvent;/**
+import java.awt.event.ActionEvent;import javax.swing.JPanel;
+/**
  * 
  *
  * @author Alex
@@ -36,7 +38,7 @@ public class Inicio extends javax.swing.JFrame{
         this.setBounds(0,0,ancho,alto);
         new CambiaPanel(this.panelBase, new Home());
         this.jlFondo.setVisible(false);
-        String a = ";";
+        
     }
         
     /**

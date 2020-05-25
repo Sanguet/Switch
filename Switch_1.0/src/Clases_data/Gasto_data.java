@@ -95,7 +95,7 @@ public class Gasto_data {
         List <Gasto> gastos = new ArrayList<Gasto>();
         
         try {
-            String sql = "SELECT g.id_gasto, p.id_provedor AS id_provedor, g.monto, m.Id_metodo AS metodo_de_pago, c.id_categoria AS categoria, d.id_detalle AS id_detalle, g.fecha_y_hora, g.comentario FROM provedor AS p, metodo_de_pago AS m, categoria AS c, detalle_de_venta AS d, gasto AS g WHERE p.id_provedor = g.id_provedor AND m.Id_metodo = g.id_metodo_de_pago AND c.id_categoria = g.id_categoria AND d.id_detalle = g.id_detalle;";
+            String sql = "SELECT g.id_gasto, p.id_provedor AS id_provedor, g.monto, m.Id_metodo AS metodo_de_pago, c.id_categoria AS categoria, d.id_detalle AS id_detalle, g.fecha_y_hora, g.comentario FROM provedor AS p, metodo_de_pago AS m, categoria AS c, detalle_de_venta AS d, gasto AS g WHERE p.id_provedor = g.id_provedor AND m.Id_metodo = g.id_metodo_de_pago AND c.id_categoria = g.id_categoria AND d.id_detalle = g.id_detalle ORDER BY g.fecha_y_hora DESC;";
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             Gasto gasto;

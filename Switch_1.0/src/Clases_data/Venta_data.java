@@ -108,7 +108,7 @@ public class Venta_data {
         List <Venta> ventas = new ArrayList<Venta>();
         
         try {
-            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago;";
+            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago ORDER BY v.fecha_y_hora DESC;";
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             Venta venta;

@@ -89,13 +89,13 @@ public class Detalle_de_venta_data {
         List <Detalle_de_venta> detalles_de_venta = new ArrayList<Detalle_de_venta>();
         
         try {
-            String sql = "SELECT d.id_detalle, p.id_producto as id_producto, d.cantidad, d.descuento, d.sub_total FROM detalle_de_venta AS d, producto AS p WHERE p.id_producto = d.id_producto;";
+            String sql = "SELECT d.id_detalle, p.id_producto as id_producto, d.cantidad, d.descuento, d.sub_total FROM detalle_de_venta AS d, producto AS p WHERE p.id_producto = d.id_producto ORDER BY d.id_detalle;";
             PreparedStatement stmt = connection.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
             Detalle_de_venta detalle_de_venta;
             while (rs.next()){
                 detalle_de_venta = new Detalle_de_venta();
-                detalle_de_venta.setId(rs.getInt("id_detalle_de_venta"));
+                detalle_de_venta.setId(rs.getInt("id_detalle"));
                 detalle_de_venta.setId_producto(rs.getInt("id_producto"));
                 detalle_de_venta.setCantidad(rs.getInt("cantidad"));
                 detalle_de_venta.setDescuento(rs.getInt("descuento"));

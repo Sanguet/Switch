@@ -89,7 +89,7 @@ public class Metodo_de_pago_data {
             Metodo_de_pago metodo_de_pago;
             while (rs.next()){
                 metodo_de_pago = new Metodo_de_pago();
-                metodo_de_pago.setId(rs.getInt("id_metodo_de_pago"));
+                metodo_de_pago.setId(rs.getInt("id_metodo"));
                 metodo_de_pago.setNombre(rs.getString("nombre"));
                 
                 metodos_de_pago.add(metodo_de_pago);
@@ -118,6 +118,27 @@ public class Metodo_de_pago_data {
         }
         catch(SQLException ex){
             System.out.println("Error al obtener el proveedor" + ex.getMessage());
+        }
+        return a;
+    }
+    
+    public Metodo_de_pago getMetodo_de_pago_por_nombre(String nombre){
+        Metodo_de_pago a = null;
+        try{
+            String sql = "SELECT * FROM metodo_de_pago WHERE metodo_de_pago.nombre LIKE ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nombre);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Metodo_de_pago(rs.getInt(1),rs.getString(2));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el metodo de pago " + ex.getMessage());
         }
         return a;
     }
