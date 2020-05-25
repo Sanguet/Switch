@@ -261,6 +261,9 @@ public class nuevaVenta extends javax.swing.JDialog {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 jtDetalleFocusGained(evt);
             }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtDetalleFocusLost(evt);
+            }
         });
         jtDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -363,6 +366,81 @@ public class nuevaVenta extends javax.swing.JDialog {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
                 {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
@@ -381,7 +459,8 @@ public class nuevaVenta extends javax.swing.JDialog {
         jtProductos.setPreferredSize(new java.awt.Dimension(365, 625));
         jtProductos.setRowHeight(25);
         jtProductos.setShowGrid(true);
-        jtProductos.setShowVerticalLines(false);
+        jtProductos.getTableHeader().setResizingAllowed(false);
+        jtProductos.getTableHeader().setReorderingAllowed(false);
         jtProductos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtProductosMouseClicked(evt);
@@ -496,10 +575,6 @@ public class nuevaVenta extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtTotalActionPerformed
 
-    private void jtDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDescuentoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtDescuentoActionPerformed
-
     private void jbCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarActionPerformed
         // TODO add your handling code here:
         Inicio.jlFondo.setVisible(false);
@@ -507,16 +582,11 @@ public class nuevaVenta extends javax.swing.JDialog {
     }//GEN-LAST:event_jbCerrarActionPerformed
 
     private void jtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductosMouseClicked
-
-
         int fila = this.jtProductos.getSelectedRow();
         
         nombre = jtProductos.getValueAt(fila, 1).toString();
         precio = jtProductos.getValueAt(fila, 3).toString();
         stock = jtProductos.getValueAt(fila, 4).toString();
-        
-        
-       
     }//GEN-LAST:event_jtProductosMouseClicked
 
     private void jtDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDetalleMouseClicked
@@ -600,6 +670,11 @@ public class nuevaVenta extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jtDetalleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusGained
+        jtDetalle.setColumnSelectionAllowed(true);
+        jtDetalle.setCellSelectionEnabled(true);
+    }//GEN-LAST:event_jtDetalleFocusGained
+
     private void jtDescuentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDescuentoKeyReleased
         char c = evt.getKeyChar();
         if (c == KeyEvent.VK_ENTER){
@@ -607,10 +682,14 @@ public class nuevaVenta extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jtDescuentoKeyReleased
 
-    private void jtDetalleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusGained
-        jtDetalle.setColumnSelectionAllowed(true);
-        jtDetalle.setCellSelectionEnabled(true);
-    }//GEN-LAST:event_jtDetalleFocusGained
+    private void jtDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtDescuentoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtDescuentoActionPerformed
+
+    private void jtDetalleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusLost
+        jtDetalle.setColumnSelectionAllowed(false);
+        jtDetalle.setCellSelectionEnabled(false);
+    }//GEN-LAST:event_jtDetalleFocusLost
 
     /**
      * @param args the command line arguments

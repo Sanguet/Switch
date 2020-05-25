@@ -120,4 +120,25 @@ public class Categoria_data {
         }
         return a;
     }
+    
+    public Categoria getCategoria_por_nombre(String nombre){
+        Categoria a = null;
+        try{
+            String sql = "SELECT * FROM categoria WHERE categoria.nombre LIKE ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setString(1, nombre);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Categoria(rs.getInt(1),rs.getString(2));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener la cateogira" + ex.getMessage());
+        }
+        return a;
+    }
 }

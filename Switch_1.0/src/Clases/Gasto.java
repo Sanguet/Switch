@@ -34,7 +34,7 @@ public class Gasto {
         this.comentario = comentario;
     }
 
-    public Gasto(int id_provedor, double monto, int id_metodo_de_pago, int id_categeoria, int id_detalle, Timestamp fecha_y_hora, String comentario) {
+    public Gasto(int id_provedor, double monto, int id_metodo_de_pago, int id_categeoria, int id_detalle, String comentario) {
         this.id = -1;
         this.id_provedor = id_provedor;
         this.monto = monto;
