@@ -560,14 +560,15 @@ public class nuevaVenta extends javax.swing.JDialog {
             if (c == KeyEvent.VK_ENTER){
                 int fila = this.jtDetalle.getSelectedRow();
                 int cantidad = (Integer)(jtDetalle.getValueAt(fila, 1));
-                jtDetalle.setValueAt((Double.parseDouble(precio) * cantidad) , fila, 3);
+                double sub_total = (double)jtDetalle.getValueAt(fila, 1);
+                jtDetalle.setValueAt((sub_total * cantidad) , fila, 3);
                 double descuento;
                 if((Double)jtDetalle.getValueAt(fila, 2) == 0){
                     descuento = 1;
                 } else {
                     descuento = Math.abs(((Double)jtDetalle.getValueAt(fila, 2) / 100) - 1);
                 }
-                jtDetalle.setValueAt((Double.parseDouble(precio) * descuento * cantidad) , fila, 3);
+                jtDetalle.setValueAt((sub_total * descuento * cantidad) , fila, 3);
                 total();
         }
     }//GEN-LAST:event_jtDetalleKeyReleased
