@@ -9,12 +9,12 @@ package Interfaz;
  *
  * @author Alex
  */
-public class nuevaTransaccion extends javax.swing.JDialog {
+public class nuevoStock extends javax.swing.JDialog {
 
     /**
-     * Creates new form nuevaTransaccion
+     * Creates new form nuevoStock
      */
-    public nuevaTransaccion(java.awt.Frame parent, boolean modal) {
+    public nuevoStock(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -29,12 +29,12 @@ public class nuevaTransaccion extends javax.swing.JDialog {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jlNuevaTransaccion = new javax.swing.JLabel();
+        jlNuevoStock = new javax.swing.JLabel();
         jbConfirmar = new javax.swing.JButton();
         jtMonto = new javax.swing.JTextField();
-        jcbCobro = new javax.swing.JComboBox<>();
+        jcbTipo = new javax.swing.JComboBox<>();
         jlTipo = new javax.swing.JLabel();
-        jlMonto = new javax.swing.JLabel();
+        jlCantidad = new javax.swing.JLabel();
         jbCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
@@ -42,10 +42,10 @@ public class nuevaTransaccion extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(370, 260));
 
-        jlNuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 24)); // NOI18N
-        jlNuevaTransaccion.setText("Nueva Transacción");
+        jlNuevoStock.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 24)); // NOI18N
+        jlNuevoStock.setText("Nuevo Stock");
 
-        jbConfirmar.setBackground(new java.awt.Color(54, 197, 240));
+        jbConfirmar.setBackground(new java.awt.Color(224, 30, 90));
         jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
         jbConfirmar.setText("Confirmar");
@@ -57,18 +57,18 @@ public class nuevaTransaccion extends javax.swing.JDialog {
             }
         });
 
-        jcbCobro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cobro" }));
-        jcbCobro.addActionListener(new java.awt.event.ActionListener() {
+        jcbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingreso +", "Egreso -" }));
+        jcbTipo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbCobroActionPerformed(evt);
+                jcbTipoActionPerformed(evt);
             }
         });
 
         jlTipo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlTipo.setText("Tipo");
 
-        jlMonto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jlMonto.setText("Monto");
+        jlCantidad.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jlCantidad.setText("Cantidad");
 
         jbCerrar.setBackground(new java.awt.Color(255, 51, 102));
         jbCerrar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -98,14 +98,14 @@ public class nuevaTransaccion extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jcbCobro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(38, Short.MAX_VALUE))
+                            .addComponent(jlCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(33, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jlNuevaTransaccion)
+                        .addComponent(jlNuevoStock)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
@@ -115,14 +115,14 @@ public class nuevaTransaccion extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
-                        .addComponent(jlNuevaTransaccion))
+                        .addComponent(jlNuevoStock))
                     .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addComponent(jlTipo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcbCobro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlMonto)
+                .addComponent(jlCantidad)
                 .addGap(4, 4, 4)
                 .addComponent(jtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -134,7 +134,7 @@ public class nuevaTransaccion extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,9 +148,9 @@ public class nuevaTransaccion extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbConfirmarActionPerformed
 
-    private void jcbCobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCobroActionPerformed
+    private void jcbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbCobroActionPerformed
+    }//GEN-LAST:event_jcbTipoActionPerformed
 
     private void jbCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarActionPerformed
         Inicio.jlFondo.setVisible(false);
@@ -174,20 +174,20 @@ public class nuevaTransaccion extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(nuevaTransaccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(nuevoStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(nuevaTransaccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(nuevoStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(nuevaTransaccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(nuevoStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(nuevaTransaccion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(nuevoStock.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                nuevaTransaccion dialog = new nuevaTransaccion(new javax.swing.JFrame(), true);
+                nuevoStock dialog = new nuevoStock(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -203,9 +203,9 @@ public class nuevaTransaccion extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbCerrar;
     private javax.swing.JButton jbConfirmar;
-    private javax.swing.JComboBox<String> jcbCobro;
-    private javax.swing.JLabel jlMonto;
-    private javax.swing.JLabel jlNuevaTransaccion;
+    private javax.swing.JComboBox<String> jcbTipo;
+    private javax.swing.JLabel jlCantidad;
+    private javax.swing.JLabel jlNuevoStock;
     private javax.swing.JLabel jlTipo;
     private javax.swing.JTextField jtMonto;
     // End of variables declaration//GEN-END:variables
