@@ -84,18 +84,22 @@ public class Gastos1 extends javax.swing.JPanel {
 
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jbNueva_categoria = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jbNuevo_gasto = new javax.swing.JButton();
+        jbNuevo_gasto = new rsbuttoncustom.RSButtonCustom();
+        jbNueva_categoria = new rsbuttoncustom.RSButtonCustom();
         addMenu = new javax.swing.JPanel();
         jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtGastos = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
-        jcbCategoria = new javax.swing.JComboBox<>();
-        jcbProvedor = new javax.swing.JComboBox<>();
         jbActualizar = new javax.swing.JButton();
+        rSDateChooserModern1 = new newscomponents.RSDateChooserModern();
+        jcb = new RSMaterialComponent.RSComboBoxMaterial();
+        jcb1 = new RSMaterialComponent.RSComboBoxMaterial();
+        rSDateChooserModern2 = new newscomponents.RSDateChooserModern();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,30 +110,31 @@ public class Gastos1 extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Gastos");
 
-        jbNueva_categoria.setBackground(new java.awt.Color(14, 21, 30));
-        jbNueva_categoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jbNueva_categoria.setForeground(new java.awt.Color(255, 255, 255));
-        jbNueva_categoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/NuevaCategoria.png"))); // NOI18N
-        jbNueva_categoria.setText("Nueva Categoria");
-        jbNueva_categoria.setBorder(null);
-        jbNueva_categoria.setBorderPainted(false);
-        jbNueva_categoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbNueva_categoriaActionPerformed(evt);
-            }
-        });
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/GastosR.png"))); // NOI18N
 
         jbNuevo_gasto.setBackground(new java.awt.Color(14, 21, 30));
-        jbNuevo_gasto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbNuevo_gasto.setForeground(new java.awt.Color(255, 255, 255));
         jbNuevo_gasto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
-        jbNuevo_gasto.setText("Nuevo Gasto");
-        jbNuevo_gasto.setBorderPainted(false);
+        jbNuevo_gasto.setText("Nuevo gasto");
+        jbNuevo_gasto.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jbNuevo_gasto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNuevo_gasto.setPreferredSize(new java.awt.Dimension(150, 35));
         jbNuevo_gasto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNuevo_gastoActionPerformed(evt);
+            }
+        });
+
+        jbNueva_categoria.setBackground(new java.awt.Color(14, 21, 30));
+        jbNueva_categoria.setForeground(new java.awt.Color(255, 255, 255));
+        jbNueva_categoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/NuevaCategoria.png"))); // NOI18N
+        jbNueva_categoria.setText("Nueva Categoria");
+        jbNueva_categoria.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jbNueva_categoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNueva_categoria.setPreferredSize(new java.awt.Dimension(180, 35));
+        jbNueva_categoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNueva_categoriaActionPerformed(evt);
             }
         });
 
@@ -142,10 +147,10 @@ public class Gastos1 extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 653, Short.MAX_VALUE)
-                .addComponent(jbNuevo_gasto)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 656, Short.MAX_VALUE)
+                .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbNueva_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbNueva_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
         TituloLayout.setVerticalGroup(
@@ -160,8 +165,8 @@ public class Gastos1 extends javax.swing.JPanel {
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbNueva_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbNueva_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -245,22 +250,6 @@ public class Gastos1 extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(1095, 30));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jcbCategoria.setBackground(new java.awt.Color(14, 21, 30));
-        jcbCategoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jcbCategoria.setForeground(new java.awt.Color(255, 255, 255));
-        jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Categoria" }));
-        jcbCategoria.setOpaque(false);
-        jcbCategoria.setPreferredSize(new java.awt.Dimension(220, 30));
-        jPanel1.add(jcbCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        jcbProvedor.setBackground(new java.awt.Color(14, 21, 30));
-        jcbProvedor.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jcbProvedor.setForeground(new java.awt.Color(255, 255, 255));
-        jcbProvedor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Provedor" }));
-        jcbProvedor.setOpaque(false);
-        jcbProvedor.setPreferredSize(new java.awt.Dimension(220, 30));
-        jPanel1.add(jcbProvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
-
         jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
         jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jbActualizar.setForeground(new java.awt.Color(255, 255, 255));
@@ -276,20 +265,56 @@ public class Gastos1 extends javax.swing.JPanel {
         });
         jPanel1.add(jbActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, -1, -1));
 
+        rSDateChooserModern1.setBackground(new java.awt.Color(14, 21, 30));
+        rSDateChooserModern1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        rSDateChooserModern1.setFormatDate("dd/MM/yyyy");
+        rSDateChooserModern1.setMaximumSize(new java.awt.Dimension(140, 30));
+        rSDateChooserModern1.setMinimumSize(new java.awt.Dimension(140, 30));
+        rSDateChooserModern1.setPreferredSize(new java.awt.Dimension(140, 30));
+        jPanel1.add(rSDateChooserModern1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, -1, -1));
+
+        jcb.setBackground(new java.awt.Color(14, 21, 30));
+        jcb.setForeground(new java.awt.Color(255, 255, 255));
+        jcb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Provedor" }));
+        jcb.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jcb.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcb.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcb.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcb, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+
+        jcb1.setBackground(new java.awt.Color(14, 21, 30));
+        jcb1.setForeground(new java.awt.Color(255, 255, 255));
+        jcb1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Categoria" }));
+        jcb1.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jcb1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcb1.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcb1.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcb1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        rSDateChooserModern2.setBackground(new java.awt.Color(14, 21, 30));
+        rSDateChooserModern2.setToolTipText("");
+        rSDateChooserModern2.setDate(new java.util.Date(1577847600000L));
+        rSDateChooserModern2.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        rSDateChooserModern2.setFormatDate("dd/MM/yyyy");
+        rSDateChooserModern2.setMaximumSize(new java.awt.Dimension(140, 30));
+        rSDateChooserModern2.setMinimumSize(new java.awt.Dimension(140, 30));
+        rSDateChooserModern2.setPreferredSize(new java.awt.Dimension(140, 30));
+        jPanel1.add(rSDateChooserModern2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, -1, -1));
+
+        jLabel1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Hasta:");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 50, 30));
+
+        jLabel2.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("Desde:");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 0, 50, 30));
+
         Registro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jbNueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_categoriaActionPerformed
-        new CambiaPanel(this.addMenu, new nuevaCatGasto());
-    }//GEN-LAST:event_jbNueva_categoriaActionPerformed
-
-    private void jbNuevo_gastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_gastoActionPerformed
-        Inicio.jlFondo.setVisible(true);
-        JDialog a = new nuevoGasto(null,true);
-        a.setVisible(true);
-    }//GEN-LAST:event_jbNuevo_gastoActionPerformed
 
     private void jbActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbActualizarActionPerformed
         try{
@@ -305,21 +330,35 @@ public class Gastos1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
+    private void jbNuevo_gastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_gastoActionPerformed
+        Inicio.jlFondo.setVisible(true);
+        JDialog a = new nuevoGasto(null,true);
+        a.setVisible(true);// TODO add your handling code here:        // TODO add your handling code here:
+    }//GEN-LAST:event_jbNuevo_gastoActionPerformed
+
+    private void jbNueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_categoriaActionPerformed
+        new CambiaPanel(this.addMenu, new nuevaCatGasto());
+    }//GEN-LAST:event_jbNueva_categoriaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
     private javax.swing.JPanel Titulo;
     private javax.swing.JPanel addMenu;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbActualizar;
-    private javax.swing.JButton jbNueva_categoria;
-    private javax.swing.JButton jbNuevo_gasto;
-    private javax.swing.JComboBox<String> jcbCategoria;
-    private javax.swing.JComboBox<String> jcbProvedor;
+    private rsbuttoncustom.RSButtonCustom jbNueva_categoria;
+    private rsbuttoncustom.RSButtonCustom jbNuevo_gasto;
+    private RSMaterialComponent.RSComboBoxMaterial jcb;
+    private RSMaterialComponent.RSComboBoxMaterial jcb1;
     private javax.swing.JLabel jlBackground;
     private javax.swing.JTable jtGastos;
+    private newscomponents.RSDateChooserModern rSDateChooserModern1;
+    private newscomponents.RSDateChooserModern rSDateChooserModern2;
     // End of variables declaration//GEN-END:variables
 }

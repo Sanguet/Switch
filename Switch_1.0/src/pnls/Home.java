@@ -34,9 +34,9 @@ public class Home extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        jbNueva_categoria = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jbNuevo_gasto = new javax.swing.JButton();
+        jbNuevo_gasto = new newscomponents.RSButtonFlat_new();
+        jbNueva_Venta = new newscomponents.RSButtonFlat_new();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -53,33 +53,24 @@ public class Home extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
         jLabel5.setText("Mi Negocio");
 
-        jbNueva_categoria.setBackground(new java.awt.Color(14, 21, 30));
-        jbNueva_categoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jbNueva_categoria.setForeground(new java.awt.Color(255, 255, 255));
-        jbNueva_categoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
-        jbNueva_categoria.setText("Nueva Venta");
-        jbNueva_categoria.setBorder(null);
-        jbNueva_categoria.setBorderPainted(false);
-        jbNueva_categoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbNueva_categoriaActionPerformed(evt);
-            }
-        });
-
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/HomeR.png"))); // NOI18N
         jLabel6.setText("Imagen");
         jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
         jbNuevo_gasto.setBackground(new java.awt.Color(14, 21, 30));
-        jbNuevo_gasto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jbNuevo_gasto.setForeground(new java.awt.Color(255, 255, 255));
         jbNuevo_gasto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
         jbNuevo_gasto.setText("Nuevo Gasto");
-        jbNuevo_gasto.setBorder(null);
-        jbNuevo_gasto.setBorderPainted(false);
-        jbNuevo_gasto.addActionListener(new java.awt.event.ActionListener() {
+        jbNuevo_gasto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNuevo_gasto.setPreferredSize(new java.awt.Dimension(150, 35));
+
+        jbNueva_Venta.setBackground(new java.awt.Color(14, 21, 30));
+        jbNueva_Venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
+        jbNueva_Venta.setText("Nueva Venta");
+        jbNueva_Venta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
+        jbNueva_Venta.setPreferredSize(new java.awt.Dimension(150, 35));
+        jbNueva_Venta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbNuevo_gastoActionPerformed(evt);
+                jbNueva_VentaActionPerformed(evt);
             }
         });
 
@@ -92,10 +83,10 @@ public class Home extends javax.swing.JPanel {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 658, Short.MAX_VALUE)
-                .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 686, Short.MAX_VALUE)
+                .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbNueva_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbNueva_Venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         TituloLayout.setVerticalGroup(
@@ -110,23 +101,19 @@ public class Home extends javax.swing.JPanel {
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jbNueva_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                            .addComponent(jbNuevo_gasto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jbNueva_Venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbNueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_categoriaActionPerformed
+    private void jbNueva_VentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_VentaActionPerformed
         Inicio.jlFondo.setVisible(true);
         JDialog a = new nuevaVenta(null,true);
-        a.setVisible(true);
-    }//GEN-LAST:event_jbNueva_categoriaActionPerformed
-
-    private void jbNuevo_gastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_gastoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbNuevo_gastoActionPerformed
+        a.setVisible(true);   // TODO add your handling code here:
+    }//GEN-LAST:event_jbNueva_VentaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -134,7 +121,7 @@ public class Home extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JButton jbNueva_categoria;
-    private javax.swing.JButton jbNuevo_gasto;
+    private newscomponents.RSButtonFlat_new jbNueva_Venta;
+    private newscomponents.RSButtonFlat_new jbNuevo_gasto;
     // End of variables declaration//GEN-END:variables
 }
