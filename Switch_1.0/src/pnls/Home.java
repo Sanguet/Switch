@@ -5,6 +5,10 @@
  */
 package pnls;
 
+import Interfaz.Inicio;
+import Interfaz.nuevaVenta;
+import javax.swing.JDialog;
+
 /**
  *
  * @author Alex
@@ -115,7 +119,9 @@ public class Home extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbNueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_categoriaActionPerformed
-        // TODO add your handling code here:
+        Inicio.jlFondo.setVisible(true);
+        JDialog a = new nuevaVenta(null,true);
+        a.setVisible(true);
     }//GEN-LAST:event_jbNueva_categoriaActionPerformed
 
     private void jbNuevo_gastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_gastoActionPerformed

@@ -61,12 +61,12 @@ public class Venta_data {
     
     //Metodos de borrado
     
-    public void borrarVenta(Venta venta){
+    public void borrarVenta_por_id(int id){
         try{
             String sql = "DELETE FROM venta WHERE id_venta = ?";
             
             PreparedStatement stmt = connection.prepareStatement(sql);
-            stmt.setInt(1, venta.getId());
+            stmt.setInt(1, id);
             
             stmt.executeUpdate();
             
@@ -197,6 +197,27 @@ public class Venta_data {
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, venta.getId_cliente());
             stmt.setTimestamp(1, venta.getFecha_y_hora());
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Venta(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getInt(4), rs.getDouble(5), rs.getInt(6), rs.getTimestamp(7), rs.getString(8));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener la venta" + ex.getMessage());
+        }
+        return a;
+    }
+    
+    public Venta getVenta_por_detalle(int id){
+        Venta a = null;
+        try{
+            String sql = "SELECT v.id_venta, c.id_cliente as cliente, d.id_detalle as detalle_de_venta, m.Id_metodo as metodo_de_pago, v.total, v.descuento, v.fecha_y_hora, v.comentario FROM cliente as c, detalle_de_venta as d, metodo_de_pago as m, venta as v WHERE c.id_cliente = v.id_cliente AND d.id_detalle = v.id_detalle AND m.Id_metodo = v.id_metodo_de_pago AND v.id_detalle LIKE ?";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
             
             ResultSet rs = stmt.executeQuery();
             

@@ -236,4 +236,25 @@ public class Producto_data {
         return a;
     }
     
+    public Producto getProducto_por_id(int id){
+        Producto a = null;
+        try{
+            String sql = "SELECT pro.id_producto, c.id_categoria_producto AS categoria, p.id_provedor AS provedor, pro.nombre, pro.costo, pro.precio, pro.cantidad, pro.comentario, pro.codigo FROM categoria_producto AS c, provedor AS p, producto as pro WHERE c.id_categoria_producto = pro.id_categoria AND p.id_provedor = pro.id_provedor AND pro.id_producto LIKE ?";;
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Producto(rs.getInt(1),rs.getString(4),rs.getInt(2),rs.getDouble(5), rs.getDouble(6), rs.getInt(7), rs.getInt(3), rs.getString(8), rs.getLong(9));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el producto" + ex.getMessage());
+        }
+        return a;
+    }
+    
 }

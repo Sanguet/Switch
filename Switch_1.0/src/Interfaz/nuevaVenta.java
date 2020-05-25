@@ -7,11 +7,13 @@ package Interfaz;
 
 import Clases.Cliente;
 import Clases.Conexion;
+import Clases.Cuenta_corriente;
 import Clases.Detalle_de_venta;
 import Clases.Metodo_de_pago;
 import Clases.Producto;
 import Clases.Venta;
 import Clases_data.Cliente_data;
+import Clases_data.Cuenta_corriente_data;
 import Clases_data.Detalle_de_venta_data;
 import Clases_data.Metodo_de_pago_data;
 import Clases_data.Producto_data;
@@ -40,8 +42,6 @@ public class nuevaVenta extends javax.swing.JDialog {
         AutoCompleteDecorator.decorate(this.jcbProducto);
         
         DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
-        
-        
         
     }
 
@@ -448,6 +448,7 @@ public class nuevaVenta extends javax.swing.JDialog {
                     Detalle_de_venta_data ddvd = new Detalle_de_venta_data(con);
                     Cliente_data cd = new Cliente_data(con);
                     Venta_data vd = new Venta_data(con);
+                    Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
                     
                     //Variables de venta
                     int indice = jcbBuscarCliente.getSelectedIndex();
@@ -466,8 +467,15 @@ public class nuevaVenta extends javax.swing.JDialog {
                         int descuento = Integer.parseInt(jtDescuento.getText());
                         Double total = Double.parseDouble(jtDetalle.getValueAt(i, 4).toString());
                         Venta venta = new Venta(id_cliente, id_detalle, id_metodo_de_pago, total, descuento, comentario);
+                        if("Cuenta corriente".equals(jcbMetodo.getItemAt(indice2))){
+                            Cliente cliente = cd.getCliente_por_id(id_cliente);
+                            Cuenta_corriente cuenta_nueva = ccd.getCuenta_corriente_por_cliente(id_cliente);
+                            cuenta_nueva.setMonto(total * -1 + cuenta_nueva.getMonto());
+                            ccd.actualizarCuenta_corriente(cuenta_nueva);
+                        }   
                         vd.guardarVenta(venta);
                     }
+                    
                     
                     JOptionPane.showMessageDialog(null, "Felicidades, venta finalizada");
                     

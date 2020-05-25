@@ -16,6 +16,7 @@ public class nuevoArqueo extends javax.swing.JPanel {
      */
     public nuevoArqueo() {
         initComponents();
+        
     }
 
     /**
@@ -30,10 +31,10 @@ public class nuevoArqueo extends javax.swing.JPanel {
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
         jlInicio = new javax.swing.JLabel();
-        jbCerrarArqueo = new javax.swing.JButton();
+        jbIniciarArqueo = new javax.swing.JButton();
         jltituloCliente = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jtMonto = new javax.swing.JTextField();
+        jtFecha = new javax.swing.JTextField();
         tituloAddMenu = new javax.swing.JLabel();
 
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
@@ -48,29 +49,35 @@ public class nuevoArqueo extends javax.swing.JPanel {
         jlInicio.setText("Fecha de inicio:");
         form.add(jlInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, -1));
 
-        jbCerrarArqueo.setBackground(new java.awt.Color(224, 30, 90));
-        jbCerrarArqueo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jbCerrarArqueo.setForeground(new java.awt.Color(255, 255, 255));
-        jbCerrarArqueo.setText("Iniciar Arqueo");
-        jbCerrarArqueo.setBorderPainted(false);
-        jbCerrarArqueo.setPreferredSize(new java.awt.Dimension(240, 35));
-        jbCerrarArqueo.addActionListener(new java.awt.event.ActionListener() {
+        jbIniciarArqueo.setBackground(new java.awt.Color(224, 30, 90));
+        jbIniciarArqueo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbIniciarArqueo.setForeground(new java.awt.Color(255, 255, 255));
+        jbIniciarArqueo.setText("Iniciar Arqueo");
+        jbIniciarArqueo.setBorderPainted(false);
+        jbIniciarArqueo.setPreferredSize(new java.awt.Dimension(240, 35));
+        jbIniciarArqueo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCerrarArqueoActionPerformed(evt);
+                jbIniciarArqueoActionPerformed(evt);
             }
         });
-        form.add(jbCerrarArqueo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        form.add(jbIniciarArqueo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         jltituloCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jltituloCliente.setForeground(new java.awt.Color(255, 255, 255));
         jltituloCliente.setText("Monto Inicial:");
         form.add(jltituloCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 90, -1));
 
-        jTextField1.setPreferredSize(new java.awt.Dimension(240, 30));
-        form.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
+        jtMonto.setPreferredSize(new java.awt.Dimension(240, 30));
+        jtMonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtMontoKeyTyped(evt);
+            }
+        });
+        form.add(jtMonto, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, -1, -1));
 
-        jTextField2.setPreferredSize(new java.awt.Dimension(240, 30));
-        form.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        jtFecha.setEditable(false);
+        jtFecha.setPreferredSize(new java.awt.Dimension(240, 30));
+        form.add(jtFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
         addMenu.add(form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 300, 650));
 
@@ -100,19 +107,26 @@ public class nuevoArqueo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbCerrarArqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarArqueoActionPerformed
+    private void jbIniciarArqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbIniciarArqueoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jbCerrarArqueoActionPerformed
+    }//GEN-LAST:event_jbIniciarArqueoActionPerformed
+
+    private void jtMontoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtMontoKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtMontoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addMenu;
     private javax.swing.JPanel form;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JButton jbCerrarArqueo;
+    private javax.swing.JButton jbIniciarArqueo;
     private javax.swing.JLabel jlInicio;
     private javax.swing.JLabel jltituloCliente;
+    private javax.swing.JTextField jtFecha;
+    private javax.swing.JTextField jtMonto;
     private javax.swing.JLabel tituloAddMenu;
     // End of variables declaration//GEN-END:variables
 }

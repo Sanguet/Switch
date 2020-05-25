@@ -5,6 +5,11 @@
  */
 package pnls.AddsMenu;
 
+import Clases.Conexion;
+import Clases_data.Venta_data;
+import javax.swing.JOptionPane;
+import pnls.Ventas1;
+
 /**
  *
  * @author Alex
@@ -16,7 +21,19 @@ public class detalleVentas extends javax.swing.JPanel {
      */
     public detalleVentas() {
         initComponents();
+        String fecha = Ventas1.fecha;
+        fecha = fecha.substring(0, fecha.length() - 10); 
+        jlFecha.setText(fecha);
+        String hora = Ventas1.fecha;
+        hora = hora.substring(10, hora.length()); 
+        jlHora.setText(hora);
+        
+        this.jlNombrecliente.setText(Ventas1.cliente);
+        this.jlmetodo.setText(Ventas1.metodo_de_pago);
+        this.jlTotal.setText(Ventas1.importe);
+        this.jtaDetalle.setText(Ventas1.producto_pasado.getNombre());
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,7 +55,7 @@ public class detalleVentas extends javax.swing.JPanel {
         jspComentario = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jspDetalle = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        jtaDetalle = new javax.swing.JTextArea();
         jlmetodo = new javax.swing.JLabel();
         jlNombrecliente = new javax.swing.JLabel();
         jlTituloCometario = new javax.swing.JLabel();
@@ -57,12 +74,17 @@ public class detalleVentas extends javax.swing.JPanel {
         jlFecha.setForeground(new java.awt.Color(255, 255, 255));
         jlFecha.setText("DD/MM/AA");
         jlFecha.setPreferredSize(new java.awt.Dimension(170, 30));
-        form.add(jlFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 11, -1, -1));
+        form.add(jlFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 11, 230, -1));
 
         jbBorrar.setBackground(new java.awt.Color(224, 30, 90));
         jbBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/borrar.png"))); // NOI18N
         jbBorrar.setBorderPainted(false);
         jbBorrar.setPreferredSize(new java.awt.Dimension(30, 30));
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBorrarActionPerformed(evt);
+            }
+        });
         form.add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 49, -1, -1));
 
         jlHora.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
@@ -97,15 +119,15 @@ public class detalleVentas extends javax.swing.JPanel {
 
         form.add(jspComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 499, 240, 80));
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("1x Producto1 \n1x Producto3 \n1x Producto4 \n1x Producto5 \n3x Producto2\n\n\n\n\n\n");
-        jTextArea2.setEnabled(false);
-        jTextArea2.setSelectionColor(new java.awt.Color(224, 30, 90));
-        jspDetalle.setViewportView(jTextArea2);
+        jtaDetalle.setEditable(false);
+        jtaDetalle.setColumns(20);
+        jtaDetalle.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jtaDetalle.setLineWrap(true);
+        jtaDetalle.setRows(5);
+        jtaDetalle.setText("1x Producto1 \n1x Producto3 \n1x Producto4 \n1x Producto5 \n3x Producto2\n\n\n\n\n\n");
+        jtaDetalle.setEnabled(false);
+        jtaDetalle.setSelectionColor(new java.awt.Color(224, 30, 90));
+        jspDetalle.setViewportView(jtaDetalle);
 
         form.add(jspDetalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 187, 240, 280));
 
@@ -164,12 +186,29 @@ public class detalleVentas extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer borrar esta venta?");
+        if(JOptionPane.YES_OPTION == msj){
+            try{
+                Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                Venta_data venta_data = new Venta_data(con);
+                venta_data.borrarVenta_por_id(Ventas1.venta_pasada.getId());
+
+                JOptionPane.showMessageDialog(null, "Se borro con exito la venta" );
+
+                this.setVisible(false);
+
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "No se pudo borrar la venta " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jbBorrarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addMenu;
     private javax.swing.JPanel form;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JButton jbBorrar;
     private javax.swing.JLabel jlFecha;
     private javax.swing.JLabel jlHora;
@@ -183,6 +222,7 @@ public class detalleVentas extends javax.swing.JPanel {
     private javax.swing.JLabel jltituloCliente;
     private javax.swing.JScrollPane jspComentario;
     private javax.swing.JScrollPane jspDetalle;
+    private javax.swing.JTextArea jtaDetalle;
     private javax.swing.JLabel tituloAddMenu;
     // End of variables declaration//GEN-END:variables
 }

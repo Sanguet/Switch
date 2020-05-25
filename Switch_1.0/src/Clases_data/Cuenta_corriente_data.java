@@ -67,7 +67,7 @@ public class Cuenta_corriente_data {
     
     public void actualizarCuenta_corriente(Cuenta_corriente cuenta_corriente){
         try{
-            String sql = "UPDATE cuenta_corriente SET id_cliente = ?, monto = ?, id_metodo_de_pago = ?, comentario = ? WHERE id_cuenta_corriente = ?";
+            String sql = "UPDATE cuenta_corriente SET id_cliente = ?, monto = ?, id_metodo_de_pago = ?, comentario = ? WHERE id_cuenta = ?";
             
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setInt(1, cuenta_corriente.getId_cliente());
@@ -108,5 +108,25 @@ public class Cuenta_corriente_data {
             System.out.println("Error al obtener las cuentas corriente: " + ex.getMessage());
         }
         return cuentas_corriente;
+    }
+    public Cuenta_corriente getCuenta_corriente_por_cliente(int id){
+        Cuenta_corriente a = null;
+        try{
+            String sql = "SELECT * FROM cuenta_corriente WHERE cuenta_corriente.id_cliente = ?;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Cuenta_corriente(rs.getInt(1),rs.getInt(2),rs.getDouble(3),rs.getInt(4), rs.getString(5));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el cliente" + ex.getMessage());
+        }
+        return a;
     }
 }

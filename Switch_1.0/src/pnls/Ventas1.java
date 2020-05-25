@@ -12,6 +12,8 @@ import Interfaz.nuevaVenta;
 import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import pnls.AddsMenu.detalleVentas;
+import pnls.AddsMenu.nuevoArqueo;
 
 public class Ventas1 extends javax.swing.JPanel {
 
@@ -61,6 +63,10 @@ public class Ventas1 extends javax.swing.JPanel {
         
         }
     }
+    public static String cliente,fecha,importe,metodo_de_pago,detalle;
+    public static Venta venta_pasada;
+    public static Detalle_de_venta detalle_pasado;
+    public static Producto producto_pasado;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -160,30 +166,11 @@ public class Ventas1 extends javax.swing.JPanel {
 
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.setLayout(new javax.swing.BoxLayout(addMenu, javax.swing.BoxLayout.LINE_AXIS));
 
         jlBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.backgrounds/Ventas.png"))); // NOI18N
         jlBackground.setPreferredSize(new java.awt.Dimension(300, 680));
-
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-            .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(addMenuLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jlBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 680, Short.MAX_VALUE)
-            .addGroup(addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(addMenuLayout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jlBackground, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
-        );
+        addMenu.add(jlBackground);
 
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
 
@@ -239,6 +226,11 @@ public class Ventas1 extends javax.swing.JPanel {
         jtVentas.setShowVerticalLines(false);
         jtVentas.getTableHeader().setResizingAllowed(false);
         jtVentas.getTableHeader().setReorderingAllowed(false);
+        jtVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtVentasMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jtVentas);
 
         Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
@@ -284,7 +276,7 @@ public class Ventas1 extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbArqueoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbArqueoActionPerformed
-        // TODO add your handling code here:
+        new CambiaPanel(this.addMenu, new nuevoArqueo());
     }//GEN-LAST:event_jbArqueoActionPerformed
 
     private void jbNueva_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_ventaActionPerformed
@@ -306,6 +298,29 @@ public class Ventas1 extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
+
+    private void jtVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtVentasMouseClicked
+        int fila = this.jtVentas.getSelectedRow();
+        
+        cliente = jtVentas.getValueAt(fila, 0).toString();
+        fecha = jtVentas.getValueAt(fila, 1).toString();
+        metodo_de_pago = jtVentas.getValueAt(fila, 2).toString();
+        importe = jtVentas.getValueAt(fila, 3).toString();
+        detalle = jtVentas.getValueAt(fila, 4).toString();
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Venta_data venta_data = new Venta_data(con);
+            Detalle_de_venta_data detalle_de_venta_data = new Detalle_de_venta_data(con);
+            Producto_data producto_data = new Producto_data(con);
+            
+            venta_pasada = venta_data.getVenta_por_detalle(Integer.parseInt(detalle));
+            detalle_pasado = detalle_de_venta_data.getDetalle_de_venta_por_id(Integer.parseInt(detalle));
+            producto_pasado = producto_data.getProducto_por_id(detalle_pasado.getId_producto());
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la venta " + e.getMessage());
+        }
+        new CambiaPanel(this.addMenu, new detalleVentas());
+    }//GEN-LAST:event_jtVentasMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

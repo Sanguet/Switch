@@ -68,6 +68,16 @@ public class detalleProvedor extends javax.swing.JPanel {
         jlNombre.setPreferredSize(new java.awt.Dimension(180, 30));
 
         jtTelefono.setEnabled(false);
+        jtTelefono.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtTelefonoActionPerformed(evt);
+            }
+        });
+        jtTelefono.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtTelefonoKeyTyped(evt);
+            }
+        });
 
         jtEmail.setEnabled(false);
 
@@ -233,6 +243,17 @@ public class detalleProvedor extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
+
+    private void jtTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTelefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtTelefonoActionPerformed
+
+    private void jtTelefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtTelefonoKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtTelefonoKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
