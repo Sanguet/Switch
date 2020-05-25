@@ -94,6 +94,7 @@ public class nuevoCliente extends javax.swing.JPanel {
 
         addMenu.setBackground(new java.awt.Color(54, 197, 240));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         form.setBackground(new java.awt.Color(14, 21, 30));
         form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -183,6 +184,7 @@ public class nuevoCliente extends javax.swing.JPanel {
         jbConfirmar.setBackground(new java.awt.Color(54, 197, 240));
         jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jbConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/confirmar.png"))); // NOI18N
         jbConfirmar.setText("Confirmar");
         jbConfirmar.setBorderPainted(false);
         jbConfirmar.setPreferredSize(new java.awt.Dimension(101, 35));
@@ -243,25 +245,14 @@ public class nuevoCliente extends javax.swing.JPanel {
         jlComentario.setText("Comentario");
         form.add(jlComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 313, 99, -1));
 
+        addMenu.add(form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 300, 650));
+
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloAddMenu.setText("Nuevo Cliente");
-
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-            .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
-        );
+        tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 30));
+        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

@@ -58,6 +58,7 @@ public class detalleProvedor extends javax.swing.JPanel {
 
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         form.setBackground(new java.awt.Color(14, 21, 30));
 
@@ -90,7 +91,7 @@ public class detalleProvedor extends javax.swing.JPanel {
         });
 
         jbBorrar.setBackground(new java.awt.Color(46, 182, 125));
-        jbBorrar.setText("Borrar");
+        jbBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/borrar.png"))); // NOI18N
         jbBorrar.setBorderPainted(false);
         jbBorrar.setPreferredSize(new java.awt.Dimension(30, 30));
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -172,28 +173,17 @@ public class detalleProvedor extends javax.swing.JPanel {
                 .addComponent(jlComentario)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(comentario, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(294, Short.MAX_VALUE))
         );
+
+        addMenu.add(form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloAddMenu.setText("Perfil del Provedor");
-
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 30));
+        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, -1));
 
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
     }// </editor-fold>//GEN-END:initComponents

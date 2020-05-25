@@ -129,7 +129,7 @@ public class detalleProducto extends javax.swing.JPanel {
         });
 
         jbBorrar.setBackground(new java.awt.Color(224, 30, 90));
-        jbBorrar.setText("Borrar");
+        jbBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/borrar.png"))); // NOI18N
         jbBorrar.setBorderPainted(false);
         jbBorrar.setPreferredSize(new java.awt.Dimension(30, 30));
         jbBorrar.addActionListener(new java.awt.event.ActionListener() {
@@ -228,9 +228,8 @@ public class detalleProducto extends javax.swing.JPanel {
                         .addComponent(jtCosto)
                         .addComponent(jtPrecio)
                         .addComponent(jcbCategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jcbProvedor, javax.swing.GroupLayout.Alignment.LEADING, 0, 240, Short.MAX_VALUE)
-                            .addComponent(jtCodigo, javax.swing.GroupLayout.Alignment.LEADING))))
+                        .addComponent(jcbProvedor, 0, 240, Short.MAX_VALUE)
+                        .addComponent(jtCodigo)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         formLayout.setVerticalGroup(
@@ -283,7 +282,8 @@ public class detalleProducto extends javax.swing.JPanel {
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloAddMenu.setText("Detalles del Producto");
-        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 24));
+        tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 30));
+        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

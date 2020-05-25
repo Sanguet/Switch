@@ -68,11 +68,13 @@ public class Provedores1 extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jbActualizar = new javax.swing.JButton();
         addMenu = new javax.swing.JPanel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtProvedores = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jcbNombre = new javax.swing.JComboBox<>();
+        jbActualizar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -86,6 +88,7 @@ public class Provedores1 extends javax.swing.JPanel {
         jButton5.setBackground(new java.awt.Color(14, 21, 30));
         jButton5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
         jButton5.setText("Nuevo Provedor");
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
@@ -97,19 +100,6 @@ public class Provedores1 extends javax.swing.JPanel {
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/ProvedoresR.png"))); // NOI18N
 
-        jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
-        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jbActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
-        jbActualizar.setText("Actualizar");
-        jbActualizar.setBorder(null);
-        jbActualizar.setBorderPainted(false);
-        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbActualizarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout TituloLayout = new javax.swing.GroupLayout(Titulo);
         Titulo.setLayout(TituloLayout);
         TituloLayout.setHorizontalGroup(
@@ -119,10 +109,8 @@ public class Provedores1 extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 704, Short.MAX_VALUE)
-                .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 825, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         TituloLayout.setVerticalGroup(
@@ -134,10 +122,8 @@ public class Provedores1 extends javax.swing.JPanel {
                     .addComponent(jLabel6)
                     .addGroup(TituloLayout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -149,6 +135,7 @@ public class Provedores1 extends javax.swing.JPanel {
 
         Registro.setBackground(new java.awt.Color(255, 255, 255));
         Registro.setPreferredSize(new java.awt.Dimension(1096, 680));
+        Registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -192,9 +179,12 @@ public class Provedores1 extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jtProvedores.setRowHeight(25);
+        jtProvedores.setRowHeight(30);
+        jtProvedores.setSelectionBackground(new java.awt.Color(46, 182, 125));
         jtProvedores.setShowGrid(true);
         jtProvedores.setShowVerticalLines(false);
+        jtProvedores.getTableHeader().setResizingAllowed(false);
+        jtProvedores.getTableHeader().setReorderingAllowed(false);
         jtProvedores.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtProvedoresMouseClicked(evt);
@@ -202,16 +192,36 @@ public class Provedores1 extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jtProvedores);
 
-        javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
-        Registro.setLayout(RegistroLayout);
-        RegistroLayout.setHorizontalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE)
-        );
-        RegistroLayout.setVerticalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-        );
+        Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1096, 650));
+
+        jPanel1.setBackground(new java.awt.Color(14, 21, 30));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1095, 30));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jcbNombre.setBackground(new java.awt.Color(14, 21, 30));
+        jcbNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jcbNombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Nombre" }));
+        jcbNombre.setOpaque(false);
+        jcbNombre.setPreferredSize(new java.awt.Dimension(220, 30));
+        jPanel1.add(jcbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
+        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
+        jbActualizar.setText("Actualizar");
+        jbActualizar.setBorder(null);
+        jbActualizar.setBorderPainted(false);
+        jbActualizar.setPreferredSize(new java.awt.Dimension(120, 30));
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, -1, -1));
+
+        Registro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -259,8 +269,10 @@ public class Provedores1 extends javax.swing.JPanel {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jbActualizar;
+    private javax.swing.JComboBox<String> jcbNombre;
     private javax.swing.JTable jtProvedores;
     // End of variables declaration//GEN-END:variables
 }

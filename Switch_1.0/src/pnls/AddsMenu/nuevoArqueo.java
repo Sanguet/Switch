@@ -38,12 +38,13 @@ public class nuevoArqueo extends javax.swing.JPanel {
 
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         form.setBackground(new java.awt.Color(14, 21, 30));
         form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jlInicio.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jlInicio.setForeground(new java.awt.Color(224, 30, 90));
+        jlInicio.setForeground(new java.awt.Color(255, 255, 255));
         jlInicio.setText("Fecha de inicio:");
         form.add(jlInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 90, -1));
 
@@ -61,7 +62,7 @@ public class nuevoArqueo extends javax.swing.JPanel {
         form.add(jbCerrarArqueo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         jltituloCliente.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jltituloCliente.setForeground(new java.awt.Color(224, 30, 90));
+        jltituloCliente.setForeground(new java.awt.Color(255, 255, 255));
         jltituloCliente.setText("Monto Inicial:");
         form.add(jltituloCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 90, -1));
 
@@ -71,25 +72,15 @@ public class nuevoArqueo extends javax.swing.JPanel {
         jTextField2.setPreferredSize(new java.awt.Dimension(240, 30));
         form.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
+        addMenu.add(form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 300, 650));
+
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloAddMenu.setText("Nuevo Arqueo de Caja ");
-
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
-        );
+        tituloAddMenu.setMinimumSize(new java.awt.Dimension(300, 30));
+        tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 30));
+        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

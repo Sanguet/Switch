@@ -128,6 +128,7 @@ public class nuevoProducto extends javax.swing.JPanel {
         jbConfirmar.setBackground(new java.awt.Color(224, 30, 90));
         jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jbConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/confirmar.png"))); // NOI18N
         jbConfirmar.setText("Confirmar");
         jbConfirmar.setBorderPainted(false);
         jbConfirmar.setPreferredSize(new java.awt.Dimension(240, 35));
@@ -331,7 +332,8 @@ public class nuevoProducto extends javax.swing.JPanel {
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloAddMenu.setText("Nuevo Producto");
-        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 24));
+        tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 30));
+        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

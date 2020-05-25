@@ -49,6 +49,7 @@ public class nuevoProvedor extends javax.swing.JPanel {
 
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         form.setBackground(new java.awt.Color(14, 21, 30));
         form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -56,6 +57,7 @@ public class nuevoProvedor extends javax.swing.JPanel {
         nuevaTransaccion.setBackground(new java.awt.Color(46, 182, 125));
         nuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         nuevaTransaccion.setForeground(new java.awt.Color(255, 255, 255));
+        nuevaTransaccion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/confirmar.png"))); // NOI18N
         nuevaTransaccion.setText("Confirmar");
         nuevaTransaccion.setBorderPainted(false);
         nuevaTransaccion.setPreferredSize(new java.awt.Dimension(240, 35));
@@ -68,8 +70,8 @@ public class nuevoProvedor extends javax.swing.JPanel {
 
         jlNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jlNombre.setText("Nombre");
-        form.add(jlNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 19, 117, -1));
+        jlNombre.setText("Nombre del Provedor");
+        form.add(jlNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 19, 130, -1));
 
         jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -172,25 +174,14 @@ public class nuevoProvedor extends javax.swing.JPanel {
 
         form.add(jspComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 274, 240, 66));
 
+        addMenu.add(form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 300, 650));
+
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloAddMenu.setText("Nuevo Provedor");
-
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
-            .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
-        );
+        tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 30));
+        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

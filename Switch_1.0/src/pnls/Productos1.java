@@ -77,12 +77,16 @@ public class Productos1 extends javax.swing.JPanel {
         jbNuevo_producto = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jbNuena_categoria = new javax.swing.JButton();
-        jbActualizar1 = new javax.swing.JButton();
         addMenu = new javax.swing.JPanel();
-        categoriaMenu = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         registro = new javax.swing.JScrollPane();
         jtProductos = new javax.swing.JTable();
+        jPanel2 = new javax.swing.JPanel();
+        jcbCategoria = new javax.swing.JComboBox<>();
+        jcbStock = new javax.swing.JComboBox<>();
+        jbActualizar1 = new javax.swing.JButton();
+        jcbCodigo = new javax.swing.JComboBox<>();
+        jcbNombre = new javax.swing.JComboBox<>();
 
         setMaximumSize(new java.awt.Dimension(1466, 839));
         setMinimumSize(new java.awt.Dimension(1466, 839));
@@ -100,6 +104,7 @@ public class Productos1 extends javax.swing.JPanel {
         jbNuevo_producto.setBackground(new java.awt.Color(14, 21, 30));
         jbNuevo_producto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbNuevo_producto.setForeground(new java.awt.Color(255, 255, 255));
+        jbNuevo_producto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
         jbNuevo_producto.setText("Nuevo Producto");
         jbNuevo_producto.setBorder(null);
         jbNuevo_producto.setBorderPainted(false);
@@ -116,25 +121,14 @@ public class Productos1 extends javax.swing.JPanel {
         jbNuena_categoria.setBackground(new java.awt.Color(14, 21, 30));
         jbNuena_categoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbNuena_categoria.setForeground(new java.awt.Color(255, 255, 255));
+        jbNuena_categoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/NuevaCategoria.png"))); // NOI18N
         jbNuena_categoria.setText("Nueva Categoria");
         jbNuena_categoria.setBorder(null);
         jbNuena_categoria.setBorderPainted(false);
+        jbNuena_categoria.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         jbNuena_categoria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNuena_categoriaActionPerformed(evt);
-            }
-        });
-
-        jbActualizar1.setBackground(new java.awt.Color(14, 21, 30));
-        jbActualizar1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jbActualizar1.setForeground(new java.awt.Color(255, 255, 255));
-        jbActualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
-        jbActualizar1.setText("Actualizar");
-        jbActualizar1.setBorder(null);
-        jbActualizar1.setBorderPainted(false);
-        jbActualizar1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbActualizar1ActionPerformed(evt);
             }
         });
 
@@ -147,12 +141,10 @@ public class Productos1 extends javax.swing.JPanel {
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 555, Short.MAX_VALUE)
-                .addComponent(jbActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 651, Short.MAX_VALUE)
+                .addComponent(jbNuevo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbNuevo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         TituloLayout.setVerticalGroup(
@@ -168,8 +160,7 @@ public class Productos1 extends javax.swing.JPanel {
                         .addGap(28, 28, 28)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbNuevo_producto, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbActualizar1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jbNuena_categoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
@@ -180,69 +171,48 @@ public class Productos1 extends javax.swing.JPanel {
         addMenu.setLayout(new javax.swing.BoxLayout(addMenu, javax.swing.BoxLayout.LINE_AXIS));
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
 
-        categoriaMenu.setBackground(new java.awt.Color(14, 21, 30));
-        categoriaMenu.setPreferredSize(new java.awt.Dimension(200, 680));
-
-        jButton1.setBackground(new java.awt.Color(14, 21, 30));
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Categoria principal");
-        jButton1.setBorderPainted(false);
-        jButton1.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-
-        javax.swing.GroupLayout categoriaMenuLayout = new javax.swing.GroupLayout(categoriaMenu);
-        categoriaMenu.setLayout(categoriaMenuLayout);
-        categoriaMenuLayout.setHorizontalGroup(
-            categoriaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-        );
-        categoriaMenuLayout.setVerticalGroup(
-            categoriaMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(categoriaMenuLayout.createSequentialGroup()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 645, Short.MAX_VALUE))
-        );
-
-        add(categoriaMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1096, 680));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         registro.setMaximumSize(new java.awt.Dimension(32767, 700));
         registro.setMinimumSize(new java.awt.Dimension(23, 700));
-        registro.setPreferredSize(new java.awt.Dimension(890, 680));
+        registro.setPreferredSize(new java.awt.Dimension(1096, 650));
 
         jtProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Codigo", "Nombre", "Costo", "Precio", "Stock"
+                "Categoria", "Codigo", "Nombre", "Costo", "Precio", "Stock"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, true
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -250,17 +220,90 @@ public class Productos1 extends javax.swing.JPanel {
             }
         });
         jtProductos.setPreferredSize(new java.awt.Dimension(365, 625));
-        jtProductos.setRowHeight(25);
+        jtProductos.setRowHeight(30);
+        jtProductos.setSelectionBackground(new java.awt.Color(224, 30, 90));
+        jtProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtProductos.setShowGrid(true);
         jtProductos.setShowVerticalLines(false);
+        jtProductos.getTableHeader().setResizingAllowed(false);
+        jtProductos.getTableHeader().setReorderingAllowed(false);
         jtProductos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtProductosMouseClicked(evt);
             }
         });
         registro.setViewportView(jtProductos);
+        if (jtProductos.getColumnModel().getColumnCount() > 0) {
+            jtProductos.getColumnModel().getColumn(0).setResizable(false);
+            jtProductos.getColumnModel().getColumn(0).setHeaderValue("Categoria");
+            jtProductos.getColumnModel().getColumn(1).setResizable(false);
+            jtProductos.getColumnModel().getColumn(1).setHeaderValue("Codigo");
+            jtProductos.getColumnModel().getColumn(2).setResizable(false);
+            jtProductos.getColumnModel().getColumn(2).setHeaderValue("Nombre");
+            jtProductos.getColumnModel().getColumn(3).setResizable(false);
+            jtProductos.getColumnModel().getColumn(3).setHeaderValue("Costo");
+            jtProductos.getColumnModel().getColumn(4).setResizable(false);
+            jtProductos.getColumnModel().getColumn(4).setHeaderValue("Precio");
+            jtProductos.getColumnModel().getColumn(5).setResizable(false);
+            jtProductos.getColumnModel().getColumn(5).setHeaderValue("Stock");
+        }
 
-        add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 140, -1, -1));
+        jPanel1.add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        jPanel2.setBackground(new java.awt.Color(14, 21, 30));
+        jPanel2.setPreferredSize(new java.awt.Dimension(1095, 30));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jcbCategoria.setBackground(new java.awt.Color(14, 21, 30));
+        jcbCategoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Categoria" }));
+        jcbCategoria.setOpaque(false);
+        jcbCategoria.setPreferredSize(new java.awt.Dimension(220, 30));
+        jPanel2.add(jcbCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jcbStock.setBackground(new java.awt.Color(14, 21, 30));
+        jcbStock.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbStock.setForeground(new java.awt.Color(255, 255, 255));
+        jcbStock.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Stock", " " }));
+        jcbStock.setOpaque(false);
+        jcbStock.setPreferredSize(new java.awt.Dimension(220, 30));
+        jPanel2.add(jcbStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 0, -1, -1));
+
+        jbActualizar1.setBackground(new java.awt.Color(14, 21, 30));
+        jbActualizar1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbActualizar1.setForeground(new java.awt.Color(255, 255, 255));
+        jbActualizar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
+        jbActualizar1.setText("Actualizar");
+        jbActualizar1.setBorder(null);
+        jbActualizar1.setBorderPainted(false);
+        jbActualizar1.setPreferredSize(new java.awt.Dimension(120, 30));
+        jbActualizar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizar1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jbActualizar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, -1, -1));
+
+        jcbCodigo.setBackground(new java.awt.Color(14, 21, 30));
+        jcbCodigo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbCodigo.setForeground(new java.awt.Color(255, 255, 255));
+        jcbCodigo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Codigo" }));
+        jcbCodigo.setOpaque(false);
+        jcbCodigo.setPreferredSize(new java.awt.Dimension(220, 30));
+        jPanel2.add(jcbCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+
+        jcbNombre.setBackground(new java.awt.Color(14, 21, 30));
+        jcbNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jcbNombre.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Nombre" }));
+        jcbNombre.setOpaque(false);
+        jcbNombre.setPreferredSize(new java.awt.Dimension(220, 30));
+        jPanel2.add(jcbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbNuevo_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_productoActionPerformed
@@ -306,13 +349,17 @@ public class Productos1 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Titulo;
     private javax.swing.JPanel addMenu;
-    private javax.swing.JPanel categoriaMenu;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JButton jbActualizar1;
     private javax.swing.JButton jbNuena_categoria;
     private javax.swing.JButton jbNuevo_producto;
+    private javax.swing.JComboBox<String> jcbCategoria;
+    private javax.swing.JComboBox<String> jcbCodigo;
+    private javax.swing.JComboBox<String> jcbNombre;
+    private javax.swing.JComboBox<String> jcbStock;
     private javax.swing.JTable jtProductos;
     private javax.swing.JScrollPane registro;
     // End of variables declaration//GEN-END:variables

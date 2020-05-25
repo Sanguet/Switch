@@ -48,6 +48,7 @@ public class detalleVentas extends javax.swing.JPanel {
 
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
+        addMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         form.setBackground(new java.awt.Color(14, 21, 30));
         form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -59,7 +60,7 @@ public class detalleVentas extends javax.swing.JPanel {
         form.add(jlFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 11, -1, -1));
 
         jbBorrar.setBackground(new java.awt.Color(224, 30, 90));
-        jbBorrar.setText("Borrar");
+        jbBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/borrar.png"))); // NOI18N
         jbBorrar.setBorderPainted(false);
         jbBorrar.setPreferredSize(new java.awt.Dimension(30, 30));
         form.add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(241, 49, -1, -1));
@@ -136,25 +137,14 @@ public class detalleVentas extends javax.swing.JPanel {
         jlTotal.setText("$  1000,00");
         form.add(jlTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(141, 143, 130, -1));
 
+        addMenu.add(form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 302, 650));
+
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         tituloAddMenu.setText("Detalles de Venta");
-
-        javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
-        addMenu.setLayout(addMenuLayout);
-        addMenuLayout.setHorizontalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tituloAddMenu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        addMenuLayout.setVerticalGroup(
-            addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(tituloAddMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, 650, Short.MAX_VALUE))
-        );
+        tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 30));
+        addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

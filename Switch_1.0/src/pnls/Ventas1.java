@@ -76,18 +76,14 @@ public class Ventas1 extends javax.swing.JPanel {
         jbArqueo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jbNueva_venta = new javax.swing.JButton();
-        jbActualizar = new javax.swing.JButton();
         addMenu = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        form = new javax.swing.JPanel();
-        jTextField6 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton7 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtVentas = new javax.swing.JTable();
+        jPanel1 = new javax.swing.JPanel();
+        jcbCliente = new javax.swing.JComboBox<>();
+        jcbMetodo = new javax.swing.JComboBox<>();
+        jbActualizar = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -115,25 +111,13 @@ public class Ventas1 extends javax.swing.JPanel {
         jbNueva_venta.setBackground(new java.awt.Color(14, 21, 30));
         jbNueva_venta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbNueva_venta.setForeground(new java.awt.Color(255, 255, 255));
+        jbNueva_venta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
         jbNueva_venta.setText("Nueva Venta");
         jbNueva_venta.setBorder(null);
         jbNueva_venta.setBorderPainted(false);
         jbNueva_venta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNueva_ventaActionPerformed(evt);
-            }
-        });
-
-        jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
-        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        jbActualizar.setForeground(new java.awt.Color(255, 255, 255));
-        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
-        jbActualizar.setText("Actualizar");
-        jbActualizar.setBorder(null);
-        jbActualizar.setBorderPainted(false);
-        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbActualizarActionPerformed(evt);
             }
         });
 
@@ -146,10 +130,8 @@ public class Ventas1 extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 514, Short.MAX_VALUE)
-                .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 653, Short.MAX_VALUE)
+                .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbArqueo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
@@ -167,9 +149,8 @@ public class Ventas1 extends javax.swing.JPanel {
                         .addGap(28, 28, 28)
                         .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jbArqueo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jbActualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(36, Short.MAX_VALUE))
+                            .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -177,75 +158,24 @@ public class Ventas1 extends javax.swing.JPanel {
         addMenu.setBackground(new java.awt.Color(224, 30, 90));
         addMenu.setPreferredSize(new java.awt.Dimension(300, 680));
 
-        jLabel7.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setText("Detalles de Arqueo");
-        jLabel7.setToolTipText("");
-
-        form.setBackground(new java.awt.Color(14, 21, 30));
-
-        jTextField6.setText("Monto inicial");
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Comentario");
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jButton7.setBackground(new java.awt.Color(224, 30, 90));
-        jButton7.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jButton7.setForeground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Confirmar");
-        jButton7.setBorderPainted(false);
-
-        jTextField10.setText("Fecha y Hora");
-
-        javax.swing.GroupLayout formLayout = new javax.swing.GroupLayout(form);
-        form.setLayout(formLayout);
-        formLayout.setHorizontalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                    .addComponent(jTextField6)
-                    .addComponent(jTextField10)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(41, Short.MAX_VALUE))
-        );
-        formLayout.setVerticalGroup(
-            formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(formLayout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jTextField10, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(411, Short.MAX_VALUE))
-        );
-
         javax.swing.GroupLayout addMenuLayout = new javax.swing.GroupLayout(addMenu);
         addMenu.setLayout(addMenuLayout);
         addMenuLayout.setHorizontalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
         addMenuLayout.setVerticalGroup(
             addMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMenuLayout.createSequentialGroup()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(form, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGap(0, 680, Short.MAX_VALUE)
         );
 
         add(addMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(1146, 140, -1, -1));
 
+        Registro.setBackground(new java.awt.Color(255, 255, 255));
         Registro.setPreferredSize(new java.awt.Dimension(1096, 680));
+        Registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(1096, 650));
 
         jtVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -280,28 +210,59 @@ public class Ventas1 extends javax.swing.JPanel {
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jtVentas.setRowHeight(25);
+        jtVentas.setRowHeight(30);
+        jtVentas.setSelectionBackground(new java.awt.Color(224, 30, 90));
         jtVentas.setShowGrid(true);
         jtVentas.setShowVerticalLines(false);
+        jtVentas.getTableHeader().setResizingAllowed(false);
+        jtVentas.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(jtVentas);
 
-        javax.swing.GroupLayout RegistroLayout = new javax.swing.GroupLayout(Registro);
-        Registro.setLayout(RegistroLayout);
-        RegistroLayout.setHorizontalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1096, Short.MAX_VALUE)
-        );
-        RegistroLayout.setVerticalGroup(
-            RegistroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 680, Short.MAX_VALUE)
-        );
+        Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
+
+        jPanel1.setBackground(new java.awt.Color(14, 21, 30));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1095, 30));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jcbCliente.setBackground(new java.awt.Color(14, 21, 30));
+        jcbCliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbCliente.setForeground(new java.awt.Color(255, 255, 255));
+        jcbCliente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Cliente" }));
+        jcbCliente.setOpaque(false);
+        jcbCliente.setPreferredSize(new java.awt.Dimension(220, 30));
+        jPanel1.add(jcbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jcbMetodo.setBackground(new java.awt.Color(14, 21, 30));
+        jcbMetodo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbMetodo.setForeground(new java.awt.Color(255, 255, 255));
+        jcbMetodo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Filtrar por Metodo de pago" }));
+        jcbMetodo.setOpaque(false);
+        jcbMetodo.setPreferredSize(new java.awt.Dimension(220, 30));
+        jPanel1.add(jcbMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+
+        jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
+        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbActualizar.setForeground(new java.awt.Color(255, 255, 255));
+        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
+        jbActualizar.setText("Actualizar");
+        jbActualizar.setBorder(null);
+        jbActualizar.setBorderPainted(false);
+        jbActualizar.setPreferredSize(new java.awt.Dimension(120, 30));
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, -1, -1));
+
+        Registro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -335,19 +296,15 @@ public class Ventas1 extends javax.swing.JPanel {
     private javax.swing.JPanel Registro;
     private javax.swing.JPanel Titulo;
     private javax.swing.JPanel addMenu;
-    private javax.swing.JPanel form;
-    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JButton jbActualizar;
     private javax.swing.JButton jbArqueo;
     private javax.swing.JButton jbNueva_venta;
+    private javax.swing.JComboBox<String> jcbCliente;
+    private javax.swing.JComboBox<String> jcbMetodo;
     private javax.swing.JTable jtVentas;
     // End of variables declaration//GEN-END:variables
 }
