@@ -5,6 +5,17 @@
  */
 package Interfaz;
 
+import Clases.Conexion;
+import Clases.Cuenta_corriente;
+import Clases_data.Cliente_data;
+import Clases_data.Cuenta_corriente_data;
+import Clases_data.Producto_data;
+import Clases_data.Provedor_data;
+import javax.swing.JOptionPane;
+import pnls.AddsMenu.detalleProducto;
+import pnls.Clientes1;
+import pnls.Productos1;
+
 /**
  *
  * @author Alex
@@ -38,6 +49,7 @@ public class nuevaTransaccion extends javax.swing.JDialog {
         jbCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setPreferredSize(new java.awt.Dimension(370, 260));
@@ -54,6 +66,12 @@ public class nuevaTransaccion extends javax.swing.JDialog {
         jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbConfirmarActionPerformed(evt);
+            }
+        });
+
+        jtMonto.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtMontoKeyTyped(evt);
             }
         });
 
@@ -142,10 +160,36 @@ public class nuevaTransaccion extends javax.swing.JDialog {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
-        // TODO add your handling code here:
+        Double monto = Double.parseDouble(jtMonto.getText());
+        if(jtMonto.getText().length() > 0){
+            int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer cambiar la cuenta corriente?");
+                if(JOptionPane.YES_OPTION == msj){
+                    try{
+                        Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                        Cliente_data cd = new Cliente_data(con);
+                        Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
+                        
+                        int id_cliente = cd.getCliente_por_nombre(Clientes1.nombre).getId();
+                        
+                        Cuenta_corriente cuenta_nueva = ccd.getCuenta_corriente_por_cliente(id_cliente);
+                        cuenta_nueva.setMonto(monto + cuenta_nueva.getMonto());
+                        ccd.actualizarCuenta_corriente(cuenta_nueva);
+
+                        JOptionPane.showMessageDialog(null, "Se actualizo con exito la cuenta corriente de " + Clientes1.nombre);
+                        this.dispose();
+                        Inicio.jlFondo.setVisible(false);
+
+                        this.setVisible(false);
+
+                    } catch (Exception e){
+                        JOptionPane.showMessageDialog(null, "No se pudo actualizar la cuenta corriente, quedaron campos sin rellenar " + e.getMessage());
+                    }
+                }
+        }
     }//GEN-LAST:event_jbConfirmarActionPerformed
 
     private void jcbCobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCobroActionPerformed
@@ -156,6 +200,13 @@ public class nuevaTransaccion extends javax.swing.JDialog {
         Inicio.jlFondo.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jbCerrarActionPerformed
+
+    private void jtMontoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtMontoKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtMontoKeyTyped
 
     /**
      * @param args the command line arguments

@@ -9,7 +9,11 @@ package pnls.AddsMenu;
 import Clases.Cliente;
 import Clases.Conexion;
 import Clases_data.Cliente_data;
+import Interfaz.Inicio;
+import Interfaz.nuevaTransaccion;
+import Interfaz.nuevoStock;
 import java.awt.Color;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 import pnls.Clientes1;
 public class detalleCliente extends javax.swing.JPanel {
@@ -306,7 +310,9 @@ public class detalleCliente extends javax.swing.JPanel {
     }//GEN-LAST:event_jlSaldoActionPerformed
 
     private void jbTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTransaccionActionPerformed
-        // TODO add your handling code here:
+        Inicio.jlFondo.setVisible(true);
+        JDialog a = new nuevaTransaccion(null,true);
+        a.setVisible(true);
     }//GEN-LAST:event_jbTransaccionActionPerformed
 
     private void jtTelefonoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtTelefonoFocusGained

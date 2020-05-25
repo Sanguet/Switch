@@ -468,7 +468,6 @@ public class nuevaVenta extends javax.swing.JDialog {
                         Double total = Double.parseDouble(jtDetalle.getValueAt(i, 4).toString());
                         Venta venta = new Venta(id_cliente, id_detalle, id_metodo_de_pago, total, descuento, comentario);
                         if("Cuenta corriente".equals(jcbMetodo.getItemAt(indice2))){
-                            Cliente cliente = cd.getCliente_por_id(id_cliente);
                             Cuenta_corriente cuenta_nueva = ccd.getCuenta_corriente_por_cliente(id_cliente);
                             cuenta_nueva.setMonto(total * -1 + cuenta_nueva.getMonto());
                             ccd.actualizarCuenta_corriente(cuenta_nueva);
