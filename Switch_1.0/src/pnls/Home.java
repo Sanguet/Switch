@@ -27,17 +27,21 @@ public class Home extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jbNueva_categoria = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jbNuevo_gasto = new javax.swing.JButton();
-        grafico1 = new javax.swing.JPanel();
-        grafico2 = new javax.swing.JPanel();
-        datos = new javax.swing.JPanel();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setBackground(new java.awt.Color(255, 102, 102));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.backgrounds/HomeBack.png"))); // NOI18N
+        jLabel1.setOpaque(true);
+        jLabel1.setPreferredSize(new java.awt.Dimension(1415, 665));
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
 
         Titulo.setBackground(new java.awt.Color(255, 255, 255));
         Titulo.setPreferredSize(new java.awt.Dimension(1466, 120));
@@ -48,6 +52,7 @@ public class Home extends javax.swing.JPanel {
         jbNueva_categoria.setBackground(new java.awt.Color(14, 21, 30));
         jbNueva_categoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbNueva_categoria.setForeground(new java.awt.Color(255, 255, 255));
+        jbNueva_categoria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
         jbNueva_categoria.setText("Nueva Venta");
         jbNueva_categoria.setBorder(null);
         jbNueva_categoria.setBorderPainted(false);
@@ -64,6 +69,7 @@ public class Home extends javax.swing.JPanel {
         jbNuevo_gasto.setBackground(new java.awt.Color(14, 21, 30));
         jbNuevo_gasto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbNuevo_gasto.setForeground(new java.awt.Color(255, 255, 255));
+        jbNuevo_gasto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
         jbNuevo_gasto.setText("Nuevo Gasto");
         jbNuevo_gasto.setBorder(null);
         jbNuevo_gasto.setBorderPainted(false);
@@ -106,54 +112,6 @@ public class Home extends javax.swing.JPanel {
         );
 
         add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
-        grafico1.setBackground(new java.awt.Color(255, 255, 255));
-        grafico1.setPreferredSize(new java.awt.Dimension(660, 540));
-
-        javax.swing.GroupLayout grafico1Layout = new javax.swing.GroupLayout(grafico1);
-        grafico1.setLayout(grafico1Layout);
-        grafico1Layout.setHorizontalGroup(
-            grafico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
-        );
-        grafico1Layout.setVerticalGroup(
-            grafico1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-        );
-
-        add(grafico1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 265, -1, -1));
-
-        grafico2.setBackground(new java.awt.Color(255, 255, 255));
-        grafico2.setPreferredSize(new java.awt.Dimension(740, 540));
-
-        javax.swing.GroupLayout grafico2Layout = new javax.swing.GroupLayout(grafico2);
-        grafico2.setLayout(grafico2Layout);
-        grafico2Layout.setHorizontalGroup(
-            grafico2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 740, Short.MAX_VALUE)
-        );
-        grafico2Layout.setVerticalGroup(
-            grafico2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 540, Short.MAX_VALUE)
-        );
-
-        add(grafico2, new org.netbeans.lib.awtextra.AbsoluteConstraints(706, 265, -1, -1));
-
-        datos.setBackground(new java.awt.Color(255, 255, 255));
-        datos.setPreferredSize(new java.awt.Dimension(1415, 100));
-
-        javax.swing.GroupLayout datosLayout = new javax.swing.GroupLayout(datos);
-        datos.setLayout(datosLayout);
-        datosLayout.setHorizontalGroup(
-            datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1415, Short.MAX_VALUE)
-        );
-        datosLayout.setVerticalGroup(
-            datosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        add(datos, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbNueva_categoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_categoriaActionPerformed
@@ -167,9 +125,7 @@ public class Home extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Titulo;
-    private javax.swing.JPanel datos;
-    private javax.swing.JPanel grafico1;
-    private javax.swing.JPanel grafico2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JButton jbNueva_categoria;

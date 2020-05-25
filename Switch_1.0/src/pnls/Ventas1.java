@@ -98,9 +98,11 @@ public class Ventas1 extends javax.swing.JPanel {
         jbArqueo.setBackground(new java.awt.Color(14, 21, 30));
         jbArqueo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbArqueo.setForeground(new java.awt.Color(255, 255, 255));
+        jbArqueo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/Arqueo.png"))); // NOI18N
         jbArqueo.setText("Arqueo");
         jbArqueo.setBorder(null);
         jbArqueo.setBorderPainted(false);
+        jbArqueo.setIconTextGap(6);
         jbArqueo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbArqueoActionPerformed(evt);

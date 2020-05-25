@@ -85,12 +85,13 @@ public class Inicio extends javax.swing.JFrame{
         jbVentas.setBackground(new java.awt.Color(14, 21, 30));
         jbVentas.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jbVentas.setForeground(new java.awt.Color(255, 255, 255));
-        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta.png"))); // NOI18N
+        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/VentasA.png"))); // NOI18N
         jbVentas.setBorderPainted(false);
         jbVentas.setMaximumSize(new java.awt.Dimension(70, 70));
         jbVentas.setMinimumSize(new java.awt.Dimension(70, 70));
         jbVentas.setPreferredSize(new java.awt.Dimension(70, 70));
-        jbVentas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/VentaN.png"))); // NOI18N
+        jbVentas.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/VentaB.png"))); // NOI18N
+        jbVentas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/VentaB.png"))); // NOI18N
         jbVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbVentasActionPerformed(evt);
@@ -107,8 +108,8 @@ public class Inicio extends javax.swing.JFrame{
         jbInicio.setMaximumSize(new java.awt.Dimension(70, 70));
         jbInicio.setMinimumSize(new java.awt.Dimension(70, 70));
         jbInicio.setPreferredSize(new java.awt.Dimension(70, 70));
-        jbInicio.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeN.png"))); // NOI18N
-        jbInicio.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeN.png"))); // NOI18N
+        jbInicio.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeB.png"))); // NOI18N
+        jbInicio.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeB.png"))); // NOI18N
         jbInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbInicioActionPerformed(evt);
@@ -118,14 +119,14 @@ public class Inicio extends javax.swing.JFrame{
         jbGastos.setBackground(new java.awt.Color(14, 21, 30));
         jbGastos.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jbGastos.setForeground(new java.awt.Color(255, 255, 255));
-        jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Gastos.png"))); // NOI18N
+        jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosA.png"))); // NOI18N
         jbGastos.setBorderPainted(false);
         jbGastos.setIconTextGap(0);
         jbGastos.setMaximumSize(new java.awt.Dimension(70, 70));
         jbGastos.setMinimumSize(new java.awt.Dimension(70, 70));
         jbGastos.setPreferredSize(new java.awt.Dimension(70, 70));
-        jbGastos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosN.png"))); // NOI18N
-        jbGastos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosN.png"))); // NOI18N
+        jbGastos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosB.png"))); // NOI18N
+        jbGastos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosB.png"))); // NOI18N
         jbGastos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbGastosActionPerformed(evt);
@@ -135,13 +136,13 @@ public class Inicio extends javax.swing.JFrame{
         jbClientes.setBackground(new java.awt.Color(14, 21, 30));
         jbClientes.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jbClientes.setForeground(new java.awt.Color(255, 255, 255));
-        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Clientes.png"))); // NOI18N
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesA.png"))); // NOI18N
         jbClientes.setBorderPainted(false);
         jbClientes.setMaximumSize(new java.awt.Dimension(70, 70));
         jbClientes.setMinimumSize(new java.awt.Dimension(70, 70));
         jbClientes.setPreferredSize(new java.awt.Dimension(70, 70));
-        jbClientes.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesN.png"))); // NOI18N
-        jbClientes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesN.png"))); // NOI18N
+        jbClientes.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesB.png"))); // NOI18N
+        jbClientes.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesB.png"))); // NOI18N
         jbClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbClientesActionPerformed(evt);
@@ -151,13 +152,13 @@ public class Inicio extends javax.swing.JFrame{
         jbProductos.setBackground(new java.awt.Color(14, 21, 30));
         jbProductos.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jbProductos.setForeground(new java.awt.Color(255, 255, 255));
-        jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Productos.png"))); // NOI18N
+        jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProductosA.png"))); // NOI18N
         jbProductos.setBorderPainted(false);
         jbProductos.setMaximumSize(new java.awt.Dimension(70, 70));
         jbProductos.setMinimumSize(new java.awt.Dimension(70, 70));
         jbProductos.setPreferredSize(new java.awt.Dimension(70, 70));
-        jbProductos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProductosN.png"))); // NOI18N
-        jbProductos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProductosN.png"))); // NOI18N
+        jbProductos.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProductosB.png"))); // NOI18N
+        jbProductos.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProductosB.png"))); // NOI18N
         jbProductos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbProductosActionPerformed(evt);
@@ -167,13 +168,13 @@ public class Inicio extends javax.swing.JFrame{
         jbProvedores.setBackground(new java.awt.Color(14, 21, 30));
         jbProvedores.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jbProvedores.setForeground(new java.awt.Color(255, 255, 255));
-        jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Provedores.png"))); // NOI18N
+        jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProvedoresA.png"))); // NOI18N
         jbProvedores.setBorderPainted(false);
         jbProvedores.setMaximumSize(new java.awt.Dimension(70, 70));
         jbProvedores.setMinimumSize(new java.awt.Dimension(70, 70));
         jbProvedores.setPreferredSize(new java.awt.Dimension(70, 70));
-        jbProvedores.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProvedoresN.png"))); // NOI18N
-        jbProvedores.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProvedoresN.png"))); // NOI18N
+        jbProvedores.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProvedoresB.png"))); // NOI18N
+        jbProvedores.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProvedoresB.png"))); // NOI18N
         jbProvedores.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbProvedoresActionPerformed(evt);
@@ -183,13 +184,13 @@ public class Inicio extends javax.swing.JFrame{
         jbOpciones.setBackground(new java.awt.Color(14, 21, 30));
         jbOpciones.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jbOpciones.setForeground(new java.awt.Color(255, 255, 255));
-        jbOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Ajustes.png"))); // NOI18N
+        jbOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesA.png"))); // NOI18N
         jbOpciones.setBorderPainted(false);
         jbOpciones.setMaximumSize(new java.awt.Dimension(70, 70));
         jbOpciones.setMinimumSize(new java.awt.Dimension(70, 70));
         jbOpciones.setPreferredSize(new java.awt.Dimension(70, 70));
-        jbOpciones.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesN.png"))); // NOI18N
-        jbOpciones.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesN.png"))); // NOI18N
+        jbOpciones.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesB.png"))); // NOI18N
+        jbOpciones.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesB.png"))); // NOI18N
         jbOpciones.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbOpcionesActionPerformed(evt);

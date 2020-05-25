@@ -239,6 +239,7 @@ public class Clientes1 extends javax.swing.JPanel {
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(null);
+        jScrollPane2.setOpaque(false);
         jScrollPane2.setPreferredSize(new java.awt.Dimension(1096, 671));
 
         jtClientes.setModel(new javax.swing.table.DefaultTableModel(
