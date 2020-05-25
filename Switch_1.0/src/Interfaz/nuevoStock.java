@@ -5,7 +5,14 @@
  */
 package Interfaz;
 
+import Clases.Conexion;
+import Clases.Producto;
+import Clases_data.Categoria_producto_data;
+import Clases_data.Producto_data;
+import Clases_data.Provedor_data;
+import javax.swing.JOptionPane;
 import pnls.AddsMenu.detalleProducto;
+import static pnls.AddsMenu.detalleProducto.jtCantidad;
 import pnls.Productos1;
 
 /**
@@ -156,17 +163,40 @@ public class nuevoStock extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
-        int cantidad_base = Integer.parseInt(Productos1.cantidad);
-        int indice = jcbTipo.getSelectedIndex();
-        int cantidad = Integer.parseInt(jtCantidad.getText());
-        if("Ingreso +".equals(jcbTipo.getItemAt(indice))){
-            cantidad = cantidad_base + cantidad;
+        if(jtCantidad.getText().length() > 0){
+            int cantidad_base = Integer.parseInt(detalleProducto.jtCantidad.getText());
+            int indice = jcbTipo.getSelectedIndex();
+            int cantidad = Integer.parseInt(jtCantidad.getText());
+            if("Ingreso +".equals(jcbTipo.getItemAt(indice))){
+                cantidad = cantidad_base + cantidad;
+            } else {
+                cantidad = cantidad_base - cantidad;
+            }
+            detalleProducto.jtCantidad.setText(Integer.toString(cantidad));
+            
+            int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer cambiar el stock?");
+                if(JOptionPane.YES_OPTION == msj){
+                    try{
+                        Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                        Producto_data cd = new Producto_data(con);
+                        Provedor_data pd = new Provedor_data(con);
+
+                        int id_producto = cd.getProducto_por_nombre(Productos1.nombre).getId();
+                        cd.actualizarStock_por_id_producto(cantidad, id_producto);
+
+                        JOptionPane.showMessageDialog(null, "Se actualizo con exito el Stock de " + Productos1.nombre);
+                        this.dispose();
+                        Inicio.jlFondo.setVisible(false);
+
+                        this.setVisible(false);
+
+                    } catch (Exception e){
+                        JOptionPane.showMessageDialog(null, "No se pudo actualizar el stock, quedaron campos sin rellenar " + e.getMessage());
+                    }
+                }
         } else {
-            cantidad = cantidad_base - cantidad;
+            JOptionPane.showMessageDialog(null, "Ingrese la cantidad que quiera agregar o restar");
         }
-        detalleProducto.jtCantidad.setText(Integer.toString(cantidad));
-        this.dispose();
-        Inicio.jlFondo.setVisible(false);
     }//GEN-LAST:event_jbConfirmarActionPerformed
 
     private void jcbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoActionPerformed

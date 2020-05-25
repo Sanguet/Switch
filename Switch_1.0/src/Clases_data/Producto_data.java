@@ -93,6 +93,23 @@ public class Producto_data {
         }
     }
     
+    public void actualizarStock_por_id_producto(int cantidad, int id_producto){
+        try{
+            String sql = "UPDATE producto SET  cantidad = ? WHERE id_producto = ?";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1,cantidad);
+            stmt.setInt(2,id_producto);
+            
+            stmt.executeUpdate();
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al actualizar el producto " + ex.getMessage());
+        }
+    }
+    
     public List <Producto> obtenerProductos(){
         List <Producto> productos = new ArrayList<Producto>();
         
