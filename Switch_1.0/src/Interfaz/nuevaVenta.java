@@ -124,14 +124,13 @@ public class nuevaVenta extends javax.swing.JDialog {
             double total = 0;
             double descuento = Math.abs(Double.parseDouble(jtDescuento.getText()) / 100 - 1);
             for(int i = 0; i < rows; i++ ){
-                total += (double)jtDetalle.getValueAt(i, 3);
+                total += (double)jtDetalle.getValueAt(i, 4);
             }
             jtTotal.setText(String.valueOf(total * descuento));
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Error inesperado " + e);
         }
     }
-    
     
     //Variables publicas
     public String nombre, precio, stock;
@@ -241,11 +240,11 @@ public class nuevaVenta extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Producto", "Cantidad", "Descuento", "SubTotal"
+                "Producto", "Precio", "Cantidad", "Descuento", "SubTotal"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class
+                java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -258,6 +257,11 @@ public class nuevaVenta extends javax.swing.JDialog {
         jtDetalle.setShowVerticalLines(false);
         jtDetalle.getTableHeader().setResizingAllowed(false);
         jtDetalle.getTableHeader().setReorderingAllowed(false);
+        jtDetalle.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtDetalleFocusGained(evt);
+            }
+        });
         jtDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtDetalleMouseClicked(evt);
@@ -456,11 +460,11 @@ public class nuevaVenta extends javax.swing.JDialog {
                     //Creacion de los detalles de ventas y las ventas
                     for (int i = 0; i < rows; i++){
                         int id_producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(i, 0).toString()).getId();
-                        Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto,(Integer)jtDetalle.getValueAt(i, 1), (int)(double)jtDetalle.getValueAt(i, 2), (Double)jtDetalle.getValueAt(i, 3));
+                        Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto,(Integer)jtDetalle.getValueAt(i, 2), (int)(double)jtDetalle.getValueAt(i, 3), (Double)jtDetalle.getValueAt(i, 4));
                         ddvd.guardarDetalle_de_venta(detalle_de_venta);
                         int id_detalle = ddvd.obtenerDetalle_de_venta().get(ddvd.obtenerDetalle_de_venta().size()-1).getId();
                         int descuento = Integer.parseInt(jtDescuento.getText());
-                        Double total = Double.parseDouble(jtDetalle.getValueAt(i, 3).toString());
+                        Double total = Double.parseDouble(jtDetalle.getValueAt(i, 4).toString());
                         Venta venta = new Venta(id_cliente, id_detalle, id_metodo_de_pago, total, descuento, comentario);
                         vd.guardarVenta(venta);
                     }
@@ -545,9 +549,10 @@ public class nuevaVenta extends javax.swing.JDialog {
         char c = evt.getKeyChar();
         if (c == KeyEvent.VK_ENTER){
             DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
-            modelo.addRow(new Object []{nombre,1,Double.parseDouble("0"),Double.parseDouble(precio)});
+            modelo.addRow(new Object []{nombre,Double.parseDouble(precio),1,Double.parseDouble("0"),Double.parseDouble(precio)});
             jtDetalle.requestFocus();
             total();
+            
         }
     }//GEN-LAST:event_jtProductosKeyTyped
 
@@ -559,16 +564,16 @@ public class nuevaVenta extends javax.swing.JDialog {
         char c = evt.getKeyChar();
             if (c == KeyEvent.VK_ENTER){
                 int fila = this.jtDetalle.getSelectedRow();
-                int cantidad = (Integer)(jtDetalle.getValueAt(fila, 1));
-                double sub_total = (double)jtDetalle.getValueAt(fila, 1);
-                jtDetalle.setValueAt((sub_total * cantidad) , fila, 3);
+                int cantidad = (Integer)(jtDetalle.getValueAt(fila, 2));
                 double descuento;
-                if((Double)jtDetalle.getValueAt(fila, 2) == 0){
+                if((Double)jtDetalle.getValueAt(fila, 3) == 0){
                     descuento = 1;
                 } else {
-                    descuento = Math.abs(((Double)jtDetalle.getValueAt(fila, 2) / 100) - 1);
+                    descuento = Math.abs(((Double)jtDetalle.getValueAt(fila, 3) / 100) - 1);
                 }
-                jtDetalle.setValueAt((sub_total * descuento * cantidad) , fila, 3);
+                Double precio_base = (Double)jtDetalle.getValueAt(fila, 1);
+                double sub_total = precio_base * descuento * cantidad;
+                jtDetalle.setValueAt(sub_total , fila, 4);
                 total();
         }
     }//GEN-LAST:event_jtDetalleKeyReleased
@@ -594,6 +599,11 @@ public class nuevaVenta extends javax.swing.JDialog {
             total();
         }
     }//GEN-LAST:event_jtDescuentoKeyReleased
+
+    private void jtDetalleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusGained
+        jtDetalle.setColumnSelectionAllowed(true);
+        jtDetalle.setCellSelectionEnabled(true);
+    }//GEN-LAST:event_jtDetalleFocusGained
 
     /**
      * @param args the command line arguments
