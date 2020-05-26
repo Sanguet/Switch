@@ -90,6 +90,19 @@ public class nuevoGasto extends javax.swing.JDialog {
         }
     }
     
+    //El combo servicio funciona bien
+    private void agregarComboServicios(){
+        try{
+            jcbProducto.addItem("Expensas");
+            jcbProducto.addItem("Empleados");
+            jcbProducto.addItem("Retiro de dinero");
+            jcbProducto.addItem("Otros");
+            
+        }catch (Exception e){
+          JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado, vuelve a intentar");
+        }
+    }
+    
     private void agregarComboProvedores(){
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
@@ -129,6 +142,51 @@ public class nuevoGasto extends javax.swing.JDialog {
         }
     }
     
+    //Lista de servicios funciona bien
+    public void mostrarListaServicios(){
+        try{
+            String matris[][] = new String[4][5];
+            
+            matris[0][0] = "Expensas";
+            matris[0][1] = "0";
+            matris[1][0] = "Empleados";
+            matris[1][1] = "0";
+            matris[2][0] = "Retiro de dinero";
+            matris[2][1] = "0";
+            matris[3][0] = "Otros";
+            matris[3][1] = "0";
+            
+            
+            jtProductos.setModel(new javax.swing.table.DefaultTableModel(
+            matris,
+            new String [] {
+                "Nombre","Importe"
+            }
+        ) {
+        });
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista de servicios, vuelve a intentarlo" + e);
+        
+        }
+    }
+    
+    public void mostrarDetalleServicios(){
+        try{
+            String matris[][] = new String[0][5];
+            
+            jtDetalle.setModel(new javax.swing.table.DefaultTableModel(
+            matris,
+            new String [] {
+                "Nombre","Importe"
+            }
+        ) {
+        });
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista de servicios, vuelve a intentarlo" + e);
+        
+        }
+    }
+    
     public void total(){
         try{
             int rows = jtDetalle.getRowCount();
@@ -141,6 +199,10 @@ public class nuevoGasto extends javax.swing.JDialog {
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Error inesperado " + e);
         }
+    }
+    
+    public void total_servicios(){
+        jtTotal.setText(jtDetalle.getValueAt(0, 1).toString());
     }
     
     //Variables
@@ -532,6 +594,16 @@ public class nuevoGasto extends javax.swing.JDialog {
 
         listaProductos.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 670, 570));
 
+        jcbProducto.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jcbProductoFocusGained(evt);
+            }
+        });
+        jcbProducto.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jcbProductoMouseEntered(evt);
+            }
+        });
         listaProductos.add(jcbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 260, 30));
 
         jButton5.setText("Buscar");
@@ -558,21 +630,44 @@ public class nuevoGasto extends javax.swing.JDialog {
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductosMouseClicked
+        int indice = jcbCategoria.getSelectedIndex();
+        String categoria = jcbCategoria.getItemAt(indice);
+        /*Inicio de los servicios
+        if("Servicios".equals(categoria)){
+            int fila = this.jtProductos.getSelectedRow();
+            
+            nombre = jtProductos.getValueAt(fila, 0).toString();
+            precio = jtProductos.getValueAt(fila, 1).toString();
+        } else  {
+            
+        }*/
         int fila = this.jtProductos.getSelectedRow();
 
-        nombre = jtProductos.getValueAt(fila, 1).toString();
-        precio = jtProductos.getValueAt(fila, 3).toString();
-        stock = jtProductos.getValueAt(fila, 4).toString();
+            nombre = jtProductos.getValueAt(fila, 1).toString();
+            precio = jtProductos.getValueAt(fila, 3).toString();
+            stock = jtProductos.getValueAt(fila, 4).toString();
+        
     }//GEN-LAST:event_jtProductosMouseClicked
 
     private void jtProductosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtProductosKeyTyped
         char c = evt.getKeyChar();
         if (c == KeyEvent.VK_ENTER){
+            int indice = jcbCategoria.getSelectedIndex();
+            String categoria = jcbCategoria.getItemAt(indice);
+            /*Inicio de los servicios
+            if("Servicios".equals(categoria)){
+                mostrarDetalleServicios();
+                DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
+                modelo.addRow(new Object []{nombre, precio});
+                jtDetalle.requestFocus();
+                total_servicios();
+            } else {
+                
+            }*/
             DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
-            modelo.addRow(new Object []{nombre,Double.parseDouble(precio),1,Double.parseDouble("0"),Double.parseDouble(precio)});
-            jtDetalle.requestFocus();
-            total();
-
+                modelo.addRow(new Object []{nombre,Double.parseDouble(precio),1,Double.parseDouble("0"),Double.parseDouble(precio)});
+                jtDetalle.requestFocus();
+                total();
         }
     }//GEN-LAST:event_jtProductosKeyTyped
 
@@ -592,18 +687,27 @@ public class nuevoGasto extends javax.swing.JDialog {
     private void jtDetalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDetalleKeyReleased
         char c = evt.getKeyChar();
         if (c == KeyEvent.VK_ENTER){
-            int fila = this.jtDetalle.getSelectedRow();
-            int cantidad = (Integer)(jtDetalle.getValueAt(fila, 2));
-            double descuento;
-            if((Double)jtDetalle.getValueAt(fila, 3) == 0){
-                descuento = 1;
+            int indice = jcbCategoria.getSelectedIndex();
+            String categoria = jcbCategoria.getItemAt(indice);
+            /*Inicio de los servicios
+            if("Servicios".equals(categoria)){
+                int fila = this.jtDetalle.getSelectedRow();
+                total_servicios();
             } else {
-                descuento = Math.abs(((Double)jtDetalle.getValueAt(fila, 3) / 100) - 1);
-            }
-            Double precio_base = (Double)jtDetalle.getValueAt(fila, 1);
-            double sub_total = precio_base * descuento * cantidad;
-            jtDetalle.setValueAt(sub_total , fila, 4);
-            total();
+
+            }*/
+            int fila = this.jtDetalle.getSelectedRow();
+                int cantidad = (Integer)(jtDetalle.getValueAt(fila, 2));
+                double descuento;
+                if((Double)jtDetalle.getValueAt(fila, 3) == 0){
+                    descuento = 1;
+                } else {
+                    descuento = Math.abs(((Double)jtDetalle.getValueAt(fila, 3) / 100) - 1);
+                }
+                Double precio_base = (Double)jtDetalle.getValueAt(fila, 1);
+                double sub_total = precio_base * descuento * cantidad;
+                jtDetalle.setValueAt(sub_total , fila, 4);
+                total();
         }
     }//GEN-LAST:event_jtDetalleKeyReleased
 
@@ -617,20 +721,29 @@ public class nuevoGasto extends javax.swing.JDialog {
             int fila = this.jtDetalle.getSelectedRow();
             modelo.removeRow(fila);
             total();
+            //total_servicios();
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "Tienes que seleccionar una fila");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        int indice = jcbCategoria.getSelectedIndex();
+        String categoria = jcbCategoria.getItemAt(indice);
+        /*Inicio de los servicios
+        if("Servicios".equals(categoria)){
+            mostrarListaServicios();
+        } else {
+            
+        }
+        */
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Producto_data producto_data = new Producto_data(con);
-            int indice = jcbProducto.getSelectedIndex();
-            List<Producto> lista_productos = producto_data.obtenerProductos_por_nombre(jcbProducto.getItemAt(indice));
+            int indice2 = jcbProducto.getSelectedIndex();
+            List<Producto> lista_productos = producto_data.obtenerProductos_por_nombre(jcbProducto.getItemAt(indice2));
 
             mostrarLista(lista_productos);
-
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
@@ -649,12 +762,13 @@ public class nuevoGasto extends javax.swing.JDialog {
         char c = evt.getKeyChar();
         if (c == KeyEvent.VK_ENTER){
             total();
+            total_servicios();
         }
     }//GEN-LAST:event_jtDescuentoKeyReleased
 
     private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
         int rows = jtDetalle.getRowCount();
-        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de realizar esta venta?");
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de realizar este gasto?");
         if(JOptionPane.YES_OPTION == msj){
             try {
                 if (rows > 0){
@@ -680,15 +794,34 @@ public class nuevoGasto extends javax.swing.JDialog {
                     String comentario = jtaComentario.getText();
                     
                     //Creacion de los detalles de ventas y las ventas
+                    String categoria = jcbCategoria.getItemAt(indice);
+                    
+                    /*Inicio de los servicios
+                    if("Servicios".equals(categoria)){
+                            int id_producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(0, 0).toString()).getId();
+                            Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto, 1, 0, (Double)jtDetalle.getValueAt(0, 1));
+                            ddvd.guardarDetalle_de_venta(detalle_de_venta);
+                            int id_detalle = ddvd.obtenerDetalle_de_venta().get(ddvd.obtenerDetalle_de_venta().size()-1).getId();
+                            Double total = Double.parseDouble(jtDetalle.getValueAt(0, 1).toString());
+                            Gasto gasto = new Gasto(id_provedor, total, id_metodo_de_pago, id_categoria, id_detalle, comentario);
+                            
+                            gd.guardarGasto(gasto);
+                    } else {
+                    
+
+                    }*/
                     for (int i = 0; i < rows; i++){
-                        int id_producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(i, 0).toString()).getId();
+                        Producto producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(i, 0).toString());
+                        int id_producto = producto.getId();
+                        int cantidad_producto = producto.getCantidad();
                         Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto,(Integer)jtDetalle.getValueAt(i, 2), (int)(double)jtDetalle.getValueAt(i, 3), (Double)jtDetalle.getValueAt(i, 4));
                         ddvd.guardarDetalle_de_venta(detalle_de_venta);
                         int id_detalle = ddvd.obtenerDetalle_de_venta().get(ddvd.obtenerDetalle_de_venta().size()-1).getId();
                         int descuento = Integer.parseInt(jtDescuento.getText());
-                        Double total = Double.parseDouble(jtDetalle.getValueAt(i, 4).toString());
+                         Double total = Double.parseDouble(jtDetalle.getValueAt(i, 4).toString());
                         Gasto gasto = new Gasto(id_provedor, total, id_metodo_de_pago, id_categoria, id_detalle, comentario);
 
+                        pd.actualizarStock_por_id_producto(detalle_de_venta.getCantidad() + cantidad_producto, id_producto);
                         gd.guardarGasto(gasto);
                     }
 
@@ -709,9 +842,27 @@ public class nuevoGasto extends javax.swing.JDialog {
     }//GEN-LAST:event_jbConfirmarActionPerformed
 
     private void jtDetalleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusLost
-        jtDetalle.setColumnSelectionAllowed(false);
-        jtDetalle.setCellSelectionEnabled(false);
+
     }//GEN-LAST:event_jtDetalleFocusLost
+
+    private void jcbProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbProductoMouseEntered
+        int indice = jcbCategoria.getSelectedIndex();
+        String categoria = jcbCategoria.getItemAt(indice);
+        /*Inicio de los servicios
+        if("Servicios".equals(categoria)){
+            jcbProducto.removeAllItems();
+            agregarComboServicios();
+        } else {
+            jcbProducto.removeAllItems();
+            agregarComboProductos();
+        }*/
+        jcbProducto.removeAllItems();
+        agregarComboProductos();
+    }//GEN-LAST:event_jcbProductoMouseEntered
+
+    private void jcbProductoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jcbProductoFocusGained
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbProductoFocusGained
 
     /**
      * @param args the command line arguments

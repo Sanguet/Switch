@@ -489,7 +489,14 @@ public class nuevaVenta extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jbBorrarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarFilaActionPerformed
-        // TODO add your handling code here:
+        try{
+            DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
+            int fila = this.jtDetalle.getSelectedRow();
+            modelo.removeRow(fila);
+            total();
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Tienes que seleccionar una fila");
+        }
     }//GEN-LAST:event_jbBorrarFilaActionPerformed
 
     private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
@@ -582,8 +589,7 @@ public class nuevaVenta extends javax.swing.JDialog {
     }//GEN-LAST:event_jtDetalleFocusGained
 
     private void jtDetalleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusLost
-        jtDetalle.setColumnSelectionAllowed(false);
-        jtDetalle.setCellSelectionEnabled(false);        // TODO add your handling code here:
+
     }//GEN-LAST:event_jtDetalleFocusLost
 
     private void jtDetalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDetalleKeyReleased

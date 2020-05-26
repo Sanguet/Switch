@@ -7,6 +7,7 @@ package pnls;
 
 import Interfaz.Inicio;
 import Interfaz.nuevaVenta;
+import Interfaz.nuevoGasto;
 import javax.swing.JDialog;
 
 /**
@@ -127,7 +128,9 @@ public class Home extends javax.swing.JPanel {
     }//GEN-LAST:event_jbNueva_VentaActionPerformed
 
     private void jbNuevo_gastoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_gastoActionPerformed
-        // TODO add your handling code here:
+        Inicio.jlFondo.setVisible(true);
+        JDialog a = new nuevoGasto(null,true);
+        a.setVisible(true); 
     }//GEN-LAST:event_jbNuevo_gastoActionPerformed
 
 

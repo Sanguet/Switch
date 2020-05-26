@@ -143,7 +143,7 @@ public class Producto_data {
         List <Producto> productos = new ArrayList<Producto>();
         
         try {
-            String sql = "SELECT pro.id_producto, c.id_categoria_producto AS categoria, p.id_provedor AS provedor, pro.nombre, pro.costo, pro.precio, pro.cantidad, pro.comentario, pro.codigo FROM categoria_producto AS c, provedor AS p, producto as pro WHERE c.id_categoria_producto = pro.id_categoria AND p.id_provedor = pro.id_provedor AND pro.nombre LIKE ? ORDER BY pro.nombre;";
+            String sql = "SELECT pro.id_producto, c.id_categoria_producto AS categoria, p.id_provedor AS provedor, pro.nombre, pro.costo, pro.precio, pro.cantidad, pro.comentario, pro.codigo FROM categoria_producto AS c, provedor AS p, producto as pro WHERE c.id_categoria_producto = pro.id_categoria AND p.id_provedor = pro.id_provedor AND pro.nombre = ? ORDER BY pro.nombre;";
             PreparedStatement stmt = connection.prepareStatement(sql);
             stmt.setString(1, nombre);
             
