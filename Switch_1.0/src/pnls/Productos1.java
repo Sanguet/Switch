@@ -37,21 +37,23 @@ public class Productos1 extends javax.swing.JPanel {
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             
+            Categoria_producto_data categoria_producto_data = new Categoria_producto_data(con);
             
-            String matris[][] = new String[lista.size()][5];
+            String matris[][] = new String[lista.size()][6];
             
             for (int i = 0; i < lista.size(); i++){
-                matris[i][0] = Long.toString(lista.get(i).getCodigo());
-                matris[i][1] = lista.get(i).getNombre();
-                matris[i][2] = Double.toString(lista.get(i).getCosto());
-                matris[i][3] = Double.toString(lista.get(i).getPrecio());
-                matris[i][4] = Integer.toString(lista.get(i).getCantidad());
+                matris[i][0] = categoria_producto_data.getCategoria_producto_por_id(lista.get(i).getId_categoria()).getNombre();
+                matris[i][1] = Long.toString(lista.get(i).getCodigo());
+                matris[i][2] = lista.get(i).getNombre();
+                matris[i][3] = Double.toString(lista.get(i).getCosto());
+                matris[i][4] = Double.toString(lista.get(i).getPrecio());
+                matris[i][5] = Integer.toString(lista.get(i).getCantidad());
             }
             
             jtProductos.setModel(new javax.swing.table.DefaultTableModel(
             matris,
             new String [] {
-                "Codigo", "Nombre", "Coste", "Precio", "Stock"
+                "Categoria","Codigo", "Nombre", "Coste", "Precio", "Stock"
             }
         ) {
         });
