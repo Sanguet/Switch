@@ -534,7 +534,7 @@ public class nuevaVenta extends javax.swing.JDialog {
                         String cantidad_vendida = (String) jtDetalle.getValueAt(i, 2);
                         int id_producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(i, 0).toString()).getId();
                         Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto, Integer.parseInt(cantidad_vendida), (int)(double)jtDetalle.getValueAt(i, 3), (Double)jtDetalle.getValueAt(i, 4));
-                        if(cantidad_producto > Integer.parseInt(cantidad_vendida)){
+                        if(cantidad_producto >= Integer.parseInt(cantidad_vendida)){
                             ddvd.guardarDetalle_de_venta(detalle_de_venta);
                             int id_detalle = ddvd.obtenerDetalle_de_venta().get(ddvd.obtenerDetalle_de_venta().size()-1).getId();
                             int descuento = Integer.parseInt(jtDescuento.getText());
@@ -549,14 +549,13 @@ public class nuevaVenta extends javax.swing.JDialog {
                             
                             vd.guardarVenta(venta);
                             JOptionPane.showMessageDialog(null, "Felicidades, venta finalizada");
+                            
+                            Inicio.jlFondo.setVisible(false);
+                            this.setVisible(false);
                         } else {
                             JOptionPane.showMessageDialog(null, "La venta fue cancelada porque no tienes suficiente stock de " + jtDetalle.getValueAt(i, 0).toString());
                         }
                     }
-                    
-                    Inicio.jlFondo.setVisible(false);
-                    this.setVisible(false);
-
                     con.close();
                 }else{
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar la venta, no hay productos seleccionados");
