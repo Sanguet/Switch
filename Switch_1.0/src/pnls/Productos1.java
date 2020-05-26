@@ -361,7 +361,7 @@ public class Productos1 extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Titulo;
-    private javax.swing.JPanel addMenu;
+    public static javax.swing.JPanel addMenu;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -373,7 +373,7 @@ public class Productos1 extends javax.swing.JPanel {
     private RSMaterialComponent.RSComboBoxMaterial jcbCodigo;
     private RSMaterialComponent.RSComboBoxMaterial jcbNombre;
     private RSMaterialComponent.RSComboBoxMaterial jcbStock;
-    private javax.swing.JLabel jlBackground;
+    public static javax.swing.JLabel jlBackground;
     private javax.swing.JTable jtProductos;
     private javax.swing.JScrollPane registro;
     // End of variables declaration//GEN-END:variables

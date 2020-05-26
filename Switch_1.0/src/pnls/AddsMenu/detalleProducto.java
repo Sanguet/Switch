@@ -344,6 +344,7 @@ public class detalleProducto extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Se actualizo con exito el Producto" );
 
                     this.setVisible(false);
+                    Productos1.addMenu.add(Productos1.jlBackground);
 
                 } catch (Exception e){
                     JOptionPane.showMessageDialog(null, "No se pudo actualizar el producto, quedaron campos sin rellenar " + e.getMessage());
@@ -363,6 +364,7 @@ public class detalleProducto extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Se borro con exito el producto" );
 
                 this.setVisible(false);
+                Productos1.addMenu.add(Productos1.jlBackground);
 
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, "No se pudo borrar el producto " + e.getMessage());

@@ -218,6 +218,8 @@ public class detalleProvedor extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Se actualizo con exito el proveedor" );
 
                     this.setVisible(false);
+                    Provedores1.addMenu.add(Provedores1.jlBackground);
+
 
                 } catch (Exception e){
                     JOptionPane.showMessageDialog(null, "No se pudo actualizar el proveedor " + e.getMessage());
@@ -237,6 +239,7 @@ public class detalleProvedor extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Se borro con exito el Provedor" );
 
                 this.setVisible(false);
+                Provedores1.addMenu.add(Provedores1.jlBackground);
 
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, "No se pudo borrar el provedor " + e.getMessage());

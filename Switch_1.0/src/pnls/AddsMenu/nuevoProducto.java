@@ -13,6 +13,8 @@ import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import Clases.*;
 import javax.swing.JTextField;
+import pnls.Productos1;
+import pnls.Provedores1;
 
 /**
  *
@@ -375,6 +377,7 @@ public class nuevoProducto extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Felicidades, producto agregado");
 
                     this.setVisible(false);
+                    Productos1.addMenu.add(Productos1.jlBackground);
 
                     con.close();
                     
