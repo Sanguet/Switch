@@ -37,12 +37,12 @@ public class nuevaTransaccion extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jlNuevaTransaccion = new javax.swing.JLabel();
-        jbConfirmar = new javax.swing.JButton();
         jtMonto = new javax.swing.JTextField();
         jcbCobro = new javax.swing.JComboBox<>();
         jlTipo = new javax.swing.JLabel();
         jlMonto = new javax.swing.JLabel();
         jbCerrar = new javax.swing.JButton();
+        jbConfirmar = new newscomponents.RSButtonFlat_new();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -52,18 +52,6 @@ public class nuevaTransaccion extends javax.swing.JDialog {
 
         jlNuevaTransaccion.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 24)); // NOI18N
         jlNuevaTransaccion.setText("Nueva Transacción");
-
-        jbConfirmar.setBackground(new java.awt.Color(54, 197, 240));
-        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
-        jbConfirmar.setText("Confirmar");
-        jbConfirmar.setBorderPainted(false);
-        jbConfirmar.setPreferredSize(new java.awt.Dimension(240, 35));
-        jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbConfirmarActionPerformed(evt);
-            }
-        });
 
         jtMonto.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -102,6 +90,17 @@ public class nuevaTransaccion extends javax.swing.JDialog {
             }
         });
 
+        jbConfirmar.setBackground(new java.awt.Color(54, 197, 240));
+        jbConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/confirmar.png"))); // NOI18N
+        jbConfirmar.setText("Confirmar");
+        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbConfirmar.setPreferredSize(new java.awt.Dimension(200, 35));
+        jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbConfirmarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -114,7 +113,7 @@ public class nuevaTransaccion extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jcbCobro, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jtMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlMonto, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(38, Short.MAX_VALUE))
@@ -131,7 +130,7 @@ public class nuevaTransaccion extends javax.swing.JDialog {
                         .addGap(23, 23, 23)
                         .addComponent(jlNuevaTransaccion))
                     .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jlTipo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcbCobro, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,35 +158,6 @@ public class nuevaTransaccion extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
-        Double monto = Double.parseDouble(jtMonto.getText());
-        if(jtMonto.getText().length() > 0){
-            int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer cambiar la cuenta corriente?");
-                if(JOptionPane.YES_OPTION == msj){
-                    try{
-                        Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-                        Cliente_data cd = new Cliente_data(con);
-                        Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
-                        
-                        int id_cliente = cd.getCliente_por_nombre(Clientes1.nombre).getId();
-                        
-                        Cuenta_corriente cuenta_nueva = ccd.getCuenta_corriente_por_cliente(id_cliente);
-                        cuenta_nueva.setMonto(monto + cuenta_nueva.getMonto());
-                        ccd.actualizarCuenta_corriente(cuenta_nueva);
-
-                        JOptionPane.showMessageDialog(null, "Se actualizo con exito la cuenta corriente de " + Clientes1.nombre);
-                        this.dispose();
-                        Inicio.jlFondo.setVisible(false);
-
-                        this.setVisible(false);
-
-                    } catch (Exception e){
-                        JOptionPane.showMessageDialog(null, "No se pudo actualizar la cuenta corriente, quedaron campos sin rellenar " + e.getMessage());
-                    }
-                }
-        }
-    }//GEN-LAST:event_jbConfirmarActionPerformed
-
     private void jcbCobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCobroActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbCobroActionPerformed
@@ -203,6 +173,35 @@ public class nuevaTransaccion extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_jtMontoKeyTyped
+
+    private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
+        Double monto = Double.parseDouble(jtMonto.getText());
+        if(jtMonto.getText().length() > 0){
+            int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer cambiar la cuenta corriente?");
+            if(JOptionPane.YES_OPTION == msj){
+                try{
+                    Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                    Cliente_data cd = new Cliente_data(con);
+                    Cuenta_corriente_data ccd = new Cuenta_corriente_data(con);
+
+                    int id_cliente = cd.getCliente_por_nombre(Clientes1.nombre).getId();
+
+                    Cuenta_corriente cuenta_nueva = ccd.getCuenta_corriente_por_cliente(id_cliente);
+                    cuenta_nueva.setMonto(monto + cuenta_nueva.getMonto());
+                    ccd.actualizarCuenta_corriente(cuenta_nueva);
+
+                    JOptionPane.showMessageDialog(null, "Se actualizo con exito la cuenta corriente de " + Clientes1.nombre);
+                    this.dispose();
+                    Inicio.jlFondo.setVisible(false);
+
+                    this.setVisible(false);
+
+                } catch (Exception e){
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar la cuenta corriente, quedaron campos sin rellenar " + e.getMessage());
+                }
+            }
+        }
+    }//GEN-LAST:event_jbConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -249,7 +248,7 @@ public class nuevaTransaccion extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbCerrar;
-    private javax.swing.JButton jbConfirmar;
+    private newscomponents.RSButtonFlat_new jbConfirmar;
     private javax.swing.JComboBox<String> jcbCobro;
     private javax.swing.JLabel jlMonto;
     private javax.swing.JLabel jlNuevaTransaccion;

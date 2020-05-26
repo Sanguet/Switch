@@ -30,7 +30,7 @@ public class detalleVentas extends javax.swing.JPanel {
         
         this.jlNombrecliente.setText(Ventas1.cliente);
         this.jlmetodo.setText(Ventas1.metodo_de_pago);
-        this.jlTotal.setText(Ventas1.importe);
+        this.jlTotal.setText("$ " + Ventas1.importe);
         this.jtaDetalle.setText(Ventas1.producto_pasado.getNombre());
     }
     

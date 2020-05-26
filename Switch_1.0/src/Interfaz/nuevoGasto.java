@@ -256,7 +256,7 @@ public class nuevoGasto extends javax.swing.JDialog {
 
         jLabel2.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 24)); // NOI18N
         jLabel2.setText("Nuevo Gasto");
-        menuGasto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 19, 165, -1));
+        menuGasto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 30, 165, -1));
 
         jtaComentario.setColumns(20);
         jtaComentario.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N

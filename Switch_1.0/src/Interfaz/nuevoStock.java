@@ -37,12 +37,12 @@ public class nuevoStock extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jlNuevoStock = new javax.swing.JLabel();
-        jbConfirmar = new javax.swing.JButton();
         jtCantidad = new javax.swing.JTextField();
         jcbTipo = new javax.swing.JComboBox<>();
         jlTipo = new javax.swing.JLabel();
         jlCantidad = new javax.swing.JLabel();
         jbCerrar = new javax.swing.JButton();
+        jbConfirmar = new newscomponents.RSButtonFlat_new();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -52,18 +52,6 @@ public class nuevoStock extends javax.swing.JDialog {
 
         jlNuevoStock.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 24)); // NOI18N
         jlNuevoStock.setText("Nuevo Stock");
-
-        jbConfirmar.setBackground(new java.awt.Color(224, 30, 90));
-        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
-        jbConfirmar.setText("Confirmar");
-        jbConfirmar.setBorderPainted(false);
-        jbConfirmar.setPreferredSize(new java.awt.Dimension(240, 35));
-        jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbConfirmarActionPerformed(evt);
-            }
-        });
 
         jtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -102,6 +90,17 @@ public class nuevoStock extends javax.swing.JDialog {
             }
         });
 
+        jbConfirmar.setBackground(new java.awt.Color(224, 30, 90));
+        jbConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/confirmar.png"))); // NOI18N
+        jbConfirmar.setText("Confirmar");
+        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbConfirmar.setPreferredSize(new java.awt.Dimension(200, 35));
+        jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbConfirmarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -114,7 +113,7 @@ public class nuevoStock extends javax.swing.JDialog {
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jlCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(33, Short.MAX_VALUE))
@@ -131,7 +130,7 @@ public class nuevoStock extends javax.swing.JDialog {
                         .addGap(23, 23, 23)
                         .addComponent(jlNuevoStock))
                     .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jlTipo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,43 +158,6 @@ public class nuevoStock extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
-        int cantidad_base = Integer.parseInt(detalleProducto.jtCantidad.getText());
-                    int indice = jcbTipo.getSelectedIndex();
-                    int cantidad = Integer.parseInt(jtCantidad.getText());
-                    if("Ingreso +".equals(jcbTipo.getItemAt(indice))){
-                        cantidad = cantidad_base + cantidad;
-                    } else {
-                        cantidad = cantidad_base - cantidad;
-                    }
-        if(jtCantidad.getText().length() > 0 && cantidad >= 0){
-            int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer cambiar el stock?");
-                if(JOptionPane.YES_OPTION == msj){
-                    
-                    detalleProducto.jtCantidad.setText(Integer.toString(cantidad));
-                    try{
-                        Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-                        Producto_data cd = new Producto_data(con);
-                        Provedor_data pd = new Provedor_data(con);
-
-                        int id_producto = cd.getProducto_por_nombre(Productos1.nombre).getId();
-                        cd.actualizarStock_por_id_producto(cantidad, id_producto);
-
-                        JOptionPane.showMessageDialog(null, "Se actualizo con exito el Stock de " + Productos1.nombre);
-                        this.dispose();
-                        Inicio.jlFondo.setVisible(false);
-
-                        this.setVisible(false);
-
-                    } catch (Exception e){
-                        JOptionPane.showMessageDialog(null, "No se pudo actualizar el stock, quedaron campos sin rellenar " + e.getMessage());
-                    }
-                }
-        } else {
-            JOptionPane.showMessageDialog(null, "Hubo un fallo, no se relleno el campo o selecciono una cantidad que no tiene");
-        }
-    }//GEN-LAST:event_jbConfirmarActionPerformed
-
     private void jcbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jcbTipoActionPerformed
@@ -211,6 +173,43 @@ public class nuevoStock extends javax.swing.JDialog {
             evt.consume();
         }
     }//GEN-LAST:event_jtCantidadKeyTyped
+
+    private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
+        int cantidad_base = Integer.parseInt(detalleProducto.jtCantidad.getText());
+        int indice = jcbTipo.getSelectedIndex();
+        int cantidad = Integer.parseInt(jtCantidad.getText());
+        if("Ingreso +".equals(jcbTipo.getItemAt(indice))){
+            cantidad = cantidad_base + cantidad;
+        } else {
+            cantidad = cantidad_base - cantidad;
+        }
+        if(jtCantidad.getText().length() > 0 && cantidad >= 0){
+            int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer cambiar el stock?");
+            if(JOptionPane.YES_OPTION == msj){
+
+                detalleProducto.jtCantidad.setText(Integer.toString(cantidad));
+                try{
+                    Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                    Producto_data cd = new Producto_data(con);
+                    Provedor_data pd = new Provedor_data(con);
+
+                    int id_producto = cd.getProducto_por_nombre(Productos1.nombre).getId();
+                    cd.actualizarStock_por_id_producto(cantidad, id_producto);
+
+                    JOptionPane.showMessageDialog(null, "Se actualizo con exito el Stock de " + Productos1.nombre);
+                    this.dispose();
+                    Inicio.jlFondo.setVisible(false);
+
+                    this.setVisible(false);
+
+                } catch (Exception e){
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el stock, quedaron campos sin rellenar " + e.getMessage());
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Hubo un fallo, no se relleno el campo o selecciono una cantidad que no tiene");
+        }
+    }//GEN-LAST:event_jbConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -257,7 +256,7 @@ public class nuevoStock extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbCerrar;
-    private javax.swing.JButton jbConfirmar;
+    private newscomponents.RSButtonFlat_new jbConfirmar;
     private javax.swing.JComboBox<String> jcbTipo;
     private javax.swing.JLabel jlCantidad;
     private javax.swing.JLabel jlNuevoStock;

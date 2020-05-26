@@ -26,13 +26,13 @@ public class detalleGasto extends javax.swing.JPanel {
         fecha = fecha.substring(0, fecha.length() - 10); 
         jlFecha.setText(fecha);
         String hora = Gastos1.fecha;
-        hora = hora.substring(10, hora.length()); 
+        hora = hora.substring(11, hora.length()); 
         jlHora.setText(hora);
         
         this.jlCategoria.setText(Gastos1.categoria);
         this.jlProvedor.setText(Gastos1.provedor);
         this.jlMetodo.setText(Gastos1.metodo_de_pago);
-        this.jlTotal.setText(Gastos1.importe);
+        this.jlImporte.setText("$ " + Gastos1.importe);
         this.jtaDetalle.setText(Gastos1.producto_pasado.getNombre());
     }
 

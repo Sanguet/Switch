@@ -146,6 +146,9 @@ public class Provedores1 extends javax.swing.JPanel {
         Registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         jtProvedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -267,9 +270,7 @@ public class Provedores1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private newscomponents.RSButtonFlat_new jbActualizar;
     private rsbuttoncustom.RSButtonCustom jbNuevoProvedor;
     private RSMaterialComponent.RSComboBoxMaterial jcbNombre;

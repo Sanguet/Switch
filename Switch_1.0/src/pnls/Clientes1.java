@@ -265,13 +265,14 @@ public class Clientes1 extends javax.swing.JPanel {
         jtClientes.setColorSecondary(new java.awt.Color(255, 255, 255));
         jtClientes.setColorSecundaryText(new java.awt.Color(0, 0, 0));
         jtClientes.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jtClientes.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtClientes.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 12)); // NOI18N
         jtClientes.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jtClientes.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
         jtClientes.setForegroundHead(new java.awt.Color(0, 0, 0));
         jtClientes.setForegroundHover(new java.awt.Color(0, 0, 0));
         jtClientes.setGridColor(new java.awt.Color(214, 214, 214));
         jtClientes.setHighHead(25);
+        jtClientes.setOpaque(false);
         jtClientes.setPreferredSize(new java.awt.Dimension(1096, 671));
         jtClientes.setRowHeight(40);
         jtClientes.setSelectionBackground(new java.awt.Color(54, 197, 240));
@@ -298,7 +299,7 @@ public class Clientes1 extends javax.swing.JPanel {
             jtClientes.getColumnModel().getColumn(4).setPreferredWidth(40);
         }
 
-        Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 650));
+        Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 30, 1080, 650));
 
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -360,7 +361,6 @@ public class Clientes1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private newscomponents.RSButtonFlat_new jbActualizar;
     private rsbuttoncustom.RSButtonCustom jbNuevoCliente;

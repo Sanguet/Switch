@@ -27,7 +27,6 @@ public class Ajustes extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         Titulo = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -52,9 +51,6 @@ public class Ajustes extends javax.swing.JPanel {
         jbCargar1 = new newscomponents.RSButtonFlat_new();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setPreferredSize(new java.awt.Dimension(1466, 839));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Titulo.setBackground(new java.awt.Color(255, 255, 255));
         Titulo.setPreferredSize(new java.awt.Dimension(1466, 120));
@@ -98,7 +94,7 @@ public class Ajustes extends javax.swing.JPanel {
                 .addContainerGap())
         );
 
-        jPanel1.add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jpAjustesList.setBackground(new java.awt.Color(255, 255, 255));
         jpAjustesList.setPreferredSize(new java.awt.Dimension(720, 680));
@@ -149,11 +145,11 @@ public class Ajustes extends javax.swing.JPanel {
                 jbCargarActionPerformed(evt);
             }
         });
-        jpAjustesList.add(jbCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 90, -1));
+        jpAjustesList.add(jbCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 90, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setPreferredSize(new java.awt.Dimension(5, 43));
-        jpAjustesList.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 76, 10, -1));
+        jpAjustesList.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 76, 10, -1));
 
         jlTituloBaseCargada.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jlTituloBaseCargada.setText("Base de datos cargada:");
@@ -226,11 +222,9 @@ public class Ajustes extends javax.swing.JPanel {
                 jbCargar1ActionPerformed(evt);
             }
         });
-        jpAjustesList.add(jbCargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 180, -1));
+        jpAjustesList.add(jbCargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 80, 150, -1));
 
-        jPanel1.add(jpAjustesList, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 140, 710, -1));
-
-        add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1462, 818));
+        add(jpAjustesList, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 140, 710, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCargarActionPerformed
@@ -246,7 +240,6 @@ public class Ajustes extends javax.swing.JPanel {
     private javax.swing.JPanel Titulo;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private newscomponents.RSButtonFlat_new jbCargar;
     private newscomponents.RSButtonFlat_new jbCargar1;

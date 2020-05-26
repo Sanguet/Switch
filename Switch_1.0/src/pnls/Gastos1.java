@@ -192,6 +192,8 @@ public class Gastos1 extends javax.swing.JPanel {
         Registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
+        jScrollPane2.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        jScrollPane2.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         jScrollPane2.setPreferredSize(new java.awt.Dimension(1096, 650));
 
         jtGastos.setModel(new javax.swing.table.DefaultTableModel(

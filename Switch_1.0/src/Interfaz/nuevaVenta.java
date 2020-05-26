@@ -213,7 +213,7 @@ public class nuevaVenta extends javax.swing.JDialog {
 
         jlNuevaVenta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 24)); // NOI18N
         jlNuevaVenta.setText("Nueva Venta");
-        menuVenta.add(jlNuevaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 16, 165, -1));
+        menuVenta.add(jlNuevaVenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 30, 165, -1));
 
         jlDescuento.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlDescuento.setText("Descuento:");
