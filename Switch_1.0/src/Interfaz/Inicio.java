@@ -37,6 +37,7 @@ public class Inicio extends javax.swing.JFrame{
         this.setBounds(0,0,ancho,alto);
         new CambiaPanel(this.panelBase, new Home());
         this.jlFondo.setVisible(false);
+        jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeB.png")));
         
     }
         
