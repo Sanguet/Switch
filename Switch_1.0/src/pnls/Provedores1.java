@@ -73,7 +73,7 @@ public class Provedores1 extends javax.swing.JPanel {
         jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtProvedores = new javax.swing.JTable();
+        jtProvedores = new RSMaterialComponent.RSTableMetroCustom();
         jPanel1 = new javax.swing.JPanel();
         jbActualizar = new newscomponents.RSButtonFlat_new();
         jcbNombre = new RSMaterialComponent.RSComboBoxMaterial();
@@ -149,34 +149,10 @@ public class Provedores1 extends javax.swing.JPanel {
 
         jtProvedores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Nombre", "Direccion", "Telefono", "E-mail"
+                "Nombre", "Dirección", "Telefono", "Email"
             }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -187,11 +163,25 @@ public class Provedores1 extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jtProvedores.setRowHeight(30);
+        jtProvedores.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        jtProvedores.setBackgoundHead(new java.awt.Color(255, 255, 255));
+        jtProvedores.setBorderRows(null);
+        jtProvedores.setColorPrimaryText(new java.awt.Color(0, 0, 0));
+        jtProvedores.setColorSecondary(new java.awt.Color(255, 255, 255));
+        jtProvedores.setColorSecundaryText(new java.awt.Color(0, 0, 0));
+        jtProvedores.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtProvedores.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtProvedores.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtProvedores.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtProvedores.setForegroundHead(new java.awt.Color(0, 0, 0));
+        jtProvedores.setForegroundHover(new java.awt.Color(0, 0, 0));
+        jtProvedores.setGridColor(new java.awt.Color(214, 214, 214));
+        jtProvedores.setHighHead(25);
+        jtProvedores.setPreferredSize(new java.awt.Dimension(1096, 671));
+        jtProvedores.setRowHeight(40);
         jtProvedores.setSelectionBackground(new java.awt.Color(46, 182, 125));
-        jtProvedores.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jtProvedores.setShowGrid(true);
-        jtProvedores.setShowVerticalLines(false);
+        jtProvedores.setShowGrid(false);
+        jtProvedores.setShowHorizontalLines(true);
         jtProvedores.getTableHeader().setResizingAllowed(false);
         jtProvedores.getTableHeader().setReorderingAllowed(false);
         jtProvedores.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -234,24 +224,6 @@ public class Provedores1 extends javax.swing.JPanel {
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtProvedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProvedoresMouseClicked
-        int fila = this.jtProvedores.getSelectedRow();
-        
-        nombre = jtProvedores.getValueAt(fila, 0).toString();
-        direccion = jtProvedores.getValueAt(fila, 1).toString();
-        telefono = jtProvedores.getValueAt(fila, 2).toString();
-        correo = jtProvedores.getValueAt(fila, 3).toString();
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Provedor_data provedor_data = new Provedor_data(con);
-            
-            provedor_pasado = provedor_data.getProvedor_por_nombre(nombre);
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar el provedor " + e.getMessage());
-        }
-        new CambiaPanel(this.addMenu, new detalleProvedor());
-    }//GEN-LAST:event_jtProvedoresMouseClicked
-
     private void jbNuevoProvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoProvedorActionPerformed
        new CambiaPanel(this.addMenu, new nuevoProvedor());
     }//GEN-LAST:event_jbNuevoProvedorActionPerformed
@@ -269,6 +241,24 @@ public class Provedores1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
+    private void jtProvedoresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProvedoresMouseClicked
+        int fila = this.jtProvedores.getSelectedRow();
+
+        nombre = jtProvedores.getValueAt(fila, 0).toString();
+        direccion = jtProvedores.getValueAt(fila, 1).toString();
+        telefono = jtProvedores.getValueAt(fila, 2).toString();
+        correo = jtProvedores.getValueAt(fila, 3).toString();
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Provedor_data provedor_data = new Provedor_data(con);
+
+            provedor_pasado = provedor_data.getProvedor_por_nombre(nombre);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar el provedor " + e.getMessage());
+        }
+        new CambiaPanel(this.addMenu, new detalleProvedor());
+    }//GEN-LAST:event_jtProvedoresMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
@@ -277,11 +267,13 @@ public class Provedores1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private newscomponents.RSButtonFlat_new jbActualizar;
     private rsbuttoncustom.RSButtonCustom jbNuevoProvedor;
     private RSMaterialComponent.RSComboBoxMaterial jcbNombre;
     public static javax.swing.JLabel jlBackground;
-    private javax.swing.JTable jtProvedores;
+    private RSMaterialComponent.RSTableMetroCustom jtProvedores;
     // End of variables declaration//GEN-END:variables
 }

@@ -96,7 +96,7 @@ public class Gastos1 extends javax.swing.JPanel {
         jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtGastos = new javax.swing.JTable();
+        jtGastos = new RSMaterialComponent.RSTableMetroCustom();
         jPanel1 = new javax.swing.JPanel();
         dtHasta = new newscomponents.RSDateChooserModern();
         jcb = new RSMaterialComponent.RSComboBoxMaterial();
@@ -196,55 +196,39 @@ public class Gastos1 extends javax.swing.JPanel {
 
         jtGastos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
-                "Categoria", "Prevedor", "Fecha ", "Metodo de pago", "Importe", "Detalle"
+                "Categoria", "Proveedor", "Fecha", "Metodo de pago", "Importe", "Detalle"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jtGastos.setRowHeight(30);
+        jtGastos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        jtGastos.setBackgoundHead(new java.awt.Color(255, 255, 255));
+        jtGastos.setBorderRows(null);
+        jtGastos.setColorPrimaryText(new java.awt.Color(0, 0, 0));
+        jtGastos.setColorSecondary(new java.awt.Color(255, 255, 255));
+        jtGastos.setColorSecundaryText(new java.awt.Color(0, 0, 0));
+        jtGastos.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtGastos.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtGastos.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtGastos.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtGastos.setForegroundHead(new java.awt.Color(0, 0, 0));
+        jtGastos.setForegroundHover(new java.awt.Color(0, 0, 0));
+        jtGastos.setGridColor(new java.awt.Color(214, 214, 214));
+        jtGastos.setHighHead(25);
+        jtGastos.setPreferredSize(new java.awt.Dimension(1096, 671));
+        jtGastos.setRowHeight(40);
         jtGastos.setSelectionBackground(new java.awt.Color(46, 182, 125));
-        jtGastos.setShowGrid(true);
-        jtGastos.setShowVerticalLines(false);
+        jtGastos.setShowGrid(false);
+        jtGastos.setShowHorizontalLines(true);
         jtGastos.getTableHeader().setResizingAllowed(false);
         jtGastos.getTableHeader().setReorderingAllowed(false);
         jtGastos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -349,7 +333,7 @@ public class Gastos1 extends javax.swing.JPanel {
 
     private void jtGastosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtGastosMouseClicked
         int fila = this.jtGastos.getSelectedRow();
-        
+
         categoria = jtGastos.getValueAt(fila, 0).toString();
         provedor = jtGastos.getValueAt(fila, 1).toString();
         fecha = jtGastos.getValueAt(fila, 2).toString();
@@ -361,7 +345,7 @@ public class Gastos1 extends javax.swing.JPanel {
             Gasto_data gasto_data = new Gasto_data(con);
             Detalle_de_venta_data detalle_de_venta_data = new Detalle_de_venta_data(con);
             Producto_data producto_data = new Producto_data(con);
-            
+
             gasto_pasado = gasto_data.getGasto_por_detalle(Integer.parseInt(detalle));
             Detalle_de_venta detalle_pasado = detalle_de_venta_data.getDetalle_de_venta_por_id(Integer.parseInt(detalle));
             try{
@@ -385,6 +369,7 @@ public class Gastos1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private newscomponents.RSButtonFlat_new jbActualizar;
     private rsbuttoncustom.RSButtonCustom jbNueva_categoria;
@@ -394,6 +379,6 @@ public class Gastos1 extends javax.swing.JPanel {
     public static javax.swing.JLabel jlBackground;
     private javax.swing.JLabel jlTituloDesde;
     private javax.swing.JLabel jlTituloHasta;
-    private javax.swing.JTable jtGastos;
+    private RSMaterialComponent.RSTableMetroCustom jtGastos;
     // End of variables declaration//GEN-END:variables
 }

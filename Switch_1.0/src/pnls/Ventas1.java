@@ -87,7 +87,7 @@ public class Ventas1 extends javax.swing.JPanel {
         jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtVentas = new javax.swing.JTable();
+        jtVentas = new RSMaterialComponent.RSTableMetroCustom();
         jPanel1 = new javax.swing.JPanel();
         dtHasta = new newscomponents.RSDateChooserModern();
         jlTituloHasta = new javax.swing.JLabel();
@@ -188,31 +188,7 @@ public class Ventas1 extends javax.swing.JPanel {
 
         jtVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Cliente", "Fecha", "Importe", "Metodo de pago", "Detalle"
@@ -226,11 +202,25 @@ public class Ventas1 extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jtVentas.setRowHeight(30);
+        jtVentas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        jtVentas.setBackgoundHead(new java.awt.Color(255, 255, 255));
+        jtVentas.setBorderRows(null);
+        jtVentas.setColorPrimaryText(new java.awt.Color(0, 0, 0));
+        jtVentas.setColorSecondary(new java.awt.Color(255, 255, 255));
+        jtVentas.setColorSecundaryText(new java.awt.Color(0, 0, 0));
+        jtVentas.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtVentas.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtVentas.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtVentas.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtVentas.setForegroundHead(new java.awt.Color(0, 0, 0));
+        jtVentas.setForegroundHover(new java.awt.Color(0, 0, 0));
+        jtVentas.setGridColor(new java.awt.Color(214, 214, 214));
+        jtVentas.setHighHead(25);
+        jtVentas.setPreferredSize(new java.awt.Dimension(1096, 671));
+        jtVentas.setRowHeight(40);
         jtVentas.setSelectionBackground(new java.awt.Color(224, 30, 90));
-        jtVentas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jtVentas.setShowGrid(true);
-        jtVentas.setShowVerticalLines(false);
+        jtVentas.setShowGrid(false);
+        jtVentas.setShowHorizontalLines(true);
         jtVentas.getTableHeader().setResizingAllowed(false);
         jtVentas.getTableHeader().setReorderingAllowed(false);
         jtVentas.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -315,29 +305,6 @@ public class Ventas1 extends javax.swing.JPanel {
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtVentasMouseClicked
-        int fila = this.jtVentas.getSelectedRow();
-        
-        cliente = jtVentas.getValueAt(fila, 0).toString();
-        fecha = jtVentas.getValueAt(fila, 1).toString();
-        metodo_de_pago = jtVentas.getValueAt(fila, 2).toString();
-        importe = jtVentas.getValueAt(fila, 3).toString();
-        detalle = jtVentas.getValueAt(fila, 4).toString();
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Venta_data venta_data = new Venta_data(con);
-            Detalle_de_venta_data detalle_de_venta_data = new Detalle_de_venta_data(con);
-            Producto_data producto_data = new Producto_data(con);
-            
-            venta_pasada = venta_data.getVenta_por_detalle(Integer.parseInt(detalle));
-            detalle_pasado = detalle_de_venta_data.getDetalle_de_venta_por_id(Integer.parseInt(detalle));
-            producto_pasado = producto_data.getProducto_por_id(detalle_pasado.getId_producto());
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la venta " + e.getMessage());
-        }
-        new CambiaPanel(this.addMenu, new detalleVentas());
-    }//GEN-LAST:event_jtVentasMouseClicked
-
     private void jbNueva_ventaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNueva_ventaActionPerformed
         Inicio.jlFondo.setVisible(true);
         JDialog a = new nuevaVenta(null,true);
@@ -361,6 +328,29 @@ public class Ventas1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
+    private void jtVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtVentasMouseClicked
+        int fila = this.jtVentas.getSelectedRow();
+
+        cliente = jtVentas.getValueAt(fila, 0).toString();
+        fecha = jtVentas.getValueAt(fila, 1).toString();
+        metodo_de_pago = jtVentas.getValueAt(fila, 2).toString();
+        importe = jtVentas.getValueAt(fila, 3).toString();
+        detalle = jtVentas.getValueAt(fila, 4).toString();
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Venta_data venta_data = new Venta_data(con);
+            Detalle_de_venta_data detalle_de_venta_data = new Detalle_de_venta_data(con);
+            Producto_data producto_data = new Producto_data(con);
+
+            venta_pasada = venta_data.getVenta_por_detalle(Integer.parseInt(detalle));
+            detalle_pasado = detalle_de_venta_data.getDetalle_de_venta_por_id(Integer.parseInt(detalle));
+            producto_pasado = producto_data.getProducto_por_id(detalle_pasado.getId_producto());
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la venta " + e.getMessage());
+        }
+        new CambiaPanel(this.addMenu, new detalleVentas());
+    }//GEN-LAST:event_jtVentasMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
@@ -371,6 +361,7 @@ public class Ventas1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private newscomponents.RSButtonFlat_new jbActualizar;
     private rsbuttoncustom.RSButtonCustom jbArqueo;
@@ -380,6 +371,6 @@ public class Ventas1 extends javax.swing.JPanel {
     public static javax.swing.JLabel jlBackground;
     private javax.swing.JLabel jlTituloDesde;
     private javax.swing.JLabel jlTituloHasta;
-    private javax.swing.JTable jtVentas;
+    private RSMaterialComponent.RSTableMetroCustom jtVentas;
     // End of variables declaration//GEN-END:variables
 }

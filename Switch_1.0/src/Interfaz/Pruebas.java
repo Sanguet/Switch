@@ -28,84 +28,64 @@ public class Pruebas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jcbCliente = new RSMaterialComponent.RSComboBoxMaterial();
-        rSButtonFlat_new1 = new newscomponents.RSButtonFlat_new();
-        rSButtonIconOne1 = new RSMaterialComponent.RSButtonIconOne();
-        rSButtonIcon_new1 = new newscomponents.RSButtonIcon_new();
-        rSButtonCustom1 = new rsbuttoncustom.RSButtonCustom();
         jScrollPane1 = new javax.swing.JScrollPane();
-        rSTableMetroCustom2 = new RSMaterialComponent.RSTableMetroCustom();
+        jtVentas = new RSMaterialComponent.RSTableMetroCustom();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jcbCliente.setBackground(new java.awt.Color(14, 21, 30));
-        jcbCliente.setForeground(new java.awt.Color(255, 255, 255));
-        jcbCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Buscar Cliente" }));
-        jcbCliente.setColorMaterial(new java.awt.Color(224, 30, 90));
-        jcbCliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jcbCliente.setPreferredSize(new java.awt.Dimension(200, 30));
-        jcbCliente.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-
-        rSButtonFlat_new1.setBackground(new java.awt.Color(224, 30, 90));
-        rSButtonFlat_new1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/confirmar.png"))); // NOI18N
-        rSButtonFlat_new1.setText("Confirmar");
-        rSButtonFlat_new1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        rSButtonFlat_new1.setPreferredSize(new java.awt.Dimension(200, 35));
-
-        rSButtonIconOne1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/buscar.png"))); // NOI18N
-        rSButtonIconOne1.setText("rSButtonIconOne1");
-        rSButtonIconOne1.setIcons(null);
-
-        rSButtonIcon_new1.setText("rSButtonIcon_new1");
-
-        rSButtonCustom1.setBackground(new java.awt.Color(14, 21, 30));
-        rSButtonCustom1.setForeground(new java.awt.Color(255, 255, 255));
-        rSButtonCustom1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
-        rSButtonCustom1.setText("Nuevo Provedor");
-        rSButtonCustom1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
-        rSButtonCustom1.setIconTextGap(3);
-        rSButtonCustom1.setPreferredSize(new java.awt.Dimension(165, 35));
-
         jScrollPane1.setPreferredSize(new java.awt.Dimension(450, 489));
 
-        rSTableMetroCustom2.setModel(new javax.swing.table.DefaultTableModel(
+        jtVentas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Producto", "Precio", "Cantidad", "Descuento", "Subtotal"
+                "Cliente", "Fecha", "Importe", "Metodo de pago", "Detalle"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, true, true, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        rSTableMetroCustom2.setBackgoundHead(new java.awt.Color(255, 255, 255));
-        rSTableMetroCustom2.setColorPrimaryText(new java.awt.Color(0, 0, 0));
-        rSTableMetroCustom2.setColorSecondary(new java.awt.Color(255, 255, 255));
-        rSTableMetroCustom2.setColorSecundaryText(new java.awt.Color(0, 0, 0));
-        rSTableMetroCustom2.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        rSTableMetroCustom2.setFontHead(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        rSTableMetroCustom2.setFontRowHover(new java.awt.Font("Roboto", 1, 12)); // NOI18N
-        rSTableMetroCustom2.setFontRowSelect(new java.awt.Font("Roboto", 1, 13)); // NOI18N
-        rSTableMetroCustom2.setForegroundHead(new java.awt.Color(0, 0, 0));
-        rSTableMetroCustom2.setForegroundHover(new java.awt.Color(0, 0, 0));
-        rSTableMetroCustom2.setGridColor(new java.awt.Color(214, 214, 214));
-        rSTableMetroCustom2.setHighHead(25);
-        rSTableMetroCustom2.setRowHeight(30);
-        rSTableMetroCustom2.setSelectionBackground(new java.awt.Color(224, 30, 90));
-        rSTableMetroCustom2.setShowGrid(false);
-        rSTableMetroCustom2.setShowHorizontalLines(true);
-        rSTableMetroCustom2.getTableHeader().setResizingAllowed(false);
-        rSTableMetroCustom2.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(rSTableMetroCustom2);
-        if (rSTableMetroCustom2.getColumnModel().getColumnCount() > 0) {
-            rSTableMetroCustom2.getColumnModel().getColumn(0).setResizable(false);
-            rSTableMetroCustom2.getColumnModel().getColumn(1).setResizable(false);
+        jtVentas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        jtVentas.setBackgoundHead(new java.awt.Color(255, 255, 255));
+        jtVentas.setBorderRows(null);
+        jtVentas.setColorPrimaryText(new java.awt.Color(0, 0, 0));
+        jtVentas.setColorSecondary(new java.awt.Color(255, 255, 255));
+        jtVentas.setColorSecundaryText(new java.awt.Color(0, 0, 0));
+        jtVentas.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtVentas.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtVentas.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtVentas.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtVentas.setForegroundHead(new java.awt.Color(0, 0, 0));
+        jtVentas.setForegroundHover(new java.awt.Color(0, 0, 0));
+        jtVentas.setGridColor(new java.awt.Color(214, 214, 214));
+        jtVentas.setHighHead(25);
+        jtVentas.setPreferredSize(new java.awt.Dimension(1096, 671));
+        jtVentas.setRowHeight(40);
+        jtVentas.setSelectionBackground(new java.awt.Color(224, 30, 90));
+        jtVentas.setShowGrid(false);
+        jtVentas.setShowHorizontalLines(true);
+        jtVentas.getTableHeader().setResizingAllowed(false);
+        jtVentas.getTableHeader().setReorderingAllowed(false);
+        jtVentas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtVentasMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtVentas);
+        if (jtVentas.getColumnModel().getColumnCount() > 0) {
+            jtVentas.getColumnModel().getColumn(0).setResizable(false);
+            jtVentas.getColumnModel().getColumn(0).setPreferredWidth(180);
+            jtVentas.getColumnModel().getColumn(1).setResizable(false);
+            jtVentas.getColumnModel().getColumn(2).setResizable(false);
+            jtVentas.getColumnModel().getColumn(3).setResizable(false);
+            jtVentas.getColumnModel().getColumn(3).setPreferredWidth(80);
+            jtVentas.getColumnModel().getColumn(4).setResizable(false);
         }
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -113,48 +93,16 @@ public class Pruebas extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(208, 208, 208)
-                        .addComponent(rSButtonIconOne1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(rSButtonIcon_new1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(rSButtonFlat_new1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(rSButtonCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(116, 116, 116)
-                        .addComponent(jcbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(886, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(52, 52, 52)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(801, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(rSButtonIcon_new1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(rSButtonIconOne1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rSButtonCustom1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rSButtonFlat_new1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jcbCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(863, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(510, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -180,6 +128,10 @@ public class Pruebas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtVentasMouseClicked
+
+    }//GEN-LAST:event_jtVentasMouseClicked
 
     /**
      * @param args the command line arguments
@@ -219,11 +171,6 @@ public class Pruebas extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private RSMaterialComponent.RSComboBoxMaterial jcbCliente;
-    private rsbuttoncustom.RSButtonCustom rSButtonCustom1;
-    private newscomponents.RSButtonFlat_new rSButtonFlat_new1;
-    private RSMaterialComponent.RSButtonIconOne rSButtonIconOne1;
-    private newscomponents.RSButtonIcon_new rSButtonIcon_new1;
-    private RSMaterialComponent.RSTableMetroCustom rSTableMetroCustom2;
+    private RSMaterialComponent.RSTableMetroCustom jtVentas;
     // End of variables declaration//GEN-END:variables
 }

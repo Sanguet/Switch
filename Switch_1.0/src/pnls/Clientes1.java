@@ -109,7 +109,7 @@ public class Clientes1 extends javax.swing.JPanel {
         jcbBox = new RSMaterialComponent.RSComboBoxMaterial();
         jbActualizar = new newscomponents.RSButtonFlat_new();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtClientes = new javax.swing.JTable();
+        jtClientes = new RSMaterialComponent.RSTableMetroCustom();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,6 +127,7 @@ public class Clientes1 extends javax.swing.JPanel {
         jbNuevoCliente.setForeground(new java.awt.Color(255, 255, 255));
         jbNuevoCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/NuevoCliente.png"))); // NOI18N
         jbNuevoCliente.setText("Nuevo Cliente");
+        jbNuevoCliente.setColorMaterial(new java.awt.Color(54, 197, 240));
         jbNuevoCliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbNuevoCliente.setIconTextGap(3);
         jbNuevoCliente.setPreferredSize(new java.awt.Dimension(150, 35));
@@ -243,63 +244,41 @@ public class Clientes1 extends javax.swing.JPanel {
 
         jtClientes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
-                "Nombre", "Box", "Telefono", "E-mail", "Saldo"
+                "Nombre", "Box", "Telefono", "Email", "Saldo"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Long.class, java.lang.String.class, java.lang.String.class
-            };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, true
+                false, false, false, false, false
             };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jtClientes.setRowHeight(30);
+        jtClientes.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        jtClientes.setBackgoundHead(new java.awt.Color(255, 255, 255));
+        jtClientes.setBorderRows(null);
+        jtClientes.setColorPrimaryText(new java.awt.Color(0, 0, 0));
+        jtClientes.setColorSecondary(new java.awt.Color(255, 255, 255));
+        jtClientes.setColorSecundaryText(new java.awt.Color(0, 0, 0));
+        jtClientes.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtClientes.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtClientes.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtClientes.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtClientes.setForegroundHead(new java.awt.Color(0, 0, 0));
+        jtClientes.setForegroundHover(new java.awt.Color(0, 0, 0));
+        jtClientes.setGridColor(new java.awt.Color(214, 214, 214));
+        jtClientes.setHighHead(25);
+        jtClientes.setPreferredSize(new java.awt.Dimension(1096, 671));
+        jtClientes.setRowHeight(40);
         jtClientes.setSelectionBackground(new java.awt.Color(54, 197, 240));
-        jtClientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jtClientes.setShowGrid(true);
-        jtClientes.setShowVerticalLines(false);
+        jtClientes.setShowGrid(false);
+        jtClientes.setShowHorizontalLines(true);
         jtClientes.getTableHeader().setResizingAllowed(false);
         jtClientes.getTableHeader().setReorderingAllowed(false);
-        jtClientes.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jtClientesFocusGained(evt);
-            }
-        });
         jtClientes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jtClientesMouseClicked(evt);
@@ -307,19 +286,22 @@ public class Clientes1 extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(jtClientes);
         if (jtClientes.getColumnModel().getColumnCount() > 0) {
+            jtClientes.getColumnModel().getColumn(0).setResizable(false);
+            jtClientes.getColumnModel().getColumn(0).setPreferredWidth(180);
             jtClientes.getColumnModel().getColumn(1).setResizable(false);
+            jtClientes.getColumnModel().getColumn(1).setPreferredWidth(60);
+            jtClientes.getColumnModel().getColumn(2).setResizable(false);
+            jtClientes.getColumnModel().getColumn(2).setPreferredWidth(70);
             jtClientes.getColumnModel().getColumn(3).setResizable(false);
+            jtClientes.getColumnModel().getColumn(3).setPreferredWidth(300);
             jtClientes.getColumnModel().getColumn(4).setResizable(false);
+            jtClientes.getColumnModel().getColumn(4).setPreferredWidth(40);
         }
 
         Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, 650));
 
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jtClientesFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtClientesFocusGained
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jtClientesFocusGained
 
     private void addMenuFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addMenuFocusLost
         JOptionPane.showConfirmDialog(this, "Estas seguro que no quieres guardar el cliente?");
@@ -329,25 +311,6 @@ public class Clientes1 extends javax.swing.JPanel {
     private void addMenuMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_addMenuMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_addMenuMouseExited
-
-    private void jtClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtClientesMouseClicked
-        int fila = this.jtClientes.getSelectedRow();
-        
-        nombre = jtClientes.getValueAt(fila, 0).toString();
-        box = jtClientes.getValueAt(fila, 1).toString();
-        telefono = jtClientes.getValueAt(fila, 2).toString();
-        email = jtClientes.getValueAt(fila, 3).toString();
-        saldo = jtClientes.getValueAt(fila, 4).toString();
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Cliente_data cliente_data = new Cliente_data(con);
-            
-            cliente_pasado = cliente_data.getCliente_por_nombre(nombre);
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
-        }
-        new CambiaPanel(this.addMenu, new detalleCliente());
-    }//GEN-LAST:event_jtClientesMouseClicked
 
     private void jbNuevoClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoClienteActionPerformed
         new CambiaPanel(this.addMenu, new nuevoCliente());
@@ -370,6 +333,25 @@ public class Clientes1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
+    private void jtClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtClientesMouseClicked
+        int fila = this.jtClientes.getSelectedRow();
+
+        nombre = jtClientes.getValueAt(fila, 0).toString();
+        box = jtClientes.getValueAt(fila, 1).toString();
+        telefono = jtClientes.getValueAt(fila, 2).toString();
+        email = jtClientes.getValueAt(fila, 3).toString();
+        saldo = jtClientes.getValueAt(fila, 4).toString();
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Cliente_data cliente_data = new Cliente_data(con);
+
+            cliente_pasado = cliente_data.getCliente_por_nombre(nombre);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+        new CambiaPanel(this.addMenu, new detalleCliente());
+    }//GEN-LAST:event_jtClientesMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
@@ -378,6 +360,7 @@ public class Clientes1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private newscomponents.RSButtonFlat_new jbActualizar;
     private rsbuttoncustom.RSButtonCustom jbNuevoCliente;
@@ -385,6 +368,6 @@ public class Clientes1 extends javax.swing.JPanel {
     private RSMaterialComponent.RSComboBoxMaterial jcbNombre;
     private RSMaterialComponent.RSComboBoxMaterial jcbSaldo;
     public static javax.swing.JLabel jlBackground;
-    private javax.swing.JTable jtClientes;
+    private RSMaterialComponent.RSTableMetroCustom jtClientes;
     // End of variables declaration//GEN-END:variables
 }

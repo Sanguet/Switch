@@ -83,7 +83,7 @@ public class Productos1 extends javax.swing.JPanel {
         jlBackground = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         registro = new javax.swing.JScrollPane();
-        jtProductos = new javax.swing.JTable();
+        jtProductos = new RSMaterialComponent.RSTableMetroCustom();
         jPanel2 = new javax.swing.JPanel();
         jbActualizar1 = new newscomponents.RSButtonFlat_new();
         jcbStock = new RSMaterialComponent.RSComboBoxMaterial();
@@ -188,34 +188,9 @@ public class Productos1 extends javax.swing.JPanel {
         registro.setMinimumSize(new java.awt.Dimension(23, 700));
         registro.setPreferredSize(new java.awt.Dimension(1096, 650));
 
-        jtProductos.setFont(new java.awt.Font("Roboto", 1, 12)); // NOI18N
         jtProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+
             },
             new String [] {
                 "Categoria", "Codigo", "Nombre", "Costo", "Precio", "Stock"
@@ -229,12 +204,25 @@ public class Productos1 extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        jtProductos.setPreferredSize(new java.awt.Dimension(365, 625));
-        jtProductos.setRowHeight(30);
+        jtProductos.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        jtProductos.setBackgoundHead(new java.awt.Color(255, 255, 255));
+        jtProductos.setBorderRows(null);
+        jtProductos.setColorPrimaryText(new java.awt.Color(0, 0, 0));
+        jtProductos.setColorSecondary(new java.awt.Color(255, 255, 255));
+        jtProductos.setColorSecundaryText(new java.awt.Color(0, 0, 0));
+        jtProductos.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtProductos.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtProductos.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtProductos.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtProductos.setForegroundHead(new java.awt.Color(0, 0, 0));
+        jtProductos.setForegroundHover(new java.awt.Color(0, 0, 0));
+        jtProductos.setGridColor(new java.awt.Color(214, 214, 214));
+        jtProductos.setHighHead(25);
+        jtProductos.setPreferredSize(new java.awt.Dimension(1096, 671));
+        jtProductos.setRowHeight(40);
         jtProductos.setSelectionBackground(new java.awt.Color(224, 30, 90));
-        jtProductos.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        jtProductos.setShowGrid(true);
-        jtProductos.setShowVerticalLines(false);
+        jtProductos.setShowGrid(false);
+        jtProductos.setShowHorizontalLines(true);
         jtProductos.getTableHeader().setResizingAllowed(false);
         jtProductos.getTableHeader().setReorderingAllowed(false);
         jtProductos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -243,20 +231,6 @@ public class Productos1 extends javax.swing.JPanel {
             }
         });
         registro.setViewportView(jtProductos);
-        if (jtProductos.getColumnModel().getColumnCount() > 0) {
-            jtProductos.getColumnModel().getColumn(0).setResizable(false);
-            jtProductos.getColumnModel().getColumn(0).setHeaderValue("Categoria");
-            jtProductos.getColumnModel().getColumn(1).setResizable(false);
-            jtProductos.getColumnModel().getColumn(1).setHeaderValue("Codigo");
-            jtProductos.getColumnModel().getColumn(2).setResizable(false);
-            jtProductos.getColumnModel().getColumn(2).setHeaderValue("Nombre");
-            jtProductos.getColumnModel().getColumn(3).setResizable(false);
-            jtProductos.getColumnModel().getColumn(3).setHeaderValue("Costo");
-            jtProductos.getColumnModel().getColumn(4).setResizable(false);
-            jtProductos.getColumnModel().getColumn(4).setHeaderValue("Precio");
-            jtProductos.getColumnModel().getColumn(5).setResizable(false);
-            jtProductos.getColumnModel().getColumn(5).setHeaderValue("Stock");
-        }
 
         jPanel1.add(registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
 
@@ -321,24 +295,6 @@ public class Productos1 extends javax.swing.JPanel {
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductosMouseClicked
-        int fila = this.jtProductos.getSelectedRow();
-        codigo = jtProductos.getValueAt(fila, 0).toString();
-        nombre = jtProductos.getValueAt(fila, 1).toString();
-        costo = jtProductos.getValueAt(fila, 2).toString();
-        precio = jtProductos.getValueAt(fila, 3).toString();
-        cantidad = jtProductos.getValueAt(fila, 4).toString();
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Producto_data producto_data = new Producto_data(con);
-            
-            producto_pasado = producto_data.getProducto_por_nombre(nombre);
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
-        }
-        new CambiaPanel(this.addMenu, new detalleProducto());
-    }//GEN-LAST:event_jtProductosMouseClicked
-
     private void jbNuevo_productoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevo_productoActionPerformed
         new CambiaPanel(this.addMenu, new nuevoProducto());
     }//GEN-LAST:event_jbNuevo_productoActionPerformed
@@ -360,6 +316,24 @@ public class Productos1 extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jbActualizar1ActionPerformed
 
+    private void jtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductosMouseClicked
+        int fila = this.jtProductos.getSelectedRow();
+        codigo = jtProductos.getValueAt(fila, 0).toString();
+        nombre = jtProductos.getValueAt(fila, 1).toString();
+        costo = jtProductos.getValueAt(fila, 2).toString();
+        precio = jtProductos.getValueAt(fila, 3).toString();
+        cantidad = jtProductos.getValueAt(fila, 4).toString();
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Producto_data producto_data = new Producto_data(con);
+
+            producto_pasado = producto_data.getProducto_por_nombre(nombre);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+        new CambiaPanel(this.addMenu, new detalleProducto());
+    }//GEN-LAST:event_jtProductosMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Titulo;
@@ -368,6 +342,7 @@ public class Productos1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
     private newscomponents.RSButtonFlat_new jbActualizar1;
     private rsbuttoncustom.RSButtonCustom jbNuena_categoria;
     private rsbuttoncustom.RSButtonCustom jbNuevo_producto;
@@ -376,7 +351,7 @@ public class Productos1 extends javax.swing.JPanel {
     private RSMaterialComponent.RSComboBoxMaterial jcbNombre;
     private RSMaterialComponent.RSComboBoxMaterial jcbStock;
     public static javax.swing.JLabel jlBackground;
-    private javax.swing.JTable jtProductos;
+    private RSMaterialComponent.RSTableMetroCustom jtProductos;
     private javax.swing.JScrollPane registro;
     // End of variables declaration//GEN-END:variables
 }

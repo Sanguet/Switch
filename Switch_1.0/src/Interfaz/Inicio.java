@@ -305,7 +305,7 @@ public class Inicio extends javax.swing.JFrame{
         jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosA.png")));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesA.png")));
         jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeA.png")));
-        
+        jbOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesA.png")));
     }//GEN-LAST:event_jbVentasActionPerformed
 
     private void jbInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbInicioActionPerformed
@@ -316,6 +316,7 @@ public class Inicio extends javax.swing.JFrame{
         jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosA.png")));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesA.png")));
         jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeB.png")));
+        jbOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesA.png")));
     }//GEN-LAST:event_jbInicioActionPerformed
 
     private void jbGastosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGastosActionPerformed
@@ -326,6 +327,7 @@ public class Inicio extends javax.swing.JFrame{
         jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosB.png")));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesA.png")));
         jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeA.png")));
+        jbOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesA.png")));
     }//GEN-LAST:event_jbGastosActionPerformed
 
     private void jbClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbClientesActionPerformed
@@ -336,7 +338,7 @@ public class Inicio extends javax.swing.JFrame{
         jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosA.png")));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesB.png")));
         jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeA.png")));
-        
+        jbOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesA.png")));
     }//GEN-LAST:event_jbClientesActionPerformed
 
     private void jbProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProductosActionPerformed
@@ -347,6 +349,7 @@ public class Inicio extends javax.swing.JFrame{
         jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosA.png")));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesA.png")));
         jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeA.png")));
+        jbOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesA.png")));
     }//GEN-LAST:event_jbProductosActionPerformed
 
     private void jbProvedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbProvedoresActionPerformed
@@ -357,10 +360,18 @@ public class Inicio extends javax.swing.JFrame{
         jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosA.png")));
         jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesA.png")));
         jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeA.png")));
+        jbOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesA.png")));
     }//GEN-LAST:event_jbProvedoresActionPerformed
 
     private void jbOpcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbOpcionesActionPerformed
-        // TODO add your handling code here:
+        new CambiaPanel(this.panelBase, new Ajustes());
+        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta2.png")));
+        jbProvedores.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProvedoresA.png")));
+        jbProductos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ProductosA.png")));
+        jbGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/GastosA.png")));
+        jbClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/ClientesA.png")));
+        jbInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/HomeA.png")));
+        jbOpciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/AjustesB.png")));
     }//GEN-LAST:event_jbOpcionesActionPerformed
 
     private void jbCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarActionPerformed
