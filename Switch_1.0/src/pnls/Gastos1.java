@@ -250,7 +250,7 @@ public class Gastos1 extends javax.swing.JPanel {
         dtHasta.setMaximumSize(new java.awt.Dimension(140, 30));
         dtHasta.setMinimumSize(new java.awt.Dimension(140, 30));
         dtHasta.setPreferredSize(new java.awt.Dimension(140, 30));
-        jPanel1.add(dtHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 0, -1, -1));
+        jPanel1.add(dtHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, -1, -1));
 
         jcb.setBackground(new java.awt.Color(14, 21, 30));
         jcb.setForeground(new java.awt.Color(255, 255, 255));
@@ -278,17 +278,17 @@ public class Gastos1 extends javax.swing.JPanel {
         dtDesde.setMaximumSize(new java.awt.Dimension(140, 30));
         dtDesde.setMinimumSize(new java.awt.Dimension(140, 30));
         dtDesde.setPreferredSize(new java.awt.Dimension(140, 30));
-        jPanel1.add(dtDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, -1, -1));
+        jPanel1.add(dtDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, -1, -1));
 
         jlTituloHasta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jlTituloHasta.setForeground(new java.awt.Color(255, 255, 255));
         jlTituloHasta.setText("Hasta:");
-        jPanel1.add(jlTituloHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 50, 30));
+        jPanel1.add(jlTituloHasta, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 50, 30));
 
         jlTituloDesde.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jlTituloDesde.setForeground(new java.awt.Color(255, 255, 255));
         jlTituloDesde.setText("Desde:");
-        jPanel1.add(jlTituloDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(495, 0, 50, 30));
+        jPanel1.add(jlTituloDesde, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 50, 30));
 
         jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
         jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
@@ -369,7 +369,6 @@ public class Gastos1 extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private newscomponents.RSButtonFlat_new jbActualizar;
     private rsbuttoncustom.RSButtonCustom jbNueva_categoria;

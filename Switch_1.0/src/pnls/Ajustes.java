@@ -49,6 +49,7 @@ public class Ajustes extends javax.swing.JPanel {
         jlTituloDesde1 = new javax.swing.JLabel();
         jlTituloVersion = new javax.swing.JLabel();
         jlVersion = new javax.swing.JLabel();
+        jbCargar1 = new newscomponents.RSButtonFlat_new();
 
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -62,7 +63,6 @@ public class Ajustes extends javax.swing.JPanel {
         jLabel5.setText("Ajustes");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/AjustesR.png"))); // NOI18N
-        jLabel6.setPreferredSize(new java.awt.Dimension(50, 50));
 
         jcbBuscar.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Buscar en Ajustes", "Modo Oscuro", "Base de Datos", "Mantenimiento", "Version del Cliente" }));
         jcbBuscar.setColorMaterial(new java.awt.Color(236, 178, 46));
@@ -92,7 +92,7 @@ public class Ajustes extends javax.swing.JPanel {
                 .addGap(20, 20, 20)
                 .addGroup(TituloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel6))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jcbBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -140,7 +140,7 @@ public class Ajustes extends javax.swing.JPanel {
 
         jbCargar.setBackground(new java.awt.Color(14, 21, 30));
         jbCargar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/backup2.png"))); // NOI18N
-        jbCargar.setText("Cargar Archivo");
+        jbCargar.setText("Crear");
         jbCargar.setFont(new java.awt.Font("Metropolis Semi Bold", 1, 14)); // NOI18N
         jbCargar.setIconTextGap(10);
         jbCargar.setPreferredSize(new java.awt.Dimension(160, 35));
@@ -149,7 +149,7 @@ public class Ajustes extends javax.swing.JPanel {
                 jbCargarActionPerformed(evt);
             }
         });
-        jpAjustesList.add(jbCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 180, -1));
+        jpAjustesList.add(jbCargar, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 80, 90, -1));
 
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         jSeparator1.setPreferredSize(new java.awt.Dimension(5, 43));
@@ -215,6 +215,19 @@ public class Ajustes extends javax.swing.JPanel {
         jlVersion.setPreferredSize(new java.awt.Dimension(150, 35));
         jpAjustesList.add(jlVersion, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 280, 30));
 
+        jbCargar1.setBackground(new java.awt.Color(14, 21, 30));
+        jbCargar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/backup2.png"))); // NOI18N
+        jbCargar1.setText("Cargar Archivo");
+        jbCargar1.setFont(new java.awt.Font("Metropolis Semi Bold", 1, 14)); // NOI18N
+        jbCargar1.setIconTextGap(10);
+        jbCargar1.setPreferredSize(new java.awt.Dimension(160, 35));
+        jbCargar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbCargar1ActionPerformed(evt);
+            }
+        });
+        jpAjustesList.add(jbCargar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 180, -1));
+
         jPanel1.add(jpAjustesList, new org.netbeans.lib.awtextra.AbsoluteConstraints(373, 140, 710, -1));
 
         add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1462, 818));
@@ -224,6 +237,10 @@ public class Ajustes extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jbCargarActionPerformed
 
+    private void jbCargar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCargar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbCargar1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Titulo;
@@ -232,6 +249,7 @@ public class Ajustes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
     private newscomponents.RSButtonFlat_new jbCargar;
+    private newscomponents.RSButtonFlat_new jbCargar1;
     private RSMaterialComponent.RSComboBoxMaterial jcbBuscar;
     private javax.swing.JLabel jlConectado1;
     private javax.swing.JLabel jlContacto;

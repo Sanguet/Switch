@@ -62,8 +62,8 @@ public class Inicio extends javax.swing.JFrame{
         panelBase = new javax.swing.JPanel();
         ventana = new javax.swing.JPanel();
         jbMin = new javax.swing.JButton();
-        jbCerrar = new javax.swing.JButton();
         jbMax = new javax.swing.JButton();
+        jbCerrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
@@ -259,6 +259,22 @@ public class Inicio extends javax.swing.JFrame{
         });
         ventana.add(jbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1346, 0, -1, -1));
 
+        jbMax.setBackground(new java.awt.Color(239, 239, 239));
+        jbMax.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jbMax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxD.png"))); // NOI18N
+        jbMax.setToolTipText("");
+        jbMax.setBorderPainted(false);
+        jbMax.setMaximumSize(new java.awt.Dimension(40, 25));
+        jbMax.setMinimumSize(new java.awt.Dimension(40, 25));
+        jbMax.setPreferredSize(new java.awt.Dimension(40, 25));
+        jbMax.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxM.png"))); // NOI18N
+        jbMax.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbMaxActionPerformed(evt);
+            }
+        });
+        ventana.add(jbMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(1386, 0, -1, -1));
+
         jbCerrar.setBackground(new java.awt.Color(255, 255, 255));
         jbCerrar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jbCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/CerrarC.png"))); // NOI18N
@@ -275,22 +291,6 @@ public class Inicio extends javax.swing.JFrame{
             }
         });
         ventana.add(jbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1426, 0, -1, -1));
-
-        jbMax.setBackground(new java.awt.Color(239, 239, 239));
-        jbMax.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jbMax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxD.png"))); // NOI18N
-        jbMax.setToolTipText("");
-        jbMax.setBorderPainted(false);
-        jbMax.setMaximumSize(new java.awt.Dimension(40, 25));
-        jbMax.setMinimumSize(new java.awt.Dimension(40, 25));
-        jbMax.setPreferredSize(new java.awt.Dimension(40, 25));
-        jbMax.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxM.png"))); // NOI18N
-        jbMax.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbMaxActionPerformed(evt);
-            }
-        });
-        ventana.add(jbMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(1386, 0, -1, -1));
 
         getContentPane().add(ventana, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
