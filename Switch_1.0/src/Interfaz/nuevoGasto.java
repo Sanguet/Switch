@@ -818,7 +818,7 @@ public class nuevoGasto extends javax.swing.JDialog {
                         ddvd.guardarDetalle_de_venta(detalle_de_venta);
                         int id_detalle = ddvd.obtenerDetalle_de_venta().get(ddvd.obtenerDetalle_de_venta().size()-1).getId();
                         int descuento = Integer.parseInt(jtDescuento.getText());
-                         Double total = Double.parseDouble(jtDetalle.getValueAt(i, 4).toString());
+                        Double total = Double.parseDouble(jtDetalle.getValueAt(i, 4).toString());
                         Gasto gasto = new Gasto(id_provedor, total, id_metodo_de_pago, id_categoria, id_detalle, comentario);
 
                         pd.actualizarStock_por_id_producto(detalle_de_venta.getCantidad() + cantidad_producto, id_producto);

@@ -64,7 +64,7 @@
             <Property name="useNullLayout" type="boolean" value="false"/>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="fecha">
+            <Component class="javax.swing.JLabel" name="jlFecha">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Metropolis Semi Bold" size="18" style="0"/>
@@ -83,7 +83,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JButton" name="borrar">
+            <Component class="javax.swing.JButton" name="jbBorrar">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="7d" green="b6" red="2e" type="rgb"/>
@@ -97,7 +97,7 @@
                 </Property>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="borrarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jbBorrarActionPerformed"/>
               </Events>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -105,7 +105,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="hora">
+            <Component class="javax.swing.JLabel" name="jlHora">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Metropolis Semi Bold" size="18" style="0"/>
@@ -205,7 +205,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea1">
+                <Component class="javax.swing.JTextArea" name="jtaComentairo">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
@@ -233,7 +233,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTextArea" name="jTextArea2">
+                <Component class="javax.swing.JTextArea" name="jtaDetalle">
                   <Properties>
                     <Property name="editable" type="boolean" value="false"/>
                     <Property name="columns" type="int" value="20"/>
@@ -250,7 +250,7 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JLabel" name="provedor">
+            <Component class="javax.swing.JLabel" name="jlProvedor">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="14" style="0"/>
@@ -267,7 +267,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="metodo">
+            <Component class="javax.swing.JLabel" name="jlMetodo">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="14" style="0"/>
@@ -284,7 +284,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="categoria">
+            <Component class="javax.swing.JLabel" name="jlCategoria">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="14" style="0"/>
@@ -333,7 +333,7 @@
                 </Constraint>
               </Constraints>
             </Component>
-            <Component class="javax.swing.JLabel" name="categoria1">
+            <Component class="javax.swing.JLabel" name="jlImporte">
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Roboto" size="14" style="0"/>

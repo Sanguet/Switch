@@ -45,6 +45,17 @@ public class Gasto {
         this.comentario = comentario;
     }
     
+    public Gasto(int id, int id_provedor, double monto, int id_metodo_de_pago, int id_categeoria, int id_detalle, String comentario) {
+        this.id = id;
+        this.id_provedor = id_provedor;
+        this.monto = monto;
+        this.id_metodo_de_pago = id_metodo_de_pago;
+        this.id_categeoria = id_categeoria;
+        this.id_detalle = id_detalle;
+        this.fecha_y_hora = new Timestamp(System.currentTimeMillis());
+        this.comentario = comentario;
+    }
+    
     public Gasto() {
         this.id = -1;
         this.fecha_y_hora = new Timestamp(System.currentTimeMillis());

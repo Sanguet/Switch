@@ -13,6 +13,7 @@ import java.util.List;
 import javax.swing.JDialog;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
+import pnls.AddsMenu.detalleGasto;
 import pnls.AddsMenu.nuevaCatGasto;
 
 /**
@@ -72,6 +73,10 @@ public class Gastos1 extends javax.swing.JPanel {
         }
     }
     
+    public static String categoria, provedor, fecha, metodo_de_pago, importe, detalle;
+    public static Gasto gasto_pasado;
+    public static Producto producto_pasado;
+    public static String producto;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -242,6 +247,11 @@ public class Gastos1 extends javax.swing.JPanel {
         jtGastos.setShowVerticalLines(false);
         jtGastos.getTableHeader().setResizingAllowed(false);
         jtGastos.getTableHeader().setReorderingAllowed(false);
+        jtGastos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtGastosMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jtGastos);
 
         Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, -1, -1));
@@ -336,6 +346,34 @@ public class Gastos1 extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
+
+    private void jtGastosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtGastosMouseClicked
+        int fila = this.jtGastos.getSelectedRow();
+        
+        categoria = jtGastos.getValueAt(fila, 0).toString();
+        provedor = jtGastos.getValueAt(fila, 1).toString();
+        fecha = jtGastos.getValueAt(fila, 2).toString();
+        metodo_de_pago = jtGastos.getValueAt(fila, 3).toString();
+        importe = jtGastos.getValueAt(fila, 4).toString();
+        detalle = jtGastos.getValueAt(fila, 5).toString();
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Gasto_data gasto_data = new Gasto_data(con);
+            Detalle_de_venta_data detalle_de_venta_data = new Detalle_de_venta_data(con);
+            Producto_data producto_data = new Producto_data(con);
+            
+            gasto_pasado = gasto_data.getGasto_por_detalle(Integer.parseInt(detalle));
+            Detalle_de_venta detalle_pasado = detalle_de_venta_data.getDetalle_de_venta_por_id(Integer.parseInt(detalle));
+            try{
+                producto_pasado = producto_data.getProducto_por_id(detalle_pasado.getId_producto());
+            }catch(Exception e){
+                producto = "No existe este producto";
+            }
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "El produco o la categoria no existen");
+        }
+        new CambiaPanel(this.addMenu, new detalleGasto());
+    }//GEN-LAST:event_jtGastosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

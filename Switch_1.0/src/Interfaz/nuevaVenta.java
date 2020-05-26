@@ -318,6 +318,11 @@ public class nuevaVenta extends javax.swing.JDialog {
                 jtDetalleFocusLost(evt);
             }
         });
+        jtDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtDetalleMouseClicked(evt);
+            }
+        });
         jtDetalle.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jtDetalleKeyReleased(evt);
@@ -485,7 +490,10 @@ public class nuevaVenta extends javax.swing.JDialog {
     }//GEN-LAST:event_jtDescuentoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                            
+        DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
+        modelo.addRow(new Object []{nombre,Double.parseDouble(precio),1,Double.parseDouble("0"),Double.parseDouble(precio)});
+        jtDetalle.requestFocus();
+        total();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jbBorrarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarFilaActionPerformed
@@ -524,23 +532,29 @@ public class nuevaVenta extends javax.swing.JDialog {
                     
                     //Creacion de los detalles de ventas y las ventas
                     for (int i = 0; i < rows; i++){
+                        int cantidad_producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(i, 0).toString()).getCantidad();
+                        String cantidad_vendida = (String) jtDetalle.getValueAt(i, 2);
                         int id_producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(i, 0).toString()).getId();
-                        Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto,(Integer)jtDetalle.getValueAt(i, 2), (int)(double)jtDetalle.getValueAt(i, 3), (Double)jtDetalle.getValueAt(i, 4));
-                        ddvd.guardarDetalle_de_venta(detalle_de_venta);
-                        int id_detalle = ddvd.obtenerDetalle_de_venta().get(ddvd.obtenerDetalle_de_venta().size()-1).getId();
-                        int descuento = Integer.parseInt(jtDescuento.getText());
-                        Double total = Double.parseDouble(jtDetalle.getValueAt(i, 4).toString());
-                        Venta venta = new Venta(id_cliente, id_detalle, id_metodo_de_pago, total, descuento, comentario);
-                        if("Cuenta corriente".equals(jcbMetodo.getItemAt(indice2))){
-                            Cuenta_corriente cuenta_nueva = ccd.getCuenta_corriente_por_cliente(id_cliente);
-                            cuenta_nueva.setMonto(total * -1 + cuenta_nueva.getMonto());
-                            ccd.actualizarCuenta_corriente(cuenta_nueva);
-                        }   
-                        vd.guardarVenta(venta);
+                        Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto, Integer.parseInt(cantidad_vendida), (int)(double)jtDetalle.getValueAt(i, 3), (Double)jtDetalle.getValueAt(i, 4));
+                        if(cantidad_producto > Integer.parseInt(cantidad_vendida)){
+                            ddvd.guardarDetalle_de_venta(detalle_de_venta);
+                            int id_detalle = ddvd.obtenerDetalle_de_venta().get(ddvd.obtenerDetalle_de_venta().size()-1).getId();
+                            int descuento = Integer.parseInt(jtDescuento.getText());
+                            Double total = Double.parseDouble(jtDetalle.getValueAt(i, 4).toString());
+                            Venta venta = new Venta(id_cliente, id_detalle, id_metodo_de_pago, total, descuento, comentario);
+                            if("Cuenta corriente".equals(jcbMetodo.getItemAt(indice2))){
+                                Cuenta_corriente cuenta_nueva = ccd.getCuenta_corriente_por_cliente(id_cliente);
+                                cuenta_nueva.setMonto(total * -1 + cuenta_nueva.getMonto());
+                                ccd.actualizarCuenta_corriente(cuenta_nueva);
+                            }
+                            pd.actualizarStock_por_id_producto(cantidad_producto - detalle_de_venta.getCantidad(), id_producto);
+                            
+                            vd.guardarVenta(venta);
+                            JOptionPane.showMessageDialog(null, "Felicidades, venta finalizada");
+                        } else {
+                            JOptionPane.showMessageDialog(null, "La venta fue cancelada porque no tienes suficiente stock de " + jtDetalle.getValueAt(i, 0).toString());
+                        }
                     }
-                    
-                    
-                    JOptionPane.showMessageDialog(null, "Felicidades, venta finalizada");
                     
                     Inicio.jlFondo.setVisible(false);
                     this.setVisible(false);
@@ -571,7 +585,6 @@ public class nuevaVenta extends javax.swing.JDialog {
             modelo.addRow(new Object []{nombre,Double.parseDouble(precio),1,Double.parseDouble("0"),Double.parseDouble(precio)});
             jtDetalle.requestFocus();
             total();
-            
         }
     }//GEN-LAST:event_jtProductosKeyTyped
 
@@ -584,8 +597,6 @@ public class nuevaVenta extends javax.swing.JDialog {
     }//GEN-LAST:event_jtProductosMouseClicked
 
     private void jtDetalleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusGained
-        jtDetalle.setColumnSelectionAllowed(true);
-        jtDetalle.setCellSelectionEnabled(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jtDetalleFocusGained
 
     private void jtDetalleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusLost
@@ -595,19 +606,23 @@ public class nuevaVenta extends javax.swing.JDialog {
     private void jtDetalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDetalleKeyReleased
         char c = evt.getKeyChar();
             if (c == KeyEvent.VK_ENTER){
-                int fila = this.jtDetalle.getSelectedRow();
-                int cantidad = (Integer)(jtDetalle.getValueAt(fila, 2));
-                double descuento;
-                if((Double)jtDetalle.getValueAt(fila, 3) == 0){
-                    descuento = 1;
-                } else {
-                    descuento = Math.abs(((Double)jtDetalle.getValueAt(fila, 3) / 100) - 1);
+                try{
+                    int fila = this.jtDetalle.getSelectedRow();
+                    String cantidad =  (String) jtDetalle.getValueAt(fila, 2);
+                    double descuento;
+                    if((Double)jtDetalle.getValueAt(fila, 3) == 0){
+                        descuento = 1;
+                    } else {
+                        descuento = Math.abs(((Double)jtDetalle.getValueAt(fila, 3) / 100) - 1);
+                    }
+                    Double precio_base = (Double)jtDetalle.getValueAt(fila, 1);
+                    double sub_total = precio_base * descuento * Integer.parseInt(cantidad);
+                    jtDetalle.setValueAt(sub_total , fila, 4);
+                    total();
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"Error desconocido " + e);
                 }
-                Double precio_base = (Double)jtDetalle.getValueAt(fila, 1);
-                double sub_total = precio_base * descuento * cantidad;
-                jtDetalle.setValueAt(sub_total , fila, 4);
-                total();
-        }        // TODO add your handling code here:
+        }
     }//GEN-LAST:event_jtDetalleKeyReleased
 
     private void jcbProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProductoActionPerformed
@@ -628,6 +643,9 @@ public class nuevaVenta extends javax.swing.JDialog {
         }
         jtProductos.setEnabled(true);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jtDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDetalleMouseClicked
+    }//GEN-LAST:event_jtDetalleMouseClicked
 
     /**
      * @param args the command line arguments

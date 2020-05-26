@@ -5,6 +5,13 @@
  */
 package pnls.AddsMenu;
 
+import Clases.Conexion;
+import Clases_data.Gasto_data;
+import Clases_data.Venta_data;
+import javax.swing.JOptionPane;
+import pnls.Gastos1;
+import pnls.Ventas1;
+
 /**
  *
  * @author Alex
@@ -16,6 +23,19 @@ public class detalleGasto extends javax.swing.JPanel {
      */
     public detalleGasto() {
         initComponents();
+        
+        String fecha = Gastos1.fecha;
+        fecha = fecha.substring(0, fecha.length() - 10); 
+        jlFecha.setText(fecha);
+        String hora = Gastos1.fecha;
+        hora = hora.substring(10, hora.length()); 
+        jlHora.setText(hora);
+        
+        this.jlCategoria.setText(Gastos1.categoria);
+        this.jlProvedor.setText(Gastos1.provedor);
+        this.jlMetodo.setText(Gastos1.metodo_de_pago);
+        this.jlTotal.setText(Gastos1.importe);
+        this.jtaDetalle.setText(Gastos1.producto_pasado.getNombre());
     }
 
     /**
@@ -29,23 +49,23 @@ public class detalleGasto extends javax.swing.JPanel {
 
         addMenu = new javax.swing.JPanel();
         form = new javax.swing.JPanel();
-        fecha = new javax.swing.JLabel();
-        borrar = new javax.swing.JButton();
-        hora = new javax.swing.JLabel();
+        jlFecha = new javax.swing.JLabel();
+        jbBorrar = new javax.swing.JButton();
+        jlHora = new javax.swing.JLabel();
         tituloCategoria = new javax.swing.JLabel();
         tituloProvedor = new javax.swing.JLabel();
         tituloProductos = new javax.swing.JLabel();
         tituloMetodo = new javax.swing.JLabel();
         comentario = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        jtaComentairo = new javax.swing.JTextArea();
         detalle = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        provedor = new javax.swing.JLabel();
-        metodo = new javax.swing.JLabel();
-        categoria = new javax.swing.JLabel();
+        jtaDetalle = new javax.swing.JTextArea();
+        jlProvedor = new javax.swing.JLabel();
+        jlMetodo = new javax.swing.JLabel();
+        jlCategoria = new javax.swing.JLabel();
         tituloCometario = new javax.swing.JLabel();
         jlTotal = new javax.swing.JLabel();
-        categoria1 = new javax.swing.JLabel();
+        jlImporte = new javax.swing.JLabel();
         tituloAddMenu = new javax.swing.JLabel();
 
         addMenu.setBackground(new java.awt.Color(46, 182, 125));
@@ -55,28 +75,28 @@ public class detalleGasto extends javax.swing.JPanel {
         form.setBackground(new java.awt.Color(14, 21, 30));
         form.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        fecha.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
-        fecha.setForeground(new java.awt.Color(255, 255, 255));
-        fecha.setText("DD/MM/AA");
-        fecha.setPreferredSize(new java.awt.Dimension(150, 30));
-        form.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 11, -1, -1));
+        jlFecha.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
+        jlFecha.setForeground(new java.awt.Color(255, 255, 255));
+        jlFecha.setText("DD/MM/AA");
+        jlFecha.setPreferredSize(new java.awt.Dimension(150, 30));
+        form.add(jlFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 11, -1, -1));
 
-        borrar.setBackground(new java.awt.Color(46, 182, 125));
-        borrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/borrar.png"))); // NOI18N
-        borrar.setBorderPainted(false);
-        borrar.setPreferredSize(new java.awt.Dimension(30, 30));
-        borrar.addActionListener(new java.awt.event.ActionListener() {
+        jbBorrar.setBackground(new java.awt.Color(46, 182, 125));
+        jbBorrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/borrar.png"))); // NOI18N
+        jbBorrar.setBorderPainted(false);
+        jbBorrar.setPreferredSize(new java.awt.Dimension(30, 30));
+        jbBorrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                borrarActionPerformed(evt);
+                jbBorrarActionPerformed(evt);
             }
         });
-        form.add(borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 49, -1, -1));
+        form.add(jbBorrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 49, -1, -1));
 
-        hora.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
-        hora.setForeground(new java.awt.Color(255, 255, 255));
-        hora.setText("00:00:00");
-        hora.setPreferredSize(new java.awt.Dimension(150, 30));
-        form.add(hora, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 47, -1, -1));
+        jlHora.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
+        jlHora.setForeground(new java.awt.Color(255, 255, 255));
+        jlHora.setText("00:00:00");
+        jlHora.setPreferredSize(new java.awt.Dimension(150, 30));
+        form.add(jlHora, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 47, -1, -1));
 
         tituloCategoria.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tituloCategoria.setForeground(new java.awt.Color(46, 182, 125));
@@ -100,44 +120,44 @@ public class detalleGasto extends javax.swing.JPanel {
 
         comentario.setPreferredSize(new java.awt.Dimension(237, 80));
 
-        jTextArea1.setEditable(false);
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setSelectionColor(new java.awt.Color(46, 182, 125));
-        comentario.setViewportView(jTextArea1);
+        jtaComentairo.setEditable(false);
+        jtaComentairo.setColumns(20);
+        jtaComentairo.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentairo.setLineWrap(true);
+        jtaComentairo.setRows(5);
+        jtaComentairo.setSelectionColor(new java.awt.Color(46, 182, 125));
+        comentario.setViewportView(jtaComentairo);
 
         form.add(comentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 453, -1, 134));
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("1x Producto1 \n1x Producto3 \n1x Producto4 \n1x Producto5 \n3x Producto2\n\n\n\n\n");
-        jTextArea2.setSelectionColor(new java.awt.Color(46, 182, 125));
-        detalle.setViewportView(jTextArea2);
+        jtaDetalle.setEditable(false);
+        jtaDetalle.setColumns(20);
+        jtaDetalle.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jtaDetalle.setLineWrap(true);
+        jtaDetalle.setRows(5);
+        jtaDetalle.setText("1x Producto1 \n1x Producto3 \n1x Producto4 \n1x Producto5 \n3x Producto2\n\n\n\n\n");
+        jtaDetalle.setSelectionColor(new java.awt.Color(46, 182, 125));
+        detalle.setViewportView(jtaDetalle);
 
         form.add(detalle, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 223, 239, 191));
 
-        provedor.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        provedor.setForeground(new java.awt.Color(255, 255, 255));
-        provedor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        provedor.setText("Provedor1");
-        form.add(provedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 153, 124, -1));
+        jlProvedor.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jlProvedor.setForeground(new java.awt.Color(255, 255, 255));
+        jlProvedor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlProvedor.setText("Provedor1");
+        form.add(jlProvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 153, 124, -1));
 
-        metodo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        metodo.setForeground(new java.awt.Color(255, 255, 255));
-        metodo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        metodo.setText("Contado");
-        form.add(metodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 181, 127, -1));
+        jlMetodo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jlMetodo.setForeground(new java.awt.Color(255, 255, 255));
+        jlMetodo.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlMetodo.setText("Contado");
+        form.add(jlMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(142, 181, 127, -1));
 
-        categoria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        categoria.setForeground(new java.awt.Color(255, 255, 255));
-        categoria.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        categoria.setText("Categoria1");
-        form.add(categoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 125, 124, -1));
+        jlCategoria.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jlCategoria.setForeground(new java.awt.Color(255, 255, 255));
+        jlCategoria.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlCategoria.setText("Categoria1");
+        form.add(jlCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 125, 124, -1));
 
         tituloCometario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tituloCometario.setForeground(new java.awt.Color(46, 182, 125));
@@ -149,11 +169,11 @@ public class detalleGasto extends javax.swing.JPanel {
         jlTotal.setText("Importe:");
         form.add(jlTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 98, 64, -1));
 
-        categoria1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        categoria1.setForeground(new java.awt.Color(255, 255, 255));
-        categoria1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        categoria1.setText("$  1000,00");
-        form.add(categoria1, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 97, 124, -1));
+        jlImporte.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jlImporte.setForeground(new java.awt.Color(255, 255, 255));
+        jlImporte.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jlImporte.setText("$  1000,00");
+        form.add(jlImporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 97, 124, -1));
 
         addMenu.add(form, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 300, 650));
 
@@ -182,26 +202,40 @@ public class detalleGasto extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void borrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_borrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_borrarActionPerformed
+    private void jbBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBorrarActionPerformed
+        int msj = JOptionPane.showConfirmDialog(null,"¿Estas seguro de querer borrar este gasto?");
+        if(JOptionPane.YES_OPTION == msj){
+            try{
+                Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+                Gasto_data gasto_data = new Gasto_data(con);
+                gasto_data.borrarGasto_por_id_detalle(Integer.parseInt(Gastos1.detalle));
+
+                JOptionPane.showMessageDialog(null, "Se borro con exito el gasto" );
+
+                this.setVisible(false);
+
+            } catch (Exception e){
+                JOptionPane.showMessageDialog(null, "No se pudo borrar el gasto " + e.getMessage());
+            }
+        }
+    }//GEN-LAST:event_jbBorrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addMenu;
-    private javax.swing.JButton borrar;
-    private javax.swing.JLabel categoria;
-    private javax.swing.JLabel categoria1;
     private javax.swing.JScrollPane comentario;
     private javax.swing.JScrollPane detalle;
-    private javax.swing.JLabel fecha;
     private javax.swing.JPanel form;
-    private javax.swing.JLabel hora;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
+    private javax.swing.JButton jbBorrar;
+    private javax.swing.JLabel jlCategoria;
+    private javax.swing.JLabel jlFecha;
+    private javax.swing.JLabel jlHora;
+    private javax.swing.JLabel jlImporte;
+    private javax.swing.JLabel jlMetodo;
+    private javax.swing.JLabel jlProvedor;
     private javax.swing.JLabel jlTotal;
-    private javax.swing.JLabel metodo;
-    private javax.swing.JLabel provedor;
+    private javax.swing.JTextArea jtaComentairo;
+    private javax.swing.JTextArea jtaDetalle;
     private javax.swing.JLabel tituloAddMenu;
     private javax.swing.JLabel tituloCategoria;
     private javax.swing.JLabel tituloCometario;

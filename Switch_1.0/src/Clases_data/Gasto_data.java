@@ -68,6 +68,22 @@ public class Gasto_data {
         }
     }
     
+    public void borrarGasto_por_id_detalle(int id_detalle){
+        try{
+            String sql = "DELETE FROM gasto WHERE id_detalle = ?";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id_detalle);
+            
+            stmt.executeUpdate();
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al borrar el gasto " + ex.getMessage());
+        }
+    }
+    
     public void actualizarGasto(Gasto gasto){
         try{
             String sql = "UPDATE gasto SET id_provedor = ?, monto = ?, id_metodo_de_pago = ?, id_categoria = ?, id_detalle = ?, fecha_y_hora = ?, comentario = ? WHERE id_cliente = ?";
@@ -208,6 +224,27 @@ public class Gasto_data {
             System.out.println("Error al obtener los gastos: " + ex.getMessage());
         }
         return gastos;
+    }
+    
+    public Gasto getGasto_por_detalle(int id){
+        Gasto a = null;
+        try{
+            String sql = "SELECT g.id_gasto, p.id_provedor AS id_provedor, g.monto, m.Id_metodo AS metodo_de_pago, c.id_categoria AS categoria, d.id_detalle AS id_detalle, g.fecha_y_hora, g.comentario FROM provedor AS p, metodo_de_pago AS m, categoria AS c, detalle_de_venta AS d, gasto AS g WHERE p.id_provedor = g.id_provedor AND m.Id_metodo = g.id_metodo_de_pago AND c.id_categoria = g.id_categoria AND d.id_detalle = g.id_detalle AND g.id_detalle = ? ORDER BY g.fecha_y_hora DESC;";
+            
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, id);
+            
+            ResultSet rs = stmt.executeQuery();
+            
+            rs.next();
+            a = new Gasto(rs.getInt(1),rs.getInt(2),rs.getDouble(3),rs.getInt(4),rs.getInt(5),rs.getInt(6),rs.getTimestamp(7), rs.getString(8));
+            
+            stmt.close();
+        }
+        catch(SQLException ex){
+            System.out.println("Error al obtener el gasto" + ex.getMessage());
+        }
+        return a;
     }
     
     //Busquedas
