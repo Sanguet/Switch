@@ -292,6 +292,7 @@ public class nuevoProvedor extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Felicidades, provedor agregado");
 
                     this.setVisible(false);
+                    Provedores1.addMenu.add(Provedores1.jlBackground);
                     con.close();
                 }else{
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el provedor, un campo quedo sin rellenar");

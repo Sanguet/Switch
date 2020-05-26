@@ -11,7 +11,6 @@ import Clases.Conexion;
 import Clases_data.Cliente_data;
 import Interfaz.Inicio;
 import Interfaz.nuevaTransaccion;
-import Interfaz.nuevoStock;
 import java.awt.Color;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -280,6 +279,7 @@ public class detalleCliente extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Se actualizo con exito el Cliente" );
 
                 this.setVisible(false);
+                Clientes1.addMenu.add(Clientes1.jlBackground);
 
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
@@ -298,6 +298,7 @@ public class detalleCliente extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Se borro con exito el Cliente" );
 
                 this.setVisible(false);
+                Clientes1.addMenu.add(Clientes1.jlBackground);
 
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());

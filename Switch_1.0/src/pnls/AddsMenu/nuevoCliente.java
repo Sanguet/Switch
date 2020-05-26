@@ -14,9 +14,7 @@ import Clases_data.Cliente_data;
 import Clases_data.Cuenta_corriente_data;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
-import java.util.List;
 import javax.swing.JOptionPane;
-import pnls.AddsMenu.nuevoCliente;
 public class nuevoCliente extends javax.swing.JPanel {
 
     /**
@@ -369,12 +367,8 @@ public class nuevoCliente extends javax.swing.JPanel {
                     ccd.guardarCuenta_corriente(cuenta_corriente);
                     JOptionPane.showMessageDialog(null, "Felicidades, cliente agregado");
 
-                    List<Cliente> lista = cliente_data.obtenerClientes();
-                    List<Cuenta_corriente> lista2 = ccd.obtenerCuentas_corriente();
-
-                    ventana_cliente.mostrarLista(lista, lista2);
                     this.setVisible(false);
-
+                    Clientes1.addMenu.add(Clientes1.jlBackground);
                     con.close();
                 }else{
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el cliente, un campo quedo sin rellenar");

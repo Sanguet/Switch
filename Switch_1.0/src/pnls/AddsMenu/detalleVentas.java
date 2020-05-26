@@ -197,6 +197,7 @@ public class detalleVentas extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Se borro con exito la venta" );
 
                 this.setVisible(false);
+                Ventas1.addMenu.add(Ventas1.jlBackground);
 
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, "No se pudo borrar la venta " + e.getMessage());

@@ -137,7 +137,7 @@ public class Categoria_data {
             stmt.close();
         }
         catch(SQLException ex){
-            System.out.println("Error al obtener la cateogira" + ex.getMessage());
+            System.out.println("Error al obtener la cateogira " + ex.getMessage());
         }
         return a;
     }

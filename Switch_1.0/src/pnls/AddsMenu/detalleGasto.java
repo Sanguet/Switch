@@ -213,6 +213,7 @@ public class detalleGasto extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Se borro con exito el gasto" );
 
                 this.setVisible(false);
+                Gastos1.addMenu.add(Gastos1.jlBackground);
 
             } catch (Exception e){
                 JOptionPane.showMessageDialog(null, "No se pudo borrar el gasto " + e.getMessage());

@@ -379,7 +379,7 @@ public class Gastos1 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
     private javax.swing.JPanel Titulo;
-    private javax.swing.JPanel addMenu;
+    public static javax.swing.JPanel addMenu;
     private newscomponents.RSDateChooserModern dtDesde;
     private newscomponents.RSDateChooserModern dtHasta;
     private javax.swing.JLabel jLabel5;
@@ -391,7 +391,7 @@ public class Gastos1 extends javax.swing.JPanel {
     private rsbuttoncustom.RSButtonCustom jbNuevo_gasto;
     private RSMaterialComponent.RSComboBoxMaterial jcb;
     private RSMaterialComponent.RSComboBoxMaterial jcb1;
-    private javax.swing.JLabel jlBackground;
+    public static javax.swing.JLabel jlBackground;
     private javax.swing.JLabel jlTituloDesde;
     private javax.swing.JLabel jlTituloHasta;
     private javax.swing.JTable jtGastos;

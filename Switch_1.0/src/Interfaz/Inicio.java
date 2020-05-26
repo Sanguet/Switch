@@ -89,6 +89,8 @@ public class Inicio extends javax.swing.JFrame{
         jbVentas.setMaximumSize(new java.awt.Dimension(70, 70));
         jbVentas.setMinimumSize(new java.awt.Dimension(70, 70));
         jbVentas.setPreferredSize(new java.awt.Dimension(70, 70));
+        jbVentas.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta1.png"))); // NOI18N
+        jbVentas.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/Venta1.png"))); // NOI18N
         jbVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbVentasActionPerformed(evt);

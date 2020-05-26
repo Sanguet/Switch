@@ -365,7 +365,7 @@ public class Ventas1 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
     private javax.swing.JPanel Titulo;
-    private javax.swing.JPanel addMenu;
+    public static javax.swing.JPanel addMenu;
     private newscomponents.RSDateChooserModern dtDesde;
     private newscomponents.RSDateChooserModern dtHasta;
     private javax.swing.JLabel jLabel5;
@@ -377,7 +377,7 @@ public class Ventas1 extends javax.swing.JPanel {
     private rsbuttoncustom.RSButtonCustom jbNueva_venta;
     private RSMaterialComponent.RSComboBoxMaterial jcbCliente;
     private RSMaterialComponent.RSComboBoxMaterial jcbMetodo;
-    private javax.swing.JLabel jlBackground;
+    public static javax.swing.JLabel jlBackground;
     private javax.swing.JLabel jlTituloDesde;
     private javax.swing.JLabel jlTituloHasta;
     private javax.swing.JTable jtVentas;

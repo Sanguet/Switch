@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import Clases.*;
 import javax.swing.JTextField;
+import pnls.Gastos1;
 public class nuevaCatGasto extends javax.swing.JPanel {
 
     /**
@@ -160,6 +161,7 @@ public class nuevaCatGasto extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Felicidades, categoria agregado");
 
                     this.setVisible(false);
+                    Gastos1.addMenu.add(Gastos1.jlBackground);
 
                     con.close();
                     

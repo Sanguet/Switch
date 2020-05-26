@@ -23,6 +23,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import pnls.Gastos1;
 
 /**
  *
@@ -613,12 +614,12 @@ public class nuevoGasto extends javax.swing.JDialog {
                     
 
                     //Variables de venta
-                    int indice = jcbMetodo.getSelectedIndex();
+                    int indice = jcbCategoria.getSelectedIndex();
                     int indice2 = jcbMetodo.getSelectedIndex();
                     int indice3 = jcbProvedor.getSelectedIndex();
                     Metodo_de_pago_data mdpd = new Metodo_de_pago_data(con);
                     
-                    int id_categoria = cd.getCategoria_por_nombre(String.valueOf(jcbMetodo.getItemAt(indice))).getId();
+                    int id_categoria = cd.getCategoria_por_nombre(String.valueOf(jcbCategoria.getItemAt(indice))).getId();
                     int id_metodo_de_pago = mdpd.getMetodo_de_pago_por_nombre(String.valueOf(jcbMetodo.getItemAt(indice2))).getId();
                     int id_provedor = pvd.getProvedor_por_nombre(String.valueOf(jcbProvedor.getItemAt(indice3))).getId();
                     String comentario = jtaComentario.getText();
@@ -644,7 +645,7 @@ public class nuevoGasto extends javax.swing.JDialog {
                         Producto producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(i, 0).toString());
                         int id_producto = producto.getId();
                         int cantidad_producto = producto.getCantidad();
-                        Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto,(Integer)jtDetalle.getValueAt(i, 2), (int)(double)jtDetalle.getValueAt(i, 3), (Double)jtDetalle.getValueAt(i, 4));
+                        Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto,Integer.parseInt(jtDetalle.getValueAt(i, 2).toString()), (int)(Double.parseDouble(jtDetalle.getValueAt(i, 3).toString())), Double.parseDouble(jtDetalle.getValueAt(i, 4).toString()));
                         ddvd.guardarDetalle_de_venta(detalle_de_venta);
                         int id_detalle = ddvd.obtenerDetalle_de_venta().get(ddvd.obtenerDetalle_de_venta().size()-1).getId();
                         int descuento = Integer.parseInt(jtDescuento.getText());
@@ -659,6 +660,7 @@ public class nuevoGasto extends javax.swing.JDialog {
 
                     Inicio.jlFondo.setVisible(false);
                     this.setVisible(false);
+                    Gastos1.addMenu.add(Gastos1.jlBackground);
 
                     con.close();
                 }else{

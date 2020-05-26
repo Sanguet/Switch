@@ -23,6 +23,7 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
+import pnls.Ventas1;
 
 public class nuevaVenta extends javax.swing.JDialog {
 
@@ -552,6 +553,7 @@ public class nuevaVenta extends javax.swing.JDialog {
                             
                             Inicio.jlFondo.setVisible(false);
                             this.setVisible(false);
+                            Ventas1.addMenu.add(Ventas1.jlBackground);
                         } else {
                             JOptionPane.showMessageDialog(null, "La venta fue cancelada porque no tienes suficiente stock de " + jtDetalle.getValueAt(i, 0).toString());
                         }

@@ -11,8 +11,6 @@ import Clases.Conexion;
 import Clases.Cuenta_corriente;
 import Clases_data.Cliente_data;
 import Clases_data.Cuenta_corriente_data;
-import java.awt.Color;
-import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
@@ -30,7 +28,6 @@ public class Clientes1 extends javax.swing.JPanel {
      */
     public Clientes1() {
         initComponents();
-        this.addMenu.setVisible(true);
         
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
@@ -377,7 +374,7 @@ public class Clientes1 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
     private javax.swing.JPanel Titulo;
-    private javax.swing.JPanel addMenu;
+    public static javax.swing.JPanel addMenu;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
@@ -387,7 +384,7 @@ public class Clientes1 extends javax.swing.JPanel {
     private RSMaterialComponent.RSComboBoxMaterial jcbBox;
     private RSMaterialComponent.RSComboBoxMaterial jcbNombre;
     private RSMaterialComponent.RSComboBoxMaterial jcbSaldo;
-    private javax.swing.JLabel jlBackground;
+    public static javax.swing.JLabel jlBackground;
     private javax.swing.JTable jtClientes;
     // End of variables declaration//GEN-END:variables
 }
