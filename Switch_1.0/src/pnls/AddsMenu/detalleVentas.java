@@ -25,7 +25,7 @@ public class detalleVentas extends javax.swing.JPanel {
         fecha = fecha.substring(0, fecha.length() - 10); 
         jlFecha.setText(fecha);
         String hora = Ventas1.fecha;
-        hora = hora.substring(10, hora.length()); 
+        hora = hora.substring(11, hora.length()); 
         jlHora.setText(hora);
         
         this.jlNombrecliente.setText(Ventas1.cliente);

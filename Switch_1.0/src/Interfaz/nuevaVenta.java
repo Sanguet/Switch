@@ -398,11 +398,11 @@ public class nuevaVenta extends javax.swing.JDialog {
 
             },
             new String [] {
-                "Categoria", "Codigo", "Nombre", "Costo", "Precio", "Stock"
+                "Codigo", "Nombre", "Costo", "Precio", "Stock"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -440,12 +440,10 @@ public class nuevaVenta extends javax.swing.JDialog {
         jScrollPane2.setViewportView(jtProductos);
         if (jtProductos.getColumnModel().getColumnCount() > 0) {
             jtProductos.getColumnModel().getColumn(0).setResizable(false);
-            jtProductos.getColumnModel().getColumn(0).setPreferredWidth(120);
-            jtProductos.getColumnModel().getColumn(1).setResizable(false);
-            jtProductos.getColumnModel().getColumn(1).setPreferredWidth(50);
-            jtProductos.getColumnModel().getColumn(2).setPreferredWidth(150);
-            jtProductos.getColumnModel().getColumn(5).setResizable(false);
-            jtProductos.getColumnModel().getColumn(5).setPreferredWidth(50);
+            jtProductos.getColumnModel().getColumn(0).setPreferredWidth(50);
+            jtProductos.getColumnModel().getColumn(1).setPreferredWidth(150);
+            jtProductos.getColumnModel().getColumn(4).setResizable(false);
+            jtProductos.getColumnModel().getColumn(4).setPreferredWidth(50);
         }
 
         listaProductos.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));

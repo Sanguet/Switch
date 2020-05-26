@@ -27,6 +27,7 @@ public class Provedores1 extends javax.swing.JPanel {
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
+        
     }
     
     public void mostrarLista(List<Provedor> lista){
@@ -75,7 +76,7 @@ public class Provedores1 extends javax.swing.JPanel {
         jtProvedores = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jbActualizar = new newscomponents.RSButtonFlat_new();
-        jcbCliente = new RSMaterialComponent.RSComboBoxMaterial();
+        jcbNombre = new RSMaterialComponent.RSComboBoxMaterial();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -188,6 +189,7 @@ public class Provedores1 extends javax.swing.JPanel {
         });
         jtProvedores.setRowHeight(30);
         jtProvedores.setSelectionBackground(new java.awt.Color(46, 182, 125));
+        jtProvedores.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtProvedores.setShowGrid(true);
         jtProvedores.setShowVerticalLines(false);
         jtProvedores.getTableHeader().setResizingAllowed(false);
@@ -217,14 +219,15 @@ public class Provedores1 extends javax.swing.JPanel {
         });
         jPanel1.add(jbActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, -1, -1));
 
-        jcbCliente.setBackground(new java.awt.Color(14, 21, 30));
-        jcbCliente.setForeground(new java.awt.Color(255, 255, 255));
-        jcbCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Nombre" }));
-        jcbCliente.setColorMaterial(new java.awt.Color(46, 182, 125));
-        jcbCliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jcbCliente.setPreferredSize(new java.awt.Dimension(200, 30));
-        jcbCliente.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-        jPanel1.add(jcbCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+        jcbNombre.setBackground(new java.awt.Color(14, 21, 30));
+        jcbNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jcbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Nombre" }));
+        jcbNombre.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jcbNombre.setEnabled(false);
+        jcbNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbNombre.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcbNombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         Registro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -270,15 +273,15 @@ public class Provedores1 extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Registro;
     private javax.swing.JPanel Titulo;
-    private javax.swing.JPanel addMenu;
+    public static javax.swing.JPanel addMenu;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private newscomponents.RSButtonFlat_new jbActualizar;
     private rsbuttoncustom.RSButtonCustom jbNuevoProvedor;
-    private RSMaterialComponent.RSComboBoxMaterial jcbCliente;
-    private javax.swing.JLabel jlBackground;
+    private RSMaterialComponent.RSComboBoxMaterial jcbNombre;
+    public static javax.swing.JLabel jlBackground;
     private javax.swing.JTable jtProvedores;
     // End of variables declaration//GEN-END:variables
 }

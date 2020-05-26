@@ -11,6 +11,7 @@ import Clases_data.Provedor_data;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
+import pnls.Provedores1;
 public class nuevoProvedor extends javax.swing.JPanel {
 
     /**

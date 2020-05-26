@@ -278,6 +278,7 @@ public class Productos1 extends javax.swing.JPanel {
         jcbStock.setForeground(new java.awt.Color(255, 255, 255));
         jcbStock.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Stock" }));
         jcbStock.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jcbStock.setEnabled(false);
         jcbStock.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbStock.setPreferredSize(new java.awt.Dimension(200, 30));
         jcbStock.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
@@ -287,6 +288,7 @@ public class Productos1 extends javax.swing.JPanel {
         jcbCategoria.setForeground(new java.awt.Color(255, 255, 255));
         jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Categoria" }));
         jcbCategoria.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jcbCategoria.setEnabled(false);
         jcbCategoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbCategoria.setPreferredSize(new java.awt.Dimension(200, 30));
         jcbCategoria.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
@@ -296,6 +298,7 @@ public class Productos1 extends javax.swing.JPanel {
         jcbCodigo.setForeground(new java.awt.Color(255, 255, 255));
         jcbCodigo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Codigo" }));
         jcbCodigo.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jcbCodigo.setEnabled(false);
         jcbCodigo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbCodigo.setPreferredSize(new java.awt.Dimension(200, 30));
         jcbCodigo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
@@ -305,6 +308,7 @@ public class Productos1 extends javax.swing.JPanel {
         jcbNombre.setForeground(new java.awt.Color(255, 255, 255));
         jcbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Nombre" }));
         jcbNombre.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jcbNombre.setEnabled(false);
         jcbNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbNombre.setPreferredSize(new java.awt.Dimension(200, 30));
         jcbNombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);

@@ -60,9 +60,9 @@ public class Inicio extends javax.swing.JFrame{
         jbOpciones = new javax.swing.JButton();
         panelBase = new javax.swing.JPanel();
         ventana = new javax.swing.JPanel();
-        jbCerrar1 = new javax.swing.JButton();
+        jbMin = new javax.swing.JButton();
         jbCerrar = new javax.swing.JButton();
-        jbCerrar2 = new javax.swing.JButton();
+        jbMax = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Home");
@@ -84,7 +84,7 @@ public class Inicio extends javax.swing.JFrame{
         jbVentas.setBackground(new java.awt.Color(14, 21, 30));
         jbVentas.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jbVentas.setForeground(new java.awt.Color(255, 255, 255));
-        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/VentasA.png"))); // NOI18N
+        jbVentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/Bar/VentaA.png"))); // NOI18N
         jbVentas.setBorderPainted(false);
         jbVentas.setMaximumSize(new java.awt.Dimension(70, 70));
         jbVentas.setMinimumSize(new java.awt.Dimension(70, 70));
@@ -242,21 +242,21 @@ public class Inicio extends javax.swing.JFrame{
         ventana.setPreferredSize(new java.awt.Dimension(1466, 25));
         ventana.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jbCerrar1.setBackground(new java.awt.Color(255, 255, 255));
-        jbCerrar1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jbCerrar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MinD.png"))); // NOI18N
-        jbCerrar1.setToolTipText("");
-        jbCerrar1.setBorderPainted(false);
-        jbCerrar1.setMaximumSize(new java.awt.Dimension(40, 25));
-        jbCerrar1.setMinimumSize(new java.awt.Dimension(40, 25));
-        jbCerrar1.setPreferredSize(new java.awt.Dimension(40, 25));
-        jbCerrar1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MinM.png"))); // NOI18N
-        jbCerrar1.addActionListener(new java.awt.event.ActionListener() {
+        jbMin.setBackground(new java.awt.Color(255, 255, 255));
+        jbMin.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jbMin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MinD.png"))); // NOI18N
+        jbMin.setToolTipText("");
+        jbMin.setBorderPainted(false);
+        jbMin.setMaximumSize(new java.awt.Dimension(40, 25));
+        jbMin.setMinimumSize(new java.awt.Dimension(40, 25));
+        jbMin.setPreferredSize(new java.awt.Dimension(40, 25));
+        jbMin.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MinM.png"))); // NOI18N
+        jbMin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCerrar1ActionPerformed(evt);
+                jbMinActionPerformed(evt);
             }
         });
-        ventana.add(jbCerrar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1346, 0, -1, -1));
+        ventana.add(jbMin, new org.netbeans.lib.awtextra.AbsoluteConstraints(1346, 0, -1, -1));
 
         jbCerrar.setBackground(new java.awt.Color(255, 255, 255));
         jbCerrar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -275,21 +275,21 @@ public class Inicio extends javax.swing.JFrame{
         });
         ventana.add(jbCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1426, 0, -1, -1));
 
-        jbCerrar2.setBackground(new java.awt.Color(239, 239, 239));
-        jbCerrar2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jbCerrar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxD.png"))); // NOI18N
-        jbCerrar2.setToolTipText("");
-        jbCerrar2.setBorderPainted(false);
-        jbCerrar2.setMaximumSize(new java.awt.Dimension(40, 25));
-        jbCerrar2.setMinimumSize(new java.awt.Dimension(40, 25));
-        jbCerrar2.setPreferredSize(new java.awt.Dimension(40, 25));
-        jbCerrar2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxM.png"))); // NOI18N
-        jbCerrar2.addActionListener(new java.awt.event.ActionListener() {
+        jbMax.setBackground(new java.awt.Color(239, 239, 239));
+        jbMax.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jbMax.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxD.png"))); // NOI18N
+        jbMax.setToolTipText("");
+        jbMax.setBorderPainted(false);
+        jbMax.setMaximumSize(new java.awt.Dimension(40, 25));
+        jbMax.setMinimumSize(new java.awt.Dimension(40, 25));
+        jbMax.setPreferredSize(new java.awt.Dimension(40, 25));
+        jbMax.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/MaxM.png"))); // NOI18N
+        jbMax.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbCerrar2ActionPerformed(evt);
+                jbMaxActionPerformed(evt);
             }
         });
-        ventana.add(jbCerrar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1386, 0, -1, -1));
+        ventana.add(jbMax, new org.netbeans.lib.awtextra.AbsoluteConstraints(1386, 0, -1, -1));
 
         getContentPane().add(ventana, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 0, -1, -1));
 
@@ -360,13 +360,13 @@ public class Inicio extends javax.swing.JFrame{
         System.exit(0);
     }//GEN-LAST:event_jbCerrarActionPerformed
 
-    private void jbCerrar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrar1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbCerrar1ActionPerformed
+    private void jbMinActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMinActionPerformed
+        this.setExtendedState(ICONIFIED);
+    }//GEN-LAST:event_jbMinActionPerformed
 
-    private void jbCerrar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrar2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbCerrar2ActionPerformed
+    private void jbMaxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbMaxActionPerformed
+        this.setExtendedState(MAXIMIZED_BOTH);
+    }//GEN-LAST:event_jbMaxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -406,11 +406,11 @@ public class Inicio extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jbCerrar;
-    private javax.swing.JButton jbCerrar1;
-    private javax.swing.JButton jbCerrar2;
     private javax.swing.JButton jbClientes;
     private javax.swing.JButton jbGastos;
     private javax.swing.JButton jbInicio;
+    private javax.swing.JButton jbMax;
+    private javax.swing.JButton jbMin;
     private javax.swing.JButton jbOpciones;
     private javax.swing.JButton jbProductos;
     private javax.swing.JButton jbProvedores;

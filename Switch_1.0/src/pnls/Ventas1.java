@@ -32,6 +32,7 @@ public class Ventas1 extends javax.swing.JPanel {
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
+        jbArqueo.setVisible(false);
     }
     
     public void mostrarLista(List<Venta> lista){
@@ -145,9 +146,9 @@ public class Ventas1 extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 685, Short.MAX_VALUE)
-                .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jbArqueo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jbNueva_venta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );
         TituloLayout.setVerticalGroup(
@@ -227,6 +228,7 @@ public class Ventas1 extends javax.swing.JPanel {
         });
         jtVentas.setRowHeight(30);
         jtVentas.setSelectionBackground(new java.awt.Color(224, 30, 90));
+        jtVentas.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jtVentas.setShowGrid(true);
         jtVentas.setShowVerticalLines(false);
         jtVentas.getTableHeader().setResizingAllowed(false);
@@ -245,6 +247,8 @@ public class Ventas1 extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dtHasta.setBackground(new java.awt.Color(14, 21, 30));
+        dtHasta.setEnabled(false);
+        dtHasta.setFocusable(false);
         dtHasta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         dtHasta.setFormatDate("dd/MM/yyyy");
         dtHasta.setMaximumSize(new java.awt.Dimension(140, 30));
@@ -260,6 +264,8 @@ public class Ventas1 extends javax.swing.JPanel {
         dtDesde.setBackground(new java.awt.Color(14, 21, 30));
         dtDesde.setToolTipText("");
         dtDesde.setDate(new java.util.Date(1577847600000L));
+        dtDesde.setEnabled(false);
+        dtDesde.setFocusable(false);
         dtDesde.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         dtDesde.setFormatDate("dd/MM/yyyy");
         dtDesde.setMaximumSize(new java.awt.Dimension(140, 30));
@@ -276,6 +282,7 @@ public class Ventas1 extends javax.swing.JPanel {
         jcbMetodo.setForeground(new java.awt.Color(255, 255, 255));
         jcbMetodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Metodo de pago" }));
         jcbMetodo.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jcbMetodo.setEnabled(false);
         jcbMetodo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbMetodo.setPreferredSize(new java.awt.Dimension(200, 30));
         jcbMetodo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
@@ -285,6 +292,7 @@ public class Ventas1 extends javax.swing.JPanel {
         jcbCliente.setForeground(new java.awt.Color(255, 255, 255));
         jcbCliente.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Cliente" }));
         jcbCliente.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jcbCliente.setEnabled(false);
         jcbCliente.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbCliente.setPreferredSize(new java.awt.Dimension(200, 30));
         jcbCliente.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);

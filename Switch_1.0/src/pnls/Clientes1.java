@@ -199,6 +199,7 @@ public class Clientes1 extends javax.swing.JPanel {
         jcbSaldo.setForeground(new java.awt.Color(255, 255, 255));
         jcbSaldo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Saldo", "Negativo", "Positivo" }));
         jcbSaldo.setColorMaterial(new java.awt.Color(54, 197, 240));
+        jcbSaldo.setEnabled(false);
         jcbSaldo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbSaldo.setPreferredSize(new java.awt.Dimension(200, 30));
         jcbSaldo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
@@ -208,6 +209,7 @@ public class Clientes1 extends javax.swing.JPanel {
         jcbNombre.setForeground(new java.awt.Color(255, 255, 255));
         jcbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Nombre" }));
         jcbNombre.setColorMaterial(new java.awt.Color(54, 197, 240));
+        jcbNombre.setEnabled(false);
         jcbNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbNombre.setPreferredSize(new java.awt.Dimension(200, 30));
         jcbNombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
@@ -217,6 +219,7 @@ public class Clientes1 extends javax.swing.JPanel {
         jcbBox.setForeground(new java.awt.Color(255, 255, 255));
         jcbBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Box" }));
         jcbBox.setColorMaterial(new java.awt.Color(54, 197, 240));
+        jcbBox.setEnabled(false);
         jcbBox.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbBox.setPreferredSize(new java.awt.Dimension(200, 30));
         jcbBox.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);

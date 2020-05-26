@@ -45,6 +45,7 @@ public class nuevoGasto extends javax.swing.JDialog {
         AutoCompleteDecorator.decorate(this.jcbProducto);
         agregarComboProvedores();
         AutoCompleteDecorator.decorate(this.jcbProvedor);
+        jcArqueo.setVisible(false);
     }
     
     //Metodos
@@ -220,33 +221,29 @@ public class nuevoGasto extends javax.swing.JDialog {
 
         menuGasto = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtDetalle = new javax.swing.JTable();
         jspComentario = new javax.swing.JScrollPane();
         jtaComentario = new javax.swing.JTextArea();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jcbCategoria = new javax.swing.JComboBox<>();
-        jcbProvedor = new javax.swing.JComboBox<>();
         jlPesos = new javax.swing.JLabel();
         jlPorcentaje = new javax.swing.JLabel();
         jlDescuento = new javax.swing.JLabel();
         jlTotal = new javax.swing.JLabel();
-        jlMetodo = new javax.swing.JLabel();
-        jcbMetodo = new javax.swing.JComboBox<>();
-        jlCategoria = new javax.swing.JLabel();
-        jlProvedor = new javax.swing.JLabel();
-        jlComentario = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         jtTotal = new javax.swing.JTextField();
         jtDescuento = new javax.swing.JTextField();
-        jbConfirmar = new javax.swing.JButton();
+        jbConfirmar = new newscomponents.RSButtonFlat_new();
+        jcbMetodo = new RSMaterialComponent.RSComboBoxMaterial();
+        jcbProvedor = new RSMaterialComponent.RSComboBoxMaterial();
+        jcbCategoria = new RSMaterialComponent.RSComboBoxMaterial();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtDetalle = new RSMaterialComponent.RSTableMetroCustom();
+        jcArqueo = new javax.swing.JCheckBox();
+        jbBorrarFila = new newscomponents.RSButtonFlat_new();
         listaProductos = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
-        jlProductos = new javax.swing.JLabel();
+        jcbProducto = new RSMaterialComponent.RSComboBoxMaterial();
+        jButton2 = new newscomponents.RSButtonFlat_new();
+        jButton1 = new newscomponents.RSButtonFlat_new();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtProductos = new javax.swing.JTable();
-        jcbProducto = new javax.swing.JComboBox<>();
-        jButton5 = new javax.swing.JButton();
+        jtProductos = new RSMaterialComponent.RSTableMetroCustom();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -260,89 +257,16 @@ public class nuevoGasto extends javax.swing.JDialog {
         jLabel2.setText("Nuevo Gasto");
         menuGasto.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 19, 165, -1));
 
-        jScrollPane1.setBorder(null);
-        jScrollPane1.setMaximumSize(new java.awt.Dimension(270, 500));
-        jScrollPane1.setMinimumSize(new java.awt.Dimension(270, 300));
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(270, 300));
-
-        jtDetalle.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Producto", "Precio", "Cantidad", "Descuento", "SubTotal"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.Double.class, java.lang.Integer.class, java.lang.Double.class, java.lang.Double.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
-        jtDetalle.setPreferredSize(new java.awt.Dimension(365, 625));
-        jtDetalle.setRowHeight(25);
-        jtDetalle.setShowGrid(true);
-        jtDetalle.setShowVerticalLines(false);
-        jtDetalle.getTableHeader().setResizingAllowed(false);
-        jtDetalle.getTableHeader().setReorderingAllowed(false);
-        jtDetalle.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jtDetalleFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                jtDetalleFocusLost(evt);
-            }
-        });
-        jtDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtDetalleMouseClicked(evt);
-            }
-        });
-        jtDetalle.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                jtDetalleKeyPressed(evt);
-            }
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jtDetalleKeyReleased(evt);
-            }
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtDetalleKeyTyped(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jtDetalle);
-
-        menuGasto.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 271, 450, 321));
-
         jtaComentario.setColumns(20);
-        jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jtaComentario.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jtaComentario.setLineWrap(true);
         jtaComentario.setRows(5);
+        jtaComentario.setText("Comentario");
+        jtaComentario.setToolTipText("");
         jtaComentario.setMinimumSize(new java.awt.Dimension(450, 50));
-        jtaComentario.setPreferredSize(new java.awt.Dimension(450, 50));
         jspComentario.setViewportView(jtaComentario);
 
         menuGasto.add(jspComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 194, 450, 66));
-
-        jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
-        jCheckBox1.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jCheckBox1.setSelected(true);
-        jCheckBox1.setText("Usar en arqueo");
-        jCheckBox1.setBorder(null);
-        jCheckBox1.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
-        jCheckBox1.setIconTextGap(10);
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
-            }
-        });
-        menuGasto.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 141, -1, -1));
-
-        jcbCategoria.setPreferredSize(new java.awt.Dimension(220, 27));
-        menuGasto.add(jcbCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 71, -1, 31));
-
-        menuGasto.add(jcbProvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 134, 220, 31));
 
         jlPesos.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jlPesos.setText("$");
@@ -359,33 +283,6 @@ public class nuevoGasto extends javax.swing.JDialog {
         jlTotal.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 18)); // NOI18N
         jlTotal.setText("Importe:");
         menuGasto.add(jlTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 603, 94, -1));
-
-        jlMetodo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jlMetodo.setText("Metodo de Pago");
-        menuGasto.add(jlMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 50, 98, -1));
-
-        jcbMetodo.setPreferredSize(new java.awt.Dimension(29, 27));
-        menuGasto.add(jcbMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(265, 71, 212, 31));
-
-        jlCategoria.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jlCategoria.setText("Seleccionar Categoria");
-        menuGasto.add(jlCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 50, 128, -1));
-
-        jlProvedor.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jlProvedor.setText("Seleccionar Provedor");
-        menuGasto.add(jlProvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 113, 128, -1));
-
-        jlComentario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jlComentario.setText("Comentario");
-        menuGasto.add(jlComentario, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 176, 128, -1));
-
-        jButton4.setText("Borrar fila");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        menuGasto.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 640, 90, 30));
 
         jtTotal.setEditable(false);
         jtTotal.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -417,11 +314,10 @@ public class nuevoGasto extends javax.swing.JDialog {
         });
         menuGasto.add(jtDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(292, 606, -1, -1));
 
-        jbConfirmar.setBackground(new java.awt.Color(224, 30, 90));
-        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jbConfirmar.setForeground(new java.awt.Color(255, 255, 255));
+        jbConfirmar.setBackground(new java.awt.Color(46, 182, 125));
+        jbConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/confirmar.png"))); // NOI18N
         jbConfirmar.setText("Confirmar");
-        jbConfirmar.setBorderPainted(false);
+        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jbConfirmar.setPreferredSize(new java.awt.Dimension(200, 35));
         jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -429,6 +325,121 @@ public class nuevoGasto extends javax.swing.JDialog {
             }
         });
         menuGasto.add(jbConfirmar, new org.netbeans.lib.awtextra.AbsoluteConstraints(277, 642, -1, -1));
+
+        jcbMetodo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Metodo de pago" }));
+        jcbMetodo.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jcbMetodo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbMetodo.setPreferredSize(new java.awt.Dimension(180, 30));
+        jcbMetodo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        menuGasto.add(jcbMetodo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 71, 220, -1));
+
+        jcbProvedor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Proveedor" }));
+        jcbProvedor.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jcbProvedor.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbProvedor.setPreferredSize(new java.awt.Dimension(180, 30));
+        jcbProvedor.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jcbProvedor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProvedorActionPerformed(evt);
+            }
+        });
+        menuGasto.add(jcbProvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 134, 220, -1));
+
+        jcbCategoria.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Seleccionar Categoria" }));
+        jcbCategoria.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jcbCategoria.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbCategoria.setPreferredSize(new java.awt.Dimension(180, 30));
+        jcbCategoria.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jcbCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbCategoriaActionPerformed(evt);
+            }
+        });
+        menuGasto.add(jcbCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 71, 220, -1));
+
+        jScrollPane1.setPreferredSize(new java.awt.Dimension(450, 321));
+
+        jtDetalle.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Producto", "Precio", "Cant.", "Desc.", "Subtotal"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, true, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jtDetalle.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS);
+        jtDetalle.setBackgoundHead(new java.awt.Color(14, 21, 30));
+        jtDetalle.setColorPrimaryText(new java.awt.Color(0, 0, 0));
+        jtDetalle.setColorSecondary(new java.awt.Color(255, 255, 255));
+        jtDetalle.setColorSecundaryText(new java.awt.Color(0, 0, 0));
+        jtDetalle.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtDetalle.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtDetalle.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtDetalle.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtDetalle.setForegroundHover(new java.awt.Color(0, 0, 0));
+        jtDetalle.setGridColor(new java.awt.Color(214, 214, 214));
+        jtDetalle.setHighHead(25);
+        jtDetalle.setRowHeight(40);
+        jtDetalle.setSelectionBackground(new java.awt.Color(46, 182, 125));
+        jtDetalle.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jtDetalle.setShowGrid(false);
+        jtDetalle.setShowHorizontalLines(true);
+        jtDetalle.getTableHeader().setReorderingAllowed(false);
+        jtDetalle.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jtDetalleFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jtDetalleFocusLost(evt);
+            }
+        });
+        jtDetalle.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jtDetalleMouseClicked(evt);
+            }
+        });
+        jtDetalle.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtDetalleKeyReleased(evt);
+            }
+        });
+        jScrollPane1.setViewportView(jtDetalle);
+        if (jtDetalle.getColumnModel().getColumnCount() > 0) {
+            jtDetalle.getColumnModel().getColumn(0).setResizable(false);
+            jtDetalle.getColumnModel().getColumn(0).setPreferredWidth(140);
+            jtDetalle.getColumnModel().getColumn(1).setResizable(false);
+            jtDetalle.getColumnModel().getColumn(2).setPreferredWidth(40);
+            jtDetalle.getColumnModel().getColumn(3).setPreferredWidth(50);
+            jtDetalle.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        menuGasto.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 271, -1, -1));
+
+        jcArqueo.setBackground(new java.awt.Color(255, 255, 255));
+        jcArqueo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcArqueo.setSelected(true);
+        jcArqueo.setText("Usar en arqueo");
+        jcArqueo.setBorder(null);
+        jcArqueo.setEnabled(false);
+        jcArqueo.setHorizontalTextPosition(javax.swing.SwingConstants.LEFT);
+        jcArqueo.setIconTextGap(10);
+        menuGasto.add(jcArqueo, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, -1, -1));
+
+        jbBorrarFila.setBackground(new java.awt.Color(14, 21, 30));
+        jbBorrarFila.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/borrar.png"))); // NOI18N
+        jbBorrarFila.setText("Borrar Fila");
+        jbBorrarFila.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbBorrarFila.setIconTextGap(3);
+        jbBorrarFila.setPreferredSize(new java.awt.Dimension(105, 30));
+        menuGasto.add(jbBorrarFila, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 134, -1, -1));
 
         getContentPane().add(menuGasto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -455,112 +466,48 @@ public class nuevoGasto extends javax.swing.JDialog {
         });
         listaProductos.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 0, -1, -1));
 
-        jlProductos.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jlProductos.setText("Seleccionar Productos");
-        listaProductos.add(jlProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 130, -1));
+        jcbProducto.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Buscar Producto" }));
+        jcbProducto.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jcbProducto.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbProducto.setOpaque(true);
+        jcbProducto.setPreferredSize(new java.awt.Dimension(260, 30));
+        jcbProducto.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jcbProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbProductoActionPerformed(evt);
+            }
+        });
+        listaProductos.add(jcbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 71, -1, -1));
+
+        jButton2.setBackground(new java.awt.Color(14, 21, 30));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/buscar.png"))); // NOI18N
+        jButton2.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jButton2.setIconTextGap(3);
+        jButton2.setPreferredSize(new java.awt.Dimension(30, 30));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        listaProductos.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, -1, -1));
+
+        jButton1.setBackground(new java.awt.Color(14, 21, 30));
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
+        jButton1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jButton1.setIconTextGap(3);
+        jButton1.setPreferredSize(new java.awt.Dimension(30, 30));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        listaProductos.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 70, 50, -1));
+
+        jScrollPane2.setPreferredSize(new java.awt.Dimension(670, 570));
 
         jtProductos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Codigo", "Nombre", "Costo", "Precio", "Stock"
@@ -574,10 +521,22 @@ public class nuevoGasto extends javax.swing.JDialog {
                 return canEdit [columnIndex];
             }
         });
-        jtProductos.setEnabled(false);
-        jtProductos.setPreferredSize(new java.awt.Dimension(365, 625));
-        jtProductos.setRowHeight(25);
-        jtProductos.setShowGrid(true);
+        jtProductos.setBackgoundHead(new java.awt.Color(14, 21, 30));
+        jtProductos.setBorderHead(null);
+        jtProductos.setColorPrimaryText(new java.awt.Color(0, 0, 0));
+        jtProductos.setColorSecondary(new java.awt.Color(255, 255, 255));
+        jtProductos.setColorSecundaryText(new java.awt.Color(0, 0, 0));
+        jtProductos.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtProductos.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtProductos.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtProductos.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        jtProductos.setForegroundHover(new java.awt.Color(0, 0, 0));
+        jtProductos.setGridColor(new java.awt.Color(214, 214, 214));
+        jtProductos.setHighHead(25);
+        jtProductos.setRowHeight(30);
+        jtProductos.setSelectionBackground(new java.awt.Color(46, 182, 125));
+        jtProductos.setShowGrid(false);
+        jtProductos.setShowHorizontalLines(true);
         jtProductos.getTableHeader().setResizingAllowed(false);
         jtProductos.getTableHeader().setReorderingAllowed(false);
         jtProductos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -592,27 +551,7 @@ public class nuevoGasto extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(jtProductos);
 
-        listaProductos.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, 670, 570));
-
-        jcbProducto.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                jcbProductoFocusGained(evt);
-            }
-        });
-        jcbProducto.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jcbProductoMouseEntered(evt);
-            }
-        });
-        listaProductos.add(jcbProducto, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, 260, 30));
-
-        jButton5.setText("Buscar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        listaProductos.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 70, 70, 30));
+        listaProductos.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
 
         getContentPane().add(listaProductos, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, -1, -1));
 
@@ -629,92 +568,6 @@ public class nuevoGasto extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
-    private void jtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductosMouseClicked
-        int indice = jcbCategoria.getSelectedIndex();
-        String categoria = jcbCategoria.getItemAt(indice);
-        /*Inicio de los servicios
-        if("Servicios".equals(categoria)){
-            int fila = this.jtProductos.getSelectedRow();
-            
-            nombre = jtProductos.getValueAt(fila, 0).toString();
-            precio = jtProductos.getValueAt(fila, 1).toString();
-        } else  {
-            
-        }*/
-        int fila = this.jtProductos.getSelectedRow();
-
-            nombre = jtProductos.getValueAt(fila, 1).toString();
-            precio = jtProductos.getValueAt(fila, 3).toString();
-            stock = jtProductos.getValueAt(fila, 4).toString();
-        
-    }//GEN-LAST:event_jtProductosMouseClicked
-
-    private void jtProductosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtProductosKeyTyped
-        char c = evt.getKeyChar();
-        if (c == KeyEvent.VK_ENTER){
-            int indice = jcbCategoria.getSelectedIndex();
-            String categoria = jcbCategoria.getItemAt(indice);
-            /*Inicio de los servicios
-            if("Servicios".equals(categoria)){
-                mostrarDetalleServicios();
-                DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
-                modelo.addRow(new Object []{nombre, precio});
-                jtDetalle.requestFocus();
-                total_servicios();
-            } else {
-                
-            }*/
-            DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
-                modelo.addRow(new Object []{nombre,Double.parseDouble(precio),1,Double.parseDouble("0"),Double.parseDouble(precio)});
-                jtDetalle.requestFocus();
-                total();
-        }
-    }//GEN-LAST:event_jtProductosKeyTyped
-
-    private void jtDetalleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusGained
-        jtDetalle.setColumnSelectionAllowed(true);
-        jtDetalle.setCellSelectionEnabled(true);
-    }//GEN-LAST:event_jtDetalleFocusGained
-
-    private void jtDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDetalleMouseClicked
-
-    }//GEN-LAST:event_jtDetalleMouseClicked
-
-    private void jtDetalleKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDetalleKeyPressed
-
-    }//GEN-LAST:event_jtDetalleKeyPressed
-
-    private void jtDetalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDetalleKeyReleased
-        char c = evt.getKeyChar();
-        if (c == KeyEvent.VK_ENTER){
-            int indice = jcbCategoria.getSelectedIndex();
-            String categoria = jcbCategoria.getItemAt(indice);
-            /*Inicio de los servicios
-            if("Servicios".equals(categoria)){
-                int fila = this.jtDetalle.getSelectedRow();
-                total_servicios();
-            } else {
-
-            }*/
-            int fila = this.jtDetalle.getSelectedRow();
-                int cantidad = (Integer)(jtDetalle.getValueAt(fila, 2));
-                double descuento;
-                if((Double)jtDetalle.getValueAt(fila, 3) == 0){
-                    descuento = 1;
-                } else {
-                    descuento = Math.abs(((Double)jtDetalle.getValueAt(fila, 3) / 100) - 1);
-                }
-                Double precio_base = (Double)jtDetalle.getValueAt(fila, 1);
-                double sub_total = precio_base * descuento * cantidad;
-                jtDetalle.setValueAt(sub_total , fila, 4);
-                total();
-        }
-    }//GEN-LAST:event_jtDetalleKeyReleased
-
-    private void jtDetalleKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDetalleKeyTyped
-
-    }//GEN-LAST:event_jtDetalleKeyTyped
-
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         try{
             DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
@@ -726,29 +579,6 @@ public class nuevoGasto extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Tienes que seleccionar una fila");
         }
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        int indice = jcbCategoria.getSelectedIndex();
-        String categoria = jcbCategoria.getItemAt(indice);
-        /*Inicio de los servicios
-        if("Servicios".equals(categoria)){
-            mostrarListaServicios();
-        } else {
-            
-        }
-        */
-        try{
-            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
-            Producto_data producto_data = new Producto_data(con);
-            int indice2 = jcbProducto.getSelectedIndex();
-            List<Producto> lista_productos = producto_data.obtenerProductos_por_nombre(jcbProducto.getItemAt(indice2));
-
-            mostrarLista(lista_productos);
-        } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
-        }
-        jtProductos.setEnabled(true);
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jtTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtTotalActionPerformed
         // TODO add your handling code here:
@@ -783,18 +613,18 @@ public class nuevoGasto extends javax.swing.JDialog {
                     
 
                     //Variables de venta
-                    int indice = jcbCategoria.getSelectedIndex();
+                    int indice = jcbMetodo.getSelectedIndex();
                     int indice2 = jcbMetodo.getSelectedIndex();
                     int indice3 = jcbProvedor.getSelectedIndex();
                     Metodo_de_pago_data mdpd = new Metodo_de_pago_data(con);
                     
-                    int id_categoria = cd.getCategoria_por_nombre(jcbCategoria.getItemAt(indice)).getId();
-                    int id_metodo_de_pago = mdpd.getMetodo_de_pago_por_nombre(jcbMetodo.getItemAt(indice2)).getId();
-                    int id_provedor = pvd.getProvedor_por_nombre(jcbProvedor.getItemAt(indice3)).getId();
+                    int id_categoria = cd.getCategoria_por_nombre(String.valueOf(jcbMetodo.getItemAt(indice))).getId();
+                    int id_metodo_de_pago = mdpd.getMetodo_de_pago_por_nombre(String.valueOf(jcbMetodo.getItemAt(indice2))).getId();
+                    int id_provedor = pvd.getProvedor_por_nombre(String.valueOf(jcbProvedor.getItemAt(indice3))).getId();
                     String comentario = jtaComentario.getText();
                     
                     //Creacion de los detalles de ventas y las ventas
-                    String categoria = jcbCategoria.getItemAt(indice);
+                    String categoria = String.valueOf(jcbMetodo.getItemAt(indice));
                     
                     /*Inicio de los servicios
                     if("Servicios".equals(categoria)){
@@ -841,28 +671,112 @@ public class nuevoGasto extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_jbConfirmarActionPerformed
 
+    private void jcbProvedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProvedorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbProvedorActionPerformed
+
+    private void jcbProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbProductoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbProductoActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int indice = jcbMetodo.getSelectedIndex();
+        String categoria = String.valueOf(jcbMetodo.getItemAt(indice));
+        /*Inicio de los servicios
+        if("Servicios".equals(categoria)){
+            mostrarListaServicios();
+        } else {
+            
+        }
+        */
+        try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
+            Producto_data producto_data = new Producto_data(con);
+            int indice2 = jcbProducto.getSelectedIndex();
+            List<Producto> lista_productos = producto_data.obtenerProductos_por_nombre(String.valueOf(jcbProducto.getItemAt(indice2)));
+
+            mostrarLista(lista_productos);
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+        }
+        jtProductos.setEnabled(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
+        modelo.addRow(new Object []{nombre,Double.parseDouble(precio),1,Double.parseDouble("0"),Double.parseDouble(precio)});
+        jtDetalle.requestFocus();
+        total();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductosMouseClicked
+        int indice = jcbMetodo.getSelectedIndex();
+        String categoria = String.valueOf(jcbMetodo.getItemAt(indice));
+        /*Inicio de los servicios
+        if("Servicios".equals(categoria)){
+            int fila = this.jtProductos.getSelectedRow();
+            
+            nombre = jtProductos.getValueAt(fila, 0).toString();
+            precio = jtProductos.getValueAt(fila, 1).toString();
+        } else  {
+            
+        }*/
+        int fila = this.jtProductos.getSelectedRow();
+
+            nombre = jtProductos.getValueAt(fila, 1).toString();
+            precio = jtProductos.getValueAt(fila, 3).toString();
+            stock = jtProductos.getValueAt(fila, 4).toString();
+        
+    }//GEN-LAST:event_jtProductosMouseClicked
+
+    private void jtProductosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtProductosKeyTyped
+        char c = evt.getKeyChar();
+        if (c == KeyEvent.VK_ENTER){
+            DefaultTableModel modelo = (DefaultTableModel) jtDetalle.getModel();
+            modelo.addRow(new Object []{nombre,Double.parseDouble(precio),1,Double.parseDouble("0"),Double.parseDouble(precio)});
+            jtDetalle.requestFocus();
+            total();
+        }
+    }//GEN-LAST:event_jtProductosKeyTyped
+
+    private void jtDetalleFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusGained
+        jtDetalle.setColumnSelectionAllowed(true);
+        jtDetalle.setCellSelectionEnabled(true);
+    }//GEN-LAST:event_jtDetalleFocusGained
+
     private void jtDetalleFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jtDetalleFocusLost
 
     }//GEN-LAST:event_jtDetalleFocusLost
 
-    private void jcbProductoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jcbProductoMouseEntered
-        int indice = jcbCategoria.getSelectedIndex();
-        String categoria = jcbCategoria.getItemAt(indice);
-        /*Inicio de los servicios
-        if("Servicios".equals(categoria)){
-            jcbProducto.removeAllItems();
-            agregarComboServicios();
-        } else {
-            jcbProducto.removeAllItems();
-            agregarComboProductos();
-        }*/
-        jcbProducto.removeAllItems();
-        agregarComboProductos();
-    }//GEN-LAST:event_jcbProductoMouseEntered
+    private void jtDetalleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtDetalleMouseClicked
 
-    private void jcbProductoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jcbProductoFocusGained
+    }//GEN-LAST:event_jtDetalleMouseClicked
+
+    private void jtDetalleKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtDetalleKeyReleased
+         char c = evt.getKeyChar();
+            if (c == KeyEvent.VK_ENTER){
+                try{
+                    int fila = this.jtDetalle.getSelectedRow();
+                    String cantidad =  (String) jtDetalle.getValueAt(fila, 2);
+                    double descuento;
+                    if((Double)jtDetalle.getValueAt(fila, 3) == 0){
+                        descuento = 1;
+                    } else {
+                        descuento = Math.abs(((Double)jtDetalle.getValueAt(fila, 3) / 100) - 1);
+                    }
+                    Double precio_base = (Double)jtDetalle.getValueAt(fila, 1);
+                    double sub_total = precio_base * descuento * Integer.parseInt(cantidad);
+                    jtDetalle.setValueAt(sub_total , fila, 4);
+                    total();
+                }catch(Exception e){
+                    JOptionPane.showMessageDialog(null,"Error desconocido " + e);
+                }
+        }
+    }//GEN-LAST:event_jtDetalleKeyReleased
+
+    private void jcbCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbCategoriaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jcbProductoFocusGained
+    }//GEN-LAST:event_jcbCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -907,31 +821,27 @@ public class nuevoGasto extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private newscomponents.RSButtonFlat_new jButton1;
+    private newscomponents.RSButtonFlat_new jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JButton jbConfirmar;
-    private javax.swing.JComboBox<String> jcbCategoria;
-    private javax.swing.JComboBox<String> jcbMetodo;
-    private javax.swing.JComboBox<String> jcbProducto;
-    private javax.swing.JComboBox<String> jcbProvedor;
-    private javax.swing.JLabel jlCategoria;
-    private javax.swing.JLabel jlComentario;
+    private newscomponents.RSButtonFlat_new jbBorrarFila;
+    private newscomponents.RSButtonFlat_new jbConfirmar;
+    private javax.swing.JCheckBox jcArqueo;
+    private RSMaterialComponent.RSComboBoxMaterial jcbCategoria;
+    private RSMaterialComponent.RSComboBoxMaterial jcbMetodo;
+    private RSMaterialComponent.RSComboBoxMaterial jcbProducto;
+    private RSMaterialComponent.RSComboBoxMaterial jcbProvedor;
     private javax.swing.JLabel jlDescuento;
-    private javax.swing.JLabel jlMetodo;
     private javax.swing.JLabel jlPesos;
     private javax.swing.JLabel jlPorcentaje;
-    private javax.swing.JLabel jlProductos;
-    private javax.swing.JLabel jlProvedor;
     private javax.swing.JLabel jlTotal;
     private javax.swing.JScrollPane jspComentario;
     private javax.swing.JTextField jtDescuento;
-    private javax.swing.JTable jtDetalle;
-    private javax.swing.JTable jtProductos;
+    private RSMaterialComponent.RSTableMetroCustom jtDetalle;
+    private RSMaterialComponent.RSTableMetroCustom jtProductos;
     private javax.swing.JTextField jtTotal;
     private javax.swing.JTextArea jtaComentario;
     private javax.swing.JPanel listaProductos;
