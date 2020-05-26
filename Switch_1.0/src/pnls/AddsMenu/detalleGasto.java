@@ -105,7 +105,7 @@ public class detalleGasto extends javax.swing.JPanel {
 
         tituloProvedor.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         tituloProvedor.setForeground(new java.awt.Color(46, 182, 125));
-        tituloProvedor.setText("Provedor:");
+        tituloProvedor.setText("Proveedor:");
         form.add(tituloProvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 154, 64, -1));
 
         tituloProductos.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
@@ -144,7 +144,7 @@ public class detalleGasto extends javax.swing.JPanel {
         jlProvedor.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jlProvedor.setForeground(new java.awt.Color(255, 255, 255));
         jlProvedor.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jlProvedor.setText("Provedor1");
+        jlProvedor.setText("Proveedor1");
         form.add(jlProvedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 153, 124, -1));
 
         jlMetodo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N

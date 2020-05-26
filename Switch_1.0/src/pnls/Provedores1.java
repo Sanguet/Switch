@@ -85,18 +85,18 @@ public class Provedores1 extends javax.swing.JPanel {
         Titulo.setPreferredSize(new java.awt.Dimension(1466, 120));
 
         jLabel5.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 50)); // NOI18N
-        jLabel5.setText("Provedores");
+        jLabel5.setText("Proveedores");
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Title/ProvedoresR.png"))); // NOI18N
 
         jbNuevoProvedor.setBackground(new java.awt.Color(14, 21, 30));
         jbNuevoProvedor.setForeground(new java.awt.Color(255, 255, 255));
         jbNuevoProvedor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/add.png"))); // NOI18N
-        jbNuevoProvedor.setText("Nuevo Provedor");
+        jbNuevoProvedor.setText("Nuevo Proveedor");
         jbNuevoProvedor.setColorMaterial(new java.awt.Color(46, 182, 125));
         jbNuevoProvedor.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 16)); // NOI18N
         jbNuevoProvedor.setIconTextGap(3);
-        jbNuevoProvedor.setPreferredSize(new java.awt.Dimension(165, 35));
+        jbNuevoProvedor.setPreferredSize(new java.awt.Dimension(175, 35));
         jbNuevoProvedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbNuevoProvedorActionPerformed(evt);
@@ -112,7 +112,7 @@ public class Provedores1 extends javax.swing.JPanel {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 830, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 820, Short.MAX_VALUE)
                 .addComponent(jbNuevoProvedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20))
         );

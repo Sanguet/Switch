@@ -71,7 +71,7 @@ public class nuevoProvedor extends javax.swing.JPanel {
 
         jlNombre.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jlNombre.setText("Nombre del Provedor");
+        jlNombre.setText("Nombre del Proveedor");
         form.add(jlNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 19, 130, -1));
 
         jtNombre.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -180,7 +180,7 @@ public class nuevoProvedor extends javax.swing.JPanel {
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloAddMenu.setText("Nuevo Provedor");
+        tituloAddMenu.setText("Nuevo Proveedor");
         tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 30));
         addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 

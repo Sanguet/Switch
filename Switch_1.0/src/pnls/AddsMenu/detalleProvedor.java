@@ -112,7 +112,7 @@ public class detalleProvedor extends javax.swing.JPanel {
 
         jlNombreCompleto.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlNombreCompleto.setForeground(new java.awt.Color(255, 255, 255));
-        jlNombreCompleto.setText("Nombre del Provedor");
+        jlNombreCompleto.setText("Nombre del Proveedor");
 
         jlDireccion.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlDireccion.setForeground(new java.awt.Color(255, 255, 255));
@@ -191,7 +191,7 @@ public class detalleProvedor extends javax.swing.JPanel {
         tituloAddMenu.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         tituloAddMenu.setForeground(new java.awt.Color(255, 255, 255));
         tituloAddMenu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        tituloAddMenu.setText("Perfil del Provedor");
+        tituloAddMenu.setText("Perfil del Proveedor");
         tituloAddMenu.setPreferredSize(new java.awt.Dimension(300, 30));
         addMenu.add(tituloAddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, -1));
 

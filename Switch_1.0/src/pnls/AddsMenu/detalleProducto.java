@@ -199,7 +199,7 @@ public class detalleProducto extends javax.swing.JPanel {
 
         jlProvedor.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlProvedor.setForeground(new java.awt.Color(255, 255, 255));
-        jlProvedor.setText("Provedor");
+        jlProvedor.setText("Proveedor");
 
         jlComentario.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
         jlComentario.setForeground(new java.awt.Color(255, 255, 255));
