@@ -7,10 +7,8 @@ package pnls.AddsMenu;
 
 import Clases.Conexion;
 import Clases_data.Gasto_data;
-import Clases_data.Venta_data;
 import javax.swing.JOptionPane;
 import pnls.Gastos1;
-import pnls.Ventas1;
 
 /**
  *

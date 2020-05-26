@@ -3,17 +3,13 @@ package pnls.AddsMenu;
 import pnls.Productos1;
 
 import Clases_data.*;
-import java.awt.Color;
-import java.awt.event.KeyEvent;
 import java.util.List;
 import javax.swing.JOptionPane;
 import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import Clases.*;
 import Interfaz.Inicio;
-import Interfaz.nuevaVenta;
 import Interfaz.nuevoStock;
 import javax.swing.JDialog;
-import javax.swing.JTextField;
 public class detalleProducto extends javax.swing.JPanel {
 
     /**

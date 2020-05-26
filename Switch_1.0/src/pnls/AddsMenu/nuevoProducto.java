@@ -14,7 +14,8 @@ import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import Clases.*;
 import javax.swing.JTextField;
 import pnls.Productos1;
-import pnls.Provedores1;
+
+
 
 /**
  *

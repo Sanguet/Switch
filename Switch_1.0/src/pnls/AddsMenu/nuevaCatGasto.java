@@ -7,10 +7,7 @@ package pnls.AddsMenu;
 
 import Clases_data.*;
 import java.awt.Color;
-import java.awt.event.KeyEvent;
-import java.util.List;
 import javax.swing.JOptionPane;
-import org.jdesktop.swingx.autocomplete.AutoCompleteDecorator;
 import Clases.*;
 import javax.swing.JTextField;
 import pnls.Gastos1;

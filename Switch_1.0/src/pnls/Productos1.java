@@ -62,7 +62,7 @@ public class Productos1 extends javax.swing.JPanel {
         
         }
     }
-    public static String codigo, nombre, costo, precio, cantidad;
+    public static String codigo, nombre, costo, precio, cantidad, categoria;
     public static Producto producto_pasado;
 
     /**
@@ -318,11 +318,12 @@ public class Productos1 extends javax.swing.JPanel {
 
     private void jtProductosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtProductosMouseClicked
         int fila = this.jtProductos.getSelectedRow();
-        codigo = jtProductos.getValueAt(fila, 0).toString();
-        nombre = jtProductos.getValueAt(fila, 1).toString();
-        costo = jtProductos.getValueAt(fila, 2).toString();
-        precio = jtProductos.getValueAt(fila, 3).toString();
-        cantidad = jtProductos.getValueAt(fila, 4).toString();
+        categoria = jtProductos.getValueAt(fila, 0).toString();
+        codigo = jtProductos.getValueAt(fila, 1).toString();
+        nombre = jtProductos.getValueAt(fila, 2).toString();
+        costo = jtProductos.getValueAt(fila, 3).toString();
+        precio = jtProductos.getValueAt(fila, 4).toString();
+        cantidad = jtProductos.getValueAt(fila, 5).toString();
         try{
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Producto_data producto_data = new Producto_data(con);

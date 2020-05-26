@@ -9,12 +9,8 @@ import Clases.Conexion;
 import Clases.Cuenta_corriente;
 import Clases_data.Cliente_data;
 import Clases_data.Cuenta_corriente_data;
-import Clases_data.Producto_data;
-import Clases_data.Provedor_data;
 import javax.swing.JOptionPane;
-import pnls.AddsMenu.detalleProducto;
 import pnls.Clientes1;
-import pnls.Productos1;
 
 /**
  *

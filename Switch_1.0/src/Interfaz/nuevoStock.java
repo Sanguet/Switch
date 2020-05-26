@@ -6,13 +6,10 @@
 package Interfaz;
 
 import Clases.Conexion;
-import Clases.Producto;
-import Clases_data.Categoria_producto_data;
 import Clases_data.Producto_data;
 import Clases_data.Provedor_data;
 import javax.swing.JOptionPane;
 import pnls.AddsMenu.detalleProducto;
-import static pnls.AddsMenu.detalleProducto.jtCantidad;
 import pnls.Productos1;
 
 /**
