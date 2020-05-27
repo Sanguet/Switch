@@ -37,12 +37,10 @@ public class nuevoStock extends javax.swing.JDialog {
 
         jPanel1 = new javax.swing.JPanel();
         jlNuevoStock = new javax.swing.JLabel();
-        jtCantidad = new javax.swing.JTextField();
-        jcbTipo = new javax.swing.JComboBox<>();
-        jlTipo = new javax.swing.JLabel();
-        jlCantidad = new javax.swing.JLabel();
         jbCerrar = new javax.swing.JButton();
         jbConfirmar = new newscomponents.RSButtonFlat_new();
+        jcbTipo = new RSMaterialComponent.RSComboBoxMaterial();
+        jtCantidad = new RSMaterialComponent.RSTextFieldMaterial();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
@@ -52,25 +50,6 @@ public class nuevoStock extends javax.swing.JDialog {
 
         jlNuevoStock.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 24)); // NOI18N
         jlNuevoStock.setText("Nuevo Stock");
-
-        jtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jtCantidadKeyTyped(evt);
-            }
-        });
-
-        jcbTipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ingreso +", "Egreso -" }));
-        jcbTipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbTipoActionPerformed(evt);
-            }
-        });
-
-        jlTipo.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jlTipo.setText("Tipo");
-
-        jlCantidad.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
-        jlCantidad.setText("Cantidad");
 
         jbCerrar.setBackground(new java.awt.Color(255, 51, 102));
         jbCerrar.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
@@ -101,6 +80,36 @@ public class nuevoStock extends javax.swing.JDialog {
             }
         });
 
+        jcbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ingreso", "Egreso" }));
+        jcbTipo.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jcbTipo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbTipo.setPreferredSize(new java.awt.Dimension(300, 30));
+        jcbTipo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jcbTipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbTipoActionPerformed(evt);
+            }
+        });
+
+        jtCantidad.setForeground(new java.awt.Color(0, 0, 0));
+        jtCantidad.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        jtCantidad.setColorMaterial(new java.awt.Color(224, 30, 90));
+        jtCantidad.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jtCantidad.setPhColor(new java.awt.Color(0, 0, 0));
+        jtCantidad.setPlaceholder("Cantidad");
+        jtCantidad.setPreferredSize(new java.awt.Dimension(300, 30));
+        jtCantidad.setSelectionColor(new java.awt.Color(224, 30, 90));
+        jtCantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jtCantidadActionPerformed(evt);
+            }
+        });
+        jtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jtCantidadKeyTyped(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -109,35 +118,31 @@ public class nuevoStock extends javax.swing.JDialog {
                 .addGap(37, 37, 37)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jlTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jlCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(33, Short.MAX_VALUE))
+                        .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jlNuevoStock)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jcbTipo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jlNuevoStock))
+                        .addContainerGap(33, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jlNuevoStock))
-                    .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jlTipo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jlCantidad)
-                .addGap(4, 4, 4)
-                .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jbCerrar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(23, 23, 23)
+                .addComponent(jlNuevoStock)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                .addComponent(jcbTipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jtCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(29, 29, 29))
@@ -158,21 +163,10 @@ public class nuevoStock extends javax.swing.JDialog {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jcbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jcbTipoActionPerformed
-
     private void jbCerrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCerrarActionPerformed
         Inicio.jlFondo.setVisible(false);
         this.dispose();
     }//GEN-LAST:event_jbCerrarActionPerformed
-
-    private void jtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCantidadKeyTyped
-        char c = evt.getKeyChar();
-        if (c < '0' || c > '9'){
-            evt.consume();
-        }
-    }//GEN-LAST:event_jtCantidadKeyTyped
 
     private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
         int cantidad_base = Integer.parseInt(detalleProducto.jtCantidad.getText());
@@ -210,6 +204,21 @@ public class nuevoStock extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Hubo un fallo, no se relleno el campo o selecciono una cantidad que no tiene");
         }
     }//GEN-LAST:event_jbConfirmarActionPerformed
+
+    private void jcbTipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbTipoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jcbTipoActionPerformed
+
+    private void jtCantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jtCantidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jtCantidadActionPerformed
+
+    private void jtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtCantidadKeyTyped
+        char c = evt.getKeyChar();
+        if (c < '0' || c > '9'){
+            evt.consume();
+        }
+    }//GEN-LAST:event_jtCantidadKeyTyped
 
     /**
      * @param args the command line arguments
@@ -257,10 +266,8 @@ public class nuevoStock extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JButton jbCerrar;
     private newscomponents.RSButtonFlat_new jbConfirmar;
-    private javax.swing.JComboBox<String> jcbTipo;
-    private javax.swing.JLabel jlCantidad;
+    private RSMaterialComponent.RSComboBoxMaterial jcbTipo;
     private javax.swing.JLabel jlNuevoStock;
-    private javax.swing.JLabel jlTipo;
-    private javax.swing.JTextField jtCantidad;
+    private RSMaterialComponent.RSTextFieldMaterial jtCantidad;
     // End of variables declaration//GEN-END:variables
 }

@@ -87,12 +87,11 @@
         <Component class="RSMaterialComponent.RSComboBoxMaterial" name="jcbBuscar">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="5">
+              <StringArray count="4">
                 <StringItem index="0" value="Buscar en Ajustes"/>
-                <StringItem index="1" value="Modo Oscuro"/>
-                <StringItem index="2" value="Base de Datos"/>
-                <StringItem index="3" value="Mantenimiento"/>
-                <StringItem index="4" value="Version del Cliente"/>
+                <StringItem index="1" value="Base de Datos"/>
+                <StringItem index="2" value="Mantenimiento"/>
+                <StringItem index="3" value="Version del Cliente"/>
               </StringArray>
             </Property>
             <Property name="colorMaterial" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">

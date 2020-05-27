@@ -28,107 +28,25 @@ public class Pruebas extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtVentas = new RSMaterialComponent.RSTableMetroCustom();
-        jbConfirmar = new newscomponents.RSButtonFlat_new();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jScrollPane1.setPreferredSize(new java.awt.Dimension(450, 489));
-
-        jtVentas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Cliente", "Fecha", "Importe", "Metodo de pago", "Detalle"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jtVentas.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
-        jtVentas.setBackgoundHead(new java.awt.Color(255, 255, 255));
-        jtVentas.setBorderRows(null);
-        jtVentas.setColorPrimaryText(new java.awt.Color(0, 0, 0));
-        jtVentas.setColorSecondary(new java.awt.Color(255, 255, 255));
-        jtVentas.setColorSecundaryText(new java.awt.Color(0, 0, 0));
-        jtVentas.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jtVentas.setFontHead(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jtVentas.setFontRowHover(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jtVentas.setFontRowSelect(new java.awt.Font("Roboto", 1, 14)); // NOI18N
-        jtVentas.setForegroundHead(new java.awt.Color(0, 0, 0));
-        jtVentas.setForegroundHover(new java.awt.Color(0, 0, 0));
-        jtVentas.setGridColor(new java.awt.Color(214, 214, 214));
-        jtVentas.setHighHead(25);
-        jtVentas.setPreferredSize(new java.awt.Dimension(1096, 671));
-        jtVentas.setRowHeight(40);
-        jtVentas.setSelectionBackground(new java.awt.Color(224, 30, 90));
-        jtVentas.setShowGrid(false);
-        jtVentas.setShowHorizontalLines(true);
-        jtVentas.getTableHeader().setResizingAllowed(false);
-        jtVentas.getTableHeader().setReorderingAllowed(false);
-        jtVentas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jtVentasMouseClicked(evt);
-            }
-        });
-        jScrollPane1.setViewportView(jtVentas);
-        if (jtVentas.getColumnModel().getColumnCount() > 0) {
-            jtVentas.getColumnModel().getColumn(0).setResizable(false);
-            jtVentas.getColumnModel().getColumn(0).setPreferredWidth(180);
-            jtVentas.getColumnModel().getColumn(1).setResizable(false);
-            jtVentas.getColumnModel().getColumn(2).setResizable(false);
-            jtVentas.getColumnModel().getColumn(3).setResizable(false);
-            jtVentas.getColumnModel().getColumn(3).setPreferredWidth(80);
-            jtVentas.getColumnModel().getColumn(4).setResizable(false);
-        }
-
-        jbConfirmar.setBackground(new java.awt.Color(54, 197, 240));
-        jbConfirmar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/confirmar.png"))); // NOI18N
-        jbConfirmar.setText("Confirmar");
-        jbConfirmar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jbConfirmar.setPreferredSize(new java.awt.Dimension(200, 35));
-        jbConfirmar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbConfirmarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(304, 304, 304)
-                        .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(801, Short.MAX_VALUE))
+            .addGap(0, 1688, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(jbConfirmar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(427, Short.MAX_VALUE))
+            .addGap(0, 998, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1558, Short.MAX_VALUE)
+            .addGap(0, 1688, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -147,14 +65,6 @@ public class Pruebas extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jtVentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtVentasMouseClicked
-
-    }//GEN-LAST:event_jtVentasMouseClicked
-
-    private void jbConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbConfirmarActionPerformed
- 
-    }//GEN-LAST:event_jbConfirmarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -193,8 +103,5 @@ public class Pruebas extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private newscomponents.RSButtonFlat_new jbConfirmar;
-    private RSMaterialComponent.RSTableMetroCustom jtVentas;
     // End of variables declaration//GEN-END:variables
 }
