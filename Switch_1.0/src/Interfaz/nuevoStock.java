@@ -80,7 +80,7 @@ public class nuevoStock extends javax.swing.JDialog {
             }
         });
 
-        jcbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ingreso", "Egreso" }));
+        jcbTipo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ingreso +", "Egreso -" }));
         jcbTipo.setColorMaterial(new java.awt.Color(224, 30, 90));
         jcbTipo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcbTipo.setPreferredSize(new java.awt.Dimension(300, 30));

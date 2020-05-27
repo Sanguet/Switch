@@ -10,7 +10,8 @@ import Clases.Cliente;
 import Clases.Conexion;
 import Clases_data.Cliente_data;
 import Interfaz.Inicio;
-import Interfaz.nuevaTransaccion;
+import Interfaz.nuevaTransaccion1;
+import Interfaz.nuevaTransaccion1;
 import java.awt.Color;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
@@ -312,7 +313,7 @@ public class detalleCliente extends javax.swing.JPanel {
 
     private void jbTransaccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbTransaccionActionPerformed
         Inicio.jlFondo.setVisible(true);
-        JDialog a = new nuevaTransaccion(null,true);
+        JDialog a = new nuevaTransaccion1(null,true);
         a.setVisible(true);
     }//GEN-LAST:event_jbTransaccionActionPerformed
 
