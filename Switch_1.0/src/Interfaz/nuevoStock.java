@@ -203,7 +203,7 @@ public class nuevoStock extends javax.swing.JDialog {
                     this.setVisible(false);
 
                 } catch (Exception e){
-                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el stock, quedaron campos sin rellenar " + e.getMessage());
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el stock, quedaron campos sin rellenar");
                 }
             }
         } else {

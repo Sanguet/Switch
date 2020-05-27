@@ -343,7 +343,7 @@ public class detalleProducto extends javax.swing.JPanel {
                     Productos1.addMenu.add(Productos1.jlBackground);
 
                 } catch (Exception e){
-                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el producto, quedaron campos sin rellenar " + e.getMessage());
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el producto, quedaron campos sin rellenar o intente nuevamente ");
                 }
             }
         }
@@ -363,7 +363,7 @@ public class detalleProducto extends javax.swing.JPanel {
                 Productos1.addMenu.add(Productos1.jlBackground);
 
             } catch (Exception e){
-                JOptionPane.showMessageDialog(null, "No se pudo borrar el producto " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "No se pudo borrar el producto, intente nuevamente ");
             }
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
