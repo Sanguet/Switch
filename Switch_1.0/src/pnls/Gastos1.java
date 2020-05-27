@@ -34,7 +34,10 @@ public class Gastos1 extends javax.swing.JPanel {
             List<Gasto> lista_gasto = gasto_data.obtenerGastos();
             
             mostrarLista(lista_gasto);
-            
+            jlTituloDesde.setVisible(false);
+            dtDesde.setVisible(false);
+            jlTituloHasta.setVisible(false);
+            dtHasta.setVisible(false);
             
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
@@ -247,6 +250,7 @@ public class Gastos1 extends javax.swing.JPanel {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         dtHasta.setBackground(new java.awt.Color(14, 21, 30));
+        dtHasta.setEnabled(false);
         dtHasta.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         dtHasta.setFormatDate("dd/MM/yyyy");
         dtHasta.setMaximumSize(new java.awt.Dimension(140, 30));
@@ -258,6 +262,7 @@ public class Gastos1 extends javax.swing.JPanel {
         jcb.setForeground(new java.awt.Color(255, 255, 255));
         jcb.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Provedor" }));
         jcb.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jcb.setEnabled(false);
         jcb.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcb.setPreferredSize(new java.awt.Dimension(200, 30));
         jcb.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
@@ -267,6 +272,7 @@ public class Gastos1 extends javax.swing.JPanel {
         jcb1.setForeground(new java.awt.Color(255, 255, 255));
         jcb1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Categoria" }));
         jcb1.setColorMaterial(new java.awt.Color(46, 182, 125));
+        jcb1.setEnabled(false);
         jcb1.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         jcb1.setPreferredSize(new java.awt.Dimension(200, 30));
         jcb1.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
@@ -275,6 +281,7 @@ public class Gastos1 extends javax.swing.JPanel {
         dtDesde.setBackground(new java.awt.Color(14, 21, 30));
         dtDesde.setToolTipText("");
         dtDesde.setDate(new java.util.Date(1577847600000L));
+        dtDesde.setEnabled(false);
         dtDesde.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
         dtDesde.setFormatDate("dd/MM/yyyy");
         dtDesde.setMaximumSize(new java.awt.Dimension(140, 30));

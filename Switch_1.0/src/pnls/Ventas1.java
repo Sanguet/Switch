@@ -33,6 +33,10 @@ public class Ventas1 extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
         jbArqueo.setVisible(false);
+        jlTituloDesde.setVisible(false);
+        dtDesde.setVisible(false);
+        jlTituloHasta.setVisible(false);
+        dtHasta.setVisible(false);
     }
     
     public void mostrarLista(List<Venta> lista){
