@@ -95,7 +95,6 @@ public class nuevaCatProductos extends javax.swing.JPanel {
             }
         });
 
-        jtaComentario.setEditable(false);
         jtaComentario.setColumns(20);
         jtaComentario.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jtaComentario.setRows(5);

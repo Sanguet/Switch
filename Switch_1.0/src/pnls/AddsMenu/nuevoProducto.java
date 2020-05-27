@@ -360,7 +360,9 @@ public class nuevoProducto extends javax.swing.JPanel {
             Sacar_texto();
             try {
                 if (Campo_valido(this.jtNombre) && Campo_valido(this.jtPrecio) && Campo_valido(this.jtCosto) && Campo_valido(this.jtCantidad)){
-                    
+                    if("".equals(jtCodigo.getText())){
+                        jtCodigo.setText("0");
+                    }
                     Conexion con = null;
                     con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
                     Producto_data producto_data = new Producto_data(con);
@@ -387,7 +389,7 @@ public class nuevoProducto extends javax.swing.JPanel {
                 }
             } catch (Exception e){
                 System.out.println("Error al instanciar la clase conexion" + e.getMessage());
-                JOptionPane.showMessageDialog(null,"No se pudo guardar el producto, intente nuevamente " + e);
+                JOptionPane.showMessageDialog(null,"No se pudo guardar el producto, intente nuevamente" );
             }
         }
 

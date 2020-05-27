@@ -205,9 +205,7 @@ public class detalleProvedor extends javax.swing.JPanel {
                 try{
                     Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
                     Provedor_data provedor_data = new Provedor_data(con);
-
                     Provedor provedor = new Provedor(jlNombre.getText(), Long.parseLong(jtTelefono.getText()), jtEmail.getText(), jtDireccion.getText(), jtaComentario.getText());
-
                     provedor_data.actualizarProvedor_por_id(provedor, Provedores1.provedor_pasado.getId());
 
                     JOptionPane.showMessageDialog(null, "Se actualizo con exito el proveedor" );
@@ -217,7 +215,7 @@ public class detalleProvedor extends javax.swing.JPanel {
 
 
                 } catch (Exception e){
-                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el proveedor " + e.getMessage());
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar el proveedor, intenta nuevamente ");
                 }
             }
         }
@@ -237,7 +235,7 @@ public class detalleProvedor extends javax.swing.JPanel {
                 Provedores1.addMenu.add(Provedores1.jlBackground);
 
             } catch (Exception e){
-                JOptionPane.showMessageDialog(null, "No se pudo borrar el provedor " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "No se pudo borrar el provedor, intente nuevamente");
             }
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
