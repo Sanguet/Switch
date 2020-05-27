@@ -103,13 +103,13 @@ public class Clientes1 extends javax.swing.JPanel {
         addMenu = new javax.swing.JPanel();
         jlBackground = new javax.swing.JLabel();
         Registro = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jtClientes = new RSMaterialComponent.RSTableMetroCustom();
         jPanel1 = new javax.swing.JPanel();
         jcbSaldo = new RSMaterialComponent.RSComboBoxMaterial();
         jcbNombre = new RSMaterialComponent.RSComboBoxMaterial();
         jcbBox = new RSMaterialComponent.RSComboBoxMaterial();
         jbActualizar = new newscomponents.RSButtonFlat_new();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jtClientes = new RSMaterialComponent.RSTableMetroCustom();
 
         setPreferredSize(new java.awt.Dimension(1466, 839));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -189,54 +189,6 @@ public class Clientes1 extends javax.swing.JPanel {
         Registro.setPreferredSize(new java.awt.Dimension(1096, 680));
         Registro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(14, 21, 30));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1095, 30));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jcbSaldo.setBackground(new java.awt.Color(14, 21, 30));
-        jcbSaldo.setForeground(new java.awt.Color(255, 255, 255));
-        jcbSaldo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Saldo", "Negativo", "Positivo" }));
-        jcbSaldo.setColorMaterial(new java.awt.Color(54, 197, 240));
-        jcbSaldo.setEnabled(false);
-        jcbSaldo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jcbSaldo.setPreferredSize(new java.awt.Dimension(200, 30));
-        jcbSaldo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-        jPanel1.add(jcbSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, -1));
-
-        jcbNombre.setBackground(new java.awt.Color(14, 21, 30));
-        jcbNombre.setForeground(new java.awt.Color(255, 255, 255));
-        jcbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Nombre" }));
-        jcbNombre.setColorMaterial(new java.awt.Color(54, 197, 240));
-        jcbNombre.setEnabled(false);
-        jcbNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jcbNombre.setPreferredSize(new java.awt.Dimension(200, 30));
-        jcbNombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-        jPanel1.add(jcbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
-
-        jcbBox.setBackground(new java.awt.Color(14, 21, 30));
-        jcbBox.setForeground(new java.awt.Color(255, 255, 255));
-        jcbBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Box" }));
-        jcbBox.setColorMaterial(new java.awt.Color(54, 197, 240));
-        jcbBox.setEnabled(false);
-        jcbBox.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jcbBox.setPreferredSize(new java.awt.Dimension(200, 30));
-        jcbBox.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
-        jPanel1.add(jcbBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
-
-        jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
-        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
-        jbActualizar.setText("Actualizar");
-        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
-        jbActualizar.setPreferredSize(new java.awt.Dimension(120, 30));
-        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbActualizarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jbActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, -1, -1));
-
-        Registro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
-
         jScrollPane2.setBackground(new java.awt.Color(255, 255, 255));
         jScrollPane2.setBorder(null);
         jScrollPane2.setOpaque(false);
@@ -299,7 +251,55 @@ public class Clientes1 extends javax.swing.JPanel {
             jtClientes.getColumnModel().getColumn(4).setPreferredWidth(40);
         }
 
-        Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 30, 1080, 650));
+        Registro.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 30, 1090, 650));
+
+        jPanel1.setBackground(new java.awt.Color(14, 21, 30));
+        jPanel1.setPreferredSize(new java.awt.Dimension(1095, 30));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jcbSaldo.setBackground(new java.awt.Color(14, 21, 30));
+        jcbSaldo.setForeground(new java.awt.Color(255, 255, 255));
+        jcbSaldo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Saldo", "Negativo", "Positivo" }));
+        jcbSaldo.setColorMaterial(new java.awt.Color(54, 197, 240));
+        jcbSaldo.setEnabled(false);
+        jcbSaldo.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbSaldo.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcbSaldo.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcbSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, -1));
+
+        jcbNombre.setBackground(new java.awt.Color(14, 21, 30));
+        jcbNombre.setForeground(new java.awt.Color(255, 255, 255));
+        jcbNombre.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Nombre" }));
+        jcbNombre.setColorMaterial(new java.awt.Color(54, 197, 240));
+        jcbNombre.setEnabled(false);
+        jcbNombre.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbNombre.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcbNombre.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcbNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
+
+        jcbBox.setBackground(new java.awt.Color(14, 21, 30));
+        jcbBox.setForeground(new java.awt.Color(255, 255, 255));
+        jcbBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Filtrar por Box" }));
+        jcbBox.setColorMaterial(new java.awt.Color(54, 197, 240));
+        jcbBox.setEnabled(false);
+        jcbBox.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jcbBox.setPreferredSize(new java.awt.Dimension(200, 30));
+        jcbBox.setThemeTooltip(necesario.Global.THEMETOOLTIP.LIGHT);
+        jPanel1.add(jcbBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, -1, -1));
+
+        jbActualizar.setBackground(new java.awt.Color(14, 21, 30));
+        jbActualizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets.Icons/actualizar.png"))); // NOI18N
+        jbActualizar.setText("Actualizar");
+        jbActualizar.setFont(new java.awt.Font("Metropolis Semi Bold", 0, 14)); // NOI18N
+        jbActualizar.setPreferredSize(new java.awt.Dimension(120, 30));
+        jbActualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbActualizarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jbActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(974, 0, -1, -1));
+
+        Registro.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         add(Registro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
@@ -335,6 +335,7 @@ public class Clientes1 extends javax.swing.JPanel {
     }//GEN-LAST:event_jbActualizarActionPerformed
 
     private void jtClientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jtClientesMouseClicked
+        try{
         int fila = this.jtClientes.getSelectedRow();
 
         nombre = jtClientes.getValueAt(fila, 0).toString();
@@ -342,15 +343,16 @@ public class Clientes1 extends javax.swing.JPanel {
         telefono = jtClientes.getValueAt(fila, 2).toString();
         email = jtClientes.getValueAt(fila, 3).toString();
         saldo = jtClientes.getValueAt(fila, 4).toString();
-        try{
+        
             Conexion con = new Conexion("jdbc:mysql://localhost:3306/e-wod","root","");
             Cliente_data cliente_data = new Cliente_data(con);
 
             cliente_pasado = cliente_data.getCliente_por_nombre(nombre);
+        
+            new CambiaPanel(this.addMenu, new detalleCliente());
         } catch (Exception e){
             JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
         }
-        new CambiaPanel(this.addMenu, new detalleCliente());
     }//GEN-LAST:event_jtClientesMouseClicked
 
 
