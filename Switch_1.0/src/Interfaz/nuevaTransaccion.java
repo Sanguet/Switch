@@ -197,7 +197,7 @@ public class nuevaTransaccion extends javax.swing.JDialog {
                     this.setVisible(false);
 
                 } catch (Exception e){
-                    JOptionPane.showMessageDialog(null, "No se pudo actualizar la cuenta corriente, quedaron campos sin rellenar " + e.getMessage());
+                    JOptionPane.showMessageDialog(null, "No se pudo actualizar la cuenta corriente, quedaron campos sin rellenar ");
                 }
             }
         }

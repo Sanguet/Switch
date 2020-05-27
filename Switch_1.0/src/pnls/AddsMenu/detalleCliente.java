@@ -301,7 +301,7 @@ public class detalleCliente extends javax.swing.JPanel {
                 Clientes1.addMenu.add(Clientes1.jlBackground);
 
             } catch (Exception e){
-                JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla ");
             }
         }
     }//GEN-LAST:event_jbBorrarActionPerformed
