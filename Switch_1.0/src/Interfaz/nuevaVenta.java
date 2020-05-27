@@ -532,9 +532,10 @@ public class nuevaVenta extends javax.swing.JDialog {
                     //Creacion de los detalles de ventas y las ventas
                     for (int i = 0; i < rows; i++){
                         int cantidad_producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(i, 0).toString()).getCantidad();
-                        String cantidad_vendida = (String) jtDetalle.getValueAt(i, 2);
+                        String cantidad_vendida = jtDetalle.getValueAt(i, 2).toString();
                         int id_producto = pd.getProducto_por_nombre(jtDetalle.getValueAt(i, 0).toString()).getId();
-                        Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto, Integer.parseInt(cantidad_vendida), (int)(double)jtDetalle.getValueAt(i, 3), (Double)jtDetalle.getValueAt(i, 4));
+                        Detalle_de_venta detalle_de_venta = new Detalle_de_venta(id_producto,Integer.parseInt(jtDetalle.getValueAt(i, 2).toString()), (int)(Double.parseDouble(jtDetalle.getValueAt(i, 3).toString())), Double.parseDouble(jtDetalle.getValueAt(i, 4).toString()));
+                        
                         if(cantidad_producto >= Integer.parseInt(cantidad_vendida)){
                             ddvd.guardarDetalle_de_venta(detalle_de_venta);
                             int id_detalle = ddvd.obtenerDetalle_de_venta().get(ddvd.obtenerDetalle_de_venta().size()-1).getId();
@@ -563,8 +564,8 @@ public class nuevaVenta extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar la venta, no hay productos seleccionados");
                 }
             } catch (Exception e){
-                System.out.println("Error al instanciar la clase conexion " + e.getMessage());
-                JOptionPane.showMessageDialog(null,"No se pudo guardar la venta, intente nuevamente " + e);
+                System.out.println("Error al instanciar la clase conexion ");
+                JOptionPane.showMessageDialog(null,"No se pudo guardar la venta, intente nuevamente ");
             }
         }
     }//GEN-LAST:event_jbConfirmarActionPerformed

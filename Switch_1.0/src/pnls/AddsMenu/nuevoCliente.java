@@ -374,8 +374,8 @@ public class nuevoCliente extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el cliente, un campo quedo sin rellenar");
                 }
             } catch (Exception e){
-                System.out.println("Error al instanciar la clase conexion " + e.getMessage());
-                JOptionPane.showMessageDialog(null,"No se pudo guardar el cliente, intente nuevamente " + e);
+                System.out.println("Error al instanciar la clase conexion ");
+                JOptionPane.showMessageDialog(null,"No se pudo guardar el cliente, intente nuevamente ");
             }
         }
     }//GEN-LAST:event_jbConfirmarActionPerformed
