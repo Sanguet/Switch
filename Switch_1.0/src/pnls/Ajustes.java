@@ -5,6 +5,10 @@
  */
 package pnls;
 
+import Clases.Conexion;
+import Clases_data.Base_de_datos;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alex
@@ -228,7 +232,20 @@ public class Ajustes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jbCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCargarActionPerformed
-        // TODO add your handling code here:
+        /*try{
+            Conexion con = new Conexion("jdbc:mysql://localhost:3306/test","root","");
+            Base_de_datos bd = new Base_de_datos(con);
+            bd.crear_Base();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error desconocido " + e.getMessage());
+        }
+        try{
+            Conexion con2 = new Conexion("jdbc:mysql://localhost:3306/casita_test","root","");
+            Base_de_datos bdn = new Base_de_datos(con2);
+            bdn.Insertar_datos();
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Error desconocido " + e.getMessage());
+        }*/
     }//GEN-LAST:event_jbCargarActionPerformed
 
     private void jbCargar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbCargar1ActionPerformed
