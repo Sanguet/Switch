@@ -200,7 +200,7 @@ public class detalleVentas extends javax.swing.JPanel {
                 Ventas1.addMenu.add(Ventas1.jlBackground);
 
             } catch (Exception e){
-                JOptionPane.showMessageDialog(null, "No se pudo borrar la venta " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "No se pudo borrar la venta, intente nuevamente");
             }
         }
     }//GEN-LAST:event_jbBorrarActionPerformed

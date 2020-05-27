@@ -25,7 +25,7 @@ public class Provedores1 extends javax.swing.JPanel {
             mostrarLista(lista_provedores);
             
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla, inicie el xampp " );
         }
         
     }
@@ -49,7 +49,7 @@ public class Provedores1 extends javax.swing.JPanel {
         ) {
         });
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" + e);
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo");
         
         }
     }
@@ -240,7 +240,7 @@ public class Provedores1 extends javax.swing.JPanel {
             mostrarLista(lista_provedores);
             
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla ");
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
@@ -257,7 +257,7 @@ public class Provedores1 extends javax.swing.JPanel {
 
             provedor_pasado = provedor_data.getProvedor_por_nombre(nombre);
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar el provedor " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo cargar el detalle, intente otra vez  ");
         }
         new CambiaPanel(this.addMenu, new detalleProvedor());
     }//GEN-LAST:event_jtProvedoresMouseClicked

@@ -214,7 +214,7 @@ public class detalleGasto extends javax.swing.JPanel {
                 Gastos1.addMenu.add(Gastos1.jlBackground);
 
             } catch (Exception e){
-                JOptionPane.showMessageDialog(null, "No se pudo borrar el gasto " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "No se pudo borrar el gasto, intente nuevamente ");
             }
         }
     }//GEN-LAST:event_jbBorrarActionPerformed

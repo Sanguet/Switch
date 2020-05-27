@@ -667,8 +667,8 @@ public class nuevoGasto extends javax.swing.JDialog {
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar el gasto, no hay productos seleccionados");
                 }
             } catch (Exception e){
-                System.out.println("Error al instanciar la clase conexion " + e.getMessage());
-                JOptionPane.showMessageDialog(null,"No se pudo guardar el gasto, intente nuevamente " + e);
+                System.out.println("Error al instanciar la clase conexion ");
+                JOptionPane.showMessageDialog(null,"No se pudo guardar el gasto, intente nuevamente ");
             }
         }
     }//GEN-LAST:event_jbConfirmarActionPerformed

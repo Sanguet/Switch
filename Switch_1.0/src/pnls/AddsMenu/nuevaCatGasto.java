@@ -166,8 +166,8 @@ public class nuevaCatGasto extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(null, "Ocurrio un error al guardar la categoria, un campo quedo sin rellenar");
                 }
             } catch (Exception e){
-                System.out.println("Error al instanciar la clase conexion" + e.getMessage());
-                JOptionPane.showMessageDialog(null,"No se pudo guardar la categoria, intente nuevamente " + e);
+                System.out.println("Error al instanciar la clase conexion");
+                JOptionPane.showMessageDialog(null,"No se pudo guardar la categoria, intente nuevamente ");
             }
         }
     }//GEN-LAST:event_jtConfirmarActionPerformed

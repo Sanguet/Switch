@@ -29,7 +29,7 @@ public class Productos1 extends javax.swing.JPanel {
             mostrarLista(lista_productos);
             
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla, inicie el xampp ");
         }
     }
     
@@ -58,7 +58,7 @@ public class Productos1 extends javax.swing.JPanel {
         ) {
         });
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" + e);
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo");
         
         }
     }
@@ -312,7 +312,7 @@ public class Productos1 extends javax.swing.JPanel {
             mostrarLista(lista_productos);
 
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla, intente otra vez ");
         }
     }//GEN-LAST:event_jbActualizar1ActionPerformed
 
@@ -330,7 +330,7 @@ public class Productos1 extends javax.swing.JPanel {
 
             producto_pasado = producto_data.getProducto_por_nombre(nombre);
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo cargar el detalle, intente otra vez  ");
         }
         new CambiaPanel(this.addMenu, new detalleProducto());
     }//GEN-LAST:event_jtProductosMouseClicked

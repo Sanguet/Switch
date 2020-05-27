@@ -40,7 +40,7 @@ public class Gastos1 extends javax.swing.JPanel {
             dtHasta.setVisible(false);
             
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla, inicie el xampp ");
         }
     }
     
@@ -71,7 +71,7 @@ public class Gastos1 extends javax.swing.JPanel {
         ) {
         });
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" + e);
+            JOptionPane.showMessageDialog(null, "Ocurrio un error inesperado en la lista, vuelve a intentarlo" );
         
         }
     }
@@ -336,7 +336,7 @@ public class Gastos1 extends javax.swing.JPanel {
             
             
         } catch (Exception e){
-            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla " + e.getMessage());
+            JOptionPane.showMessageDialog(null, "No se pudo cargar la tabla ");
         }
     }//GEN-LAST:event_jbActualizarActionPerformed
 
